@@ -1,9 +1,9 @@
 # type: ignore
 import binascii
-from typing import TYPE_CHECKING, Any, Type, TypeVar, Union, cast, overload
+from typing import TYPE_CHECKING, Type, TypeVar, Union, cast, overload
 
 from eth_typing import AnyAddress
-from eth_utils import add_0x_prefix, is_hex, to_checksum_address
+from eth_utils import add_0x_prefix, to_checksum_address
 
 if TYPE_CHECKING:
     import brownie
@@ -11,6 +11,21 @@ if TYPE_CHECKING:
 
     AnyAddressOrContract = TypeVar("AddressOrContract", "AnyAddress", brownie.Contract, y.Contract)
 
+
+class EthAddressKey(str):
+    """
+    Pass in an eth address to create a checksummed EthAddressKey.
+    """
+    def __new__(cls, value: Union[bytes, str]) -> str:
+        converted_value = value
+        if isinstance(value, bytes):
+            converted_value = HexBytes(value).hex()
+        converted_value = add_0x_prefix(str(converted_value))  # type: ignore
+        try:
+            converted_value = to_checksum_address(converted_value)
+        except ValueError:
+            raise ValueError(f"'{value}' is not a valid ETH address") from None
+        return super().__new__(cls, converted_value)  # type: ignore
 
 """
 This library was built to have minimal dependencies, to minimize dependency conflicts for users.
@@ -100,22 +115,3 @@ class HexBytes(bytes):
 
     def __repr__(self) -> str:
         return f"HexBytes({self.hex()!r})"
-
-
-class EthAddressKey(str):
-
-    """String subclass that raises TypeError when compared to a non-address."""
-
-    def __new__(cls, value: Union[bytes, str]) -> str:
-        converted_value = value
-        if isinstance(value, bytes):
-            converted_value = HexBytes(value).hex()
-        converted_value = add_0x_prefix(str(converted_value))  # type: ignore
-        try:
-            converted_value = to_checksum_address(converted_value)
-        except ValueError:
-            raise ValueError(f"'{value}' is not a valid ETH address") from None
-        return super().__new__(cls, converted_value)  # type: ignore
-
-    def __hash__(self) -> int:
-        return super().__hash__()
