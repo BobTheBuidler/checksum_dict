@@ -1,6 +1,7 @@
 from collections import defaultdict
 from typing import Callable, Iterable
 
+from checksum_dict._key import EthAddressKey
 from checksum_dict.base import ChecksumAddressDict, T, _SeedT
 
 
@@ -18,3 +19,20 @@ class DefaultChecksumDict(defaultdict, ChecksumAddressDict[T]):
             for key, value in seed:
                 self[key] = value
     
+    def _getitem_nochecksum(self, key: EthAddressKey) -> T:
+        """
+        You can use this method in custom subclasses to bypass the checksum ONLY if you know its already been done at an earlier point in your code.
+        """
+        if key in self:
+            return self[key]
+        default = self.default_factory()  # type: ignore
+        dict.__setitem__(self, key, default)
+        return default
+    
+    def _setitem_nochecksum(self, key: EthAddressKey, value: T) -> None:
+        """
+        You can use this method in custom subclasses to bypass the checksum ONLY if you know its already been done at an earlier point in your code.
+        """
+        if not key.startswith("0x") or len(key) != 42:
+            raise ValueError(f"'{key}' is not a valid ETH address")
+        dict.__setitem__(self, key, value)
