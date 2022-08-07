@@ -27,6 +27,9 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
             for key, value in seed:
                 self[key] = value
     
+    def __repr__(self) -> str:
+        return f"ChecksumAddressDict({str(dict(self))})"
+    
     def __getitem__(self, key: AnyAddressOrContract) -> T:
         return super().__getitem__(EthAddressKey(key))
     
