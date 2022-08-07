@@ -20,12 +20,12 @@ class EthAddressKey(str):
         converted_value = value
         if isinstance(value, bytes):
             converted_value = HexBytes(value).hex()
-        converted_value = add_0x_prefix(str(converted_value))  # type: ignore
+        converted_value = add_0x_prefix(str(converted_value))
         try:
             converted_value = to_checksum_address(converted_value)
         except ValueError:
             raise ValueError(f"'{value}' is not a valid ETH address") from None
-        return super().__new__(cls, converted_value)  # type: ignore
+        return super().__new__(cls, converted_value)
 
 """
 This library was built to have minimal dependencies, to minimize dependency conflicts for users.
