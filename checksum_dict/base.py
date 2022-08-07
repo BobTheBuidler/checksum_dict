@@ -43,3 +43,15 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
             super().__setitem__(key, value)
         else:
             super().__setitem__(EthAddressKey(key), value)
+    
+    def __getitem_nochecksum(self, key: EthAddressKey) -> T:
+        """
+        You can use this method in custom subclasses to bypass the checksum ONLY if you know its already been done at an earlier point in your code.
+        """
+        return super().__getitem__(key)
+    
+    def __setitem_nochecksum(self, key: EthAddressKey, value: T) -> None:
+        """
+        You can use this method in custom subclasses to bypass the checksum ONLY if you know its already been done at an earlier point in your code.
+        """
+        return super().__setitem__(key, value)
