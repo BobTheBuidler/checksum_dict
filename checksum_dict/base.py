@@ -31,7 +31,15 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
         return f"ChecksumAddressDict({str(dict(self))})"
     
     def __getitem__(self, key: AnyAddressOrContract) -> T:
-        return super().__getitem__(EthAddressKey(key))
-    
+        try:
+            # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
+            return super().__getitem__(key)
+        except KeyError:
+            return super().__getitem__(EthAddressKey(key))
+
     def __setitem__(self, key: AnyAddressOrContract, value: T) -> None:
-        return super().__setitem__(EthAddressKey(key), value)
+        if key in self:
+            # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
+            super().__setitem__(key, value)
+        else:
+            super().__setitem__(EthAddressKey(key), value)
