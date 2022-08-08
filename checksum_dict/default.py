@@ -28,11 +28,3 @@ class DefaultChecksumDict(defaultdict, ChecksumAddressDict[T]):
         default = self.default_factory()  # type: ignore
         self._setitem_nochecksum(key, default)
         return default
-    
-    def _setitem_nochecksum(self, key: EthAddressKey, value: T) -> None:
-        """
-        You can use this method in custom subclasses to bypass the checksum ONLY if you know its already been done at an earlier point in your code.
-        """
-        if not key.startswith("0x") or len(key) != 42:
-            raise ValueError(f"'{key}' is not a valid ETH address")
-        dict.__setitem__(self, key, value)

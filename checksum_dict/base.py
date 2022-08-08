@@ -56,4 +56,4 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
         """
         if not key.startswith("0x") or len(key) != 42:
             raise ValueError(f"'{key}' is not a valid ETH address")
-        return super().__setitem__(key, value)
+        dict.__setitem__(key, value)
