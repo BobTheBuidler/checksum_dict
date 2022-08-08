@@ -54,4 +54,6 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
         """
         You can use this method in custom subclasses to bypass the checksum ONLY if you know its already been done at an earlier point in your code.
         """
+        if not key.startswith("0x") or len(key) != 42:
+            raise ValueError(f"'{key}' is not a valid ETH address")
         return super().__setitem__(key, value)
