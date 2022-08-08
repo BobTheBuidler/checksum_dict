@@ -26,7 +26,7 @@ class DefaultChecksumDict(defaultdict, ChecksumAddressDict[T]):
         if key in self:
             return self[key]
         default = self.default_factory()  # type: ignore
-        dict.__setitem__(self, key, default)
+        self._setitem_nochecksum(key, default)
         return default
     
     def _setitem_nochecksum(self, key: EthAddressKey, value: T) -> None:
