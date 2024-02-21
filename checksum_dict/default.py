@@ -1,11 +1,10 @@
-from collections import defaultdict
-from typing import Callable, Iterable
+from typing import Callable, DefaultDict, Iterable
 
 from checksum_dict._key import EthAddressKey
 from checksum_dict.base import ChecksumAddressDict, T, _SeedT
 
 
-class DefaultChecksumDict(defaultdict[EthAddressKey, T], ChecksumAddressDict[T]):
+class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T]):
     """
     A defaultdict that maps addresses to objects.
     Will automatically checksum your provided address key when setting and getting values.
