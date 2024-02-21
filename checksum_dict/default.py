@@ -5,7 +5,7 @@ from checksum_dict._key import EthAddressKey
 from checksum_dict.base import ChecksumAddressDict, T, _SeedT
 
 
-class DefaultChecksumDict(defaultdict, ChecksumAddressDict[T]):
+class DefaultChecksumDict(defaultdict[EthAddressKey, T], ChecksumAddressDict[T]):
     """
     A defaultdict that maps addresses to objects.
     Will automatically checksum your provided address key when setting and getting values.
