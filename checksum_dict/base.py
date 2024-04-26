@@ -1,5 +1,7 @@
+
 from typing import TYPE_CHECKING, Dict, Iterable, Tuple, TypeVar, Union
 
+from checksum_dict import exceptions
 from checksum_dict._key import EthAddressKey
 
 if TYPE_CHECKING:
@@ -35,7 +37,12 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
             return super().__getitem__(key)
         except KeyError:
+            # NOTE: passing instead of checksumming here just helps us keep a clean exc chain
+            pass
+        try:
             return super().__getitem__(EthAddressKey(key))
+        except KeyError as e:
+            raise exceptions.KeyError(*e.args) from None
 
     def __setitem__(self, key: AnyAddressOrContract, value: T) -> None:
         if key in self:
