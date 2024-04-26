@@ -37,8 +37,9 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
             return super().__getitem__(key)
         except KeyError:
-            # NOTE: passing instead of checksumming here just helps us keep a clean exc chain
+            # NOTE: passing instead of checksumming here lets us keep a clean exc chain
             pass
+            
         try:
             return super().__getitem__(EthAddressKey(key))
         except KeyError as e:
