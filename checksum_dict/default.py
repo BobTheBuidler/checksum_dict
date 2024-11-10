@@ -9,6 +9,7 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
     A defaultdict that maps addresses to objects.
     Will automatically checksum your provided address key when setting and getting values.
     """
+
     def __init__(self, default: Callable[[], T], seed: _SeedT = None) -> None:
         super().__init__(default)
         self.__dict__ = self
@@ -17,7 +18,7 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
         if isinstance(seed, Iterable):
             for key, value in seed:
                 self[key] = value
-    
+
     def _getitem_nochecksum(self, key: EthAddressKey) -> T:
         """
         You can use this method in custom subclasses to bypass the checksum ONLY if you know its already been done at an earlier point in your code.

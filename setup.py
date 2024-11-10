@@ -1,11 +1,11 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='checksum_dict',
+    name="checksum_dict",
     description="checksum_dict's objects handle the simple but repetitive task of checksumming addresses before setting/getting dictionary values.",
-    author='BobTheBuidler',
-    author_email='bobthebuidlerdefi@gmail.com',
-    url='https://github.com/BobTheBuidler/checksum_dict',
+    author="BobTheBuidler",
+    author_email="bobthebuidlerdefi@gmail.com",
+    url="https://github.com/BobTheBuidler/checksum_dict",
     packages=find_packages(),
     use_scm_version={
         "root": ".",
@@ -14,11 +14,11 @@ setup(
         "version_scheme": "python-simplified-semver",
     },
     setup_requires=[
-        'setuptools_scm',
+        "setuptools_scm",
     ],
-    install_requires = [
-        'eth_typing',
-        'eth_utils',
+    install_requires=[
+        "eth_typing",
+        "eth_utils",
     ],
     package_data={
         "checksum_dict": ["py.typed"],

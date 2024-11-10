@@ -9,13 +9,16 @@ if TYPE_CHECKING:
     import brownie
     import y
 
-    AnyAddressOrContract = TypeVar("AddressOrContract", "AnyAddress", brownie.Contract, y.Contract)
+    AnyAddressOrContract = TypeVar(
+        "AddressOrContract", "AnyAddress", brownie.Contract, y.Contract
+    )
 
 
 class EthAddressKey(str):
     """
     Pass in an eth address to create a checksummed EthAddressKey.
     """
+
     def __new__(cls, value: Union[bytes, str]) -> str:
         converted_value = value
         if isinstance(value, bytes):
@@ -27,11 +30,13 @@ class EthAddressKey(str):
             raise ValueError(f"'{value}' is not a valid ETH address") from None
         return super().__new__(cls, converted_value)
 
+
 """
 This library was built to have minimal dependencies, to minimize dependency conflicts for users.
 The following code was ripped out of eth-brownie on 2022-Aug-06.
 A big thanks to the many maintainers and contributors for their valuable work!
 """
+
 
 def to_bytes(val: Union[bool, bytearray, bytes, int, str]) -> bytes:
     """
@@ -58,6 +63,7 @@ def to_bytes(val: Union[bool, bytearray, bytes, int, str]) -> bytes:
     else:
         raise TypeError(f"Cannot convert {val!r} of type {type(val)} to bytes")
 
+
 def hexstr_to_bytes(hexstr: str) -> bytes:
     if hexstr.startswith("0x") or hexstr.startswith("0X"):
         non_prefixed_hex = hexstr[2:]
@@ -71,11 +77,14 @@ def hexstr_to_bytes(hexstr: str) -> bytes:
         padded_hex = non_prefixed_hex
 
     try:
-        ascii_hex = padded_hex.encode('ascii')
+        ascii_hex = padded_hex.encode("ascii")
     except UnicodeDecodeError:
-        raise ValueError(f"hex string {padded_hex} may only contain [0-9a-fA-F] characters")
+        raise ValueError(
+            f"hex string {padded_hex} may only contain [0-9a-fA-F] characters"
+        )
     else:
         return binascii.unhexlify(ascii_hex)
+
 
 class HexBytes(bytes):
     """
@@ -86,7 +95,10 @@ class HexBytes(bytes):
         2. Returns hex with prefix '0x' from :meth:`HexBytes.hex`
         3. The representation at console is in hex
     """
-    def __new__(cls: Type[bytes], val: Union[bool, bytearray, bytes, int, str]) -> "HexBytes":
+
+    def __new__(
+        cls: Type[bytes], val: Union[bool, bytearray, bytes, int, str]
+    ) -> "HexBytes":
         bytesval = to_bytes(val)
         return cast(HexBytes, super().__new__(cls, bytesval))  # type: ignore  # https://github.com/python/typeshed/issues/2630  # noqa: E501
 
@@ -96,19 +108,19 @@ class HexBytes(bytes):
 
         Everything following the "0x" is output exactly like :meth:`bytes.hex`.
         """
-        return '0x' + super().hex()
+        return "0x" + super().hex()
 
     @overload
-    def __getitem__(self, key: int) -> int:
-        ...
+    def __getitem__(self, key: int) -> int: ...
 
     @overload  # noqa: F811
-    def __getitem__(self, key: slice) -> 'HexBytes':
-        ...
+    def __getitem__(self, key: slice) -> "HexBytes": ...
 
-    def __getitem__(self, key: Union[int, slice]) -> Union[int, bytes, 'HexBytes']:  # noqa: F811
+    def __getitem__(
+        self, key: Union[int, slice]
+    ) -> Union[int, bytes, "HexBytes"]:  # noqa: F811
         result = super().__getitem__(key)
-        if hasattr(result, 'hex'):
+        if hasattr(result, "hex"):
             return type(self)(result)
         else:
             return result
