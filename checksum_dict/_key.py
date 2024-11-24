@@ -135,6 +135,7 @@ class HexBytes(bytes):
 
 # And this was ripped out of eth_utils and optimized a little bit
 
+
 def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress:
     """
     Makes a checksum address given a supported format.
@@ -150,6 +151,7 @@ def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress
         for i in range(2, 42)
     )}"
     return ChecksumAddress(HexAddress(checksum_address))
+
 
 def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
     """
