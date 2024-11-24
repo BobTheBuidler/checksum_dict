@@ -21,7 +21,11 @@ class EthAddressKey(str):
 
     def __new__(cls, value: Union[bytes, str]) -> str:
         if isinstance(value, bytes):
-            converted_value = value.hex() if type(value).__name__ == "HexBytes" else HexBytes(value).hex()
+            converted_value = (
+                value.hex()
+                if type(value).__name__ == "HexBytes"
+                else HexBytes(value).hex()
+            )
         else:
             converted_value = add_0x_prefix(str(value))
         try:
