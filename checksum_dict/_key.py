@@ -3,11 +3,7 @@ import binascii
 from typing import TYPE_CHECKING, Type, TypeVar, Union, cast, overload
 
 from eth_typing import AnyAddress, ChecksumAddress, HexAddress, HexStr
-from eth_utils import add_0x_prefix
-from eth_utils.address import is_address
-from eth_utils.conversions import hexstr_if_str
-from eth_utils.crypto import keccak
-from eth_utils.hexadecimal import encode_hex
+from eth_utils import add_0x_prefix, encode_hex, hexstr_if_str, is_address, keccak
 
 if TYPE_CHECKING:
     import brownie
@@ -25,7 +21,7 @@ class EthAddressKey(str):
 
     def __new__(cls, value: Union[bytes, str]) -> str:
         if isinstance(value, bytes):
-            converted_value = HexBytes(value).hex()
+            converted_value = value.hex() if type(value).__name__ == "HexBytes" else HexBytes(value).hex()
         else:
             converted_value = add_0x_prefix(str(value))
         try:
