@@ -149,8 +149,8 @@ def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress
     norm_address = to_normalized_address(value)
     address_hash = encode_hex(keccak(text=norm_address[2:]))
     checksum_address = "0x" + "".join(
-        (norm_address[i].upper() if int(address_hash[i], 16) > 7 else norm_address[i])
-        for i in range(2, 42)
+        char.upper() if int(address_hash[i], 16) > 7 else char
+        for i, char in zip(range(2, 42), norm_address[2:])
     )
     return ChecksumAddress(checksum_address)
 
