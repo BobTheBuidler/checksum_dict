@@ -2,10 +2,9 @@
 import binascii
 from typing import TYPE_CHECKING, Type, TypeVar, Union, cast, overload
 
-from eth_typing import AnyAddress, ChecksumAddress, HexAddress, HexStr
+from eth_typing import AnyAddress, AnyStr, ChecksumAddress, HexAddress, HexStr
 from eth_utils import (
     add_0x_prefix,
-    encode_hex,
     hexstr_if_str,
     is_address,
     keccak,
@@ -171,3 +170,11 @@ def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
             f"Unknown format {repr(value)}, attempted to normalize to "
             f"{repr(hex_address)}"
         )
+        
+def encode_hex(value: AnyStr) -> HexStr:
+    binary_hex = binascii.hexlify(
+        value 
+        if isinstance(value, (bytes, bytearray)) 
+        else ascii_bytes = value.encode("ascii")
+    )
+    return f"0x{binary_hex.decode("ascii")}"
