@@ -175,6 +175,6 @@ def encode_hex(value: AnyStr) -> HexStr:
     binary_hex = binascii.hexlify(
         value 
         if isinstance(value, (bytes, bytearray)) 
-        else ascii_bytes = value.encode("ascii")
+        else value.encode("ascii")
     )
     return f"0x{binary_hex.decode("ascii")}"
