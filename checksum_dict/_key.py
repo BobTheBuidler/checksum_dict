@@ -3,7 +3,14 @@ import binascii
 from typing import TYPE_CHECKING, Type, TypeVar, Union, cast, overload
 
 from eth_typing import AnyAddress, ChecksumAddress, HexAddress, HexStr
-from eth_utils import add_0x_prefix, encode_hex, hexstr_if_str, is_address, keccak, to_hex
+from eth_utils import (
+    add_0x_prefix,
+    encode_hex,
+    hexstr_if_str,
+    is_address,
+    keccak,
+    to_hex,
+)
 
 if TYPE_CHECKING:
     import brownie
