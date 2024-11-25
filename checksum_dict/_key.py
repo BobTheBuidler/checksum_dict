@@ -2,8 +2,15 @@
 import binascii
 from typing import TYPE_CHECKING, Type, TypeVar, Union, cast, overload
 
-from eth_typing import AnyAddress
-from eth_utils import add_0x_prefix, to_checksum_address
+from eth_typing import AnyAddress, ChecksumAddress, HexAddress, HexStr
+from eth_utils import (
+    add_0x_prefix,
+    encode_hex,
+    hexstr_if_str,
+    is_address,
+    keccak,
+    to_hex,
+)
 
 if TYPE_CHECKING:
     import brownie
@@ -20,10 +27,14 @@ class EthAddressKey(str):
     """
 
     def __new__(cls, value: Union[bytes, str]) -> str:
-        converted_value = value
         if isinstance(value, bytes):
-            converted_value = HexBytes(value).hex()
-        converted_value = add_0x_prefix(str(converted_value))
+            converted_value = (
+                value.hex()
+                if type(value).__name__ == "HexBytes"
+                else HexBytes(value).hex()
+            )
+        else:
+            converted_value = add_0x_prefix(str(value))
         try:
             converted_value = to_checksum_address(converted_value)
         except ValueError:
@@ -127,3 +138,36 @@ class HexBytes(bytes):
 
     def __repr__(self) -> str:
         return f"HexBytes({self.hex()!r})"
+
+
+# And this was ripped out of eth_utils and optimized a little bit
+
+
+def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress:
+    """
+    Makes a checksum address given a supported format.
+    """
+    norm_address = to_normalized_address(value)
+    address_hash = encode_hex(keccak(text=norm_address[2:]))
+    checksum_address = "0x" + "".join(
+        (norm_address[i].upper() if int(address_hash[i], 16) > 7 else norm_address[i])
+        for i in range(2, 42)
+    )
+    return ChecksumAddress(checksum_address)
+
+
+def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
+    """
+    Converts an address to its normalized hexadecimal representation.
+    """
+    try:
+        hex_address = hexstr_if_str(to_hex, value).lower()
+    except AttributeError:
+        raise TypeError(f"Value must be any string, instead got type {type(value)}")
+    if is_address(hex_address):
+        return hex_address
+    else:
+        raise ValueError(
+            f"Unknown format {repr(value)}, attempted to normalize to "
+            f"{repr(hex_address)}"
+        )
