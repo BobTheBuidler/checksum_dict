@@ -22,7 +22,6 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
     """
 
     def __init__(self, seed: _SeedT = None) -> None:
-        super().__init__()
         self.__dict__ = self
         if isinstance(seed, dict):
             seed = seed.items()
@@ -36,28 +35,28 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
     def __getitem__(self, key: AnyAddressOrContract) -> T:
         try:
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
-            return super().__getitem__(key)
+            return dict.__getitem__(self, key)
         except KeyError:
             # NOTE: passing instead of checksumming here lets us keep a clean exc chain
             pass
 
         try:
-            return super().__getitem__(EthAddressKey(key))
+            return dict.__getitem__(self, EthAddressKey(key))
         except KeyError as e:
-            raise exceptions.KeyError(*e.args) from None
+            raise exceptions.KeyError(*e.args) from e.__cause__
 
     def __setitem__(self, key: AnyAddressOrContract, value: T) -> None:
         if key in self:
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
-            super().__setitem__(key, value)
+            dict.__setitem__(self, key, value)
         else:
-            super().__setitem__(EthAddressKey(key), value)
+            dict.__setitem__(self, EthAddressKey(key), value)
 
     def _getitem_nochecksum(self, key: EthAddressKey) -> T:
         """
         You can use this method in custom subclasses to bypass the checksum ONLY if you know its already been done at an earlier point in your code.
         """
-        return super().__getitem__(key)
+        return dict.__getitem__(self, key)
 
     def _setitem_nochecksum(self, key: EthAddressKey, value: T) -> None:
         """
