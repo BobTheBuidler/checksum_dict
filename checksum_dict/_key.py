@@ -141,12 +141,12 @@ def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress
     Makes a checksum address given a supported format.
     """
     norm_address = to_normalized_address(value)
-    address_hash = encode_hex(keccak(text=HexStr(norm_address)[2:]))
+    address_hash = encode_hex(keccak(text=norm_address[2:]))
     checksum_address = "0x" + "".join(
         (norm_address[i].upper() if int(address_hash[i], 16) > 7 else norm_address[i])
         for i in range(2, 42)
     )
-    return ChecksumAddress(HexAddress(checksum_address))
+    return ChecksumAddress(checksum_address)
 
 
 def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
@@ -158,7 +158,7 @@ def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
     except AttributeError:
         raise TypeError(f"Value must be any string, instead got type {type(value)}")
     if is_address(hex_address):
-        return HexAddress(HexStr(hex_address))
+        return hex_address
     else:
         raise ValueError(
             f"Unknown format {repr(value)}, attempted to normalize to "
