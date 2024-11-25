@@ -1,8 +1,8 @@
 # type: ignore
 import binascii
-from typing import TYPE_CHECKING, Type, TypeVar, Union, cast, overload
+from typing import TYPE_CHECKING, AnyStr, Type, TypeVar, Union, cast, overload
 
-from eth_typing import AnyAddress, AnyStr, ChecksumAddress, HexAddress, HexStr
+from eth_typing import AnyAddress, ChecksumAddress, HexAddress, HexStr
 from eth_utils import (
     add_0x_prefix,
     hexstr_if_str,
