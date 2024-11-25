@@ -170,11 +170,10 @@ def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
             f"Unknown format {repr(value)}, attempted to normalize to "
             f"{repr(hex_address)}"
         )
-        
+
+
 def encode_hex(value: AnyStr) -> HexStr:
     binary_hex = binascii.hexlify(
-        value 
-        if isinstance(value, (bytes, bytearray)) 
-        else value.encode("ascii")
+        value if isinstance(value, (bytes, bytearray)) else value.encode("ascii")
     )
     return f"0x{binary_hex.decode("ascii")}"
