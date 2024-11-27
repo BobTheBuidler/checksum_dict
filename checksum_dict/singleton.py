@@ -10,9 +10,7 @@ _LocksDict = DefaultDict[AnyAddressOrContract, threading.Lock]
 
 
 class ChecksumAddressSingletonMeta(type, Generic[T]):
-    def __init__(
-        cls, name: str, bases: Tuple[type, ...], namespace: Dict[str, Any]
-    ) -> None:
+    def __init__(cls, name: str, bases: Tuple[type, ...], namespace: Dict[str, Any]) -> None:
         super().__init__(name, bases, namespace)
         cls.__instances: ChecksumAddressDict[T] = ChecksumAddressDict()
         cls.__locks: _LocksDict = defaultdict(threading.Lock)
