@@ -15,7 +15,7 @@ setup(
         "version_scheme": "python-simplified-semver",
     },
     setup_requires=[
-        "setuptools_scm",
+        "setuptools_scm", "cython"
     ],
     install_requires=[
         "eth_typing",
