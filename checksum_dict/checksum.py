@@ -1,4 +1,3 @@
-
 import binascii
 
 from eth_typing import AnyAddress, ChecksumAddress, HexAddress
@@ -19,7 +18,7 @@ def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress
     address_hash = keccak(text=norm_address_no_0x)
     address_hash_hex_no_0x = binascii.hexlify(address_hash).decode("ascii")
     return ChecksumAddress(cchecksum(norm_address_no_0x, address_hash_hex_no_0x))
-    
+
 
 def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
     """
