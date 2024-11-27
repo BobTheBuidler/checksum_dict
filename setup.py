@@ -14,9 +14,7 @@ setup(
         "local_scheme": "no-local-version",
         "version_scheme": "python-simplified-semver",
     },
-    setup_requires=[
-        "setuptools_scm", "cython"
-    ],
+    setup_requires=["setuptools_scm", "cython"],
     install_requires=[
         "eth_typing",
         "eth_utils",

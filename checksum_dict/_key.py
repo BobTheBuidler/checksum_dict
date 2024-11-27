@@ -11,9 +11,7 @@ if TYPE_CHECKING:
     import brownie
     import y
 
-    AnyAddressOrContract = TypeVar(
-        "AddressOrContract", "AnyAddress", brownie.Contract, y.Contract
-    )
+    AnyAddressOrContract = TypeVar("AddressOrContract", "AnyAddress", brownie.Contract, y.Contract)
 
 
 class EthAddressKey(str):
@@ -24,9 +22,7 @@ class EthAddressKey(str):
     def __new__(cls, value: Union[bytes, str]) -> str:
         if isinstance(value, bytes):
             converted_value = (
-                value.hex()
-                if type(value).__name__ == "HexBytes"
-                else HexBytes(value).hex()
+                value.hex() if type(value).__name__ == "HexBytes" else HexBytes(value).hex()
             )
         else:
             converted_value = add_0x_prefix(str(value))
@@ -85,9 +81,7 @@ def hexstr_to_bytes(hexstr: str) -> bytes:
     try:
         ascii_hex = padded_hex.encode("ascii")
     except UnicodeDecodeError:
-        raise ValueError(
-            f"hex string {padded_hex} may only contain [0-9a-fA-F] characters"
-        )
+        raise ValueError(f"hex string {padded_hex} may only contain [0-9a-fA-F] characters")
     else:
         return binascii.unhexlify(ascii_hex)
 
@@ -102,9 +96,7 @@ class HexBytes(bytes):
         3. The representation at console is in hex
     """
 
-    def __new__(
-        cls: Type[bytes], val: Union[bool, bytearray, bytes, int, str]
-    ) -> "HexBytes":
+    def __new__(cls: Type[bytes], val: Union[bool, bytearray, bytes, int, str]) -> "HexBytes":
         bytesval = to_bytes(val)
         return cast(HexBytes, super().__new__(cls, bytesval))  # type: ignore  # https://github.com/python/typeshed/issues/2630  # noqa: E501
 
@@ -122,9 +114,7 @@ class HexBytes(bytes):
     @overload  # noqa: F811
     def __getitem__(self, key: slice) -> "HexBytes": ...
 
-    def __getitem__(
-        self, key: Union[int, slice]
-    ) -> Union[int, bytes, "HexBytes"]:  # noqa: F811
+    def __getitem__(self, key: Union[int, slice]) -> Union[int, bytes, "HexBytes"]:  # noqa: F811
         result = super().__getitem__(key)
         if hasattr(result, "hex"):
             return type(self)(result)
