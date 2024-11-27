@@ -6,10 +6,10 @@ from eth_typing import AnyAddress, ChecksumAddress, HexAddress, HexStr
 from eth_utils import (
     add_0x_prefix,
     hexstr_if_str,
-    is_address,
     keccak,
     to_hex,
 )
+from eth_utils.address import _HEX_ADDRESS_REGEXP
 
 if TYPE_CHECKING:
     import brownie
@@ -152,11 +152,11 @@ def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress
     norm_address_no_0x = to_normalized_address(value)[2:]
     address_hash = keccak(text=norm_address_no_0x)
     address_hash_hex_no_0x = binascii.hexlify(address_hash).decode("ascii")
-    checksum_address = "".join(
+    checksum_address_no_0x = "".join(
         addr_char if hash_char in _MATCH_LOWER else addr_char.upper()
         for addr_char, hash_char in zip(norm_address_no_0x, address_hash_hex_no_0x)
     )
-    return ChecksumAddress(f"0x{checksum_address}")
+    return ChecksumAddress(f"0x{checksum_address_no_0x}")
 
 
 def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
@@ -167,10 +167,14 @@ def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
         hex_address = hexstr_if_str(to_hex, value).lower()
     except AttributeError:
         raise TypeError(f"Value must be any string, instead got type {type(value)}")
-    if is_address(hex_address):
-        return hex_address
-    else:
+    
+    if not is_address(hex_address):
         raise ValueError(
-            f"Unknown format {repr(value)}, attempted to normalize to "
-            f"{repr(hex_address)}"
+            f"Unknown format {repr(value)}, attempted to normalize to {repr(hex_address)}"
         )
+    
+    return hex_address
+
+
+def is_address(value: str) -> bool:
+    return _HEX_ADDRESS_REGEXP.fullmatch(value) is not None
