@@ -1,4 +1,5 @@
 import binascii
+from typing import Union
 
 from eth_typing import AnyAddress, ChecksumAddress, HexAddress
 from eth_utils import hexstr_if_str, keccak, to_hex
