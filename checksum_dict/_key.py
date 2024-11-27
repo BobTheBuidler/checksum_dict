@@ -142,17 +142,24 @@ class HexBytes(bytes):
 # And this was ripped out of eth_utils and optimized a little bit
 
 
+_MATCH_LOWER = "01234567"
+
+
 def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress:
     """
     Makes a checksum address given a supported format.
     """
-    norm_address = to_normalized_address(value)
-    address_hash = encode_hex(keccak(text=norm_address[2:]))
-    checksum_address = "0x" + "".join(
-        char.upper() if int(address_hash[i], 16) > 7 else char
-        for i, char in zip(range(2, 42), norm_address[2:])
+    norm_address_no_0x = to_normalized_address(value)[2:]
+    address_hash = keccak(text=norm_address_no_0x)
+    address_hash_hex_no_0x = binascii.hexlify(address_hash).decode("ascii")
+    checksum_address = "".join(
+        addr_char 
+        if hash_char in _MATCH_LOWER 
+        else addr_char.upper()
+        for addr_char, hash_char 
+        in zip(norm_address_no_0x, address_hash_hex_no_0x)
     )
-    return ChecksumAddress(checksum_address)
+    return ChecksumAddress(f"0x{checksum_address}")
 
 
 def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
@@ -170,10 +177,3 @@ def to_normalized_address(value: Union[AnyAddress, str, bytes]) -> HexAddress:
             f"Unknown format {repr(value)}, attempted to normalize to "
             f"{repr(hex_address)}"
         )
-
-
-def encode_hex(value: AnyStr) -> HexStr:
-    binary_hex = binascii.hexlify(
-        value if isinstance(value, (bytes, bytearray)) else value.encode("ascii")
-    )
-    return f"0x{binary_hex.decode('ascii')}"
