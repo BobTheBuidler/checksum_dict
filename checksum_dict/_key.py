@@ -153,11 +153,8 @@ def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress
     address_hash = keccak(text=norm_address_no_0x)
     address_hash_hex_no_0x = binascii.hexlify(address_hash).decode("ascii")
     checksum_address = "".join(
-        addr_char 
-        if hash_char in _MATCH_LOWER 
-        else addr_char.upper()
-        for addr_char, hash_char 
-        in zip(norm_address_no_0x, address_hash_hex_no_0x)
+        addr_char if hash_char in _MATCH_LOWER else addr_char.upper()
+        for addr_char, hash_char in zip(norm_address_no_0x, address_hash_hex_no_0x)
     )
     return ChecksumAddress(f"0x{checksum_address}")
 
