@@ -1,3 +1,4 @@
+from Cython.Build import cythonize
 from setuptools import setup, find_packages
 
 setup(
@@ -23,4 +24,14 @@ setup(
     package_data={
         "checksum_dict": ["py.typed"],
     },
+    include_package_data=True,
+    ext_modules=cythonize(
+        "checksum_dict/**/*.pyx",
+        compiler_directives={
+            "language_level": 3,
+            "embedsignature": True,
+            "linetrace": True,
+        },
+    ),
+    zip_safe=False,
 )
