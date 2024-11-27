@@ -23,8 +23,8 @@ def cchecksum(str norm_address_no_0x, str address_hash_hex_no_0x) -> str:
     )
 
     # Set the "0x" prefix
-    buffer[0] = '0'
-    buffer[1] = 'x'
+    buffer[0] = b'0'
+    buffer[1] = b'x'
 
     # Handle character casing based on the hash value
     for i in range(40):
