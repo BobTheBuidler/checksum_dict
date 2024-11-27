@@ -1,7 +1,8 @@
 def cchecksum(str norm_address_no_0x, str address_hash_hex_no_0x) -> str:
+    
     # Declare memoryviews for fixed-length data
-    cdef unsigned char[::1] norm_address_mv = norm_address_no_0x.encode('ascii')
-    cdef unsigned char[::1] hash_bytes_mv = address_hash_hex_no_0x.encode('ascii')
+    cdef unsigned char[::1] norm_address_mv = bytearray(norm_address_no_0x.encode('ascii'))
+    cdef unsigned char[::1] hash_bytes_mv = bytearray(address_hash_hex_no_0x.encode('ascii'))
     
     # Create a buffer for our result
     # 2 for "0x" prefix and 40 for the address itself
