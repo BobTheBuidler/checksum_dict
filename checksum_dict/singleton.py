@@ -56,7 +56,10 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
         return self.__instances.get(str(address))
 
     def delete_instance(self, address: AnyAddressOrContract) -> None:
-        del self.__instances[str(address)]
+        try:
+            del self.__instances[str(address)]
+        except KeyError:
+            pass
         
     def __get_address_lock(self, address: AnyAddressOrContract) -> threading.Lock:
         """Makes sure the singleton is actually a singleton."""
