@@ -44,7 +44,10 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
 
         You can use this if you need to implement non-standard init sequences.
         """
-        return self.__instances[str(address)]
+        address = str(address)
+        with self.__get_address_lock(address)
+            self.__instances[address] = item
+        self.__delete_address_lock(address)
 
     def get_instance(self, address: AnyAddressOrContract) -> Optional[T]:
         return self.__instances.get(str(address), None)
