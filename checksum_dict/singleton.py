@@ -1,6 +1,6 @@
 import threading
 from collections import defaultdict
-from typing import Any, DefaultDict, Dict, Generic, Tuple
+from typing import Any, DefaultDict, Dict, Generic, Optional, Tuple
 
 from checksum_dict import exceptions
 from checksum_dict.base import AnyAddressOrContract, ChecksumAddressDict, T
