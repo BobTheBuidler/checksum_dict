@@ -41,11 +41,11 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
 
     def __setitem__(self, address: AnyAddressOrContract, item: T) -> None:
         """Set the singleton instance for `address` from the cache.
-        
+
         You can use this if you need to implement non-standard init sequences.
         """
         return self.__instances[str(address)]
-        
+
     def get_instance(self, address: AnyAddressOrContract) -> Optional[T]:
         return self.__instances.get(str(address), None)
 
