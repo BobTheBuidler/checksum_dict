@@ -36,7 +36,7 @@ def to_checksum_address(value: Union[AnyAddress, str, bytes]) -> ChecksumAddress
 
     See Also:
         - :func:`eth_utils.to_checksum_address` for the standard implementation.
-        - :func:`to_normalized_address` for converting to a normalized address.
+        - :func:`to_normalized_address` for converting to a normalized address before checksumming.
     """
     norm_address_no_0x = to_normalized_address(value)[2:]
     address_hash = keccak(text=norm_address_no_0x)

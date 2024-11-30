@@ -21,6 +21,10 @@ class EthAddressKey(str):
     This class ensures that Ethereum addresses are stored in a checksummed format,
     which is crucial for preventing errors due to mistyped addresses.
 
+    Note:
+        This implementation uses a custom Cython function for checksumming to optimize
+        performance over the standard :func:`eth_utils.to_checksum_address`.
+
     Examples:
         Create a checksummed Ethereum address from a string:
         
@@ -39,7 +43,8 @@ class EthAddressKey(str):
         ValueError: If the provided value cannot be converted to a valid Ethereum address.
 
     See Also:
-        - :func:`eth_utils.to_checksum_address` for the underlying checksum conversion.
+        - :func:`eth_utils.to_checksum_address` for the standard checksum conversion.
+        - :func:`checksum_dict.checksum.to_checksum_address` for our implementation.
     """
 
     def __new__(cls, value: Union[bytes, str]) -> str:

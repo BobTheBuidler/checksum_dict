@@ -13,6 +13,10 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
     checksum your provided address key when setting and getting values through 
     the inherited behavior from :class:`~checksum_dict.base.ChecksumAddressDict`.
 
+    Note:
+        This implementation uses a custom Cython function for checksumming to optimize
+        performance over the standard :func:`eth_utils.to_checksum_address`.
+
     Example:
         >>> from checksum_dict import DefaultChecksumDict
         >>> default = int
@@ -30,6 +34,7 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
     See Also:
         - :class:`~checksum_dict.base.ChecksumAddressDict`
         - :class:`collections.DefaultDict`
+        - :class:`EthAddressKey` for details on how keys are checksummed.
     """
 
     def __init__(self, default: Callable[[], T], seed: _SeedT = None) -> None:
