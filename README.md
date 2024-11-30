@@ -16,7 +16,9 @@ d = ChecksumAddressDict()
 lower = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"
 d[lower] = True
 print(d)
->>> ChecksumAddressDict({'0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB': 'hello'})
+>>> ChecksumAddressDict({'0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB': True})
+print(d[lower])
+>>> True
 ```
 As you can see, the lowercase key `lower` was checksummed and both the key and value were added to the dict as you would expect.
 
