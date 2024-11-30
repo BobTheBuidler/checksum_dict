@@ -109,7 +109,7 @@
 
 <span class="sd">    See Also:</span>
 <span class="sd">        - :func:`eth_utils.to_checksum_address` for the standard implementation.</span>
-<span class="sd">        - :func:`to_normalized_address` for converting to a normalized address.</span>
+<span class="sd">        - :func:`to_normalized_address` for converting to a normalized address before checksumming.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">norm_address_no_0x</span> <span class="o">=</span> <span class="n">to_normalized_address</span><span class="p">(</span><span class="n">value</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span>
     <span class="n">address_hash</span> <span class="o">=</span> <span class="n">keccak</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">norm_address_no_0x</span><span class="p">)</span>

@@ -89,6 +89,10 @@
 <span class="sd">    It uses a :class:`~checksum_dict.base.ChecksumAddressDict` to store instances and manages locks to ensure</span>
 <span class="sd">    thread safety during instance creation.</span>
 
+<span class="sd">    Note:</span>
+<span class="sd">        This implementation uses a custom Cython function for checksumming to optimize</span>
+<span class="sd">        performance over the standard :func:`eth_utils.to_checksum_address`.</span>
+
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; class MySingleton(metaclass=ChecksumAddressSingletonMeta):</span>
 <span class="sd">        ...     def __init__(self, address):</span>
@@ -100,6 +104,7 @@
 
 <span class="sd">    See Also:</span>
 <span class="sd">        - :class:`ChecksumAddressDict` for the underlying dictionary implementation.</span>
+<span class="sd">        - :class:`EthAddressKey` for details on how keys are checksummed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="ChecksumAddressSingletonMeta.__init__">

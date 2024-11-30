@@ -86,6 +86,10 @@
 <span class="sd">    checksum your provided address key when setting and getting values through </span>
 <span class="sd">    the inherited behavior from :class:`~checksum_dict.base.ChecksumAddressDict`.</span>
 
+<span class="sd">    Note:</span>
+<span class="sd">        This implementation uses a custom Cython function for checksumming to optimize</span>
+<span class="sd">        performance over the standard :func:`eth_utils.to_checksum_address`.</span>
+
 <span class="sd">    Example:</span>
 <span class="sd">        &gt;&gt;&gt; from checksum_dict import DefaultChecksumDict</span>
 <span class="sd">        &gt;&gt;&gt; default = int</span>
@@ -103,6 +107,7 @@
 <span class="sd">    See Also:</span>
 <span class="sd">        - :class:`~checksum_dict.base.ChecksumAddressDict`</span>
 <span class="sd">        - :class:`collections.DefaultDict`</span>
+<span class="sd">        - :class:`EthAddressKey` for details on how keys are checksummed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="DefaultChecksumDict.__init__">

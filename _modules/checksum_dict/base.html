@@ -97,6 +97,10 @@
 <span class="sd">    they are set using the `__setitem__` method. If `seed` is not provided or is `None`,</span>
 <span class="sd">    the dictionary is initialized without any entries.</span>
 
+<span class="sd">    Note:</span>
+<span class="sd">        This implementation uses a custom Cython function for checksumming to optimize</span>
+<span class="sd">        performance over the standard :func:`eth_utils.to_checksum_address`.</span>
+
 <span class="sd">    Examples:</span>
 <span class="sd">        Creating a ChecksumAddressDict with a seed dictionary:</span>
 
@@ -120,7 +124,7 @@
 <span class="sd">        False</span>
 
 <span class="sd">    See Also:</span>
-<span class="sd">        :class:`EthAddressKey` for details on how keys are checksummed.</span>
+<span class="sd">        - :class:`EthAddressKey` for details on how keys are checksummed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="ChecksumAddressDict.__init__">
