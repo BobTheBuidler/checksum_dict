@@ -30,9 +30,7 @@ def cchecksum(str norm_address_no_0x, str address_hash_hex_no_0x) -> str:
     
     # Create a buffer for our result
     # 2 for "0x" prefix and 40 for the address itself
-    cdef unsigned char buffer[42]
-    buffer[0] = b'0'
-    buffer[1] = b'x'
+    cdef unsigned char[42] buffer = b'0x' + bytearray(40)
 
     # Handle character casing based on the hash value
     cdef int i

@@ -7,3 +7,5 @@ cache
 checksum_dict.egg-info
 dist
 env
+*.c
+*.so
