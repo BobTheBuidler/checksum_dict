@@ -24,6 +24,10 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
     they are set using the `__setitem__` method. If `seed` is not provided or is `None`,
     the dictionary is initialized without any entries.
 
+    Note:
+        This implementation uses a custom Cython function for checksumming to optimize
+        performance over the standard :func:`eth_utils.to_checksum_address`.
+
     Examples:
         Creating a ChecksumAddressDict with a seed dictionary:
 
@@ -47,7 +51,7 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
         False
 
     See Also:
-        :class:`EthAddressKey` for details on how keys are checksummed.
+        - :class:`EthAddressKey` for details on how keys are checksummed.
     """
 
     def __init__(self, seed: _SeedT = None) -> None:

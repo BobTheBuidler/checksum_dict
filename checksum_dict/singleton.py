@@ -16,6 +16,10 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
     It uses a :class:`~checksum_dict.base.ChecksumAddressDict` to store instances and manages locks to ensure
     thread safety during instance creation.
 
+    Note:
+        This implementation uses a custom Cython function for checksumming to optimize
+        performance over the standard :func:`eth_utils.to_checksum_address`.
+
     Examples:
         >>> class MySingleton(metaclass=ChecksumAddressSingletonMeta):
         ...     def __init__(self, address):
@@ -27,6 +31,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
 
     See Also:
         - :class:`ChecksumAddressDict` for the underlying dictionary implementation.
+        - :class:`EthAddressKey` for details on how keys are checksummed.
     """
 
     def __init__(self, name: str, bases: Tuple[type, ...], namespace: Dict[str, Any]) -> None:
