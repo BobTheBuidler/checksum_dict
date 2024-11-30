@@ -6,8 +6,30 @@ from checksum_dict.base import ChecksumAddressDict, T, _SeedT
 
 class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T]):
     """
-    A defaultdict that maps addresses to objects.
-    Will automatically checksum your provided address key when setting and getting values.
+    A defaultdict that maps Ethereum addresses to objects.
+
+    This class inherits from both :class:`collections.DefaultDict` and 
+    :class:`~checksum_dict.base.ChecksumAddressDict`. It will automatically 
+    checksum your provided address key when setting and getting values through 
+    the inherited behavior from :class:`~checksum_dict.base.ChecksumAddressDict`.
+
+    Example:
+        >>> from checksum_dict import DefaultChecksumDict
+        >>> default = int
+        >>> d = DefaultChecksumDict(default)
+        >>> lower = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"
+        >>> print(d[lower])
+        0
+        >>> d[lower] = 42
+        >>> print(d[lower])
+        42
+
+    As shown, the lowercase key `lower` is automatically checksummed when 
+    setting and getting values.
+
+    See Also:
+        - :class:`~checksum_dict.base.ChecksumAddressDict`
+        - :class:`collections.DefaultDict`
     """
 
     def __init__(self, default: Callable[[], T], seed: _SeedT = None) -> None:
@@ -21,7 +43,21 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
 
     def _getitem_nochecksum(self, key: EthAddressKey) -> T:
         """
-        You can use this method in custom subclasses to bypass the checksum ONLY if you know its already been done at an earlier point in your code.
+        Retrieve an item without checksumming the key.
+
+        This method can be used in custom subclasses to bypass the checksum 
+        process ONLY if you know it has already been done at an earlier point 
+        in your code.
+
+        Example:
+            >>> d = DefaultChecksumDict(int)
+            >>> key = EthAddressKey("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
+            >>> d._setitem_nochecksum(key, 100)
+            >>> print(d._getitem_nochecksum(key))
+            100
+
+        See Also:
+            - :meth:`~checksum_dict.base.ChecksumAddressDict._getitem_nochecksum`
         """
         if key in self:
             return self[key]

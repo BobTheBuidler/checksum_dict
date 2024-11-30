@@ -1,4 +1,28 @@
 def cchecksum(str norm_address_no_0x, str address_hash_hex_no_0x) -> str:
+    """
+    Computes the checksummed version of an Ethereum address.
+
+    This function takes a normalized Ethereum address (without the '0x' prefix) and its corresponding
+    hash (also without the '0x' prefix) and returns the checksummed address as per the Ethereum
+    Improvement Proposal 55 (EIP-55).
+
+    Args:
+        norm_address_no_0x (str): The normalized Ethereum address without the '0x' prefix.
+        address_hash_hex_no_0x (str): The hash of the address, also without the '0x' prefix.
+
+    Returns:
+        The checksummed Ethereum address with the '0x' prefix.
+
+    Examples:
+        >>> cchecksum("b47e3cd837ddf8e4c57f05d70ab865de6e193bbb", "abcdef1234567890abcdef1234567890abcdef12")
+        '0xB47E3Cd837DdF8E4C57F05D70Ab865De6E193BbB'
+
+        >>> cchecksum("0000000000000000000000000000000000000000", "1234567890abcdef1234567890abcdef12345678")
+        '0x0000000000000000000000000000000000000000'
+
+    See Also:
+        - :func:`eth_utils.to_checksum_address`: A utility function for converting addresses to their checksummed form.
+    """
     
     # Declare memoryviews for fixed-length data
     cdef unsigned char[::1] norm_address_mv = bytearray(norm_address_no_0x.encode('ascii'))

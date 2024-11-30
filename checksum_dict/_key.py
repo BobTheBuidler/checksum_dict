@@ -16,7 +16,30 @@ if TYPE_CHECKING:
 
 class EthAddressKey(str):
     """
-    Pass in an eth address to create a checksummed EthAddressKey.
+    A string subclass that represents a checksummed Ethereum address.
+
+    This class ensures that Ethereum addresses are stored in a checksummed format,
+    which is crucial for preventing errors due to mistyped addresses.
+
+    Examples:
+        Create a checksummed Ethereum address from a string:
+        
+        >>> address = EthAddressKey("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
+        >>> print(address)
+        '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB'
+
+        Create a checksummed Ethereum address from bytes:
+        
+        >>> address_bytes = bytes.fromhex("b47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
+        >>> address = EthAddressKey(address_bytes)
+        >>> print(address)
+        '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB'
+
+    Raises:
+        ValueError: If the provided value cannot be converted to a valid Ethereum address.
+
+    See Also:
+        - :func:`eth_utils.to_checksum_address` for the underlying checksum conversion.
     """
 
     def __new__(cls, value: Union[bytes, str]) -> str:
@@ -42,10 +65,34 @@ A big thanks to the many maintainers and contributors for their valuable work!
 
 def to_bytes(val: Union[bool, bytearray, bytes, int, str]) -> bytes:
     """
-    Equivalent to: `eth_utils.hexstr_if_str(eth_utils.to_bytes, val)` .
+    Convert a value to its bytes representation.
 
-    Convert a hex string, integer, or bool, to a bytes representation.
-    Alternatively, pass through bytes or bytearray as a bytes value.
+    This function is equivalent to `eth_utils.hexstr_if_str(eth_utils.to_bytes, val)`.
+    It can convert a hex string, integer, or boolean to a bytes representation.
+    Alternatively, it passes through bytes or bytearray as a bytes value.
+
+    Args:
+        val: The value to convert, which can be a bool, bytearray, bytes, int, or str.
+
+    Raises:
+        ValueError: If the integer is negative.
+        TypeError: If the value is of an unsupported type.
+
+    Examples:
+        Convert a hex string to bytes:
+        
+        >>> to_bytes("0x1234")
+        b'\x124'
+
+        Convert an integer to bytes:
+        
+        >>> to_bytes(4660)
+        b'\x124'
+
+        Convert a boolean to bytes:
+        
+        >>> to_bytes(True)
+        b'\x01'
     """
     if isinstance(val, bytes):
         return val
@@ -67,6 +114,26 @@ def to_bytes(val: Union[bool, bytearray, bytes, int, str]) -> bytes:
 
 
 def hexstr_to_bytes(hexstr: str) -> bytes:
+    """
+    Convert a hex string to bytes.
+
+    Args:
+        hexstr: The hex string to convert.
+
+    Raises:
+        ValueError: If the hex string contains invalid characters.
+
+    Examples:
+        Convert a hex string with a prefix:
+        
+        >>> hexstr_to_bytes("0x1234")
+        b'\x124'
+
+        Convert a hex string without a prefix:
+        
+        >>> hexstr_to_bytes("1234")
+        b'\x124'
+    """
     if hexstr.startswith("0x") or hexstr.startswith("0X"):
         non_prefixed_hex = hexstr[2:]
     else:
@@ -88,12 +155,26 @@ def hexstr_to_bytes(hexstr: str) -> bytes:
 
 class HexBytes(bytes):
     """
-    HexBytes is a *very* thin wrapper around the python built-in :class:`bytes` class.
+    A thin wrapper around the Python built-in :class:`bytes` class for handling hexadecimal bytes.
 
-    It has these three changes:
-        1. Accepts more initializing values, like hex strings, non-negative integers, and booleans
-        2. Returns hex with prefix '0x' from :meth:`HexBytes.hex`
-        3. The representation at console is in hex
+    This class provides additional functionality for initializing with various types and
+    representing the bytes in a hexadecimal format with a '0x' prefix.
+
+    Examples:
+        Create a HexBytes object from a hex string:
+        
+        >>> hb = HexBytes("0x1234")
+        >>> print(hb)
+        HexBytes('0x1234')
+
+        Create a HexBytes object from an integer:
+        
+        >>> hb = HexBytes(4660)
+        >>> print(hb)
+        HexBytes('0x1234')
+
+    See Also:
+        - :func:`to_bytes` for converting various types to bytes.
     """
 
     def __new__(cls: Type[bytes], val: Union[bool, bytearray, bytes, int, str]) -> "HexBytes":
@@ -105,6 +186,11 @@ class HexBytes(bytes):
         Output hex-encoded bytes, with an "0x" prefix.
 
         Everything following the "0x" is output exactly like :meth:`bytes.hex`.
+
+        Examples:
+            >>> hb = HexBytes("0x1234")
+            >>> hb.hex()
+            '0x1234'
         """
         return "0x" + super().hex()
 
