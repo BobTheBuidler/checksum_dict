@@ -1,0 +1,53 @@
+checksum\_dict package
+======================
+
+Submodules
+----------
+
+checksum\_dict.base module
+--------------------------
+
+.. automodule:: checksum_dict.base
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checksum\_dict.checksum module
+------------------------------
+
+.. automodule:: checksum_dict.checksum
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checksum\_dict.default module
+-----------------------------
+
+.. automodule:: checksum_dict.default
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checksum\_dict.exceptions module
+--------------------------------
+
+.. automodule:: checksum_dict.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checksum\_dict.singleton module
+-------------------------------
+
+.. automodule:: checksum_dict.singleton
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: checksum_dict
+   :members:
+   :undoc-members:
+   :show-inheritance:
