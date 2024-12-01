@@ -56,8 +56,8 @@ class EthAddressKey(str):
             converted_value = add_0x_prefix(str(value))
         try:
             converted_value = to_checksum_address(converted_value)
-        except ValueError:
-            raise ValueError(f"'{value}' is not a valid ETH address") from None
+        except ValueError as e:
+            raise ValueError(f"'{value}' is not a valid ETH address") from e
         return super().__new__(cls, converted_value)
 
 
