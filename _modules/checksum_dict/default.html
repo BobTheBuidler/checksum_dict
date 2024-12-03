@@ -81,9 +81,9 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A defaultdict that maps Ethereum addresses to objects.</span>
 
-<span class="sd">    This class inherits from both :class:`collections.DefaultDict` and </span>
-<span class="sd">    :class:`~checksum_dict.base.ChecksumAddressDict`. It will automatically </span>
-<span class="sd">    checksum your provided address key when setting and getting values through </span>
+<span class="sd">    This class inherits from both :class:`collections.DefaultDict` and</span>
+<span class="sd">    :class:`~checksum_dict.base.ChecksumAddressDict`. It will automatically</span>
+<span class="sd">    checksum your provided address key when setting and getting values through</span>
 <span class="sd">    the inherited behavior from :class:`~checksum_dict.base.ChecksumAddressDict`.</span>
 
 <span class="sd">    Note:</span>
@@ -101,7 +101,7 @@
 <span class="sd">        &gt;&gt;&gt; print(d[lower])</span>
 <span class="sd">        42</span>
 
-<span class="sd">    As shown, the lowercase key `lower` is automatically checksummed when </span>
+<span class="sd">    As shown, the lowercase key `lower` is automatically checksummed when</span>
 <span class="sd">    setting and getting values.</span>
 
 <span class="sd">    See Also:</span>
@@ -126,8 +126,8 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Retrieve an item without checksumming the key.</span>
 
-<span class="sd">        This method can be used in custom subclasses to bypass the checksum </span>
-<span class="sd">        process ONLY if you know it has already been done at an earlier point </span>
+<span class="sd">        This method can be used in custom subclasses to bypass the checksum</span>
+<span class="sd">        process ONLY if you know it has already been done at an earlier point</span>
 <span class="sd">        in your code.</span>
 
 <span class="sd">        Example:</span>
