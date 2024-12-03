@@ -8,9 +8,9 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
     """
     A defaultdict that maps Ethereum addresses to objects.
 
-    This class inherits from both :class:`collections.DefaultDict` and 
-    :class:`~checksum_dict.base.ChecksumAddressDict`. It will automatically 
-    checksum your provided address key when setting and getting values through 
+    This class inherits from both :class:`collections.DefaultDict` and
+    :class:`~checksum_dict.base.ChecksumAddressDict`. It will automatically
+    checksum your provided address key when setting and getting values through
     the inherited behavior from :class:`~checksum_dict.base.ChecksumAddressDict`.
 
     Note:
@@ -28,7 +28,7 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
         >>> print(d[lower])
         42
 
-    As shown, the lowercase key `lower` is automatically checksummed when 
+    As shown, the lowercase key `lower` is automatically checksummed when
     setting and getting values.
 
     See Also:
@@ -50,8 +50,8 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
         """
         Retrieve an item without checksumming the key.
 
-        This method can be used in custom subclasses to bypass the checksum 
-        process ONLY if you know it has already been done at an earlier point 
+        This method can be used in custom subclasses to bypass the checksum
+        process ONLY if you know it has already been done at an earlier point
         in your code.
 
         Example:

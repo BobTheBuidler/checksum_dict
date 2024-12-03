@@ -27,13 +27,13 @@ class EthAddressKey(str):
 
     Examples:
         Create a checksummed Ethereum address from a string:
-        
+
         >>> address = EthAddressKey("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
         >>> print(address)
         '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB'
 
         Create a checksummed Ethereum address from bytes:
-        
+
         >>> address_bytes = bytes.fromhex("b47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
         >>> address = EthAddressKey(address_bytes)
         >>> print(address)
@@ -85,17 +85,17 @@ def to_bytes(val: Union[bool, bytearray, bytes, int, str]) -> bytes:
 
     Examples:
         Convert a hex string to bytes:
-        
+
         >>> to_bytes("0x1234")
         b'\x124'
 
         Convert an integer to bytes:
-        
+
         >>> to_bytes(4660)
         b'\x124'
 
         Convert a boolean to bytes:
-        
+
         >>> to_bytes(True)
         b'\x01'
     """
@@ -130,12 +130,12 @@ def hexstr_to_bytes(hexstr: str) -> bytes:
 
     Examples:
         Convert a hex string with a prefix:
-        
+
         >>> hexstr_to_bytes("0x1234")
         b'\x124'
 
         Convert a hex string without a prefix:
-        
+
         >>> hexstr_to_bytes("1234")
         b'\x124'
     """
@@ -167,13 +167,13 @@ class HexBytes(bytes):
 
     Examples:
         Create a HexBytes object from a hex string:
-        
+
         >>> hb = HexBytes("0x1234")
         >>> print(hb)
         HexBytes('0x1234')
 
         Create a HexBytes object from an integer:
-        
+
         >>> hb = HexBytes(4660)
         >>> print(hb)
         HexBytes('0x1234')

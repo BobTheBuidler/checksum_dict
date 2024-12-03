@@ -166,7 +166,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             del self.__instances[str(address)]
         except KeyError:
             pass
-        
+
     def __get_address_lock(self, address: AnyAddressOrContract) -> threading.Lock:
         """Acquire a lock for the given address to ensure thread safety.
 
