@@ -39,9 +39,11 @@ jobs:
         with:
           python-version: ${{ matrix.pyversion }}
 
+      - name: Install pytest
+        run: pip install pytest
+
       - name: Install checksum_dict
-        run: |
-          pip install -e .
+        run: pip install -e .
       
       - name: Run test suite
         run: pytest
