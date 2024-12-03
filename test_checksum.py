@@ -9,6 +9,7 @@ def test_checksum():
     lower = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2".upper()
     assert to_checksum_address(lower) == "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
 
+
 benchmark_addresses = []
 for i in range(
     100000000000000000000000000000000000000000, 100000000000000000000000000000000000100000
@@ -16,6 +17,7 @@ for i in range(
     address = hex(i)[2:]
     address = "0x" + "0" * (40 - len(address)) + address
     benchmark_addresses.append(address)
+
 
 def test_benchmark():
     start = time.time()
