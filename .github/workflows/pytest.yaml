@@ -43,7 +43,9 @@ jobs:
         run: pip install pytest
 
       - name: Install checksum_dict
-        run: pip install -e .
+        run: |
+          pip install "eth-hash[pysha3]"
+          pip install -e .
       
       - name: Run test suite
         run: pytest
