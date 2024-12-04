@@ -27,7 +27,7 @@ Before you begin, ensure you have the following installed:
    Install the required Python packages:
 
    ```bash
-   pip install -r requirements.txt
+   pip install cchecksum
    ```
 
 3. **Build the Cython Extensions**
