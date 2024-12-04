@@ -14,7 +14,7 @@ setup(
         "version_scheme": "python-simplified-semver",
     },
     setup_requires=["setuptools_scm"],
-    install_requires=["cchecksum>=0.0.2"],
+    install_requires=["cchecksum>=0.0.3"],
     package_data={
         "checksum_dict": ["py.typed"],
     },
