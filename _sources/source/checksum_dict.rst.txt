@@ -12,14 +12,6 @@ checksum\_dict.base module
    :undoc-members:
    :show-inheritance:
 
-checksum\_dict.checksum module
-------------------------------
-
-.. automodule:: checksum_dict.checksum
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 checksum\_dict.default module
 -----------------------------
 
