@@ -2,7 +2,7 @@ import time
 
 from eth_utils import to_checksum_address as to_checksum_address_py
 
-from checksum_dict import to_checksum_address
+from cchecksum import to_checksum_address
 
 
 def test_checksum():

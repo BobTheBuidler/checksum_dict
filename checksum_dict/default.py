@@ -14,7 +14,7 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
     the inherited behavior from :class:`~checksum_dict.base.ChecksumAddressDict`.
 
     Note:
-        This implementation uses a custom Cython function for checksumming to optimize
+        This implementation uses a :mod:`cchecksum`'s Cython implementation for checksumming to optimize
         performance over the standard :func:`eth_utils.to_checksum_address`.
 
     Example:

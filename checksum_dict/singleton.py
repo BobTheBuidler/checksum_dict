@@ -17,7 +17,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
     thread safety during instance creation.
 
     Note:
-        This implementation uses a custom Cython function for checksumming to optimize
+        This implementation uses a :mod:`cchecksum`'s Cython implementation for checksumming to optimize
         performance over the standard :func:`eth_utils.to_checksum_address`.
 
     Examples:

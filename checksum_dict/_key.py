@@ -1,11 +1,11 @@
 # type: ignore
 import binascii
-from typing import TYPE_CHECKING, AnyStr, Type, TypeVar, Union, cast, overload
+from typing import TYPE_CHECKING, Type, TypeVar, Union, cast, overload
 
-from eth_typing import AnyAddress, HexStr
+from cchecksum import to_checksum_address
+from eth_typing import AnyAddress
 from eth_utils import add_0x_prefix
 
-from checksum_dict.checksum import to_checksum_address
 
 if TYPE_CHECKING:
     import brownie

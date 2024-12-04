@@ -1,4 +1,3 @@
-from Cython.Build import cythonize
 from setuptools import setup, find_packages
 
 setup(
@@ -14,22 +13,10 @@ setup(
         "local_scheme": "no-local-version",
         "version_scheme": "python-simplified-semver",
     },
-    setup_requires=["setuptools_scm", "cython"],
-    install_requires=[
-        "eth_typing",
-        "eth_utils",
-    ],
+    setup_requires=["setuptools_scm"],
+    install_requires=["cchecksum>=0.0.2"],
     package_data={
         "checksum_dict": ["py.typed"],
     },
     include_package_data=True,
-    ext_modules=cythonize(
-        "checksum_dict/**/*.pyx",
-        compiler_directives={
-            "language_level": 3,
-            "embedsignature": True,
-            "linetrace": True,
-        },
-    ),
-    zip_safe=False,
 )
