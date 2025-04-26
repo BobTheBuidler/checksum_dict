@@ -50,7 +50,6 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
     """
 
     def __init__(self, seed: _SeedT = None) -> None:
-        self.__dict__ = self
         if isinstance(seed, dict):
             seed = seed.items()
         if isinstance(seed, Iterable):
