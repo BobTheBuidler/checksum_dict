@@ -218,3 +218,6 @@ class HexBytes(bytes):
 
     def __repr__(self) -> str:
         return f"HexBytes({self.hex()!r})"
+
+
+__all__ = ["EthAddressKey"]
