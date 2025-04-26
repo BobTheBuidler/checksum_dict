@@ -12,10 +12,26 @@ checksum\_dict.base module
    :undoc-members:
    :show-inheritance:
 
+checksum\_dict.base\_\_mypyc module
+-----------------------------------
+
+.. automodule:: checksum_dict.base__mypyc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 checksum\_dict.default module
 -----------------------------
 
 .. automodule:: checksum_dict.default
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+checksum\_dict.default\_\_mypyc module
+--------------------------------------
+
+.. automodule:: checksum_dict.default__mypyc
    :members:
    :undoc-members:
    :show-inheritance:
