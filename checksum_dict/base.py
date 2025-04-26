@@ -1,4 +1,6 @@
-from typing import Dict, Iterable, Tuple, TypeVar, Union
+from typing import Dict, Iterable, Optional, Tuple, TypeVar, Union
+
+from mypy_extensions import mypyc_attr
 
 from checksum_dict import exceptions
 from checksum_dict._key import AnyAddressOrContract, EthAddressKey
@@ -9,6 +11,7 @@ T = TypeVar("T")
 _SeedT = Union[Dict[AnyAddressOrContract, T], Iterable[Tuple[AnyAddressOrContract, T]]]
 
 
+@mypyc_attr(allow_interpreted_subclasses=True)
 class ChecksumAddressDict(Dict[EthAddressKey, T]):
     """
     A dictionary that maps Ethereum addresses to objects, automatically checksumming
@@ -49,10 +52,11 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
         - :class:`EthAddressKey` for details on how keys are checksummed.
     """
 
-    def __init__(self, seed: _SeedT = None) -> None:
+    def __init__(self, seed: Optional[_SeedT[T]] = None) -> None:
         if isinstance(seed, dict):
-            seed = seed.items()
-        if isinstance(seed, Iterable):
+            for key, value in seed.items():
+                self[key] = value
+        elif isinstance(seed, Iterable):
             for key, value in seed:
                 self[key] = value
 

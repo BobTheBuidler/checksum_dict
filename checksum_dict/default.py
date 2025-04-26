@@ -1,9 +1,12 @@
-from typing import Callable, DefaultDict, Iterable
+from typing import Callable, DefaultDict, Iterable, Optional
+
+from mypy_extensions import mypyc_attr
 
 from checksum_dict._key import EthAddressKey
 from checksum_dict.base import ChecksumAddressDict, T, _SeedT
 
 
+@mypyc_attr(allow_interpreted_subclasses=True)
 class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T]):
     """
     A defaultdict that maps Ethereum addresses to objects.
@@ -37,11 +40,12 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
         - :class:`EthAddressKey` for details on how keys are checksummed.
     """
 
-    def __init__(self, default: Callable[[], T], seed: _SeedT = None) -> None:
+    def __init__(self, default: Callable[[], T], seed: Optional[_SeedT[T]] = None) -> None:
         super().__init__(default)
         if isinstance(seed, dict):
-            seed = seed.items()
-        if isinstance(seed, Iterable):
+            for key, value in seed.items():
+                self[key] = value
+        elif isinstance(seed, Iterable):
             for key, value in seed:
                 self[key] = value
 
