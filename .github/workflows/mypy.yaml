@@ -34,7 +34,7 @@ jobs:
         pip install mypy
         
     - name: Install dependencies 
-      run: pip install -r requirements.txt
+      run: pip install .
 
     - name: Run MyPy
       run: mypy . --strict --pretty --show-error-codes --show-error-context --install-types --non-interactive
