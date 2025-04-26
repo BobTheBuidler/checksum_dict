@@ -21,8 +21,6 @@ setup(
     },
     setup_requires=["setuptools_scm"],
     install_requires=["cchecksum>=0.0.3"],
-    package_data={
-        "checksum_dict": ["py.typed"],
-    },
+    package_data={"checksum_dict": ["py.typed"]},
     include_package_data=True,
 )

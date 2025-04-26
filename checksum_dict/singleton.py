@@ -1,9 +1,10 @@
 import threading
 from collections import defaultdict
-from typing import Any, DefaultDict, Dict, Generic, Optional, Tuple
+from typing import Any, DefaultDict, Dict, Final, Generic, Optional, Tuple
 
 from checksum_dict import exceptions
-from checksum_dict.base import AnyAddressOrContract, ChecksumAddressDict, T
+from checksum_dict._key import AnyAddressOrContract
+from checksum_dict.base import ChecksumAddressDict, T
 
 
 _LocksDict = DefaultDict[AnyAddressOrContract, threading.Lock]
@@ -43,9 +44,9 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             namespace: A dictionary representing the class namespace.
         """
         super().__init__(name, bases, namespace)
-        self.__instances: ChecksumAddressDict[T] = ChecksumAddressDict()
-        self.__locks: _LocksDict = defaultdict(threading.Lock)
-        self.__locks_lock: threading.Lock = threading.Lock()
+        self.__instances: Final[ChecksumAddressDict[T]] = ChecksumAddressDict()
+        self.__locks: Final[_LocksDict] = defaultdict(threading.Lock)
+        self.__locks_lock: Final[threading.Lock] = threading.Lock()
 
     def __call__(self, address: AnyAddressOrContract, *args: Any, **kwargs: Any) -> T:  # type: ignore
         """Create or retrieve a singleton instance for the given address.
@@ -68,22 +69,22 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             ...
             >>> instance = MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')
         """
-        address = str(address)
+        normalized = str(address)
         try:
-            return self.__instances[address]
+            return self.__instances[normalized]
         except exceptions.KeyError:
             pass  # NOTE: passing instead of proceeding lets helps us keep a clean exc chain
 
-        with self.__get_address_lock(address):
+        with self.__get_address_lock(normalized):
             # Try to get the instance again, in case it was added while waiting for the lock
             try:
-                return self.__instances[address]
+                return self.__instances[normalized]
             except exceptions.KeyError:
                 pass  # NOTE: passing instead of proceeding here lets us keep a clean exc chain
 
-            instance = super().__call__(address, *args, **kwargs)
-            self.__instances[address] = instance
-        self.__delete_address_lock(address)
+            instance: T = super().__call__(normalized, *args, **kwargs)
+            self.__instances[normalized] = instance
+        self.__delete_address_lock(normalized)
         return instance
 
     def __getitem__(self, address: AnyAddressOrContract) -> T:
@@ -117,10 +118,10 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             >>> meta = ChecksumAddressSingletonMeta('MySingleton', (), {})
             >>> meta['0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb'] = MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')
         """
-        address = str(address)
-        with self.__get_address_lock(address):
-            self.__instances[address] = item
-        self.__delete_address_lock(address)
+        normalized = str(address)
+        with self.__get_address_lock(normalized):
+            self.__instances[normalized] = item
+        self.__delete_address_lock(normalized)
 
     def __delitem__(self, address: AnyAddressOrContract) -> None:
         """Delete the singleton instance for a given address from the cache.
@@ -135,7 +136,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             >>> meta = ChecksumAddressSingletonMeta('MySingleton', (), {})
             >>> del meta['0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb']
         """
-        del self.__instances[str(address)]
+        del self.__instances[str(address)]  # type: ignore [arg-type]
 
     def get_instance(self, address: AnyAddressOrContract) -> Optional[T]:
         """Retrieve the singleton instance for a given address, if it exists.
@@ -150,7 +151,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             >>> meta = ChecksumAddressSingletonMeta('MySingleton', (), {})
             >>> instance = meta.get_instance('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')
         """
-        return self.__instances.get(str(address))
+        return self.__instances.get(str(address))  # type: ignore [call-overload, no-any-return]
 
     def delete_instance(self, address: AnyAddressOrContract) -> None:
         """Delete the singleton instance for a given address, if it exists.
@@ -163,7 +164,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             >>> meta.delete_instance('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')
         """
         try:
-            del self.__instances[str(address)]
+            del self.__instances[str(address)]  # type: ignore [arg-type]
         except KeyError:
             pass
 

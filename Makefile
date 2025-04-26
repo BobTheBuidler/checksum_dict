@@ -6,3 +6,8 @@ docs:
 	rm -r ./docs/_templates -f
 	rm -r ./docs/_build -f
 	sphinx-apidoc -o ./docs/source ./checksum_dict
+
+mypyc:
+	mypyc checksum_dict/_utils.py --strict --pretty --disable-error-code unused-ignore
+	mypyc checksum_dict/base.py --strict --pretty
+	mypyc checksum_dict/default.py --strict --pretty
