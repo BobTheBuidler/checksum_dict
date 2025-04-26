@@ -3,7 +3,7 @@ from collections import defaultdict
 from typing import Any, DefaultDict, Dict, Final, Generic, Optional, Tuple
 
 from checksum_dict import exceptions
-from checksum_dict._key import AnyAddressOrContract
+from checksum_dict._utils import AnyAddressOrContract
 from checksum_dict.base import ChecksumAddressDict, T
 
 

@@ -755,27 +755,27 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r8;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[27]; /* ('mypyc_attr',) */
-    cpy_r_r10 = CPyStatics[15]; /* 'mypy_extensions' */
+    cpy_r_r9 = CPyStatics[27]; /* ('ChecksumAddress',) */
+    cpy_r_r10 = CPyStatics[15]; /* 'eth_typing' */
     cpy_r_r11 = CPyStatic_globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("checksum_dict\\default.py", "<module>", 3, CPyStatic_globals);
         goto CPyL20;
     }
-    CPyModule_mypy_extensions = cpy_r_r12;
-    CPy_INCREF(CPyModule_mypy_extensions);
+    CPyModule_eth_typing = cpy_r_r12;
+    CPy_INCREF(CPyModule_eth_typing);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[28]; /* ('EthAddressKey',) */
-    cpy_r_r14 = CPyStatics[17]; /* 'checksum_dict._key' */
+    cpy_r_r13 = CPyStatics[28]; /* ('mypyc_attr',) */
+    cpy_r_r14 = CPyStatics[17]; /* 'mypy_extensions' */
     cpy_r_r15 = CPyStatic_globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
-        CPy_AddTraceback("checksum_dict\\default.py", "<module>", 5, CPyStatic_globals);
+        CPy_AddTraceback("checksum_dict\\default.py", "<module>", 4, CPyStatic_globals);
         goto CPyL20;
     }
-    CPyModule_checksum_dict____key = cpy_r_r16;
-    CPy_INCREF(CPyModule_checksum_dict____key);
+    CPyModule_mypy_extensions = cpy_r_r16;
+    CPy_INCREF(CPyModule_mypy_extensions);
     CPy_DECREF(cpy_r_r16);
     cpy_r_r17 = CPyStatics[29]; /* ('ChecksumAddressDict', 'T', '_SeedT') */
     cpy_r_r18 = CPyStatics[21]; /* 'checksum_dict.base' */
@@ -796,7 +796,7 @@ CPyL3: ;
         goto CPyL20;
     }
     cpy_r_r24 = CPyStatic_globals;
-    cpy_r_r25 = CPyStatics[16]; /* 'EthAddressKey' */
+    cpy_r_r25 = CPyStatics[14]; /* 'ChecksumAddress' */
     cpy_r_r26 = CPyDict_GetItem(cpy_r_r24, cpy_r_r25);
     if (unlikely(cpy_r_r26 == NULL)) {
         CPy_AddTraceback("checksum_dict\\default.py", "<module>", 10, CPyStatic_globals);
@@ -918,8 +918,8 @@ int CPyGlobalsInit(void)
     CPyModule_checksum_dict___default = Py_None;
     CPyModule_builtins = Py_None;
     CPyModule_typing = Py_None;
+    CPyModule_eth_typing = Py_None;
     CPyModule_mypy_extensions = Py_None;
-    CPyModule_checksum_dict____key = Py_None;
     CPyModule_checksum_dict___base = Py_None;
     if (CPyStatics_Initialize(CPyStatics, CPyLit_Str, CPyLit_Bytes, CPyLit_Int, CPyLit_Float, CPyLit_Complex, CPyLit_Tuple, CPyLit_FrozenSet) < 0) {
         return -1;
@@ -932,7 +932,7 @@ PyObject *CPyStatics[30];
 const char * const CPyLit_Str[] = {
     "\005\005super\b__init__\bIterable\017default_factory\023_setitem_nochecksum",
     "\006\023_getitem_nochecksum\bbuiltins\bCallable\vDefaultDict\bOptional\006typing",
-    "\004\nmypyc_attr\017mypy_extensions\rEthAddressKey\022checksum_dict._key",
+    "\004\017ChecksumAddress\neth_typing\nmypyc_attr\017mypy_extensions",
     "\005\023ChecksumAddressDict\001T\006_SeedT\022checksum_dict.base\025checksum_dict.default",
     "\003\017__mypyc_attrs__\b__dict__\023DefaultChecksumDict",
     "",
@@ -952,8 +952,8 @@ CPyModule *CPyModule_checksum_dict___default;
 PyObject *CPyStatic_globals;
 CPyModule *CPyModule_builtins;
 CPyModule *CPyModule_typing;
+CPyModule *CPyModule_eth_typing;
 CPyModule *CPyModule_mypy_extensions;
-CPyModule *CPyModule_checksum_dict____key;
 CPyModule *CPyModule_checksum_dict___base;
 PyTypeObject *CPyType_DefaultChecksumDict;
 char CPyDef_DefaultChecksumDict_____init__(PyObject *cpy_r_self, PyObject *cpy_r_default, PyObject *cpy_r_seed);

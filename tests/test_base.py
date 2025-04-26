@@ -1,7 +1,6 @@
 import pytest
 
-from checksum_dict import ChecksumAddressDict, exceptions
-from checksum_dict._key import EthAddressKey
+from checksum_dict import ChecksumAddressDict
 
 
 @pytest.mark.parametrize(
@@ -32,11 +31,7 @@ def test_checksum_address_dict_init(seed, expected):
     [
         ("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb", True, True),  # id: set-and-get-lowercase
         ("0xB47E3CD837DDF8E4C57F05D70AB865DE6E193BBB", False, False),  # id: set-and-get-uppercase
-        (
-            EthAddressKey("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"),
-            123,
-            123,
-        ),  # id: set-and-get-checksummed
+        ("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb", 123, 123),  # id: set-and-get-checksummed
     ],
 )
 def test_checksum_address_dict_set_and_get(key, value, expected):
