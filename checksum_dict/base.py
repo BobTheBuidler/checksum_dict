@@ -1,12 +1,7 @@
-from typing import TYPE_CHECKING, Dict, Iterable, Tuple, TypeVar, Union
+from typing import Dict, Iterable, Tuple, TypeVar, Union
 
 from checksum_dict import exceptions
-from checksum_dict._key import EthAddressKey
-
-if TYPE_CHECKING:
-    from checksum_dict._key import AnyAddressOrContract
-else:
-    from eth_typing import AnyAddress as AnyAddressOrContract
+from checksum_dict._key import AnyAddressOrContract, EthAddressKey
 
 
 T = TypeVar("T")
