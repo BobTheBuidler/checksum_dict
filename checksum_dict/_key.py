@@ -1,6 +1,6 @@
 # type: ignore
 import binascii
-from typing import TYPE_CHECKING, Type, TypeVar, Union, cast, overload
+from typing import TYPE_CHECKING, Type, Union, cast, overload
 
 from cchecksum import to_checksum_address
 from eth_typing import AnyAddress
@@ -11,7 +11,11 @@ if TYPE_CHECKING:
     import brownie
     import y
 
-    AnyAddressOrContract = TypeVar("AddressOrContract", "AnyAddress", brownie.Contract, y.Contract)
+    AnyAddressOrContract = Union[AnyAddress, brownie.Contract, y.Contract]
+
+else:
+
+    AnyAddressOrContract = AnyAddress
 
 
 class EthAddressKey(str):
