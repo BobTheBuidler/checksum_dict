@@ -21,20 +21,21 @@ unhexlify: Final = binascii.unhexlify
 
 
 def checksum_value(value: Union[str, bytes]) -> ChecksumAddress:
-    if isinstance(value, bytes):
-        converted_value = (
-            value.hex() if type(value).__name__ == "HexBytes" else HexBytes(value).hex()
-        )
+    if isinstance(value, str):
+        converted_value = value if value.startswith(("0x", "0X")) else f"0x{value}"
     else:
-        converted_value = add_0x_prefix(str(value))
+        val_type = type(value)
+        if val_type is bytes:
+            converted_value = f"0x{value.hex()}"  # type: ignore [assignment]
+        # we have our own implementation of HexBytes and also want our code to work with the original
+        elif val_type.__name__ == "HexBytes":
+            converted_value = value.hex()  # type: ignore [assignment]
+        else:
+            converted_value = f"0x{value.hex()}"  # type: ignore [assignment]
     try:
         return to_checksum_address(converted_value)
     except ValueError as e:
         raise ValueError(f"'{converted_value}' is not a valid ETH address") from e
-
-
-def add_0x_prefix(value: str) -> HexStr:
-    return value if value.startswith(("0x", "0X")) else f"0x{value}"  # type: ignore [return-value]
 
 
 def to_bytes(val: Union[bool, bytearray, bytes, int, str]) -> bytes:
