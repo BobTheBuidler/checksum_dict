@@ -34,6 +34,8 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
         - :class:`EthAddressKey` for details on how keys are checksummed.
     """
 
+    __slots__ = ("__instances", "__locks", "__locks_lock")
+
     def __init__(self, name: str, bases: Tuple[type, ...], namespace: Dict[str, Any]) -> None:
         """Initialize the metaclass with a name, bases, and namespace.
 
