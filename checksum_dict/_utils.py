@@ -5,16 +5,25 @@ A big thanks to the many maintainers and contributors for their valuable work!
 """
 
 import binascii
-from typing import Final, Union
+from typing import TYPE_CHECKING, Final, Union
 
 import cchecksum  # type: ignore [import-not-found]
-from eth_typing import ChecksumAddress, HexStr  # type: ignore [import-not-found]
+from eth_typing import Address, ChecksumAddress, HexAddress, HexStr  # type: ignore [import-not-found]
 
 from checksum_dict import _hexbytes
 
 
-HexBytes: Final = _hexbytes.HexBytes
+AnyAddressOrContract = Union[Address, HexAddress, ChecksumAddress]
 
+if TYPE_CHECKING:
+    import brownie  # type: ignore [import-not-found]
+    import y  # type: ignore [import-not-found]
+
+    # NOTE: if we do if/else, mypyc complains in the else branch
+    AnyAddressOrContract = Union[AnyAddressOrContract, brownie.Contract, y.Contract]  # type: ignore [misc]
+
+
+HexBytes: Final = _hexbytes.HexBytes
 
 to_checksum_address: Final = cchecksum.to_checksum_address
 unhexlify: Final = binascii.unhexlify

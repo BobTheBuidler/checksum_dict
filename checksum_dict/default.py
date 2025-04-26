@@ -1,13 +1,13 @@
 from typing import Callable, DefaultDict, Iterable, Optional
 
+from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
 
-from checksum_dict._key import EthAddressKey
 from checksum_dict.base import ChecksumAddressDict, T, _SeedT
 
 
 @mypyc_attr(allow_interpreted_subclasses=True)
-class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T]):
+class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T]):
     """
     A defaultdict that maps Ethereum addresses to objects.
 
@@ -37,7 +37,7 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
     See Also:
         - :class:`~checksum_dict.base.ChecksumAddressDict`
         - :class:`collections.DefaultDict`
-        - :class:`EthAddressKey` for details on how keys are checksummed.
+        - :func:`checksum_value` for details on how keys are checksummed.
     """
 
     def __init__(self, default: Callable[[], T], seed: Optional[_SeedT[T]] = None) -> None:
@@ -49,7 +49,7 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
             for key, value in seed:
                 self[key] = value
 
-    def _getitem_nochecksum(self, key: EthAddressKey) -> T:
+    def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
         """
         Retrieve an item without checksumming the key.
 
@@ -59,7 +59,7 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
 
         Example:
             >>> d = DefaultChecksumDict(int)
-            >>> key = EthAddressKey("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
+            >>> key = checksum_value("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
             >>> d._setitem_nochecksum(key, 100)
             >>> print(d._getitem_nochecksum(key))
             100

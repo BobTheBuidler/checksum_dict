@@ -1,9 +1,10 @@
 from typing import Dict, Iterable, Optional, Tuple, TypeVar, Union
 
+from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
 
 from checksum_dict import exceptions
-from checksum_dict._key import AnyAddressOrContract, EthAddressKey
+from checksum_dict._utils import AnyAddressOrContract, checksum_value
 
 
 T = TypeVar("T")
@@ -12,7 +13,7 @@ _SeedT = Union[Dict[AnyAddressOrContract, T], Iterable[Tuple[AnyAddressOrContrac
 
 
 @mypyc_attr(allow_interpreted_subclasses=True)
-class ChecksumAddressDict(Dict[EthAddressKey, T]):
+class ChecksumAddressDict(Dict[ChecksumAddress, T]):
     """
     A dictionary that maps Ethereum addresses to objects, automatically checksumming
     the provided address key when setting and getting values.
@@ -61,9 +62,10 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
                 self[key] = value
 
     def __repr__(self) -> str:
-        return f"ChecksumAddressDict({str(dict(self))})"
+        return f"ChecksumAddressDict({dict(self)})"
 
     def __getitem__(self, key: AnyAddressOrContract) -> T:
+        # sourcery skip: use-contextlib-suppress
         try:
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
             return dict.__getitem__(self, key)
@@ -72,7 +74,7 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
             pass
 
         try:
-            return dict.__getitem__(self, EthAddressKey(key))
+            return dict.__getitem__(self, checksum_value(key))
         except KeyError as e:
             raise exceptions.KeyError(*e.args) from e.__cause__
 
@@ -81,9 +83,9 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
             dict.__setitem__(self, key, value)
         else:
-            dict.__setitem__(self, EthAddressKey(key), value)
+            dict.__setitem__(self, checksum_value(key), value)
 
-    def _getitem_nochecksum(self, key: EthAddressKey) -> T:
+    def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
         """
         Retrieve an item without checksumming the key.
 
@@ -103,7 +105,7 @@ class ChecksumAddressDict(Dict[EthAddressKey, T]):
         """
         return dict.__getitem__(self, key)
 
-    def _setitem_nochecksum(self, key: EthAddressKey, value: T) -> None:
+    def _setitem_nochecksum(self, key: ChecksumAddress, value: T) -> None:
         """
         Set an item without checksumming the key.
 

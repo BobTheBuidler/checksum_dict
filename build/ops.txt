@@ -433,21 +433,21 @@ L3:
 L4:
     typing = r8 :: module
     dec_ref r8
-    r9 = ('mypyc_attr',)
-    r10 = 'mypy_extensions'
+    r9 = ('ChecksumAddress',)
+    r10 = 'eth_typing'
     r11 = checksum_dict.default.globals :: static
     r12 = CPyImport_ImportFromMany(r10, r9, r9, r11)
     if is_error(r12) goto L20 (error at <module>:3) else goto L5
 L5:
-    mypy_extensions = r12 :: module
+    eth_typing = r12 :: module
     dec_ref r12
-    r13 = ('EthAddressKey',)
-    r14 = 'checksum_dict._key'
+    r13 = ('mypyc_attr',)
+    r14 = 'mypy_extensions'
     r15 = checksum_dict.default.globals :: static
     r16 = CPyImport_ImportFromMany(r14, r13, r13, r15)
-    if is_error(r16) goto L20 (error at <module>:5) else goto L6
+    if is_error(r16) goto L20 (error at <module>:4) else goto L6
 L6:
-    checksum_dict._key = r16 :: module
+    mypy_extensions = r16 :: module
     dec_ref r16
     r17 = ('ChecksumAddressDict', 'T', '_SeedT')
     r18 = 'checksum_dict.base'
@@ -463,7 +463,7 @@ L7:
     if is_error(r23) goto L20 (error at <module>:10) else goto L8
 L8:
     r24 = checksum_dict.default.globals :: static
-    r25 = 'EthAddressKey'
+    r25 = 'ChecksumAddress'
     r26 = CPyDict_GetItem(r24, r25)
     if is_error(r26) goto L21 (error at <module>:10) else goto L9
 L9:
