@@ -39,7 +39,6 @@ class DefaultChecksumDict(DefaultDict[EthAddressKey, T], ChecksumAddressDict[T])
 
     def __init__(self, default: Callable[[], T], seed: _SeedT = None) -> None:
         super().__init__(default)
-        self.__dict__ = self
         if isinstance(seed, dict):
             seed = seed.items()
         if isinstance(seed, Iterable):
