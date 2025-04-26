@@ -8,7 +8,7 @@ setup(
     name="checksum_dict",
     description="checksum_dict's objects handle the simple but repetitive task of checksumming addresses before setting/getting dictionary values.",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     author="BobTheBuidler",
     author_email="bobthebuidlerdefi@gmail.com",
     url="https://github.com/BobTheBuidler/checksum_dict",
