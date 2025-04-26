@@ -28,8 +28,6 @@ extern PyObject *CPyStatic_to_checksum_address;
 extern PyObject *CPyStatic_unhexlify;
 extern PyObject *CPyDef_checksum_value(PyObject *cpy_r_value);
 extern PyObject *CPyPy_checksum_value(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
-extern PyObject *CPyDef_add_0x_prefix(PyObject *cpy_r_value);
-extern PyObject *CPyPy_add_0x_prefix(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern PyObject *CPyDef_to_bytes(PyObject *cpy_r_val);
 extern PyObject *CPyPy_to_bytes(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern PyObject *CPyDef_hexstr_to_bytes(PyObject *cpy_r_hexstr);
