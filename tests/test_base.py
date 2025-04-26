@@ -7,10 +7,16 @@ from checksum_dict._key import EthAddressKey
 @pytest.mark.parametrize(
     "seed, expected",
     [
-        ({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True}, {'0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB': True}),  # id: seed-dict
+        (
+            {"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True},
+            {"0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB": True},
+        ),  # id: seed-dict
         (None, {}),  # id: seed-none
-        ([("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb", True)], {'0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB': True}),  # id: seed-iterable
-        ([], {}), # id: seed-empty-iterable
+        (
+            [("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb", True)],
+            {"0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB": True},
+        ),  # id: seed-iterable
+        ([], {}),  # id: seed-empty-iterable
     ],
 )
 def test_checksum_address_dict_init(seed, expected):
@@ -26,7 +32,11 @@ def test_checksum_address_dict_init(seed, expected):
     [
         ("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb", True, True),  # id: set-and-get-lowercase
         ("0xB47E3CD837DDF8E4C57F05D70AB865DE6E193BBB", False, False),  # id: set-and-get-uppercase
-        (EthAddressKey("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"), 123, 123),  # id: set-and-get-checksummed
+        (
+            EthAddressKey("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"),
+            123,
+            123,
+        ),  # id: set-and-get-checksummed
     ],
 )
 def test_checksum_address_dict_set_and_get(key, value, expected):
@@ -76,7 +86,11 @@ def test_checksum_address_dict_set_and_get_nochecksum(key, value):
     "key, value, expected_error",
     [
         ("0x123", True, ValueError),  # id: set-nochecksum-invalid-address
-        ("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb123", True, ValueError),  # id: set-nochecksum-invalid-address-length
+        (
+            "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb123",
+            True,
+            ValueError,
+        ),  # id: set-nochecksum-invalid-address-length
         (123, True, ValueError),  # id: set-nochecksum-invalid-address-type
     ],
 )
@@ -97,4 +111,7 @@ def test_checksum_address_dict_repr():
     representation = repr(cad)
 
     # Assert
-    assert representation == "ChecksumAddressDict({'0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB': True})"
+    assert (
+        representation
+        == "ChecksumAddressDict({'0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB': True})"
+    )
