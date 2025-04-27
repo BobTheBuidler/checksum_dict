@@ -43,7 +43,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             bases: A tuple of base classes.
             namespace: A dictionary representing the class namespace.
         """
-        super().__init__(name, bases, namespace)
+        type.__init__(self, name, bases, namespace)
         self.__instances: Final[ChecksumAddressDict[T]] = ChecksumAddressDict()
         self.__locks: Final[_LocksDict] = defaultdict(threading.Lock)
         self.__locks_lock: Final[threading.Lock] = threading.Lock()
@@ -83,7 +83,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             except exceptions.KeyError:
                 pass  # NOTE: passing instead of proceeding here lets us keep a clean exc chain
 
-            instance: T = super().__call__(normalized, *args, **kwargs)
+            instance: T = type.__call__(self, normalized, *args, **kwargs)
             self.__instances[normalized] = instance
         self.__delete_address_lock(normalized)
         return instance
