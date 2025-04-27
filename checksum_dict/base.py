@@ -1,4 +1,4 @@
-from typing import Dict, Iterable, Optional, Tuple, TypeVar, Union
+from typing import Dict, Iterable, Optional, Tuple, TypeVar, Union, overload
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
@@ -53,13 +53,19 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
         - :class:`EthAddressKey` for details on how keys are checksummed.
     """
 
-    def __init__(self, seed: Optional[_SeedT[T]] = None) -> None:
+    @overload
+    def __init__(self) -> None: ...
+    @overload
+    def __init__(self, iterable: Iterable[Tuple[AnyAddressOrContract, T]]) -> None: ...
+    @overload
+    def __init__(self, dictionary: Dict[AnyAddressOrContract, T]) -> None: ...
+    def __init__(self, seed: Optional[_SeedT[T]] = None) -> None:  # type: ignore [misc]
         if isinstance(seed, dict):
             for key, value in seed.items():
                 self[key] = value
         elif isinstance(seed, Iterable):
             for key, value in seed:
-                self[key] = value
+                self[key] = value  # type: ignore [assignment]
 
     def __repr__(self) -> str:
         return f"ChecksumAddressDict({dict(self)})"
@@ -68,22 +74,22 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
         # sourcery skip: use-contextlib-suppress
         try:
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
-            return dict.__getitem__(self, key)
+            return super().__getitem__(key)  # type: ignore [index]
         except KeyError:
             # NOTE: passing instead of checksumming here lets us keep a clean exc chain
             pass
 
         try:
-            return dict.__getitem__(self, attempt_checksum(key))
+            return super().__getitem__(attempt_checksum(key))
         except KeyError as e:
             raise exceptions.KeyError(*e.args) from e.__cause__
 
     def __setitem__(self, key: AnyAddressOrContract, value: T) -> None:
         if key in self:
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
-            dict.__setitem__(self, key, value)
+            super().__setitem__(key, value)  # type: ignore [index]
         else:
-            dict.__setitem__(self, attempt_checksum(key), value)
+            super().__setitem__(attempt_checksum(key), value)
 
     def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
         """
@@ -103,7 +109,7 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
             >>> d._getitem_nochecksum(key)
             True
         """
-        return dict.__getitem__(self, key)
+        return super().__getitem__(key)
 
     def _setitem_nochecksum(self, key: ChecksumAddress, value: T) -> None:
         """
@@ -129,4 +135,4 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
         """
         if not key.startswith("0x") or len(key) != 42:
             raise ValueError(f"'{key}' is not a valid ETH address")
-        dict.__setitem__(self, key, value)
+        super().__setitem__(key, value)

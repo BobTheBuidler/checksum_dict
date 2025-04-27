@@ -47,7 +47,7 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
                 self[key] = value
         elif isinstance(seed, Iterable):
             for key, value in seed:
-                self[key] = value
+                self[key] = value  # type: ignore [assignment]
 
     def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
         """

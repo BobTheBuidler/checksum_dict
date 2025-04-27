@@ -9,15 +9,17 @@ from typing import TYPE_CHECKING, Final, Union
 import cchecksum  # type: ignore [import-not-found]
 from eth_typing import Address, ChecksumAddress, HexAddress  # type: ignore [import-not-found]
 
-
-AnyAddressOrContract = Union[Address, HexAddress, ChecksumAddress]
-
 if TYPE_CHECKING:
     import brownie  # type: ignore [import-not-found]
     import y  # type: ignore [import-not-found]
 
-    # NOTE: if we do if/else, mypyc complains in the else branch
-    AnyAddressOrContract = Union[AnyAddressOrContract, brownie.Contract, y.Contract]  # type: ignore [misc]
+    Contract = Union[brownie.Contract, y.Contract]
+
+else:
+
+    Contract = Any
+
+AnyAddressOrContract = Union[Address, HexAddress, ChecksumAddress, Contract]
 
 
 to_checksum_address: Final = cchecksum.to_checksum_address
