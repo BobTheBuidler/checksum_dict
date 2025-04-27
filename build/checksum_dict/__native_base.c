@@ -740,7 +740,7 @@ CPyL8: ;
 CPyL10: ;
     cpy_r_r11 = (PyObject *)&PyDict_Type;
     cpy_r_r12 = CPyStatic_globals;
-    cpy_r_r13 = CPyStatics[10]; /* 'checksum_value' */
+    cpy_r_r13 = CPyStatics[10]; /* 'attempt_checksum' */
     cpy_r_r14 = CPyDict_GetItem(cpy_r_r12, cpy_r_r13);
     if (unlikely(cpy_r_r14 == NULL)) {
         CPy_AddTraceback("checksum_dict\\base.py", "__getitem__", 77, CPyStatic_globals);
@@ -1006,7 +1006,7 @@ char CPyDef_ChecksumAddressDict_____setitem__(PyObject *cpy_r_self, PyObject *cp
 CPyL3: ;
     cpy_r_r8 = (PyObject *)&PyDict_Type;
     cpy_r_r9 = CPyStatic_globals;
-    cpy_r_r10 = CPyStatics[10]; /* 'checksum_value' */
+    cpy_r_r10 = CPyStatics[10]; /* 'attempt_checksum' */
     cpy_r_r11 = CPyDict_GetItem(cpy_r_r9, cpy_r_r10);
     if (unlikely(cpy_r_r11 == NULL)) {
         CPy_AddTraceback("checksum_dict\\base.py", "__setitem__", 86, CPyStatic_globals);
@@ -1566,7 +1566,7 @@ CPyL3: ;
     CPyModule_checksum_dict = cpy_r_r20;
     CPy_INCREF(CPyModule_checksum_dict);
     CPy_DECREF(cpy_r_r20);
-    cpy_r_r21 = CPyStatics[45]; /* ('AnyAddressOrContract', 'checksum_value') */
+    cpy_r_r21 = CPyStatics[45]; /* ('AnyAddressOrContract', 'attempt_checksum') */
     cpy_r_r22 = CPyStatics[34]; /* 'checksum_dict._utils' */
     cpy_r_r23 = CPyStatic_globals;
     cpy_r_r24 = CPyImport_ImportFromMany(cpy_r_r22, cpy_r_r21, cpy_r_r21, cpy_r_r23);
@@ -1871,7 +1871,7 @@ int CPyGlobalsInit(void)
 PyObject *CPyStatics[46];
 const char * const CPyLit_Str[] = {
     "\006\bIterable\b__init__\024ChecksumAddressDict(\001)\b__repr__\v__getitem__",
-    "\005\bKeyError\016checksum_value\004args\nexceptions\v__setitem__",
+    "\005\bKeyError\020attempt_checksum\004args\nexceptions\v__setitem__",
     "\005\023_getitem_nochecksum\0020x\nstartswith\001\'\034\' is not a valid ETH address",
     "\a\nValueError\023_setitem_nochecksum\bbuiltins\004Dict\bOptional\005Tuple\aTypeVar",
     "\006\005Union\006typing\017ChecksumAddress\neth_typing\nmypyc_attr\017mypy_extensions",

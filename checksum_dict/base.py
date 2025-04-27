@@ -4,7 +4,7 @@ from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
 
 from checksum_dict import exceptions
-from checksum_dict._utils import AnyAddressOrContract, checksum_value
+from checksum_dict._utils import AnyAddressOrContract, attempt_checksum
 
 
 T = TypeVar("T")
@@ -74,7 +74,7 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
             pass
 
         try:
-            return dict.__getitem__(self, checksum_value(key))
+            return dict.__getitem__(self, attempt_checksum(key))
         except KeyError as e:
             raise exceptions.KeyError(*e.args) from e.__cause__
 
@@ -83,7 +83,7 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
             dict.__setitem__(self, key, value)
         else:
-            dict.__setitem__(self, checksum_value(key), value)
+            dict.__setitem__(self, attempt_checksum(key), value)
 
     def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
         """
