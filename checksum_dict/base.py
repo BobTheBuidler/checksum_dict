@@ -4,7 +4,8 @@ from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
 
 from checksum_dict import exceptions
-from checksum_dict._utils import AnyAddressOrContract, attempt_checksum
+from checksum_dict._typing import AnyAddressOrContract
+from checksum_dict._utils import attempt_checksum
 
 
 T = TypeVar("T")
