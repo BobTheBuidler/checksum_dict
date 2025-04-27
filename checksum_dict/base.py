@@ -1,4 +1,4 @@
-from typing import Dict, Iterable, Optional, Tuple, TypeVar, Union
+from typing import Dict, Iterable, Optional, Tuple, TypeVar, Union, overload
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
@@ -52,14 +52,19 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
     See Also:
         - :class:`EthAddressKey` for details on how keys are checksummed.
     """
-
-    def __init__(self, seed: Optional[_SeedT[T]] = None) -> None:
+    @overload
+    def __init__(self): ...
+    @overload
+    def __init__(self, iterable: Iterable[Tuple[AnyAddressOrContract, T]]) -> None: ...
+    @overload
+    def __init__(self, dictionary: Dict[AnyAddressOrContract, T]) -> None: ...
+    def __init__(self, seed: Optional[_SeedT[T]] = None) -> None:  # type: ignore [misc]
         if isinstance(seed, dict):
             for key, value in seed.items():
                 self[key] = value
         elif isinstance(seed, Iterable):
             for key, value in seed:
-                self[key] = value
+                self[key] = value  # type: ignore [assignment]
 
     def __repr__(self) -> str:
         return f"ChecksumAddressDict({dict(self)})"

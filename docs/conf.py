@@ -9,7 +9,7 @@
 import os
 import sys
 
-from sphinx.util import logging
+from sphinx.util import logging  # type: ignore [import-not-found]
 
 
 project = "checksum_dict"
