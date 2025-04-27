@@ -1,3 +1,4 @@
+from collections import defaultdict
 from typing import Callable, DefaultDict, Iterable, Optional
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
@@ -41,7 +42,7 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
     """
 
     def __init__(self, default: Callable[[], T], seed: Optional[_SeedT[T]] = None) -> None:
-        super().__init__(default)
+        defaultdict.__init__(self, default)
         if isinstance(seed, dict):
             for key, value in seed.items():
                 self[key] = value

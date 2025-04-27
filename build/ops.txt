@@ -2,225 +2,215 @@ def DefaultChecksumDict.__init__(self, default, seed):
     self :: dict
     default :: object
     seed :: union[dict, object, None]
-    r0, r1 :: object
+    r0 :: object
+    r1 :: dict
     r2 :: str
-    r3, r4 :: object
-    r5 :: object[2]
+    r3 :: object
+    r4 :: str
+    r5 :: object[3]
     r6 :: object_ptr
-    r7 :: object
-    r8 :: str
-    r9 :: object
-    r10 :: object[1]
-    r11 :: object_ptr
-    r12, r13 :: object
-    r14 :: i32
-    r15 :: bit
-    r16 :: bool
-    r17 :: dict
+    r7, r8 :: object
+    r9 :: i32
+    r10 :: bit
+    r11 :: bool
+    r12 :: dict
+    r13 :: short_int
+    r14 :: native_int
+    r15 :: short_int
+    r16 :: object
+    r17 :: tuple[bool, short_int, object, object]
     r18 :: short_int
-    r19 :: native_int
-    r20 :: short_int
-    r21 :: object
-    r22 :: tuple[bool, short_int, object, object]
-    r23 :: short_int
-    r24 :: bool
-    r25, r26, key, value :: object
-    r27 :: i32
-    r28, r29, r30 :: bit
-    r31 :: dict
-    r32 :: str
-    r33 :: object
-    r34 :: i32
-    r35 :: bit
+    r19 :: bool
+    r20, r21, key, value :: object
+    r22 :: i32
+    r23, r24, r25 :: bit
+    r26 :: dict
+    r27 :: str
+    r28 :: object
+    r29 :: i32
+    r30 :: bit
+    r31 :: bool
+    r32, r33, r34, r35 :: object
     r36 :: bool
-    r37, r38, r39, r40 :: object
-    r41 :: bool
-    r42 :: object
-    r43 :: bool
-    r44 :: object
-    r45 :: bool
-    r46 :: i32
-    r47, r48 :: bit
-    r49 :: None
+    r37 :: object
+    r38 :: bool
+    r39 :: object
+    r40 :: bool
+    r41 :: i32
+    r42, r43 :: bit
+    r44 :: None
 L0:
-    if is_error(seed) goto L1 else goto L33
+    if is_error(seed) goto L1 else goto L31
 L1:
     r0 = box(None, 1)
     inc_ref r0
     seed = r0
 L2:
-    r1 = builtins :: module
-    r2 = 'super'
-    r3 = CPyObject_GetAttr(r1, r2)
-    if is_error(r3) goto L34 (error at __init__:44) else goto L3
+    r1 = checksum_dict.default.globals :: static
+    r2 = 'defaultdict'
+    r3 = CPyDict_GetItem(r1, r2)
+    if is_error(r3) goto L32 (error at __init__:45) else goto L3
 L3:
-    r4 = checksum_dict.default.DefaultChecksumDict :: type
-    r5 = [r4, self]
+    r4 = '__init__'
+    r5 = [r3, self, default]
     r6 = load_address r5
-    r7 = _PyObject_Vectorcall(r3, r6, 2, 0)
-    dec_ref r3
-    if is_error(r7) goto L34 (error at __init__:44) else goto L4
+    r7 = PyObject_VectorcallMethod(r4, r6, 9223372036854775811, 0)
+    if is_error(r7) goto L33 (error at __init__:45) else goto L34
 L4:
-    r8 = '__init__'
-    r9 = CPyObject_GetAttr(r7, r8)
-    dec_ref r7
-    if is_error(r9) goto L34 (error at __init__:44) else goto L5
+    dec_ref r3
+    r8 = load_address PyDict_Type
+    r9 = PyObject_IsInstance(seed, r8)
+    r10 = r9 >= 0 :: signed
+    if not r10 goto L32 (error at __init__:46) else goto L5 :: bool
 L5:
-    r10 = [default]
-    r11 = load_address r10
-    r12 = _PyObject_Vectorcall(r9, r11, 1, 0)
-    dec_ref r9
-    if is_error(r12) goto L34 (error at __init__:44) else goto L35
+    r11 = truncate r9: i32 to builtins.bool
+    if r11 goto L6 else goto L12 :: bool
 L6:
-    r13 = load_address PyDict_Type
-    r14 = PyObject_IsInstance(seed, r13)
-    r15 = r14 >= 0 :: signed
-    if not r15 goto L34 (error at __init__:45) else goto L7 :: bool
+    r12 = cast(dict, seed)
+    if is_error(r12) goto L30 (error at __init__:47) else goto L7
 L7:
-    r16 = truncate r14: i32 to builtins.bool
-    if r16 goto L8 else goto L14 :: bool
+    r13 = 0
+    r14 = PyDict_Size(r12)
+    r15 = r14 << 1
+    r16 = CPyDict_GetItemsIter(r12)
+    if is_error(r16) goto L35 (error at __init__:47) else goto L8
 L8:
-    r17 = cast(dict, seed)
-    if is_error(r17) goto L32 (error at __init__:46) else goto L9
+    r17 = CPyDict_NextItem(r16, r13)
+    r18 = r17[1]
+    r13 = r18
+    r19 = r17[0]
+    if r19 goto L9 else goto L36 :: bool
 L9:
-    r18 = 0
-    r19 = PyDict_Size(r17)
-    r20 = r19 << 1
-    r21 = CPyDict_GetItemsIter(r17)
-    if is_error(r21) goto L36 (error at __init__:46) else goto L10
+    r20 = r17[2]
+    r21 = r17[3]
+    dec_ref r17
+    key = r20
+    value = r21
+    r22 = CPyDict_SetItem(self, key, value)
+    dec_ref key
+    dec_ref value
+    r23 = r22 >= 0 :: signed
+    if not r23 goto L37 (error at __init__:48) else goto L10 :: bool
 L10:
-    r22 = CPyDict_NextItem(r21, r18)
-    r23 = r22[1]
-    r18 = r23
-    r24 = r22[0]
-    if r24 goto L11 else goto L37 :: bool
+    r24 = CPyDict_CheckSize(r12, r15)
+    if not r24 goto L37 (error at __init__:47) else goto L8 :: bool
 L11:
-    r25 = r22[2]
-    r26 = r22[3]
-    dec_ref r22
-    key = r25
-    value = r26
-    r27 = CPyDict_SetItem(self, key, value)
-    dec_ref key
-    dec_ref value
-    r28 = r27 >= 0 :: signed
-    if not r28 goto L38 (error at __init__:47) else goto L12 :: bool
+    r25 = CPy_NoErrOccurred()
+    if not r25 goto L30 (error at __init__:47) else goto L29 :: bool
 L12:
-    r29 = CPyDict_CheckSize(r17, r20)
-    if not r29 goto L38 (error at __init__:46) else goto L10 :: bool
+    r26 = checksum_dict.default.globals :: static
+    r27 = 'Iterable'
+    r28 = CPyDict_GetItem(r26, r27)
+    if is_error(r28) goto L32 (error at __init__:49) else goto L13
 L13:
-    r30 = CPy_NoErrOccurred()
-    if not r30 goto L32 (error at __init__:46) else goto L31 :: bool
+    r29 = PyObject_IsInstance(seed, r28)
+    dec_ref r28
+    r30 = r29 >= 0 :: signed
+    if not r30 goto L32 (error at __init__:49) else goto L14 :: bool
 L14:
-    r31 = checksum_dict.default.globals :: static
-    r32 = 'Iterable'
-    r33 = CPyDict_GetItem(r31, r32)
-    if is_error(r33) goto L34 (error at __init__:48) else goto L15
+    r31 = truncate r29: i32 to builtins.bool
+    if r31 goto L15 else goto L38 :: bool
 L15:
-    r34 = PyObject_IsInstance(seed, r33)
-    dec_ref r33
-    r35 = r34 >= 0 :: signed
-    if not r35 goto L34 (error at __init__:48) else goto L16 :: bool
-L16:
-    r36 = truncate r34: i32 to builtins.bool
-    if r36 goto L17 else goto L39 :: bool
-L17:
-    r37 = PyObject_GetIter(seed)
+    r32 = PyObject_GetIter(seed)
     dec_ref seed
-    if is_error(r37) goto L32 (error at __init__:49) else goto L18
+    if is_error(r32) goto L30 (error at __init__:50) else goto L16
+L16:
+    r33 = PyIter_Next(r32)
+    if is_error(r33) goto L39 else goto L17
+L17:
+    r34 = PyObject_GetIter(r33)
+    dec_ref r33
+    if is_error(r34) goto L40 (error at __init__:50) else goto L18
 L18:
-    r38 = PyIter_Next(r37)
-    if is_error(r38) goto L40 else goto L19
+    r35 = PyIter_Next(r34)
+    if is_error(r35) goto L41 else goto L21
 L19:
-    r39 = PyObject_GetIter(r38)
-    dec_ref r38
-    if is_error(r39) goto L41 (error at __init__:49) else goto L20
+    r36 = raise ValueError('not enough values to unpack')
+    if not r36 goto L30 (error at __init__:50) else goto L20 :: bool
 L20:
-    r40 = PyIter_Next(r39)
-    if is_error(r40) goto L42 else goto L23
+    unreachable
 L21:
-    r41 = raise ValueError('not enough values to unpack')
-    if not r41 goto L32 (error at __init__:49) else goto L22 :: bool
+    key = r35
+    r37 = PyIter_Next(r34)
+    if is_error(r37) goto L42 else goto L24
 L22:
-    unreachable
+    r38 = raise ValueError('not enough values to unpack')
+    if not r38 goto L30 (error at __init__:50) else goto L23 :: bool
 L23:
-    key = r40
-    r42 = PyIter_Next(r39)
-    if is_error(r42) goto L43 else goto L26
+    unreachable
 L24:
-    r43 = raise ValueError('not enough values to unpack')
-    if not r43 goto L32 (error at __init__:49) else goto L25 :: bool
+    value = r37
+    r39 = PyIter_Next(r34)
+    dec_ref r34
+    if is_error(r39) goto L27 else goto L43
 L25:
-    unreachable
+    r40 = raise ValueError('too many values to unpack')
+    if not r40 goto L30 (error at __init__:50) else goto L26 :: bool
 L26:
-    value = r42
-    r44 = PyIter_Next(r39)
-    dec_ref r39
-    if is_error(r44) goto L29 else goto L44
-L27:
-    r45 = raise ValueError('too many values to unpack')
-    if not r45 goto L32 (error at __init__:49) else goto L28 :: bool
-L28:
     unreachable
-L29:
-    r46 = CPyDict_SetItem(self, key, value)
+L27:
+    r41 = CPyDict_SetItem(self, key, value)
     dec_ref key
     dec_ref value
-    r47 = r46 >= 0 :: signed
-    if not r47 goto L41 (error at __init__:50) else goto L18 :: bool
-L30:
-    r48 = CPy_NoErrOccurred()
-    if not r48 goto L32 (error at __init__:49) else goto L31 :: bool
-L31:
+    r42 = r41 >= 0 :: signed
+    if not r42 goto L40 (error at __init__:51) else goto L16 :: bool
+L28:
+    r43 = CPy_NoErrOccurred()
+    if not r43 goto L30 (error at __init__:50) else goto L29 :: bool
+L29:
     return 1
-L32:
-    r49 = <error> :: None
-    return r49
-L33:
+L30:
+    r44 = <error> :: None
+    return r44
+L31:
     inc_ref seed
     goto L2
-L34:
+L32:
     dec_ref seed
-    goto L32
+    goto L30
+L33:
+    dec_ref seed
+    dec_ref r3
+    goto L30
+L34:
+    dec_ref r7
+    goto L4
 L35:
     dec_ref r12
-    goto L6
+    goto L30
 L36:
+    dec_ref r12
+    dec_ref r16
     dec_ref r17
-    goto L32
+    goto L11
 L37:
-    dec_ref r17
-    dec_ref r21
-    dec_ref r22
-    goto L13
+    dec_ref r12
+    dec_ref r16
+    goto L30
 L38:
-    dec_ref r17
-    dec_ref r21
-    goto L32
-L39:
     dec_ref seed
-    goto L31
+    goto L29
+L39:
+    dec_ref r32
+    goto L28
 L40:
-    dec_ref r37
+    dec_ref r32
     goto L30
 L41:
-    dec_ref r37
-    goto L32
+    dec_ref r32
+    dec_ref r34
+    goto L19
 L42:
-    dec_ref r37
-    dec_ref r39
-    goto L21
+    dec_ref key
+    dec_ref r32
+    dec_ref r34
+    goto L22
 L43:
     dec_ref key
-    dec_ref r37
-    dec_ref r39
-    goto L24
-L44:
-    dec_ref key
     dec_ref value
-    dec_ref r37
-    dec_ref r44
-    goto L27
+    dec_ref r32
+    dec_ref r39
+    goto L25
 
 def DefaultChecksumDict.__init____DefaultChecksumDict_glue(self, default, seed):
     self :: checksum_dict.default.DefaultChecksumDict
@@ -314,13 +304,13 @@ def DefaultChecksumDict._getitem_nochecksum(self, key):
 L0:
     r0 = PyDict_Contains(self, key)
     r1 = r0 >= 0 :: signed
-    if not r1 goto L7 (error at _getitem_nochecksum:70) else goto L1 :: bool
+    if not r1 goto L7 (error at _getitem_nochecksum:71) else goto L1 :: bool
 L1:
     r2 = truncate r0: i32 to builtins.bool
     if r2 goto L2 else goto L4 :: bool
 L2:
     r3 = CPyDict_GetItem(self, key)
-    if is_error(r3) goto L7 (error at _getitem_nochecksum:71) else goto L3
+    if is_error(r3) goto L7 (error at _getitem_nochecksum:72) else goto L3
 L3:
     return r3
 L4:
@@ -328,13 +318,13 @@ L4:
     r5 = [self]
     r6 = load_address r5
     r7 = PyObject_VectorcallMethod(r4, r6, 9223372036854775809, 0)
-    if is_error(r7) goto L7 (error at _getitem_nochecksum:72) else goto L5
+    if is_error(r7) goto L7 (error at _getitem_nochecksum:73) else goto L5
 L5:
     r8 = '_setitem_nochecksum'
     r9 = [self, key, r7]
     r10 = load_address r9
     r11 = PyObject_VectorcallMethod(r8, r10, 9223372036854775811, 0)
-    if is_error(r11) goto L8 (error at _getitem_nochecksum:73) else goto L9
+    if is_error(r11) goto L8 (error at _getitem_nochecksum:74) else goto L9
 L6:
     return r7
 L7:
@@ -382,36 +372,39 @@ def __top_level__():
     r16, r17 :: object
     r18 :: str
     r19 :: dict
-    r20 :: object
-    r21 :: dict
+    r20, r21 :: object
     r22 :: str
-    r23 :: object
-    r24 :: dict
-    r25 :: str
-    r26 :: object
-    r27 :: dict
-    r28 :: str
-    r29 :: object
-    r30 :: tuple[object, object]
-    r31, r32 :: object
-    r33 :: dict
-    r34 :: str
-    r35 :: object
-    r36 :: dict
-    r37 :: str
-    r38, r39 :: object
-    r40 :: tuple
+    r23 :: dict
+    r24 :: object
+    r25 :: dict
+    r26 :: str
+    r27 :: object
+    r28 :: dict
+    r29 :: str
+    r30 :: object
+    r31 :: dict
+    r32 :: str
+    r33 :: object
+    r34 :: tuple[object, object]
+    r35, r36 :: object
+    r37 :: dict
+    r38 :: str
+    r39 :: object
+    r40 :: dict
     r41 :: str
     r42, r43 :: object
-    r44, r45 :: str
-    r46 :: tuple
-    r47 :: i32
-    r48 :: bit
-    r49 :: dict
-    r50 :: str
+    r44 :: tuple
+    r45 :: str
+    r46, r47 :: object
+    r48, r49 :: str
+    r50 :: tuple
     r51 :: i32
     r52 :: bit
-    r53 :: None
+    r53 :: dict
+    r54 :: str
+    r55 :: i32
+    r56 :: bit
+    r57 :: None
 L0:
     r0 = builtins :: module
     r1 = load_address _Py_NoneStruct
@@ -420,127 +413,135 @@ L0:
 L1:
     r3 = 'builtins'
     r4 = PyImport_Import(r3)
-    if is_error(r4) goto L20 (error at <module>:-1) else goto L2
+    if is_error(r4) goto L21 (error at <module>:-1) else goto L2
 L2:
     builtins = r4 :: module
     dec_ref r4
 L3:
-    r5 = ('Callable', 'DefaultDict', 'Iterable', 'Optional')
-    r6 = 'typing'
+    r5 = ('defaultdict',)
+    r6 = 'collections'
     r7 = checksum_dict.default.globals :: static
     r8 = CPyImport_ImportFromMany(r6, r5, r5, r7)
-    if is_error(r8) goto L20 (error at <module>:1) else goto L4
+    if is_error(r8) goto L21 (error at <module>:1) else goto L4
 L4:
-    typing = r8 :: module
+    collections = r8 :: module
     dec_ref r8
-    r9 = ('ChecksumAddress',)
-    r10 = 'eth_typing'
+    r9 = ('Callable', 'DefaultDict', 'Iterable', 'Optional')
+    r10 = 'typing'
     r11 = checksum_dict.default.globals :: static
     r12 = CPyImport_ImportFromMany(r10, r9, r9, r11)
-    if is_error(r12) goto L20 (error at <module>:3) else goto L5
+    if is_error(r12) goto L21 (error at <module>:2) else goto L5
 L5:
-    eth_typing = r12 :: module
+    typing = r12 :: module
     dec_ref r12
-    r13 = ('mypyc_attr',)
-    r14 = 'mypy_extensions'
+    r13 = ('ChecksumAddress',)
+    r14 = 'eth_typing'
     r15 = checksum_dict.default.globals :: static
     r16 = CPyImport_ImportFromMany(r14, r13, r13, r15)
-    if is_error(r16) goto L20 (error at <module>:4) else goto L6
+    if is_error(r16) goto L21 (error at <module>:4) else goto L6
 L6:
-    mypy_extensions = r16 :: module
+    eth_typing = r16 :: module
     dec_ref r16
-    r17 = ('ChecksumAddressDict', 'T', '_SeedT')
-    r18 = 'checksum_dict.base'
+    r17 = ('mypyc_attr',)
+    r18 = 'mypy_extensions'
     r19 = checksum_dict.default.globals :: static
     r20 = CPyImport_ImportFromMany(r18, r17, r17, r19)
-    if is_error(r20) goto L20 (error at <module>:6) else goto L7
+    if is_error(r20) goto L21 (error at <module>:5) else goto L7
 L7:
-    checksum_dict.base = r20 :: module
+    mypy_extensions = r20 :: module
     dec_ref r20
-    r21 = checksum_dict.default.globals :: static
-    r22 = 'DefaultDict'
-    r23 = CPyDict_GetItem(r21, r22)
-    if is_error(r23) goto L20 (error at <module>:10) else goto L8
+    r21 = ('ChecksumAddressDict', 'T', '_SeedT')
+    r22 = 'checksum_dict.base'
+    r23 = checksum_dict.default.globals :: static
+    r24 = CPyImport_ImportFromMany(r22, r21, r21, r23)
+    if is_error(r24) goto L21 (error at <module>:7) else goto L8
 L8:
-    r24 = checksum_dict.default.globals :: static
-    r25 = 'ChecksumAddress'
-    r26 = CPyDict_GetItem(r24, r25)
-    if is_error(r26) goto L21 (error at <module>:10) else goto L9
+    checksum_dict.base = r24 :: module
+    dec_ref r24
+    r25 = checksum_dict.default.globals :: static
+    r26 = 'DefaultDict'
+    r27 = CPyDict_GetItem(r25, r26)
+    if is_error(r27) goto L21 (error at <module>:11) else goto L9
 L9:
-    r27 = checksum_dict.default.globals :: static
-    r28 = 'T'
-    r29 = CPyDict_GetItem(r27, r28)
-    if is_error(r29) goto L22 (error at <module>:10) else goto L10
+    r28 = checksum_dict.default.globals :: static
+    r29 = 'ChecksumAddress'
+    r30 = CPyDict_GetItem(r28, r29)
+    if is_error(r30) goto L22 (error at <module>:11) else goto L10
 L10:
-    r30 = (r26, r29)
-    r31 = box(tuple[object, object], r30)
-    r32 = PyObject_GetItem(r23, r31)
-    dec_ref r23
-    dec_ref r31
-    if is_error(r32) goto L20 (error at <module>:10) else goto L11
+    r31 = checksum_dict.default.globals :: static
+    r32 = 'T'
+    r33 = CPyDict_GetItem(r31, r32)
+    if is_error(r33) goto L23 (error at <module>:11) else goto L11
 L11:
-    r33 = checksum_dict.default.globals :: static
-    r34 = 'ChecksumAddressDict'
-    r35 = CPyDict_GetItem(r33, r34)
-    if is_error(r35) goto L23 (error at <module>:10) else goto L12
+    r34 = (r30, r33)
+    r35 = box(tuple[object, object], r34)
+    r36 = PyObject_GetItem(r27, r35)
+    dec_ref r27
+    dec_ref r35
+    if is_error(r36) goto L21 (error at <module>:11) else goto L12
 L12:
-    r36 = checksum_dict.default.globals :: static
-    r37 = 'T'
-    r38 = CPyDict_GetItem(r36, r37)
-    if is_error(r38) goto L24 (error at <module>:10) else goto L13
+    r37 = checksum_dict.default.globals :: static
+    r38 = 'ChecksumAddressDict'
+    r39 = CPyDict_GetItem(r37, r38)
+    if is_error(r39) goto L24 (error at <module>:11) else goto L13
 L13:
-    r39 = PyObject_GetItem(r35, r38)
-    dec_ref r35
-    dec_ref r38
-    if is_error(r39) goto L23 (error at <module>:10) else goto L14
+    r40 = checksum_dict.default.globals :: static
+    r41 = 'T'
+    r42 = CPyDict_GetItem(r40, r41)
+    if is_error(r42) goto L25 (error at <module>:11) else goto L14
 L14:
-    r40 = PyTuple_Pack(2, r32, r39)
-    dec_ref r32
+    r43 = PyObject_GetItem(r39, r42)
     dec_ref r39
-    if is_error(r40) goto L20 (error at <module>:10) else goto L15
+    dec_ref r42
+    if is_error(r43) goto L24 (error at <module>:11) else goto L15
 L15:
-    r41 = 'checksum_dict.default'
-    r42 = checksum_dict.default.DefaultChecksumDict_template :: type
-    r43 = CPyType_FromTemplate(r42, r40, r41)
-    dec_ref r40
-    if is_error(r43) goto L20 (error at <module>:10) else goto L16
+    r44 = PyTuple_Pack(2, r36, r43)
+    dec_ref r36
+    dec_ref r43
+    if is_error(r44) goto L21 (error at <module>:11) else goto L16
 L16:
-    r44 = '__mypyc_attrs__'
-    r45 = '__dict__'
-    r46 = PyTuple_Pack(1, r45)
-    if is_error(r46) goto L25 (error at <module>:10) else goto L17
+    r45 = 'checksum_dict.default'
+    r46 = checksum_dict.default.DefaultChecksumDict_template :: type
+    r47 = CPyType_FromTemplate(r46, r44, r45)
+    dec_ref r44
+    if is_error(r47) goto L21 (error at <module>:11) else goto L17
 L17:
-    r47 = PyObject_SetAttr(r43, r44, r46)
-    dec_ref r46
-    r48 = r47 >= 0 :: signed
-    if not r48 goto L25 (error at <module>:10) else goto L18 :: bool
+    r48 = '__mypyc_attrs__'
+    r49 = '__dict__'
+    r50 = PyTuple_Pack(1, r49)
+    if is_error(r50) goto L26 (error at <module>:11) else goto L18
 L18:
-    checksum_dict.default.DefaultChecksumDict = r43 :: type
-    r49 = checksum_dict.default.globals :: static
-    r50 = 'DefaultChecksumDict'
-    r51 = CPyDict_SetItem(r49, r50, r43)
-    dec_ref r43
+    r51 = PyObject_SetAttr(r47, r48, r50)
+    dec_ref r50
     r52 = r51 >= 0 :: signed
-    if not r52 goto L20 (error at <module>:10) else goto L19 :: bool
+    if not r52 goto L26 (error at <module>:11) else goto L19 :: bool
 L19:
-    return 1
+    checksum_dict.default.DefaultChecksumDict = r47 :: type
+    r53 = checksum_dict.default.globals :: static
+    r54 = 'DefaultChecksumDict'
+    r55 = CPyDict_SetItem(r53, r54, r47)
+    dec_ref r47
+    r56 = r55 >= 0 :: signed
+    if not r56 goto L21 (error at <module>:11) else goto L20 :: bool
 L20:
-    r53 = <error> :: None
-    return r53
+    return 1
 L21:
-    dec_ref r23
-    goto L20
+    r57 = <error> :: None
+    return r57
 L22:
-    dec_ref r23
-    dec_ref r26
-    goto L20
+    dec_ref r27
+    goto L21
 L23:
-    dec_ref r32
-    goto L20
+    dec_ref r27
+    dec_ref r30
+    goto L21
 L24:
-    dec_ref r32
-    dec_ref r35
-    goto L20
+    dec_ref r36
+    goto L21
 L25:
-    dec_ref r43
-    goto L20
+    dec_ref r36
+    dec_ref r39
+    goto L21
+L26:
+    dec_ref r47
+    goto L21
