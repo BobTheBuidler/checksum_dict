@@ -10,7 +10,7 @@ import cchecksum  # type: ignore [import-not-found]
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 
 
-to_checksum_address: Final = cchecksum.to_checksum_address
+to_checksum_address = cchecksum.to_checksum_address
 
 
 def attempt_checksum(value: Union[str, bytes]) -> ChecksumAddress:
