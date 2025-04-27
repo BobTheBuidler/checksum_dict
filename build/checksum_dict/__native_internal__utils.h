@@ -21,7 +21,6 @@ extern CPyModule *CPyModule_builtins;
 extern CPyModule *CPyModule_typing;
 extern CPyModule *CPyModule_cchecksum;
 extern CPyModule *CPyModule_eth_typing;
-extern PyObject *CPyStatic_to_checksum_address;
 extern PyObject *CPyDef_attempt_checksum(PyObject *cpy_r_value);
 extern PyObject *CPyPy_attempt_checksum(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern PyObject *CPyDef_checksum_or_raise(PyObject *cpy_r_string);
