@@ -52,6 +52,7 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
     See Also:
         - :class:`EthAddressKey` for details on how keys are checksummed.
     """
+
     @overload
     def __init__(self): ...
     @overload
