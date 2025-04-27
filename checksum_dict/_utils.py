@@ -4,22 +4,10 @@ The following code was ripped out of eth-brownie on 2022-Aug-06.
 A big thanks to the many maintainers and contributors for their valuable work!
 """
 
-from typing import TYPE_CHECKING, Final, Union
+from typing import Final, Union
 
 import cchecksum  # type: ignore [import-not-found]
-from eth_typing import Address, ChecksumAddress, HexAddress  # type: ignore [import-not-found]
-
-if TYPE_CHECKING:
-    import brownie  # type: ignore [import-not-found]
-    import y  # type: ignore [import-not-found]
-
-    Contract = Union[brownie.Contract, y.Contract]
-
-else:
-
-    Contract = Any
-
-AnyAddressOrContract = Union[Address, HexAddress, ChecksumAddress, Contract]
+from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 
 
 to_checksum_address: Final = cchecksum.to_checksum_address

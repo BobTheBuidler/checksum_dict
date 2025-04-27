@@ -11,24 +11,6 @@ typedef struct tuple_T3OOO {
 } tuple_T3OOO;
 #endif
 
-#ifndef MYPYC_DECLARED_tuple_T2OO
-#define MYPYC_DECLARED_tuple_T2OO
-typedef struct tuple_T2OO {
-    PyObject *f0;
-    PyObject *f1;
-} tuple_T2OO;
-#endif
-
-#ifndef MYPYC_DECLARED_tuple_T4OOOO
-#define MYPYC_DECLARED_tuple_T4OOOO
-typedef struct tuple_T4OOOO {
-    PyObject *f0;
-    PyObject *f1;
-    PyObject *f2;
-    PyObject *f3;
-} tuple_T4OOOO;
-#endif
-
 
 struct export_table_checksum_dict____utils {
     PyObject **CPyStatic_to_checksum_address;
