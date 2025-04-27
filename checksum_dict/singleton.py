@@ -49,6 +49,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
         self.__locks_lock: Final[threading.Lock] = threading.Lock()
 
     def __call__(self, address: AnyAddressOrContract, *args: Any, **kwargs: Any) -> T:  # type: ignore
+        # sourcery skip: use-contextlib-suppress
         """Create or retrieve a singleton instance for the given address.
 
         Args:
@@ -154,6 +155,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
         return self.__instances.get(str(address))  # type: ignore [call-overload, no-any-return]
 
     def delete_instance(self, address: AnyAddressOrContract) -> None:
+        # sourcery skip: use-contextlib-suppress
         """Delete the singleton instance for a given address, if it exists.
 
         Args:
@@ -188,6 +190,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             return self.__locks[address]
 
     def __delete_address_lock(self, address: AnyAddressOrContract) -> None:
+        # sourcery skip: use-contextlib-suppress
         """Delete the lock for an address once the instance is created.
 
         This method removes the lock for an address after the singleton instance
