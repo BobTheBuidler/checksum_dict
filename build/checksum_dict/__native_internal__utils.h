@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[57];
+extern PyObject *CPyStatics[28];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -18,19 +18,13 @@ extern CPyModule *CPyModule_checksum_dict____utils_internal;
 extern CPyModule *CPyModule_checksum_dict____utils;
 extern PyObject *CPyStatic_globals;
 extern CPyModule *CPyModule_builtins;
-extern CPyModule *CPyModule_binascii;
 extern CPyModule *CPyModule_typing;
 extern CPyModule *CPyModule_cchecksum;
 extern CPyModule *CPyModule_eth_typing;
-extern CPyModule *CPyModule_checksum_dict;
-extern PyObject *CPyStatic_HexBytes;
 extern PyObject *CPyStatic_to_checksum_address;
-extern PyObject *CPyStatic_unhexlify;
-extern PyObject *CPyDef_checksum_value(PyObject *cpy_r_value);
-extern PyObject *CPyPy_checksum_value(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
-extern PyObject *CPyDef_to_bytes(PyObject *cpy_r_val);
-extern PyObject *CPyPy_to_bytes(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
-extern PyObject *CPyDef_hexstr_to_bytes(PyObject *cpy_r_hexstr);
-extern PyObject *CPyPy_hexstr_to_bytes(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_attempt_checksum(PyObject *cpy_r_value);
+extern PyObject *CPyPy_attempt_checksum(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_checksum_or_raise(PyObject *cpy_r_string);
+extern PyObject *CPyPy_checksum_or_raise(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef___top_level__(void);
 #endif

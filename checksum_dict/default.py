@@ -37,7 +37,7 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
     See Also:
         - :class:`~checksum_dict.base.ChecksumAddressDict`
         - :class:`collections.DefaultDict`
-        - :func:`checksum_value` for details on how keys are checksummed.
+        - :func:`attempt_checksum` for details on how keys are checksummed.
     """
 
     def __init__(self, default: Callable[[], T], seed: Optional[_SeedT[T]] = None) -> None:
@@ -59,7 +59,7 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
 
         Example:
             >>> d = DefaultChecksumDict(int)
-            >>> key = checksum_value("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
+            >>> key = attempt_checksum("0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb")
             >>> d._setitem_nochecksum(key, 100)
             >>> print(d._getitem_nochecksum(key))
             100

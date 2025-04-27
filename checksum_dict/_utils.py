@@ -4,13 +4,10 @@ The following code was ripped out of eth-brownie on 2022-Aug-06.
 A big thanks to the many maintainers and contributors for their valuable work!
 """
 
-import binascii
 from typing import TYPE_CHECKING, Final, Union
 
 import cchecksum  # type: ignore [import-not-found]
-from eth_typing import Address, ChecksumAddress, HexAddress, HexStr  # type: ignore [import-not-found]
-
-from checksum_dict import _hexbytes
+from eth_typing import Address, ChecksumAddress, HexAddress  # type: ignore [import-not-found]
 
 
 AnyAddressOrContract = Union[Address, HexAddress, ChecksumAddress]
@@ -23,115 +20,21 @@ if TYPE_CHECKING:
     AnyAddressOrContract = Union[AnyAddressOrContract, brownie.Contract, y.Contract]  # type: ignore [misc]
 
 
-HexBytes: Final = _hexbytes.HexBytes
-
 to_checksum_address: Final = cchecksum.to_checksum_address
-unhexlify: Final = binascii.unhexlify
 
 
-def checksum_value(value: Union[str, bytes]) -> ChecksumAddress:
+def attempt_checksum(value: Union[str, bytes]) -> ChecksumAddress:
+    # sourcery skip: merge-duplicate-blocks
     if isinstance(value, str):
-        converted_value = value if value.startswith(("0x", "0X")) else f"0x{value}"
-    else:
-        val_type = type(value)
-        if val_type is bytes:
-            converted_value = f"0x{value.hex()}"  # type: ignore [assignment]
-        # we have our own implementation of HexBytes and also want our code to work with the original
-        elif val_type.__name__ == "HexBytes":
-            converted_value = value.hex()  # type: ignore [assignment]
-        else:
-            converted_value = f"0x{value.hex()}"  # type: ignore [assignment]
+        return checksum_or_raise(value)
+    elif type(value) is bytes:  # only actual bytes type, mypyc will optimize this
+        return checksum_or_raise(value.hex())
+    else:  # other bytes types, mypyc will not optimize this
+        return checksum_or_raise(value.hex())
+
+
+def checksum_or_raise(string: str) -> ChecksumAddress:
     try:
-        return to_checksum_address(converted_value)
+        return to_checksum_address(string)
     except ValueError as e:
-        raise ValueError(f"'{converted_value}' is not a valid ETH address") from e
-
-
-def to_bytes(val: Union[bool, bytearray, bytes, int, str]) -> bytes:
-    """
-    Convert a value to its bytes representation.
-
-    This function is equivalent to `eth_utils.hexstr_if_str(eth_utils.to_bytes, val)`.
-    It can convert a hex string, integer, or boolean to a bytes representation.
-    Alternatively, it passes through bytes or bytearray as a bytes value.
-
-    Args:
-        val: The value to convert, which can be a bool, bytearray, bytes, int, or str.
-
-    Raises:
-        ValueError: If the integer is negative.
-        TypeError: If the value is of an unsupported type.
-
-    Examples:
-        Convert a hex string to bytes:
-
-        >>> to_bytes("0x1234")
-        b'\x124'
-
-        Convert an integer to bytes:
-
-        >>> to_bytes(4660)
-        b'\x124'
-
-        Convert a boolean to bytes:
-
-        >>> to_bytes(True)
-        b'\x01'
-    """
-    if isinstance(val, bytes):
-        return val
-    elif isinstance(val, str):
-        return hexstr_to_bytes(val)
-    elif isinstance(val, bytearray):
-        return bytes(val)
-    elif isinstance(val, bool):
-        return b"\x01" if val else b"\x00"
-    elif isinstance(val, int):
-        # Note that this int check must come after the bool check, because
-        #   isinstance(True, int) is True
-        if val < 0:
-            raise ValueError(f"Cannot convert negative integer {val} to bytes")
-        else:
-            return to_bytes(hex(val))
-    else:
-        raise TypeError(f"Cannot convert {val!r} of type {type(val)} to bytes")
-
-
-def hexstr_to_bytes(hexstr: str) -> bytes:
-    """
-    Convert a hex string to bytes.
-
-    Args:
-        hexstr: The hex string to convert.
-
-    Raises:
-        ValueError: If the hex string contains invalid characters.
-
-    Examples:
-        Convert a hex string with a prefix:
-
-        >>> hexstr_to_bytes("0x1234")
-        b'\x124'
-
-        Convert a hex string without a prefix:
-
-        >>> hexstr_to_bytes("1234")
-        b'\x124'
-    """
-    if hexstr.startswith("0x") or hexstr.startswith("0X"):
-        non_prefixed_hex = hexstr[2:]
-    else:
-        non_prefixed_hex = hexstr
-
-    # if the hex string is odd-length, then left-pad it to an even length
-    if len(hexstr) % 2:
-        padded_hex = "0" + non_prefixed_hex
-    else:
-        padded_hex = non_prefixed_hex
-
-    try:
-        ascii_hex = padded_hex.encode("ascii")
-    except UnicodeDecodeError:
-        raise ValueError(f"hex string {padded_hex} may only contain [0-9a-fA-F] characters")
-    else:
-        return unhexlify(ascii_hex)
+        raise ValueError(f"'{string}' is not a valid ETH address") from e
