@@ -74,22 +74,22 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
         # sourcery skip: use-contextlib-suppress
         try:
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
-            return super().__getitem__(key)  # type: ignore [index]
+            return dict.__getitem__(self, key)  # type: ignore [misc]
         except KeyError:
             # NOTE: passing instead of checksumming here lets us keep a clean exc chain
             pass
 
         try:
-            return super().__getitem__(attempt_checksum(key))
+            return dict.__getitem__(self, attempt_checksum(key))
         except KeyError as e:
             raise exceptions.KeyError(*e.args) from e.__cause__
 
     def __setitem__(self, key: AnyAddressOrContract, value: T) -> None:
         if key in self:
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
-            super().__setitem__(key, value)  # type: ignore [index]
+            dict.__setitem__(self, key, value)  # type: ignore [misc]
         else:
-            super().__setitem__(attempt_checksum(key), value)
+            dict.__setitem__(self, attempt_checksum(key), value)
 
     def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
         """
@@ -109,7 +109,7 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
             >>> d._getitem_nochecksum(key)
             True
         """
-        return super().__getitem__(key)
+        return dict.__getitem__(self, key)
 
     def _setitem_nochecksum(self, key: ChecksumAddress, value: T) -> None:
         """
@@ -135,4 +135,4 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
         """
         if not key.startswith("0x") or len(key) != 42:
             raise ValueError(f"'{key}' is not a valid ETH address")
-        super().__setitem__(key, value)
+        dict.__setitem__(self, key, value)
