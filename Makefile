@@ -9,5 +9,5 @@ docs:
 
 mypyc:
 	mypyc checksum_dict/_utils.py --strict --pretty --disable-error-code unused-ignore
-	mypyc checksum_dict/base.py --strict --pretty
+	mypyc checksum_dict/base.py --strict --pretty --disable-error-code unused-ignore
 	mypyc checksum_dict/default.py --strict --pretty
