@@ -9,10 +9,8 @@ from typing import TYPE_CHECKING, Any, Final, Union
 import cchecksum
 from eth_typing import ChecksumAddress
 
-from checksum_dict import _typing
+from checksum_dict._typing import Contract
 
-
-Contract: Final = None if _typing.Contract is Any else _typing.Contract
 
 # must not be Final so it can be redefined with lru cache in ypricemagic
 to_checksum_address = cchecksum.to_checksum_address
@@ -20,14 +18,13 @@ to_checksum_address = cchecksum.to_checksum_address
 
 def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:
     # sourcery skip: merge-duplicate-blocks
-    valtype = type(value)
     if isinstance(value, str):
         return checksum_or_raise(value)
+    elif (valtype := type(value)) is bytes:  # only actual bytes type, mypyc will optimize this
+        return checksum_or_raise(value.hex())
     elif valtype.__name__ == "Contract":
         # already checksummed
         return value.address  # type: ignore [union-attr]
-    elif valtype is bytes:  # only actual bytes type, mypyc will optimize this
-        return checksum_or_raise(value.hex())
     else:  # other bytes types, mypyc will not optimize this
         return checksum_or_raise(value.hex())
 
