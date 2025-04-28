@@ -81,7 +81,10 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
             pass
 
         try:
-            return dict.__getitem__(self, attempt_checksum(key))
+            try:
+                return dict.__getitem__(self, attempt_checksum(key))
+            except TypeError:
+                return dict.__getitem__(self, attempt_checksum(str(key)))
         except KeyError as e:
             raise exceptions.KeyError(*e.args) from e.__cause__
 
@@ -93,7 +96,7 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
             try:
                 dict.__setitem__(self, attempt_checksum(key), value)
             except TypeError:
-                dict.__setitem__(self, str(attempt_checksum(key)), value)
+                dict.__setitem__(self, attempt_checksum(str(key)), value)
 
     def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
         """
