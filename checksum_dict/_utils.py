@@ -6,8 +6,8 @@ A big thanks to the many maintainers and contributors for their valuable work!
 
 from typing import TYPE_CHECKING, Any, Final, Union
 
-import cchecksum  # type: ignore [import-not-found]
-from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
+import cchecksum
+from eth_typing import ChecksumAddress
 
 from checksum_dict import _typing
 
@@ -18,7 +18,7 @@ Contract: Final = None if _typing.Contract is Any else _typing.Contract
 to_checksum_address = cchecksum.to_checksum_address
 
 
-def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:  # type: ignore [valid-type]
+def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:
     # sourcery skip: merge-duplicate-blocks
     valtype = type(value)
     if isinstance(value, str):
