@@ -9,8 +9,7 @@ from typing import TYPE_CHECKING, Final, Union
 import cchecksum  # type: ignore [import-not-found]
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 
-if TYPE_CHECKING:
-    from brownie import Contract
+from checksum_dict._typing import Contract
 
 
 # must not be Final so it can be redefined with lru cache in ypricemagic
