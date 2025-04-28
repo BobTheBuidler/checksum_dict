@@ -4,7 +4,7 @@ The following code was ripped out of eth-brownie on 2022-Aug-06.
 A big thanks to the many maintainers and contributors for their valuable work!
 """
 
-from typing import TYPE_CHECKING, Any, Final, Union
+from typing import Union
 
 import cchecksum
 from eth_typing import ChecksumAddress
