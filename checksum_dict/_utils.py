@@ -18,7 +18,7 @@ Contract: Final = None if _typing.Contract is Any else _typing.Contract
 to_checksum_address = cchecksum.to_checksum_address
 
 
-def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:
+def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:  # type: ignore [valid-type]
     # sourcery skip: merge-duplicate-blocks
     if isinstance(value, str):
         return checksum_or_raise(value)
