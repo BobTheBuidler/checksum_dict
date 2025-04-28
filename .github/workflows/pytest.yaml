@@ -40,7 +40,7 @@ jobs:
           python-version: ${{ matrix.pyversion }}
 
       - name: Install pytest
-        run: pip install pytest
+        run: pip install -r requirements-dev.txt
 
       - name: Install checksum_dict
         run: |
