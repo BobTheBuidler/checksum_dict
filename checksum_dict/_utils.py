@@ -12,7 +12,7 @@ from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from checksum_dict import _typing
 
 
-Contract: Final = None if Contract is Any else Contract
+Contract: Final = None if _typing.Contract is Any else _typing.Contract
 
 # must not be Final so it can be redefined with lru cache in ypricemagic
 to_checksum_address = cchecksum.to_checksum_address
