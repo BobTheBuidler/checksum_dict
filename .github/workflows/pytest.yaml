@@ -48,4 +48,6 @@ jobs:
           pip install -e .
       
       - name: Run test suite
+        env:
+          PYTEST_NETWORK: mainnet
         run: pytest
