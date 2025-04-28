@@ -44,7 +44,7 @@ jobs:
       
       - name: Setup brownie networks
         run: |
-          brownie networks modify mainnet host=${{ secrets[WEB3_PROVIDER] }}
+          brownie networks modify mainnet host=${{ secrets["WEB3_PROVIDER"] }}
         continue-on-error: true
 
       - name: Install checksum_dict
@@ -55,5 +55,5 @@ jobs:
       - name: Run test suite
         env:
           PYTEST_NETWORK: mainnet
-          ETHERSCAN_TOKEN: ${{ secrets[ETHERSCAN_TOKEN] }}
+          ETHERSCAN_TOKEN: ${{ secrets["ETHERSCAN_TOKEN"] }}
         run: pytest
