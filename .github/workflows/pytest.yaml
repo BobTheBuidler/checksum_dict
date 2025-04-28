@@ -41,6 +41,11 @@ jobs:
 
       - name: Install pytest
         run: pip install -r requirements-dev.txt
+      
+      - name: Setup brownie networks
+        run: |
+          brownie networks modify mainnet host=${{ secrets[WEB3_PROVIDER] }}
+        continue-on-error: true
 
       - name: Install checksum_dict
         run: |
