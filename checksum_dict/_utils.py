@@ -20,7 +20,7 @@ def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:
     # sourcery skip: merge-duplicate-blocks
     if isinstance(value, str):
         return checksum_or_raise(value)
-    elif isinstance(value, Contract):
+    elif Contract is not Any and isinstance(value, Contract):
         # already checksummed
         return value.address
     elif type(value) is bytes:  # only actual bytes type, mypyc will optimize this
