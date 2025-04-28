@@ -13,7 +13,6 @@ typedef struct tuple_T3OOO {
 
 
 struct export_table_checksum_dict____utils {
-    PyObject **CPyStatic_Contract;
     PyObject *(*CPyDef_attempt_checksum)(PyObject *cpy_r_value);
     PyObject *(*CPyDef_checksum_or_raise)(PyObject *cpy_r_string);
     char (*CPyDef___top_level__)(void);
