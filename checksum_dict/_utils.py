@@ -22,9 +22,9 @@ def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:
     # sourcery skip: merge-duplicate-blocks
     if isinstance(value, str):
         return checksum_or_raise(value)
-    elif Contract is not None and isinstance(value, Contract):
+    elif Contract is not None and isinstance(value, Contract):  # type: ignore [arg-type]
         # already checksummed
-        return value.address
+        return value.address  # type: ignore [union-attr]
     elif type(value) is bytes:  # only actual bytes type, mypyc will optimize this
         return checksum_or_raise(value.hex())
     else:  # other bytes types, mypyc will not optimize this
