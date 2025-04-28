@@ -90,7 +90,10 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
             # It is ~700x faster to perform this check and then skip the checksum if we find a result for this key
             dict.__setitem__(self, key, value)  # type: ignore [misc]
         else:
-            dict.__setitem__(self, attempt_checksum(key), value)
+            try:
+                dict.__setitem__(self, attempt_checksum(key), value)
+            except TypeError:
+                dict.__setitem__(self, str(attempt_checksum(key)), value)
 
     def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
         """
