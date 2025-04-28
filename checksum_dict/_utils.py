@@ -20,12 +20,13 @@ to_checksum_address = cchecksum.to_checksum_address
 
 def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:  # type: ignore [valid-type]
     # sourcery skip: merge-duplicate-blocks
+    valtype = type(value)
     if isinstance(value, str):
         return checksum_or_raise(value)
-    elif Contract is not None and isinstance(value, Contract):  # type: ignore [arg-type]
+    elif valtype.__name__ == "Contract":
         # already checksummed
         return value.address  # type: ignore [union-attr]
-    elif type(value) is bytes:  # only actual bytes type, mypyc will optimize this
+    elif valtype is bytes:  # only actual bytes type, mypyc will optimize this
         return checksum_or_raise(value.hex())
     else:  # other bytes types, mypyc will not optimize this
         return checksum_or_raise(value.hex())
