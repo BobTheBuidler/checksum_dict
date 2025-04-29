@@ -1,3 +1,4 @@
+from glob import glob
 from pathlib import Path
 from setuptools import setup, find_packages
 
@@ -23,4 +24,6 @@ setup(
     install_requires=["cchecksum>=0.0.3", "mypy_extensions>=0.4.2"],
     package_data={"checksum_dict": ["py.typed"]},
     include_package_data=True,
+    data_files=[("", [*glob("*.so"), *glob("*.pyd")])],
+    zip_safe=False,
 )
