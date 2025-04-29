@@ -38,3 +38,4 @@ def checksum_or_raise(string: str) -> ChecksumAddress:
         return to_checksum_address(string)
     except ValueError as e:
         raise ValueError(f"'{string}' is not a valid ETH address") from e
+
