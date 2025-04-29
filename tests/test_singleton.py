@@ -1,10 +1,11 @@
 import pytest
+from cchecksum import to_checksum_address
 
 from checksum_dict import ChecksumAddressSingletonMeta, exceptions
 
 
 ADDRESS = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"
-
+CHECKSUMMED = to_checksum_address(ADDRESS)
 
 @pytest.mark.parametrize(
     "address, expected",
@@ -104,11 +105,14 @@ def test_singleton_delitem():
     instance = MySingleton(ADDRESS)
 
     # Act
-    del MySingleton[ADDRESS]
+    with pytest.raises(exceptions.KeyError):
+        del MySingleton[ADDRESS]
+    
+    del MySingleton[CHECKSUMMED]
 
     # Assert
     with pytest.raises(exceptions.KeyError):
-        MySingleton[ADDRESS]
+        MySingleton[CHECKSUMMED]
 
 
 def test_singleton_delete_instance():
@@ -120,19 +124,16 @@ def test_singleton_delete_instance():
     instance = MySingleton(ADDRESS)
 
     # Act
-    MySingleton.delete_instance(ADDRESS)
+    MySingleton.delete_instance(CHECKSUMMED)
 
     # Assert - Does not fail when calling delete_instance again
-    MySingleton.delete_instance(ADDRESS)
+    MySingleton.delete_instance(CHECKSUMMED)
 
 
 @pytest.mark.parametrize(
     "address, expected",
     [
-        (
-            "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb",
-            "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb",
-        ),  # id: get_instance-success
+        (ADDRESS, CHECKSUMMED),  # id: get_instance-success
         ("0x0000000000000000000000000000000000000000", None),  # id: get_instance-not-found
     ],
 )
@@ -143,15 +144,18 @@ def test_singleton_get_instance(address, expected):
             self.address = address
 
     if expected:
+        # Act
         instance = MySingleton(address)
+        retrieved_instance = MySingleton.get_instance(expected)
 
-    # Act
-    retrieved_instance = MySingleton.get_instance(address)
-
-    # Assert
-    if expected:
+        # Assert
+        assert retrieved_instance is instance
         assert retrieved_instance.address == expected
     else:
+        # Act
+        retrieved_instance = MySingleton.get_instance(CHECKSUMMED)
+
+        # Assert
         assert retrieved_instance is None
 
 
@@ -162,6 +166,7 @@ def test_singleton_delete_instance():
             self.address = address
 
     instance = MySingleton(ADDRESS)
+    )
 
     # Act
     MySingleton.delete_instance(ADDRESS)
