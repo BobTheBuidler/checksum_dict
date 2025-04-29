@@ -16,7 +16,9 @@ if TYPE_CHECKING:
     from y import ERC20
 
 
-# I do this hacky thing to help out mypyc
+# I do this hacky thing to help out mypyc.
+# If I try to conditionally define `Contract` and `ERC20` the compiler fails.
+# So I do this instead.
 _KNOWN_CHECKSUMMED_TYPES: Final[Dict[type, bool]] = {}
 
 # must not be Final so it can be redefined with lru cache in ypricemagic
