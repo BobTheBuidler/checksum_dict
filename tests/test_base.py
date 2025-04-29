@@ -53,7 +53,7 @@ def test_checksum_address_dict_set_and_get(key, value, expected):
     "key, expected_error",
     [
         ("0x123", ValueError),  # id: invalid-address-length
-        (123, TypeError),  # id: invalid-address-type
+        (123, AttributeError),  # id: invalid-address-type
     ],
 )
 def test_checksum_address_dict_get_error(key, expected_error):
