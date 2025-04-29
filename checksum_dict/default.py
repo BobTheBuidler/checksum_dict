@@ -79,9 +79,11 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
         # this might prevent a segfault?
         if isinstance(type_args, type) and cls is not DefaultChecksumDict:
             return type(
-                f"DefaultChecksumDict[{type_args.__name__}]", 
-                (_TypedDefaultChecksumDict, ), 
-                {"default": type_args, },
+                f"DefaultChecksumDict[{type_args.__name__}]",
+                (_TypedDefaultChecksumDict,),
+                {
+                    "default": type_args,
+                },
             )
         else:
             return super().__class_getitem__(type_args)
