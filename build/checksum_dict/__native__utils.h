@@ -13,8 +13,10 @@ typedef struct tuple_T3OOO {
 
 
 struct export_table_checksum_dict____utils {
+    PyObject **CPyStatic__KNOWN_CHECKSUMMED_TYPES;
     PyObject *(*CPyDef_attempt_checksum)(PyObject *cpy_r_value);
     PyObject *(*CPyDef_checksum_or_raise)(PyObject *cpy_r_string);
+    char (*CPyDef__type_has_checksum_addr)(PyObject *cpy_r_typ);
     char (*CPyDef___top_level__)(void);
 };
 #endif

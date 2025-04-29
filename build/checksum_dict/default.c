@@ -4,11 +4,11 @@ PyMODINIT_FUNC
 PyInit_default(void)
 {
     PyObject *tmp;
-    if (!(tmp = PyImport_ImportModule("3fed2dd976ff832859ee__mypyc"))) return NULL;
+    if (!(tmp = PyImport_ImportModule("checksum_dict.default__mypyc"))) return NULL;
     PyObject *capsule = PyObject_GetAttrString(tmp, "init_checksum_dict___default");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "3fed2dd976ff832859ee__mypyc.init_checksum_dict___default");
+    void *init_func = PyCapsule_GetPointer(capsule, "checksum_dict.default__mypyc.init_checksum_dict___default");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;
