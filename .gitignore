@@ -7,7 +7,9 @@ cache
 checksum_dict.egg-info
 dist
 env
-
+*.so
+*.pyd
+ops.txt
 build/lib.linux-x86_64-3.8/
 build/lib.linux-x86_64-3.9/
 build/lib.linux-x86_64-cpython-310/
