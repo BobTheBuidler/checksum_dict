@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Callable, DefaultDict, Iterable, Optional
+from typing import Callable, DefaultDict, ItemsView, Iterable, KeysView, Optional, ValuesView
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
@@ -73,3 +73,13 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
         default = self.default_factory()  # type: ignore
         self._setitem_nochecksum(key, default)
         return default
+
+    # these just help resolve an issue in the mypyc compiler
+    def keys(self) -> KeysView[ChecksumAddress]:  # type: ignore [override]
+        return dict.keys(self)
+
+    def values(self) -> ValuesView[T]:  # type: ignore [override]
+        return dict.values(self)
+
+    def items(self) -> ItemsView[ChecksumAddress, T]:  # type: ignore [override]
+        return dict.items(self)

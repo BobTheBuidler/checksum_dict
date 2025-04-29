@@ -1,7 +1,7 @@
 from checksum_dict import DefaultChecksumDict
 
 
-def test_checksum_address_dict_keys():
+def test_default_checksum_dict_keys():
     # Arrange
     dcd = DefaultChecksumDict(int)
 
@@ -19,7 +19,7 @@ def test_checksum_address_dict_keys():
     assert list(keys) == ["0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"]
 
 
-def test_checksum_address_dict_values():
+def test_default_checksum_dict_values():
     # Arrange
     dcd = DefaultChecksumDict(int)
 
@@ -37,7 +37,7 @@ def test_checksum_address_dict_values():
     assert list(values) == [1]
 
 
-def test_checksum_address_dict_items():
+def test_default_checksum_dict_items():
     # Arrange
     dcd = DefaultChecksumDict(int)
 
