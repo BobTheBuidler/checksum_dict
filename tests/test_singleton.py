@@ -166,7 +166,6 @@ def test_singleton_delete_instance():
             self.address = address
 
     instance = MySingleton(ADDRESS)
-    )
 
     # Act
     MySingleton.delete_instance(ADDRESS)
