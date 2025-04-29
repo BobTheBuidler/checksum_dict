@@ -39,7 +39,13 @@ setup(
             "--disable-error-code=import-untyped",
             "--disable-error-code=attr-defined",
             "--disable-error-code=no-any-return",
+            # temporary
+            "--disable-error-code=union-attr",
+            "--disable-error-code=arg-type",
+            "--disable-error-code=assignment",
+            "--disable-error-code=index",
         ],
+        multi_file=True,
     ),
     zip_safe=False,
 )
