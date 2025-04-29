@@ -44,7 +44,7 @@ def checksum_or_raise(string: str) -> ChecksumAddress:
         raise ValueError(f"'{string}' is not a valid ETH address") from e
 
 
-def _type_has_checksum_addr(typ: Type) -> bool:
+def _type_has_checksum_addr(typ: Type) -> bool:  # type: ignore [type-arg]
     has_checksum_addr = _KNOWN_CHECKSUMMED_TYPES.get(typ)
     if has_checksum_addr is None:
         has_checksum_addr = typ.__name__ in {"Contract", "ERC20"} and typ.__module__.split(".")[
