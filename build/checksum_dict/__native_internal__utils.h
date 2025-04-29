@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[25];
+extern PyObject *CPyStatics[39];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -21,10 +21,13 @@ extern CPyModule *CPyModule_builtins;
 extern CPyModule *CPyModule_typing;
 extern CPyModule *CPyModule_cchecksum;
 extern CPyModule *CPyModule_eth_typing;
-extern CPyModule *CPyModule_checksum_dict____typing;
+extern CPyModule *CPyModule_checksum_dict;
+extern PyObject *CPyStatic__KNOWN_CHECKSUMMED_TYPES;
 extern PyObject *CPyDef_attempt_checksum(PyObject *cpy_r_value);
 extern PyObject *CPyPy_attempt_checksum(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern PyObject *CPyDef_checksum_or_raise(PyObject *cpy_r_string);
 extern PyObject *CPyPy_checksum_or_raise(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef__type_has_checksum_addr(PyObject *cpy_r_typ);
+extern PyObject *CPyPy__type_has_checksum_addr(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef___top_level__(void);
 #endif
