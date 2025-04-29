@@ -1,3 +1,4 @@
+import os
 from glob import glob
 from pathlib import Path
 from setuptools import setup, find_packages
@@ -40,6 +41,7 @@ setup(
             "--disable-error-code=attr-defined",
             "--disable-error-code=no-any-return",
         ],
+        debug_level=os.environ.get("MYPYC_DEBUG_LEVEL", "0"),
     ),
     zip_safe=False,
 )
