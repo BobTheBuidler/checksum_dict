@@ -21,7 +21,7 @@ setup(
         "version_scheme": "python-simplified-semver",
     },
     setup_requires=["setuptools_scm"],
-    install_requires=["cchecksum>=0.0.3", "mypy_extensions>=0.4.2"],
+    install_requires=["cchecksum>=0.0.3", "mypy_extensions>=0.4.2", "typing_extensions>=4.12.0"],
     package_data={"checksum_dict": ["py.typed"]},
     include_package_data=True,
     data_files=[("", [*glob("*.so"), *glob("*.pyd")])],
