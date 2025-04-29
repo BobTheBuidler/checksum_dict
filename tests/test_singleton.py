@@ -61,7 +61,6 @@ def test_singleton_getitem(address, expected):
             self.address = address
 
     instance = MySingleton(address)
-    MySingleton[address] = instance
 
     # Act
     retrieved_instance = MySingleton[address]
@@ -88,10 +87,8 @@ def test_singleton_setitem():
         def __init__(self, address):
             self.address = address
 
-    instance = MySingleton(ADDRESS)
-
     # Act
-    MySingleton[ADDRESS] = instance
+    instance = MySingleton(ADDRESS)
 
     # Assert
     assert MySingleton[ADDRESS] is instance
@@ -146,7 +143,6 @@ def test_singleton_get_instance(address, expected):
 
     if expected:
         instance = MySingleton(address)
-        MySingleton[address] = instance
 
     # Act
     retrieved_instance = MySingleton.get_instance(address)
@@ -165,7 +161,6 @@ def test_singleton_delete_instance():
             self.address = address
 
     instance = MySingleton(ADDRESS)
-    MySingleton[ADDRESS] = instance
 
     # Act
     MySingleton.delete_instance(ADDRESS)
