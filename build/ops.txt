@@ -15,39 +15,43 @@ def attempt_checksum(value):
     r14 :: union[object, str]
     r15 :: str
     r16 :: object
-    r17 :: str
-    r18 :: object
-    r19, r20 :: str
-    r21 :: i32
-    r22 :: bit
-    r23 :: object
-    r24, r25, r26 :: bit
-    r27 :: object
-    r28 :: str
-    r29, r30 :: object
-    r31 :: str
-    r32 :: object[1]
-    r33 :: object_ptr
-    r34 :: object
-    r35 :: union[object, str]
-    r36 :: str
-    r37, r38 :: object
+    r17 :: dict
+    r18 :: str
+    r19 :: object
+    r20 :: dict
+    r21 :: str
+    r22 :: object
+    r23 :: tuple[object, object]
+    r24 :: object
+    r25 :: i32
+    r26 :: bit
+    r27 :: bool
+    r28 :: object
+    r29 :: str
+    r30, r31 :: object
+    r32 :: str
+    r33 :: object[1]
+    r34 :: object_ptr
+    r35 :: object
+    r36 :: union[object, str]
+    r37 :: str
+    r38, r39 :: object
 L0:
     r0 = load_address PyUnicode_Type
     r1 = PyObject_IsInstance(value, r0)
     r2 = r1 >= 0 :: signed
-    if not r2 goto L25 (error at attempt_checksum:21) else goto L1 :: bool
+    if not r2 goto L23 (error at attempt_checksum:25) else goto L1 :: bool
 L1:
     r3 = truncate r1: i32 to builtins.bool
     if r3 goto L2 else goto L5 :: bool
 L2:
     inc_ref value
     r4 = cast(str, value)
-    if is_error(r4) goto L25 (error at attempt_checksum:22) else goto L3
+    if is_error(r4) goto L23 (error at attempt_checksum:26) else goto L3
 L3:
     r5 = checksum_or_raise(r4)
     dec_ref r4
-    if is_error(r5) goto L25 (error at attempt_checksum:22) else goto L4
+    if is_error(r5) goto L23 (error at attempt_checksum:26) else goto L4
 L4:
     return r5
 L5:
@@ -56,7 +60,7 @@ L5:
     r7 = load_address PyBytes_Type
     r8 = r6 == r7
     dec_ref r6
-    if r8 goto L26 else goto L11 :: bool
+    if r8 goto L24 else goto L11 :: bool
 L6:
     inc_ref value
     r9 = value
@@ -64,85 +68,89 @@ L6:
     r11 = [r9]
     r12 = load_address r11
     r13 = PyObject_VectorcallMethod(r10, r12, 9223372036854775809, 0)
-    if is_error(r13) goto L27 (error at attempt_checksum:24) else goto L7
+    if is_error(r13) goto L25 (error at attempt_checksum:28) else goto L7
 L7:
     dec_ref r9
     r14 = r13
 L8:
     r15 = cast(str, r14)
-    if is_error(r15) goto L25 (error at attempt_checksum:24) else goto L9
+    if is_error(r15) goto L23 (error at attempt_checksum:28) else goto L9
 L9:
     r16 = checksum_or_raise(r15)
     dec_ref r15
-    if is_error(r16) goto L25 (error at attempt_checksum:24) else goto L10
+    if is_error(r16) goto L23 (error at attempt_checksum:28) else goto L10
 L10:
     return r16
 L11:
-    r17 = '__name__'
-    r18 = CPyObject_GetAttr(r6, r17)
-    dec_ref r6
-    if is_error(r18) goto L25 (error at attempt_checksum:25) else goto L12
+    r17 = checksum_dict._utils.globals :: static
+    r18 = 'Contract'
+    r19 = CPyDict_GetItem(r17, r18)
+    if is_error(r19) goto L26 (error at attempt_checksum:29) else goto L12
 L12:
-    r19 = cast(str, r18)
-    if is_error(r19) goto L25 (error at attempt_checksum:25) else goto L13
+    r20 = checksum_dict._utils.globals :: static
+    r21 = 'ERC20'
+    r22 = CPyDict_GetItem(r20, r21)
+    if is_error(r22) goto L27 (error at attempt_checksum:29) else goto L13
 L13:
-    r20 = 'Contract'
-    r21 = PyUnicode_Compare(r19, r20)
-    dec_ref r19
-    r22 = r21 == -1
-    if r22 goto L14 else goto L16 :: bool
+    r23 = (r19, r22)
+    r24 = box(tuple[object, object], r23)
+    r25 = PyObject_IsInstance(r6, r24)
+    dec_ref r6
+    dec_ref r24
+    r26 = r25 >= 0 :: signed
+    if not r26 goto L23 (error at attempt_checksum:29) else goto L14 :: bool
 L14:
-    r23 = PyErr_Occurred()
-    r24 = r23 != 0
-    if r24 goto L15 else goto L16 :: bool
+    r27 = truncate r25: i32 to builtins.bool
+    if r27 goto L15 else goto L18 :: bool
 L15:
-    r25 = CPy_KeepPropagating()
-    if not r25 goto L25 (error at attempt_checksum:25) else goto L16 :: bool
+    inc_ref value
+    r28 = value
+    r29 = 'address'
+    r30 = CPyObject_GetAttr(r28, r29)
+    dec_ref r28
+    if is_error(r30) goto L23 (error at attempt_checksum:31) else goto L16
 L16:
-    r26 = r21 == 0
-    if r26 goto L17 else goto L20 :: bool
 L17:
-    inc_ref value
-    r27 = value
-    r28 = 'address'
-    r29 = CPyObject_GetAttr(r27, r28)
-    dec_ref r27
-    if is_error(r29) goto L25 (error at attempt_checksum:27) else goto L18
+    return r30
 L18:
-L19:
-    return r29
-L20:
     inc_ref value
-    r30 = value
-    r31 = 'hex'
-    r32 = [r30]
-    r33 = load_address r32
-    r34 = PyObject_VectorcallMethod(r31, r33, 9223372036854775809, 0)
-    if is_error(r34) goto L28 (error at attempt_checksum:29) else goto L21
+    r31 = value
+    r32 = 'hex'
+    r33 = [r31]
+    r34 = load_address r33
+    r35 = PyObject_VectorcallMethod(r32, r34, 9223372036854775809, 0)
+    if is_error(r35) goto L28 (error at attempt_checksum:33) else goto L19
+L19:
+    dec_ref r31
+    r36 = r35
+L20:
+    r37 = cast(str, r36)
+    if is_error(r37) goto L23 (error at attempt_checksum:33) else goto L21
 L21:
-    dec_ref r30
-    r35 = r34
+    r38 = checksum_or_raise(r37)
+    dec_ref r37
+    if is_error(r38) goto L23 (error at attempt_checksum:33) else goto L22
 L22:
-    r36 = cast(str, r35)
-    if is_error(r36) goto L25 (error at attempt_checksum:29) else goto L23
-L23:
-    r37 = checksum_or_raise(r36)
-    dec_ref r36
-    if is_error(r37) goto L25 (error at attempt_checksum:29) else goto L24
-L24:
-    return r37
-L25:
-    r38 = <error> :: object
     return r38
-L26:
+L23:
+    r39 = <error> :: object
+    return r39
+L24:
     dec_ref r6
     goto L6
-L27:
+L25:
     dec_ref r9
-    goto L25
+    goto L23
+L26:
+    dec_ref r6
+    goto L23
+L27:
+    dec_ref r6
+    dec_ref r19
+    goto L23
 L28:
-    dec_ref r30
-    goto L25
+    dec_ref r31
+    goto L23
 
 def checksum_or_raise(string):
     string :: str
@@ -172,13 +180,13 @@ L1:
     r0 = checksum_dict._utils.globals :: static
     r1 = 'to_checksum_address'
     r2 = CPyDict_GetItem(r0, r1)
-    if is_error(r2) goto L4 (error at checksum_or_raise:34) else goto L2
+    if is_error(r2) goto L4 (error at checksum_or_raise:38) else goto L2
 L2:
     r3 = [string]
     r4 = load_address r3
     r5 = _PyObject_Vectorcall(r2, r4, 1, 0)
     dec_ref r2
-    if is_error(r5) goto L4 (error at checksum_or_raise:34) else goto L3
+    if is_error(r5) goto L4 (error at checksum_or_raise:38) else goto L3
 L3:
     return r5
 L4:
@@ -186,7 +194,7 @@ L4:
     r7 = builtins :: module
     r8 = 'ValueError'
     r9 = CPyObject_GetAttr(r7, r8)
-    if is_error(r9) goto L13 (error at checksum_or_raise:35) else goto L5
+    if is_error(r9) goto L13 (error at checksum_or_raise:39) else goto L5
 L5:
     r10 = CPy_ExceptionMatches(r9)
     dec_ref r9
@@ -197,23 +205,23 @@ L6:
     r12 = "'"
     r13 = "' is not a valid ETH address"
     r14 = CPyStr_Build(3, r12, string, r13)
-    if is_error(r14) goto L13 (error at checksum_or_raise:36) else goto L7
+    if is_error(r14) goto L13 (error at checksum_or_raise:40) else goto L7
 L7:
     r15 = builtins :: module
     r16 = 'ValueError'
     r17 = CPyObject_GetAttr(r15, r16)
-    if is_error(r17) goto L16 (error at checksum_or_raise:36) else goto L8
+    if is_error(r17) goto L16 (error at checksum_or_raise:40) else goto L8
 L8:
     r18 = [r14]
     r19 = load_address r18
     r20 = _PyObject_Vectorcall(r17, r19, 1, 0)
     dec_ref r17
-    if is_error(r20) goto L16 (error at checksum_or_raise:36) else goto L9
+    if is_error(r20) goto L16 (error at checksum_or_raise:40) else goto L9
 L9:
     dec_ref r14
     CPy_Raise(r20)
     dec_ref r20
-    if not 0 goto L13 (error at checksum_or_raise:36) else goto L17 :: bool
+    if not 0 goto L13 (error at checksum_or_raise:40) else goto L17 :: bool
 L10:
     unreachable
 L11:
@@ -264,17 +272,33 @@ def __top_level__():
     r22, r23 :: object
     r24 :: str
     r25 :: dict
-    r26 :: object
-    r27 :: dict
+    r26, r27 :: object
     r28 :: str
-    r29 :: object
-    r30 :: str
-    r31 :: object
-    r32 :: dict
-    r33 :: str
-    r34 :: i32
-    r35 :: bit
-    r36 :: None
+    r29 :: dict
+    r30, r31 :: object
+    r32 :: str
+    r33 :: object
+    r34 :: dict
+    r35 :: str
+    r36 :: i32
+    r37 :: bit
+    r38 :: object
+    r39 :: str
+    r40 :: object
+    r41 :: dict
+    r42 :: str
+    r43 :: i32
+    r44 :: bit
+    r45 :: dict
+    r46 :: str
+    r47 :: object
+    r48 :: str
+    r49 :: object
+    r50 :: dict
+    r51 :: str
+    r52 :: i32
+    r53 :: bit
+    r54 :: None
 L0:
     r0 = builtins :: module
     r1 = load_address _Py_NoneStruct
@@ -283,16 +307,16 @@ L0:
 L1:
     r3 = 'builtins'
     r4 = PyImport_Import(r3)
-    if is_error(r4) goto L11 (error at <module>:-1) else goto L2
+    if is_error(r4) goto L16 (error at <module>:-1) else goto L2
 L2:
     builtins = r4 :: module
     dec_ref r4
 L3:
-    r5 = ('Union',)
+    r5 = ('Final', 'Union')
     r6 = 'typing'
     r7 = checksum_dict._utils.globals :: static
     r8 = CPyImport_ImportFromMany(r6, r5, r5, r7)
-    if is_error(r8) goto L11 (error at <module>:7) else goto L4
+    if is_error(r8) goto L16 (error at <module>:7) else goto L4
 L4:
     typing = r8 :: module
     dec_ref r8
@@ -303,48 +327,82 @@ L4:
     r13 = load_address r12
     r14 = (('cchecksum', 'cchecksum', 'cchecksum'),)
     r15 = checksum_dict._utils.globals :: static
-    r16 = 'checksum_dict\\_utils.py'
+    r16 = 'checksum_dict/_utils.py'
     r17 = '<module>'
     r18 = CPyImport_ImportMany(r14, r11, r15, r16, r17, r13)
-    if not r18 goto L11 else goto L5 :: bool
+    if not r18 goto L16 else goto L5 :: bool
 L5:
     r19 = ('ChecksumAddress',)
     r20 = 'eth_typing'
     r21 = checksum_dict._utils.globals :: static
     r22 = CPyImport_ImportFromMany(r20, r19, r19, r21)
-    if is_error(r22) goto L11 (error at <module>:10) else goto L6
+    if is_error(r22) goto L16 (error at <module>:10) else goto L6
 L6:
     eth_typing = r22 :: module
     dec_ref r22
-    r23 = ('Contract',)
-    r24 = 'checksum_dict._typing'
+    r23 = ('_typing',)
+    r24 = 'checksum_dict'
     r25 = checksum_dict._utils.globals :: static
     r26 = CPyImport_ImportFromMany(r24, r23, r23, r25)
-    if is_error(r26) goto L11 (error at <module>:12) else goto L7
+    if is_error(r26) goto L16 (error at <module>:12) else goto L7
 L7:
-    checksum_dict._typing = r26 :: module
+    checksum_dict = r26 :: module
     dec_ref r26
-    r27 = checksum_dict._utils.globals :: static
-    r28 = 'cchecksum'
-    r29 = CPyDict_GetItem(r27, r28)
-    if is_error(r29) goto L11 (error at <module>:16) else goto L8
+    r27 = ('Contract', 'ERC20')
+    r28 = 'checksum_dict._typing'
+    r29 = checksum_dict._utils.globals :: static
+    r30 = CPyImport_ImportFromMany(r28, r27, r27, r29)
+    if is_error(r30) goto L16 (error at <module>:13) else goto L8
 L8:
-    r30 = 'to_checksum_address'
-    r31 = CPyObject_GetAttr(r29, r30)
-    dec_ref r29
-    if is_error(r31) goto L11 (error at <module>:16) else goto L9
+    checksum_dict._typing = r30 :: module
+    dec_ref r30
+    r31 = checksum_dict._typing :: module
+    r32 = 'Contract'
+    r33 = CPyObject_GetAttr(r31, r32)
+    if is_error(r33) goto L16 (error at <module>:16) else goto L9
 L9:
-    r32 = checksum_dict._utils.globals :: static
-    r33 = 'to_checksum_address'
-    r34 = CPyDict_SetItem(r32, r33, r31)
-    dec_ref r31
-    r35 = r34 >= 0 :: signed
-    if not r35 goto L11 (error at <module>:16) else goto L10 :: bool
+    checksum_dict._utils.Contract = r33 :: static
+    r34 = checksum_dict._utils.globals :: static
+    r35 = 'Contract'
+    r36 = CPyDict_SetItem(r34, r35, r33)
+    dec_ref r33
+    r37 = r36 >= 0 :: signed
+    if not r37 goto L16 (error at <module>:16) else goto L10 :: bool
 L10:
-    return 1
+    r38 = checksum_dict._typing :: module
+    r39 = 'ERC20'
+    r40 = CPyObject_GetAttr(r38, r39)
+    if is_error(r40) goto L16 (error at <module>:17) else goto L11
 L11:
-    r36 = <error> :: None
-    return r36
+    checksum_dict._utils.ERC20 = r40 :: static
+    r41 = checksum_dict._utils.globals :: static
+    r42 = 'ERC20'
+    r43 = CPyDict_SetItem(r41, r42, r40)
+    dec_ref r40
+    r44 = r43 >= 0 :: signed
+    if not r44 goto L16 (error at <module>:17) else goto L12 :: bool
+L12:
+    r45 = checksum_dict._utils.globals :: static
+    r46 = 'cchecksum'
+    r47 = CPyDict_GetItem(r45, r46)
+    if is_error(r47) goto L16 (error at <module>:20) else goto L13
+L13:
+    r48 = 'to_checksum_address'
+    r49 = CPyObject_GetAttr(r47, r48)
+    dec_ref r47
+    if is_error(r49) goto L16 (error at <module>:20) else goto L14
+L14:
+    r50 = checksum_dict._utils.globals :: static
+    r51 = 'to_checksum_address'
+    r52 = CPyDict_SetItem(r50, r51, r49)
+    dec_ref r49
+    r53 = r52 >= 0 :: signed
+    if not r53 goto L16 (error at <module>:20) else goto L15 :: bool
+L15:
+    return 1
+L16:
+    r54 = <error> :: None
+    return r54
 
 def ChecksumAddressDict.__init__(self, seed):
     self :: dict

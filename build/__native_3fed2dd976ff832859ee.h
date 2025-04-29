@@ -2,6 +2,14 @@
 #define MYPYC_NATIVE_3fed2dd976ff832859ee_H
 #include <Python.h>
 #include <CPy.h>
+#ifndef MYPYC_DECLARED_tuple_T2OO
+#define MYPYC_DECLARED_tuple_T2OO
+typedef struct tuple_T2OO {
+    PyObject *f0;
+    PyObject *f1;
+} tuple_T2OO;
+#endif
+
 #ifndef MYPYC_DECLARED_tuple_T3OOO
 #define MYPYC_DECLARED_tuple_T3OOO
 typedef struct tuple_T3OOO {
@@ -21,14 +29,6 @@ typedef struct tuple_T4CIOO {
 } tuple_T4CIOO;
 #endif
 
-#ifndef MYPYC_DECLARED_tuple_T2OO
-#define MYPYC_DECLARED_tuple_T2OO
-typedef struct tuple_T2OO {
-    PyObject *f0;
-    PyObject *f1;
-} tuple_T2OO;
-#endif
-
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
@@ -41,6 +41,8 @@ typedef struct {
 
 
 struct export_table_3fed2dd976ff832859ee {
+    PyObject **CPyStatic__utils___Contract;
+    PyObject **CPyStatic__utils___ERC20;
     PyObject *(*CPyDef__utils___attempt_checksum)(PyObject *cpy_r_value);
     PyObject *(*CPyDef__utils___checksum_or_raise)(PyObject *cpy_r_string);
     char (*CPyDef__utils_____top_level__)(void);
