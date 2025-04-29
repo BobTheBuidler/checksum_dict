@@ -23,7 +23,7 @@ setup(
     },
     setup_requires=["setuptools_scm"],
     install_requires=["cchecksum>=0.0.3", "mypy_extensions>=0.4.2"],
-    package_data={"checksum_dict": ["py.typed"], "": ["*.so", "*.pyd"]},
+    package_data={"checksum_dict": ["py.typed"], "": [*glob("*.so"), *glob("*.pyd")]},
     include_package_data=True,
     # data_files=[("", [*glob("*.so"), *glob("*.pyd")])],
     zip_safe=False,
