@@ -8,7 +8,7 @@ from checksum_dict.base import ChecksumAddressDict, T, _SeedT
 
 
 @mypyc_attr(allow_interpreted_subclasses=True)
-class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T]):
+class DefaultChecksumDict(ChecksumAddressDict[T], DefaultDict[ChecksumAddress, T]):
     """
     A defaultdict that maps Ethereum addresses to objects.
 
