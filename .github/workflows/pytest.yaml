@@ -48,6 +48,8 @@ jobs:
         continue-on-error: true
 
       - name: Install checksum_dict
+        env:
+          MYPYC_DEBUG_LEVEL: 2
         run: |
           pip install "eth-hash[pysha3]"
           pip install -e .
