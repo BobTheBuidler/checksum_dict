@@ -22,9 +22,9 @@ def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:
         return checksum_or_raise(value)
     elif (valtype := type(value)) is bytes:  # only actual bytes type, mypyc will optimize this
         return checksum_or_raise(value.hex())
-    elif valtype.__name__ == "Contract":
+    elif isinstance(valtype, (Contract, ERC20)):
         # already checksummed
-        return value.address  # type: ignore [union-attr]
+        return value.address
     else:  # other bytes types, mypyc will not optimize this
         return checksum_or_raise(value.hex())
 
