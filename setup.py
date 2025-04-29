@@ -40,6 +40,7 @@ setup(
             "--disable-error-code=attr-defined",
             "--disable-error-code=no-any-return",
         ],
+        multi_file=True,
     ),
     zip_safe=False,
 )
