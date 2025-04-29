@@ -9,7 +9,7 @@ from typing import Union
 import cchecksum
 from eth_typing import ChecksumAddress
 
-from checksum_dict._typing import Contract
+from checksum_dict._typing import Contract, ERC20
 
 
 # must not be Final so it can be redefined with lru cache in ypricemagic
