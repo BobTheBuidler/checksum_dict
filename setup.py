@@ -40,7 +40,7 @@ setup(
             "--disable-error-code=attr-defined",
             "--disable-error-code=no-any-return",
         ],
-        debug_level=2,
+        debug_level="2",
     ),
     zip_safe=False,
 )
