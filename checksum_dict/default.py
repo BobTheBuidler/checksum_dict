@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Callable, DefaultDict, Iterable, Optional
+from typing import Callable, DefaultDict, Final, Iterable, Optional
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
@@ -73,3 +73,8 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
         default = self.default_factory()  # type: ignore
         self._setitem_nochecksum(key, default)
         return default
+
+    # these just help resolve an issue in the mypyc compiler
+    keys: Final = dict.keys
+    values: Final = dict.values
+    items: Final = dict.items

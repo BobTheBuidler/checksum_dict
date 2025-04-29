@@ -153,7 +153,7 @@ def test_checksum_address_dict_items():
 
 def test_subclass_dict_keys():
     # Arrange
-    class Subclass(ChecksumAddressDict):
+    class Subclass(ChecksumAddressDict[bool]):
         pass
 
     subcls = Subclass({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True})
@@ -167,7 +167,7 @@ def test_subclass_dict_keys():
 
 def test_subclass_dict_values():
     # Arrange
-    class Subclass(ChecksumAddressDict):
+    class Subclass(ChecksumAddressDict[bool]):
         pass
 
     subcls = Subclass({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True})
@@ -181,7 +181,7 @@ def test_subclass_dict_values():
 
 def test_subclass_dict_items():
     # Arrange
-    class Subclass(ChecksumAddressDict):
+    class Subclass(ChecksumAddressDict[bool]):
         pass
 
     subcls = Subclass({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True})
