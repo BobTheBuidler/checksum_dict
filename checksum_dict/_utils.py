@@ -13,8 +13,8 @@ from checksum_dict import _typing
 from checksum_dict._typing import Contract, ERC20
 
 
-Contract: Final = _typing.Contract
-ERC20: Final = _typing.ERC20
+Contract: Final = _typing.Contract  # type: ignore [misc]
+ERC20: Final = _typing.ERC20  # type: ignore [misc]
 
 # must not be Final so it can be redefined with lru cache in ypricemagic
 to_checksum_address = cchecksum.to_checksum_address
