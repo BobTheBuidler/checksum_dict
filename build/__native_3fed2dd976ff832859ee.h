@@ -41,8 +41,10 @@ typedef struct {
 
 
 struct export_table_3fed2dd976ff832859ee {
+    PyObject **CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES;
     PyObject *(*CPyDef__utils___attempt_checksum)(PyObject *cpy_r_value);
     PyObject *(*CPyDef__utils___checksum_or_raise)(PyObject *cpy_r_string);
+    char (*CPyDef__utils____type_has_checksum_addr)(PyObject *cpy_r_typ);
     char (*CPyDef__utils_____top_level__)(void);
     PyTypeObject **CPyType_base___ChecksumAddressDict;
     char (*CPyDef_base___ChecksumAddressDict_____init__)(PyObject *cpy_r_self, PyObject *cpy_r_seed);
