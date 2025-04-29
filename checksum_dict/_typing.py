@@ -16,11 +16,11 @@ if TYPE_CHECKING:
 else:
 
     @runtime_checkable
-    class Contract(_AddressHaver):
+    class Contract(Protocol):
         address: ChecksumAddress
 
     @runtime_checkable
-    class ERC20(_AddressHaver):
+    class ERC20(Protocol):
         address: ChecksumAddress
 
 
