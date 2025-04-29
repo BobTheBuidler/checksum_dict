@@ -47,8 +47,8 @@ def checksum_or_raise(string: str) -> ChecksumAddress:
 def _type_has_checksum_addr(typ: Type) -> bool:
     has_checksum_addr = _KNOWN_CHECKSUMMED_TYPES.get(typ)
     if has_checksum_addr is None:
-        has_checksum_addr = typ.__name__ in {"Contract", "ERC20"} and typ.__module__.split(
-            "."
-        )[0] in {"brownie", "dank_mids", "y"}
+        has_checksum_addr = typ.__name__ in {"Contract", "ERC20"} and typ.__module__.split(".")[
+            0
+        ] in {"brownie", "dank_mids", "y"}
         _KNOWN_CHECKSUMMED_TYPES[typ] = has_checksum_addr
     return has_checksum_addr

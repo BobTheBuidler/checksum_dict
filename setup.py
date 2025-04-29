@@ -27,4 +27,3 @@ setup(
     data_files=[("", [*glob("*.so"), *glob("*.pyd")])],
     zip_safe=False,
 )
-
