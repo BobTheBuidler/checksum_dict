@@ -7,6 +7,7 @@ from checksum_dict import ChecksumAddressSingletonMeta, exceptions
 ADDRESS = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb"
 CHECKSUMMED = to_checksum_address(ADDRESS)
 
+
 @pytest.mark.parametrize(
     "address, expected",
     [
@@ -107,7 +108,7 @@ def test_singleton_delitem():
     # Act
     with pytest.raises(exceptions.KeyError):
         del MySingleton[ADDRESS]
-    
+
     del MySingleton[CHECKSUMMED]
 
     # Assert
