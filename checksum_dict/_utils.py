@@ -32,7 +32,7 @@ def attempt_checksum(value: Union[str, bytes, "Contract", "ERC20"]) -> ChecksumA
     elif (valtype := type(value)) is bytes:  # only actual bytes type, mypyc will optimize this
         return checksum_or_raise(value.hex())
     elif _type_has_checksum_addr(valtype):
-        return value.address  # type: ignore [union-attr]
+        return value.address  # type: ignore [union-attr, return-value]
     elif hasattr(valtype, "address"):
         return checksum_or_raise(value.address)  # type: ignore [union-attr]
     else:  # other bytes types, mypyc will not optimize this

@@ -2,6 +2,8 @@ from glob import glob
 from pathlib import Path
 from setuptools import setup, find_packages
 
+from mypyc.build import mypycify
+
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
@@ -20,10 +22,24 @@ setup(
         "local_scheme": "no-local-version",
         "version_scheme": "python-simplified-semver",
     },
-    setup_requires=["setuptools_scm"],
+    setup_requires=["setuptools_scm", "mypy", "mypy_extensions"],
     install_requires=["cchecksum>=0.0.3", "mypy_extensions>=0.4.2"],
     package_data={"checksum_dict": ["py.typed"]},
     include_package_data=True,
-    data_files=[("", [*glob("*.so"), *glob("*.pyd")])],
+    ext_modules=mypycify(
+        [
+            "checksum_dict/_utils.py",
+            "checksum_dict/base.py",
+            "checksum_dict/default.py",
+            "--strict",
+            "--pretty",
+            "--install-types",
+            "--disable-error-code=unused-ignore",
+            "--disable-error-code=import-not-found",
+            "--disable-error-code=import-untyped",
+            "--disable-error-code=attr-defined",
+            "--disable-error-code=no-any-return",
+        ],
+    ),
     zip_safe=False,
 )
