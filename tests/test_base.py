@@ -116,3 +116,78 @@ def test_checksum_address_dict_repr():
         representation
         == "ChecksumAddressDict({'0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB': True})"
     )
+
+
+def test_checksum_address_dict_keys():
+    # Arrange
+    cad = ChecksumAddressDict({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True})
+
+    # Act
+    keys = cad.keys()
+
+    # Assert
+    assert list(keys) == ["0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"]
+
+
+def test_checksum_address_dict_values():
+    # Arrange
+    cad = ChecksumAddressDict({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True})
+
+    # Act
+    values = cad.values()
+
+    # Assert
+    assert list(values) == [True]
+
+
+def test_checksum_address_dict_items():
+    # Arrange
+    cad = ChecksumAddressDict({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True})
+
+    # Act
+    items = cad.items()
+
+    # Assert
+    assert list(items) == [("0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB", True)]
+
+
+def test_subclass_dict_keys():
+    # Arrange
+    class Subclass(ChecksumAddressDict):
+        pass
+
+    subcls = Subclass({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True})
+
+    # Act
+    keys = subcls.keys()
+
+    # Assert
+    assert list(keys) == ["0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"]
+
+
+def test_subclass_dict_values():
+    # Arrange
+    class Subclass(ChecksumAddressDict):
+        pass
+
+    subcls = Subclass({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True})
+
+    # Act
+    values = subcls.values()
+
+    # Assert
+    assert list(values) == [True]
+
+
+def test_subclass_dict_items():
+    # Arrange
+    class Subclass(ChecksumAddressDict):
+        pass
+
+    subcls = Subclass({"0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb": True})
+
+    # Act
+    items = subcls.items()
+
+    # Assert
+    assert list(items) == [("0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB", True)]
