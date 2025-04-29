@@ -22,6 +22,7 @@ _KNOWN_CHECKSUMMED_TYPES: Final[Dict[type, bool]] = {}
 # must not be Final so it can be redefined with lru cache in ypricemagic
 to_checksum_address = cchecksum.to_checksum_address
 
+
 def attempt_checksum(value: Union[str, bytes, "Contract", "ERC20"]) -> ChecksumAddress:
     # sourcery skip: merge-duplicate-blocks
     if isinstance(value, str):
@@ -46,9 +47,8 @@ def checksum_or_raise(string: str) -> ChecksumAddress:
 def _type_has_checksum_addr(typ: Type) -> bool:
     has_checksum_addr = _KNOWN_CHECKSUMMED_TYPES.get(typ)
     if has_checksum_addr is None:
-        has_checksum_addr = (
-            valtype.__name__ in {"Contract", "ERC20"}
-            and valtype.__module__.split(".")[0] in {"brownie", "dank_mids", "y"}
-        )
+        has_checksum_addr = valtype.__name__ in {"Contract", "ERC20"} and valtype.__module__.split(
+            "."
+        )[0] in {"brownie", "dank_mids", "y"}
         _KNOWN_CHECKSUMMED_TYPES[typ] = has_checksum_addr
     return has_checksum_addr
