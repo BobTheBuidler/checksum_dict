@@ -122,19 +122,23 @@ def test_singleton_delete_instance():
             self.address = address
 
     instance = MySingleton(ADDRESS)
+    assert MySingleton.get_instance(CHECKSUMMED) is instance
 
     # Act
     MySingleton.delete_instance(CHECKSUMMED)
 
-    # Assert - Does not fail when calling delete_instance again
+    # Assert
+    assert MySingleton.get_instance(CHECKSUMMED) is None
+
+    # Act & Assert - deleting a non-existent instance should not raise an error
     MySingleton.delete_instance(CHECKSUMMED)
 
 
 @pytest.mark.parametrize(
     "address, expected",
     [
-        (ADDRESS, CHECKSUMMED),  # id: get_instance-success
-        ("0x0000000000000000000000000000000000000000", None),  # id: get_instance-not-found
+        (ADDRESS, True),  # id: get_instance-success
+        ("0x0000000000000000000000000000000000000000", False),  # id: get_instance-not-found
     ],
 )
 def test_singleton_get_instance(address, expected):
@@ -146,32 +150,19 @@ def test_singleton_get_instance(address, expected):
     if expected:
         # Act
         instance = MySingleton(address)
-        retrieved_instance = MySingleton.get_instance(expected)
+
+        # Assert - Non checksummed address should not return instance
+        assert MySingleton.get_instance(ADDRESS) is None
+
+        # Act
+        retrieved_instance = MySingleton.get_instance(CHECKSUMMED)
 
         # Assert
         assert retrieved_instance is instance
-        assert retrieved_instance.address == expected
+        assert retrieved_instance.address == CHECKSUMMED
     else:
         # Act
         retrieved_instance = MySingleton.get_instance(CHECKSUMMED)
 
         # Assert
         assert retrieved_instance is None
-
-
-def test_singleton_delete_instance():
-    # Arrange
-    class MySingleton(metaclass=ChecksumAddressSingletonMeta):
-        def __init__(self, address):
-            self.address = address
-
-    instance = MySingleton(ADDRESS)
-
-    # Act
-    MySingleton.delete_instance(ADDRESS)
-
-    # Assert
-    assert MySingleton.get_instance(ADDRESS) is None
-
-    # Act & Assert - deleting a non-existent instance should not raise an error
-    MySingleton.delete_instance(ADDRESS)
