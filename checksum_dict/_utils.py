@@ -4,13 +4,17 @@ The following code was ripped out of eth-brownie on 2022-Aug-06.
 A big thanks to the many maintainers and contributors for their valuable work!
 """
 
-from typing import Union
+from typing import Final, Union
 
 import cchecksum
 from eth_typing import ChecksumAddress
 
+from checksum_dict import _typing
 from checksum_dict._typing import Contract, ERC20
 
+
+Contract: Final = _typing.Contract
+ERC20: Final = _typing.ERC20
 
 # must not be Final so it can be redefined with lru cache in ypricemagic
 to_checksum_address = cchecksum.to_checksum_address
@@ -24,7 +28,7 @@ def attempt_checksum(value: Union[str, bytes, Contract]) -> ChecksumAddress:
         return checksum_or_raise(value.hex())
     elif isinstance(valtype, (Contract, ERC20)):
         # already checksummed
-        return value.address
+        return value.address  # type: ignore [union-attr]
     else:  # other bytes types, mypyc will not optimize this
         return checksum_or_raise(value.hex())
 
