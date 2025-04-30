@@ -51,7 +51,7 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
                 self[key] = value  # type: ignore [assignment]
 
     def keys(self: Mapping[ChecksumAddress, T]) -> KeysType[T]:
-        return dict.keys(self)
+        return dict.keys(self)  # type: ignore [arg-type]
 
     def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
         """
