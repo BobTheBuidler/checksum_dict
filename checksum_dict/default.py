@@ -50,7 +50,7 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
             for key, value in seed:
                 self[key] = value  # type: ignore [assignment]
 
-    def keys(self: Mapping[ChecksumAddress, T]) -> KeysView[T]:
+    def keys(self: Mapping[ChecksumAddress, T]) -> KeysView[T]:  # type: ignore [override]
         return dict.keys(self)  # type: ignore [arg-type]
 
     def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
