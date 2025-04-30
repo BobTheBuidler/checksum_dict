@@ -63,6 +63,8 @@ struct export_table_3fed2dd976ff832859ee {
     PyTypeObject **CPyType_default___DefaultChecksumDict;
     char (*CPyDef_default___DefaultChecksumDict_____init__)(PyObject *cpy_r_self, PyObject *cpy_r_default, PyObject *cpy_r_seed);
     char (*CPyDef_default___DefaultChecksumDict_____init___3__DefaultChecksumDict_glue)(PyObject *cpy_r_self, PyObject *cpy_r_default, PyObject *cpy_r_seed);
+    PyObject *(*CPyDef_default___DefaultChecksumDict___keys)(PyObject *cpy_r_self);
+    PyObject *(*CPyDef_default___DefaultChecksumDict___keys__DefaultChecksumDict_glue)(PyObject *cpy_r_self);
     PyObject *(*CPyDef_default___DefaultChecksumDict____getitem_nochecksum)(PyObject *cpy_r_self, PyObject *cpy_r_key);
     PyObject *(*CPyDef_default___DefaultChecksumDict____getitem_nochecksum__DefaultChecksumDict_glue)(PyObject *cpy_r_self, PyObject *cpy_r_key);
     char (*CPyDef_default_____top_level__)(void);
