@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Callable, DefaultDict, Iterable, KeysType, Mapping, Optional
+from typing import Callable, DefaultDict, Iterable, KeysView, Mapping, Optional
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
@@ -50,7 +50,7 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
             for key, value in seed:
                 self[key] = value  # type: ignore [assignment]
 
-    def keys(self: Mapping[ChecksumAddress, T]) -> KeysType[T]:
+    def keys(self: Mapping[ChecksumAddress, T]) -> KeysView[T]:
         return dict.keys(self)  # type: ignore [arg-type]
 
     def _getitem_nochecksum(self, key: ChecksumAddress) -> T:
