@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools","wheel","mypy[mypyc]"]
+requires = ["setuptools", "wheel", "setuptools_scm", "mypy[mypyc]"]
 
 [tool.black]
 line-length = 100
