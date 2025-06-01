@@ -32,7 +32,6 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
 
     See Also:
         - :class:`ChecksumAddressDict` for the underlying dictionary implementation.
-        - :class:`EthAddressKey` for details on how keys are checksummed.
     """
 
     def __init__(self, name: str, bases: Tuple[type, ...], namespace: Dict[str, Any]) -> None:

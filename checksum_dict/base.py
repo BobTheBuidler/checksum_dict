@@ -25,7 +25,7 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
     the dictionary is initialized without any entries.
 
     Note:
-        This implementation uses a :mod:`cchecksum`'s Cython implementation for checksumming to optimize
+        This implementation uses :mod:`cchecksum`'s Cython implementation for checksumming to optimize
         performance over the standard :func:`eth_utils.to_checksum_address`.
 
     Examples:
@@ -49,9 +49,6 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
         >>> d[lower] = False
         >>> print(d[lower])
         False
-
-    See Also:
-        - :class:`EthAddressKey` for details on how keys are checksummed.
     """
 
     @overload
@@ -101,11 +98,11 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
         in your code.
 
         Args:
-            key (EthAddressKey): The checksummed Ethereum address key.
+            key: The checksummed Ethereum address key.
 
         Examples:
             >>> d = ChecksumAddressDict()
-            >>> key = EthAddressKey("0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB")
+            >>> key = "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"
             >>> d._setitem_nochecksum(key, True)
             >>> d._getitem_nochecksum(key)
             True
@@ -121,15 +118,15 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
         in your code.
 
         Args:
-            key (EthAddressKey): The checksummed Ethereum address key.
-            value (T): The value to associate with the key.
+            key: The checksummed Ethereum address key.
+            value: The value to associate with the key.
 
         Raises:
             ValueError: If the key is not a valid Ethereum address.
 
         Examples:
             >>> d = ChecksumAddressDict()
-            >>> key = EthAddressKey("0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB")
+            >>> key = "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"
             >>> d._setitem_nochecksum(key, True)
             >>> d[key]
             True
