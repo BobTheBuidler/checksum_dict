@@ -312,7 +312,7 @@ PyObject *CPyDef__utils___checksum_or_raise(PyObject *cpy_r_string) {
     }
     PyObject *cpy_r_r3[1] = {cpy_r_string};
     cpy_r_r4 = (PyObject **)&cpy_r_r3;
-    cpy_r_r5 = _PyObject_Vectorcall(cpy_r_r2, cpy_r_r4, 1, 0);
+    cpy_r_r5 = PyObject_Vectorcall(cpy_r_r2, cpy_r_r4, 1, 0);
     CPy_DECREF(cpy_r_r2);
     if (unlikely(cpy_r_r5 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "checksum_or_raise", 44, CPyStatic__utils___globals);
@@ -349,7 +349,7 @@ CPyL4: ;
     }
     PyObject *cpy_r_r18[1] = {cpy_r_r14};
     cpy_r_r19 = (PyObject **)&cpy_r_r18;
-    cpy_r_r20 = _PyObject_Vectorcall(cpy_r_r17, cpy_r_r19, 1, 0);
+    cpy_r_r20 = PyObject_Vectorcall(cpy_r_r17, cpy_r_r19, 1, 0);
     CPy_DecRef(cpy_r_r17);
     if (unlikely(cpy_r_r20 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "checksum_or_raise", 46, CPyStatic__utils___globals);
@@ -494,7 +494,7 @@ __LL2: ;
     } else
         goto CPyL23;
 CPyL6: ;
-    cpy_r_r6 = CPyStatics[82]; /* frozenset({'Contract', 'ERC20'}) */
+    cpy_r_r6 = CPyStatics[82]; /* frozenset({'ERC20', 'Contract'}) */
     cpy_r_r7 = CPyStatics[11]; /* '__name__' */
     cpy_r_r8 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -540,7 +540,7 @@ CPyL11: ;
         goto CPyL25;
     }
     cpy_r_r20 = CPyList_GetItemShort(cpy_r_r19, 0);
-    CPy_DECREF(cpy_r_r19);
+    CPy_DECREF_NO_IMM(cpy_r_r19);
     if (unlikely(cpy_r_r20 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals);
         goto CPyL25;
@@ -562,7 +562,6 @@ CPyL11: ;
     cpy_r_r13 = cpy_r_r24;
 CPyL18: ;
     cpy_r_r25 = cpy_r_r13 ? Py_True : Py_False;
-    CPy_INCREF(cpy_r_r25);
     cpy_r_has_checksum_addr = cpy_r_r25;
     if (unlikely(!PyBool_Check(cpy_r_has_checksum_addr))) {
         CPy_TypeError("bool", cpy_r_has_checksum_addr); cpy_r_r26 = 2;
@@ -955,7 +954,6 @@ char CPyDef_base___ChecksumAddressDict_____init__(PyObject *cpy_r_self, PyObject
     char cpy_r_r37;
     if (cpy_r_seed != NULL) goto CPyL29;
     cpy_r_r0 = Py_None;
-    CPy_INCREF(cpy_r_r0);
     cpy_r_seed = cpy_r_r0;
 CPyL2: ;
     cpy_r_r1 = (PyObject *)&PyDict_Type;
@@ -1237,7 +1235,7 @@ CPyL5: ;
     cpy_r_r4 = 1;
 CPyL6: ;
     cpy_r_r7 = PyList_AsTuple(cpy_r_r2);
-    CPy_DECREF(cpy_r_r2);
+    CPy_DECREF_NO_IMM(cpy_r_r2);
     if (cpy_r_r7 == NULL) goto CPyL14;
     cpy_r_r8 = PyObject_Call(cpy_r_r1, cpy_r_r7, cpy_r_r3);
     CPy_DECREF(cpy_r_r1);
@@ -1259,11 +1257,11 @@ CPyL11: ;
     goto CPyL10;
 CPyL12: ;
     CPy_DECREF(cpy_r_r1);
-    CPy_DECREF(cpy_r_r2);
+    CPy_DECREF_NO_IMM(cpy_r_r2);
     goto CPyL10;
 CPyL13: ;
     CPy_DECREF(cpy_r_r1);
-    CPy_DECREF(cpy_r_r2);
+    CPy_DECREF_NO_IMM(cpy_r_r2);
     CPy_DECREF(cpy_r_r3);
     goto CPyL10;
 CPyL14: ;
@@ -2024,7 +2022,7 @@ CPyL5: ;
     }
     PyObject *cpy_r_r17[1] = {cpy_r_r13};
     cpy_r_r18 = (PyObject **)&cpy_r_r17;
-    cpy_r_r19 = _PyObject_Vectorcall(cpy_r_r16, cpy_r_r18, 1, 0);
+    cpy_r_r19 = PyObject_Vectorcall(cpy_r_r16, cpy_r_r18, 1, 0);
     CPy_DECREF(cpy_r_r16);
     if (unlikely(cpy_r_r19 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "_setitem_nochecksum", 138, CPyStatic_base___globals);
@@ -2340,7 +2338,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r33[1] = {cpy_r_r29};
     cpy_r_r34 = (PyObject **)&cpy_r_r33;
-    cpy_r_r35 = _PyObject_Vectorcall(cpy_r_r32, cpy_r_r34, 1, 0);
+    cpy_r_r35 = PyObject_Vectorcall(cpy_r_r32, cpy_r_r34, 1, 0);
     CPy_DECREF(cpy_r_r32);
     if (unlikely(cpy_r_r35 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 11, CPyStatic_base___globals);
@@ -2725,7 +2723,6 @@ char CPyDef_default___DefaultChecksumDict_____init__(PyObject *cpy_r_self, PyObj
     char cpy_r_r44;
     if (cpy_r_seed != NULL) goto CPyL31;
     cpy_r_r0 = Py_None;
-    CPy_INCREF(cpy_r_r0);
     cpy_r_seed = cpy_r_r0;
 CPyL2: ;
     cpy_r_r1 = CPyStatic_default___globals;
@@ -3040,7 +3037,7 @@ CPyL5: ;
     cpy_r_r6 = 1;
 CPyL6: ;
     cpy_r_r9 = PyList_AsTuple(cpy_r_r2);
-    CPy_DECREF(cpy_r_r2);
+    CPy_DECREF_NO_IMM(cpy_r_r2);
     if (cpy_r_r9 == NULL) goto CPyL14;
     cpy_r_r10 = PyObject_Call(cpy_r_r1, cpy_r_r9, cpy_r_r5);
     CPy_DECREF(cpy_r_r1);
@@ -3062,11 +3059,11 @@ CPyL11: ;
     goto CPyL10;
 CPyL12: ;
     CPy_DECREF(cpy_r_r1);
-    CPy_DECREF(cpy_r_r2);
+    CPy_DECREF_NO_IMM(cpy_r_r2);
     goto CPyL10;
 CPyL13: ;
     CPy_DECREF(cpy_r_r1);
-    CPy_DECREF(cpy_r_r2);
+    CPy_DECREF_NO_IMM(cpy_r_r2);
     CPy_DECREF(cpy_r_r5);
     goto CPyL10;
 CPyL14: ;
@@ -3518,7 +3515,7 @@ int CPyGlobalsInit(void)
 PyObject *CPyStatics[84];
 const char * const CPyLit_Str[] = {
     "\005\003hex\aaddress\023to_checksum_address\nValueError\001\'",
-    "\006\034\' is not a valid ETH address\bContract\005ERC20\b__name__\001y\tdank_mids",
+    "\006\034\' is not a valid ETH address\005ERC20\bContract\b__name__\001y\tdank_mids",
     "\t\abrownie\n__module__\001.\bbuiltins\rTYPE_CHECKING\004Dict\005Final\004Type\005Union",
     "\005\006typing\tcchecksum\027checksum_dict/_utils.py\b<module>\017ChecksumAddress",
     "\005\neth_typing\a_typing\rchecksum_dict\030_KNOWN_CHECKSUMMED_TYPES\bIterable",
