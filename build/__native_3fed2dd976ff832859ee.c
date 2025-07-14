@@ -15,6 +15,27 @@
 #include "pythonsupport.c"
 #include "__native_3fed2dd976ff832859ee.h"
 #include "__native_internal_3fed2dd976ff832859ee.h"
+static int _utils_exec(PyObject *module)
+{
+    PyObject* modname = NULL;
+    modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict____utils_internal, "__name__");
+    CPyStatic__utils___globals = PyModule_GetDict(CPyModule_checksum_dict____utils_internal);
+    if (unlikely(CPyStatic__utils___globals == NULL))
+        goto fail;
+    if (CPyGlobalsInit() < 0)
+        goto fail;
+    char result = CPyDef__utils_____top_level__();
+    if (result == 2)
+        goto fail;
+    Py_DECREF(modname);
+    return 0;
+    fail:
+    Py_CLEAR(CPyModule_checksum_dict____utils_internal);
+    Py_CLEAR(modname);
+    CPy_XDECREF(CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES);
+    CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES = NULL;
+    return -1;
+}
 static PyMethodDef _utilsmodule_methods[] = {
     {"attempt_checksum", (PyCFunction)CPyPy__utils___attempt_checksum, METH_FASTCALL | METH_KEYWORDS, NULL /* docstring */},
     {"checksum_or_raise", (PyCFunction)CPyPy__utils___checksum_or_raise, METH_FASTCALL | METH_KEYWORDS, NULL /* docstring */},
@@ -26,14 +47,13 @@ static struct PyModuleDef _utilsmodule = {
     PyModuleDef_HEAD_INIT,
     "checksum_dict._utils",
     NULL, /* docstring */
-    -1,       /* size of per-interpreter state of the module,
-                 or -1 if the module keeps state in global variables. */
-    _utilsmodule_methods
+    0,       /* size of per-interpreter state of the module */
+    _utilsmodule_methods,
+    NULL,
 };
 
 PyObject *CPyInit_checksum_dict____utils(void)
 {
-    PyObject* modname = NULL;
     if (CPyModule_checksum_dict____utils_internal) {
         Py_INCREF(CPyModule_checksum_dict____utils_internal);
         return CPyModule_checksum_dict____utils_internal;
@@ -41,22 +61,10 @@ PyObject *CPyInit_checksum_dict____utils(void)
     CPyModule_checksum_dict____utils_internal = PyModule_Create(&_utilsmodule);
     if (unlikely(CPyModule_checksum_dict____utils_internal == NULL))
         goto fail;
-    modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict____utils_internal, "__name__");
-    CPyStatic__utils___globals = PyModule_GetDict(CPyModule_checksum_dict____utils_internal);
-    if (unlikely(CPyStatic__utils___globals == NULL))
+    if (_utils_exec(CPyModule_checksum_dict____utils_internal) != 0)
         goto fail;
-    if (CPyGlobalsInit() < 0)
-        goto fail;
-    char result = CPyDef__utils_____top_level__();
-    if (result == 2)
-        goto fail;
-    Py_DECREF(modname);
     return CPyModule_checksum_dict____utils_internal;
     fail:
-    Py_CLEAR(CPyModule_checksum_dict____utils_internal);
-    Py_CLEAR(modname);
-    CPy_XDECREF(CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES);
-    CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES = NULL;
     return NULL;
 }
 
@@ -494,7 +502,7 @@ __LL2: ;
     } else
         goto CPyL23;
 CPyL6: ;
-    cpy_r_r6 = CPyStatics[82]; /* frozenset({'Contract', 'ERC20'}) */
+    cpy_r_r6 = CPyStatics[82]; /* frozenset({'ERC20', 'Contract'}) */
     cpy_r_r7 = CPyStatics[11]; /* '__name__' */
     cpy_r_r8 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -519,7 +527,7 @@ CPyL6: ;
     cpy_r_r13 = cpy_r_r12;
     goto CPyL18;
 CPyL11: ;
-    cpy_r_r14 = CPyStatics[83]; /* frozenset({'y', 'brownie', 'dank_mids'}) */
+    cpy_r_r14 = CPyStatics[83]; /* frozenset({'y', 'dank_mids', 'brownie'}) */
     cpy_r_r15 = CPyStatics[15]; /* '__module__' */
     cpy_r_r16 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
@@ -870,29 +878,9 @@ static PyTypeObject CPyType_base___ChecksumAddressDict_template_ = {
 };
 static PyTypeObject *CPyType_base___ChecksumAddressDict_template = &CPyType_base___ChecksumAddressDict_template_;
 
-static PyMethodDef basemodule_methods[] = {
-    {NULL, NULL, 0, NULL}
-};
-
-static struct PyModuleDef basemodule = {
-    PyModuleDef_HEAD_INIT,
-    "checksum_dict.base",
-    NULL, /* docstring */
-    -1,       /* size of per-interpreter state of the module,
-                 or -1 if the module keeps state in global variables. */
-    basemodule_methods
-};
-
-PyObject *CPyInit_checksum_dict___base(void)
+static int base_exec(PyObject *module)
 {
     PyObject* modname = NULL;
-    if (CPyModule_checksum_dict___base_internal) {
-        Py_INCREF(CPyModule_checksum_dict___base_internal);
-        return CPyModule_checksum_dict___base_internal;
-    }
-    CPyModule_checksum_dict___base_internal = PyModule_Create(&basemodule);
-    if (unlikely(CPyModule_checksum_dict___base_internal == NULL))
-        goto fail;
     modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict___base_internal, "__name__");
     CPyStatic_base___globals = PyModule_GetDict(CPyModule_checksum_dict___base_internal);
     if (unlikely(CPyStatic_base___globals == NULL))
@@ -903,11 +891,39 @@ PyObject *CPyInit_checksum_dict___base(void)
     if (result == 2)
         goto fail;
     Py_DECREF(modname);
-    return CPyModule_checksum_dict___base_internal;
+    return 0;
     fail:
     Py_CLEAR(CPyModule_checksum_dict___base_internal);
     Py_CLEAR(modname);
     Py_CLEAR(CPyType_base___ChecksumAddressDict);
+    return -1;
+}
+static PyMethodDef basemodule_methods[] = {
+    {NULL, NULL, 0, NULL}
+};
+
+static struct PyModuleDef basemodule = {
+    PyModuleDef_HEAD_INIT,
+    "checksum_dict.base",
+    NULL, /* docstring */
+    0,       /* size of per-interpreter state of the module */
+    basemodule_methods,
+    NULL,
+};
+
+PyObject *CPyInit_checksum_dict___base(void)
+{
+    if (CPyModule_checksum_dict___base_internal) {
+        Py_INCREF(CPyModule_checksum_dict___base_internal);
+        return CPyModule_checksum_dict___base_internal;
+    }
+    CPyModule_checksum_dict___base_internal = PyModule_Create(&basemodule);
+    if (unlikely(CPyModule_checksum_dict___base_internal == NULL))
+        goto fail;
+    if (base_exec(CPyModule_checksum_dict___base_internal) != 0)
+        goto fail;
+    return CPyModule_checksum_dict___base_internal;
+    fail:
     return NULL;
 }
 
@@ -2633,29 +2649,9 @@ static PyTypeObject CPyType_default___DefaultChecksumDict_template_ = {
 };
 static PyTypeObject *CPyType_default___DefaultChecksumDict_template = &CPyType_default___DefaultChecksumDict_template_;
 
-static PyMethodDef defaultmodule_methods[] = {
-    {NULL, NULL, 0, NULL}
-};
-
-static struct PyModuleDef defaultmodule = {
-    PyModuleDef_HEAD_INIT,
-    "checksum_dict.default",
-    NULL, /* docstring */
-    -1,       /* size of per-interpreter state of the module,
-                 or -1 if the module keeps state in global variables. */
-    defaultmodule_methods
-};
-
-PyObject *CPyInit_checksum_dict___default(void)
+static int default_exec(PyObject *module)
 {
     PyObject* modname = NULL;
-    if (CPyModule_checksum_dict___default_internal) {
-        Py_INCREF(CPyModule_checksum_dict___default_internal);
-        return CPyModule_checksum_dict___default_internal;
-    }
-    CPyModule_checksum_dict___default_internal = PyModule_Create(&defaultmodule);
-    if (unlikely(CPyModule_checksum_dict___default_internal == NULL))
-        goto fail;
     modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict___default_internal, "__name__");
     CPyStatic_default___globals = PyModule_GetDict(CPyModule_checksum_dict___default_internal);
     if (unlikely(CPyStatic_default___globals == NULL))
@@ -2666,11 +2662,39 @@ PyObject *CPyInit_checksum_dict___default(void)
     if (result == 2)
         goto fail;
     Py_DECREF(modname);
-    return CPyModule_checksum_dict___default_internal;
+    return 0;
     fail:
     Py_CLEAR(CPyModule_checksum_dict___default_internal);
     Py_CLEAR(modname);
     Py_CLEAR(CPyType_default___DefaultChecksumDict);
+    return -1;
+}
+static PyMethodDef defaultmodule_methods[] = {
+    {NULL, NULL, 0, NULL}
+};
+
+static struct PyModuleDef defaultmodule = {
+    PyModuleDef_HEAD_INIT,
+    "checksum_dict.default",
+    NULL, /* docstring */
+    0,       /* size of per-interpreter state of the module */
+    defaultmodule_methods,
+    NULL,
+};
+
+PyObject *CPyInit_checksum_dict___default(void)
+{
+    if (CPyModule_checksum_dict___default_internal) {
+        Py_INCREF(CPyModule_checksum_dict___default_internal);
+        return CPyModule_checksum_dict___default_internal;
+    }
+    CPyModule_checksum_dict___default_internal = PyModule_Create(&defaultmodule);
+    if (unlikely(CPyModule_checksum_dict___default_internal == NULL))
+        goto fail;
+    if (default_exec(CPyModule_checksum_dict___default_internal) != 0)
+        goto fail;
+    return CPyModule_checksum_dict___default_internal;
+    fail:
     return NULL;
 }
 
@@ -3515,8 +3539,8 @@ int CPyGlobalsInit(void)
 PyObject *CPyStatics[84];
 const char * const CPyLit_Str[] = {
     "\005\003hex\aaddress\023to_checksum_address\nValueError\001\'",
-    "\006\034\' is not a valid ETH address\bContract\005ERC20\b__name__\001y\abrownie",
-    "\t\tdank_mids\n__module__\001.\bbuiltins\rTYPE_CHECKING\004Dict\005Final\004Type\005Union",
+    "\006\034\' is not a valid ETH address\005ERC20\bContract\b__name__\001y\tdank_mids",
+    "\t\abrownie\n__module__\001.\bbuiltins\rTYPE_CHECKING\004Dict\005Final\004Type\005Union",
     "\005\006typing\tcchecksum\027checksum_dict/_utils.py\b<module>\017ChecksumAddress",
     "\005\neth_typing\a_typing\rchecksum_dict\030_KNOWN_CHECKSUMMED_TYPES\bIterable",
     "\a\b__init__\024ChecksumAddressDict(\001)\b__repr__\v__getitem__\bKeyError\004args",
