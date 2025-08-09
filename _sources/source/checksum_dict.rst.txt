@@ -9,37 +9,37 @@ checksum\_dict.base module
 
 .. automodule:: checksum_dict.base
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 checksum\_dict.default module
 -----------------------------
 
 .. automodule:: checksum_dict.default
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 checksum\_dict.exceptions module
 --------------------------------
 
 .. automodule:: checksum_dict.exceptions
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 checksum\_dict.singleton module
 -------------------------------
 
 .. automodule:: checksum_dict.singleton
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
 
 .. automodule:: checksum_dict
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
