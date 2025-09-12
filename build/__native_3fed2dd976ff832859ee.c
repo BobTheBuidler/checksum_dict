@@ -15,11 +15,18 @@
 #include "pythonsupport.c"
 #include "__native_3fed2dd976ff832859ee.h"
 #include "__native_internal_3fed2dd976ff832859ee.h"
-static int _utils_exec(PyObject *module)
+static PyMethodDef _utilsmodule_methods[] = {
+    {"attempt_checksum", (PyCFunction)CPyPy__utils___attempt_checksum, METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("attempt_checksum(value)\n--\n\n") /* docstring */},
+    {"checksum_or_raise", (PyCFunction)CPyPy__utils___checksum_or_raise, METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("checksum_or_raise(string)\n--\n\n") /* docstring */},
+    {"_type_has_checksum_addr", (PyCFunction)CPyPy__utils____type_has_checksum_addr, METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("_type_has_checksum_addr(typ)\n--\n\n") /* docstring */},
+    {NULL, NULL, 0, NULL}
+};
+
+int CPyExec_checksum_dict____utils(PyObject *module)
 {
     PyObject* modname = NULL;
-    modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict____utils_internal, "__name__");
-    CPyStatic__utils___globals = PyModule_GetDict(CPyModule_checksum_dict____utils_internal);
+    modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict____utils__internal, "__name__");
+    CPyStatic__utils___globals = PyModule_GetDict(CPyModule_checksum_dict____utils__internal);
     if (unlikely(CPyStatic__utils___globals == NULL))
         goto fail;
     if (CPyGlobalsInit() < 0)
@@ -30,19 +37,12 @@ static int _utils_exec(PyObject *module)
     Py_DECREF(modname);
     return 0;
     fail:
-    Py_CLEAR(CPyModule_checksum_dict____utils_internal);
+    Py_CLEAR(CPyModule_checksum_dict____utils__internal);
     Py_CLEAR(modname);
     CPy_XDECREF(CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES);
     CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES = NULL;
     return -1;
 }
-static PyMethodDef _utilsmodule_methods[] = {
-    {"attempt_checksum", (PyCFunction)CPyPy__utils___attempt_checksum, METH_FASTCALL | METH_KEYWORDS, NULL /* docstring */},
-    {"checksum_or_raise", (PyCFunction)CPyPy__utils___checksum_or_raise, METH_FASTCALL | METH_KEYWORDS, NULL /* docstring */},
-    {"_type_has_checksum_addr", (PyCFunction)CPyPy__utils____type_has_checksum_addr, METH_FASTCALL | METH_KEYWORDS, NULL /* docstring */},
-    {NULL, NULL, 0, NULL}
-};
-
 static struct PyModuleDef _utilsmodule = {
     PyModuleDef_HEAD_INIT,
     "checksum_dict._utils",
@@ -54,207 +54,197 @@ static struct PyModuleDef _utilsmodule = {
 
 PyObject *CPyInit_checksum_dict____utils(void)
 {
-    if (CPyModule_checksum_dict____utils_internal) {
-        Py_INCREF(CPyModule_checksum_dict____utils_internal);
-        return CPyModule_checksum_dict____utils_internal;
+    if (CPyModule_checksum_dict____utils__internal) {
+        Py_INCREF(CPyModule_checksum_dict____utils__internal);
+        return CPyModule_checksum_dict____utils__internal;
     }
-    CPyModule_checksum_dict____utils_internal = PyModule_Create(&_utilsmodule);
-    if (unlikely(CPyModule_checksum_dict____utils_internal == NULL))
+    CPyModule_checksum_dict____utils__internal = PyModule_Create(&_utilsmodule);
+    if (unlikely(CPyModule_checksum_dict____utils__internal == NULL))
         goto fail;
-    if (_utils_exec(CPyModule_checksum_dict____utils_internal) != 0)
+    if (CPyExec_checksum_dict____utils(CPyModule_checksum_dict____utils__internal) != 0)
         goto fail;
-    return CPyModule_checksum_dict____utils_internal;
+    return CPyModule_checksum_dict____utils__internal;
     fail:
     return NULL;
 }
 
 PyObject *CPyDef__utils___attempt_checksum(PyObject *cpy_r_value) {
-    PyObject *cpy_r_r0;
-    int32_t cpy_r_r1;
-    char cpy_r_r2;
-    char cpy_r_r3;
+    char cpy_r_r0;
+    PyObject *cpy_r_r1;
+    PyObject *cpy_r_r2;
+    PyObject *cpy_r_r3;
     PyObject *cpy_r_r4;
-    PyObject *cpy_r_r5;
+    char cpy_r_r5;
     PyObject *cpy_r_r6;
     PyObject *cpy_r_r7;
-    char cpy_r_r8;
-    PyObject *cpy_r_r9;
+    PyObject **cpy_r_r9;
     PyObject *cpy_r_r10;
-    PyObject **cpy_r_r12;
+    PyObject *cpy_r_r11;
+    PyObject *cpy_r_r12;
     PyObject *cpy_r_r13;
-    PyObject *cpy_r_r14;
+    char cpy_r_r14;
     PyObject *cpy_r_r15;
     PyObject *cpy_r_r16;
-    char cpy_r_r17;
+    PyObject *cpy_r_r17;
     PyObject *cpy_r_r18;
-    PyObject *cpy_r_r19;
+    char cpy_r_r19;
     PyObject *cpy_r_r20;
     PyObject *cpy_r_r21;
-    char cpy_r_r22;
+    PyObject *cpy_r_r22;
     PyObject *cpy_r_r23;
     PyObject *cpy_r_r24;
     PyObject *cpy_r_r25;
     PyObject *cpy_r_r26;
-    PyObject *cpy_r_r27;
-    PyObject *cpy_r_r28;
+    PyObject **cpy_r_r28;
     PyObject *cpy_r_r29;
-    PyObject **cpy_r_r31;
+    PyObject *cpy_r_r30;
+    PyObject *cpy_r_r31;
     PyObject *cpy_r_r32;
     PyObject *cpy_r_r33;
-    PyObject *cpy_r_r34;
-    PyObject *cpy_r_r35;
-    PyObject *cpy_r_r36;
-    cpy_r_r0 = (PyObject *)&PyUnicode_Type;
-    cpy_r_r1 = PyObject_IsInstance(cpy_r_value, cpy_r_r0);
-    cpy_r_r2 = cpy_r_r1 >= 0;
-    if (unlikely(!cpy_r_r2)) {
-        CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 30, CPyStatic__utils___globals);
-        goto CPyL27;
-    }
-    cpy_r_r3 = cpy_r_r1;
-    if (!cpy_r_r3) goto CPyL5;
+    cpy_r_r0 = PyUnicode_Check(cpy_r_value);
+    if (!cpy_r_r0) goto CPyL4;
     CPy_INCREF(cpy_r_value);
     if (likely(PyUnicode_Check(cpy_r_value)))
-        cpy_r_r4 = cpy_r_value;
+        cpy_r_r1 = cpy_r_value;
     else {
         CPy_TypeErrorTraceback("checksum_dict/_utils.py", "attempt_checksum", 31, CPyStatic__utils___globals, "str", cpy_r_value);
-        goto CPyL27;
+        goto CPyL26;
     }
-    cpy_r_r5 = CPyDef__utils___checksum_or_raise(cpy_r_r4);
-    CPy_DECREF(cpy_r_r4);
-    if (unlikely(cpy_r_r5 == NULL)) {
+    cpy_r_r2 = CPyDef__utils___checksum_or_raise(cpy_r_r1);
+    CPy_DECREF(cpy_r_r1);
+    if (unlikely(cpy_r_r2 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 31, CPyStatic__utils___globals);
-        goto CPyL27;
+        goto CPyL26;
     }
-    return cpy_r_r5;
-CPyL5: ;
-    cpy_r_r6 = PyObject_Type(cpy_r_value);
-    CPy_INCREF(cpy_r_r6);
-    cpy_r_r7 = (PyObject *)&PyBytes_Type;
-    cpy_r_r8 = cpy_r_r6 == cpy_r_r7;
-    CPy_DECREF(cpy_r_r6);
-    if (cpy_r_r8) {
-        goto CPyL28;
+    return cpy_r_r2;
+CPyL4: ;
+    cpy_r_r3 = CPy_TYPE(cpy_r_value);
+    CPy_INCREF(cpy_r_r3);
+    cpy_r_r4 = (PyObject *)&PyBytes_Type;
+    cpy_r_r5 = cpy_r_r3 == cpy_r_r4;
+    CPy_DECREF(cpy_r_r3);
+    if (cpy_r_r5) {
+        goto CPyL27;
     } else
-        goto CPyL11;
-CPyL6: ;
+        goto CPyL10;
+CPyL5: ;
     CPy_INCREF(cpy_r_value);
-    cpy_r_r9 = cpy_r_value;
-    cpy_r_r10 = CPyStatics[3]; /* 'hex' */
-    PyObject *cpy_r_r11[1] = {cpy_r_r9};
-    cpy_r_r12 = (PyObject **)&cpy_r_r11;
-    cpy_r_r13 = PyObject_VectorcallMethod(cpy_r_r10, cpy_r_r12, 9223372036854775809ULL, 0);
+    cpy_r_r6 = cpy_r_value;
+    cpy_r_r7 = CPyStatics[3]; /* 'hex' */
+    PyObject *cpy_r_r8[1] = {cpy_r_r6};
+    cpy_r_r9 = (PyObject **)&cpy_r_r8;
+    cpy_r_r10 = PyObject_VectorcallMethod(cpy_r_r7, cpy_r_r9, 9223372036854775809ULL, 0);
+    if (unlikely(cpy_r_r10 == NULL)) {
+        CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 33, CPyStatic__utils___globals);
+        goto CPyL28;
+    }
+    CPy_DECREF(cpy_r_r6);
+    cpy_r_r11 = cpy_r_r10;
+    if (likely(PyUnicode_Check(cpy_r_r11)))
+        cpy_r_r12 = cpy_r_r11;
+    else {
+        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "attempt_checksum", 33, CPyStatic__utils___globals, "str", cpy_r_r11);
+        goto CPyL26;
+    }
+    cpy_r_r13 = CPyDef__utils___checksum_or_raise(cpy_r_r12);
+    CPy_DECREF(cpy_r_r12);
     if (unlikely(cpy_r_r13 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 33, CPyStatic__utils___globals);
+        goto CPyL26;
+    }
+    return cpy_r_r13;
+CPyL10: ;
+    cpy_r_r14 = CPyDef__utils____type_has_checksum_addr(cpy_r_r3);
+    if (unlikely(cpy_r_r14 == 2)) {
+        CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 34, CPyStatic__utils___globals);
         goto CPyL29;
     }
-    CPy_DECREF(cpy_r_r9);
-    cpy_r_r14 = cpy_r_r13;
-    if (likely(PyUnicode_Check(cpy_r_r14)))
-        cpy_r_r15 = cpy_r_r14;
-    else {
-        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "attempt_checksum", 33, CPyStatic__utils___globals, "str", cpy_r_r14);
-        goto CPyL27;
-    }
-    cpy_r_r16 = CPyDef__utils___checksum_or_raise(cpy_r_r15);
-    CPy_DECREF(cpy_r_r15);
-    if (unlikely(cpy_r_r16 == NULL)) {
-        CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 33, CPyStatic__utils___globals);
-        goto CPyL27;
-    }
-    return cpy_r_r16;
-CPyL11: ;
-    cpy_r_r17 = CPyDef__utils____type_has_checksum_addr(cpy_r_r6);
-    if (unlikely(cpy_r_r17 == 2)) {
-        CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 34, CPyStatic__utils___globals);
+    if (cpy_r_r14) {
         goto CPyL30;
-    }
-    if (cpy_r_r17) {
-        goto CPyL31;
     } else
-        goto CPyL16;
-CPyL13: ;
+        goto CPyL15;
+CPyL12: ;
     CPy_INCREF(cpy_r_value);
-    cpy_r_r18 = cpy_r_value;
-    cpy_r_r19 = CPyStatics[4]; /* 'address' */
-    cpy_r_r20 = CPyObject_GetAttr(cpy_r_r18, cpy_r_r19);
-    CPy_DECREF(cpy_r_r18);
-    if (unlikely(cpy_r_r20 == NULL)) {
+    cpy_r_r15 = cpy_r_value;
+    cpy_r_r16 = CPyStatics[4]; /* 'address' */
+    cpy_r_r17 = CPyObject_GetAttr(cpy_r_r15, cpy_r_r16);
+    CPy_DECREF(cpy_r_r15);
+    if (unlikely(cpy_r_r17 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 35, CPyStatic__utils___globals);
-        goto CPyL27;
+        goto CPyL26;
     }
-    return cpy_r_r20;
-CPyL16: ;
+    return cpy_r_r17;
+CPyL15: ;
+    cpy_r_r18 = CPyStatics[4]; /* 'address' */
+    cpy_r_r19 = PyObject_HasAttr(cpy_r_r3, cpy_r_r18);
+    CPy_DECREF(cpy_r_r3);
+    if (!cpy_r_r19) goto CPyL21;
+    CPy_INCREF(cpy_r_value);
+    cpy_r_r20 = cpy_r_value;
     cpy_r_r21 = CPyStatics[4]; /* 'address' */
-    cpy_r_r22 = PyObject_HasAttr(cpy_r_r6, cpy_r_r21);
-    CPy_DECREF(cpy_r_r6);
-    if (!cpy_r_r22) goto CPyL22;
-    CPy_INCREF(cpy_r_value);
-    cpy_r_r23 = cpy_r_value;
-    cpy_r_r24 = CPyStatics[4]; /* 'address' */
-    cpy_r_r25 = CPyObject_GetAttr(cpy_r_r23, cpy_r_r24);
-    CPy_DECREF(cpy_r_r23);
-    if (unlikely(cpy_r_r25 == NULL)) {
+    cpy_r_r22 = CPyObject_GetAttr(cpy_r_r20, cpy_r_r21);
+    CPy_DECREF(cpy_r_r20);
+    if (unlikely(cpy_r_r22 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 37, CPyStatic__utils___globals);
-        goto CPyL27;
+        goto CPyL26;
     }
-    if (likely(PyUnicode_Check(cpy_r_r25)))
-        cpy_r_r26 = cpy_r_r25;
+    if (likely(PyUnicode_Check(cpy_r_r22)))
+        cpy_r_r23 = cpy_r_r22;
     else {
-        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "attempt_checksum", 37, CPyStatic__utils___globals, "str", cpy_r_r25);
-        goto CPyL27;
+        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "attempt_checksum", 37, CPyStatic__utils___globals, "str", cpy_r_r22);
+        goto CPyL26;
     }
-    cpy_r_r27 = CPyDef__utils___checksum_or_raise(cpy_r_r26);
-    CPy_DECREF(cpy_r_r26);
-    if (unlikely(cpy_r_r27 == NULL)) {
+    cpy_r_r24 = CPyDef__utils___checksum_or_raise(cpy_r_r23);
+    CPy_DECREF(cpy_r_r23);
+    if (unlikely(cpy_r_r24 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 37, CPyStatic__utils___globals);
-        goto CPyL27;
+        goto CPyL26;
     }
-    return cpy_r_r27;
-CPyL22: ;
+    return cpy_r_r24;
+CPyL21: ;
     CPy_INCREF(cpy_r_value);
-    cpy_r_r28 = cpy_r_value;
-    cpy_r_r29 = CPyStatics[3]; /* 'hex' */
-    PyObject *cpy_r_r30[1] = {cpy_r_r28};
-    cpy_r_r31 = (PyObject **)&cpy_r_r30;
-    cpy_r_r32 = PyObject_VectorcallMethod(cpy_r_r29, cpy_r_r31, 9223372036854775809ULL, 0);
+    cpy_r_r25 = cpy_r_value;
+    cpy_r_r26 = CPyStatics[3]; /* 'hex' */
+    PyObject *cpy_r_r27[1] = {cpy_r_r25};
+    cpy_r_r28 = (PyObject **)&cpy_r_r27;
+    cpy_r_r29 = PyObject_VectorcallMethod(cpy_r_r26, cpy_r_r28, 9223372036854775809ULL, 0);
+    if (unlikely(cpy_r_r29 == NULL)) {
+        CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 39, CPyStatic__utils___globals);
+        goto CPyL31;
+    }
+    CPy_DECREF(cpy_r_r25);
+    cpy_r_r30 = cpy_r_r29;
+    if (likely(PyUnicode_Check(cpy_r_r30)))
+        cpy_r_r31 = cpy_r_r30;
+    else {
+        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "attempt_checksum", 39, CPyStatic__utils___globals, "str", cpy_r_r30);
+        goto CPyL26;
+    }
+    cpy_r_r32 = CPyDef__utils___checksum_or_raise(cpy_r_r31);
+    CPy_DECREF(cpy_r_r31);
     if (unlikely(cpy_r_r32 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 39, CPyStatic__utils___globals);
-        goto CPyL32;
+        goto CPyL26;
     }
-    CPy_DECREF(cpy_r_r28);
-    cpy_r_r33 = cpy_r_r32;
-    if (likely(PyUnicode_Check(cpy_r_r33)))
-        cpy_r_r34 = cpy_r_r33;
-    else {
-        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "attempt_checksum", 39, CPyStatic__utils___globals, "str", cpy_r_r33);
-        goto CPyL27;
-    }
-    cpy_r_r35 = CPyDef__utils___checksum_or_raise(cpy_r_r34);
-    CPy_DECREF(cpy_r_r34);
-    if (unlikely(cpy_r_r35 == NULL)) {
-        CPy_AddTraceback("checksum_dict/_utils.py", "attempt_checksum", 39, CPyStatic__utils___globals);
-        goto CPyL27;
-    }
-    return cpy_r_r35;
+    return cpy_r_r32;
+CPyL26: ;
+    cpy_r_r33 = NULL;
+    return cpy_r_r33;
 CPyL27: ;
-    cpy_r_r36 = NULL;
-    return cpy_r_r36;
+    CPy_DECREF(cpy_r_r3);
+    goto CPyL5;
 CPyL28: ;
-    CPy_DECREF(cpy_r_r6);
-    goto CPyL6;
-CPyL29: ;
-    CPy_DecRef(cpy_r_r9);
-    goto CPyL27;
-CPyL30: ;
     CPy_DecRef(cpy_r_r6);
-    goto CPyL27;
+    goto CPyL26;
+CPyL29: ;
+    CPy_DecRef(cpy_r_r3);
+    goto CPyL26;
+CPyL30: ;
+    CPy_DECREF(cpy_r_r3);
+    goto CPyL12;
 CPyL31: ;
-    CPy_DECREF(cpy_r_r6);
-    goto CPyL13;
-CPyL32: ;
-    CPy_DecRef(cpy_r_r28);
-    goto CPyL27;
+    CPy_DecRef(cpy_r_r25);
+    goto CPyL26;
 }
 
 PyObject *CPyPy__utils___attempt_checksum(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames) {
@@ -439,11 +429,11 @@ char CPyDef__utils____type_has_checksum_addr(PyObject *cpy_r_typ) {
     PyObject *cpy_r_r6;
     PyObject *cpy_r_r7;
     PyObject *cpy_r_r8;
-    PyObject *cpy_r_r9;
-    int32_t cpy_r_r10;
+    int32_t cpy_r_r9;
+    char cpy_r_r10;
     char cpy_r_r11;
     char cpy_r_r12;
-    char cpy_r_r13;
+    PyObject *cpy_r_r13;
     PyObject *cpy_r_r14;
     PyObject *cpy_r_r15;
     PyObject *cpy_r_r16;
@@ -451,19 +441,18 @@ char CPyDef__utils____type_has_checksum_addr(PyObject *cpy_r_typ) {
     PyObject *cpy_r_r18;
     PyObject *cpy_r_r19;
     PyObject *cpy_r_r20;
-    PyObject *cpy_r_r21;
-    int32_t cpy_r_r22;
+    int32_t cpy_r_r21;
+    char cpy_r_r22;
     char cpy_r_r23;
-    char cpy_r_r24;
-    PyObject *cpy_r_r25;
-    char cpy_r_r26;
-    PyObject *cpy_r_r27;
-    char cpy_r_r28;
-    PyObject *cpy_r_r29;
-    int32_t cpy_r_r30;
+    PyObject *cpy_r_r24;
+    char cpy_r_r25;
+    PyObject *cpy_r_r26;
+    char cpy_r_r27;
+    PyObject *cpy_r_r28;
+    int32_t cpy_r_r29;
+    char cpy_r_r30;
     char cpy_r_r31;
     char cpy_r_r32;
-    char cpy_r_r33;
     cpy_r_r0 = CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES;
     if (likely(cpy_r_r0 != NULL)) goto CPyL3;
     PyErr_SetString(PyExc_NameError, "value for final name \"_KNOWN_CHECKSUMMED_TYPES\" was not set");
@@ -502,118 +491,117 @@ __LL2: ;
     } else
         goto CPyL23;
 CPyL6: ;
-    cpy_r_r6 = CPyStatics[82]; /* frozenset({'Contract', 'ERC20'}) */
-    cpy_r_r7 = CPyStatics[11]; /* '__name__' */
-    cpy_r_r8 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r7);
-    if (unlikely(cpy_r_r8 == NULL)) {
+    cpy_r_r6 = CPyStatics[81]; /* frozenset({'Contract', 'ERC20'}) */
+    cpy_r_r7 = CPy_GetName(cpy_r_typ);
+    if (unlikely(cpy_r_r7 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals);
         goto CPyL25;
     }
-    if (likely(PyUnicode_Check(cpy_r_r8)))
-        cpy_r_r9 = cpy_r_r8;
+    if (likely(PyUnicode_Check(cpy_r_r7)))
+        cpy_r_r8 = cpy_r_r7;
     else {
-        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals, "str", cpy_r_r8);
+        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals, "str", cpy_r_r7);
         goto CPyL25;
     }
-    cpy_r_r10 = PySet_Contains(cpy_r_r6, cpy_r_r9);
-    CPy_DECREF(cpy_r_r9);
-    cpy_r_r11 = cpy_r_r10 >= 0;
-    if (unlikely(!cpy_r_r11)) {
+    cpy_r_r9 = PySet_Contains(cpy_r_r6, cpy_r_r8);
+    CPy_DECREF(cpy_r_r8);
+    cpy_r_r10 = cpy_r_r9 >= 0;
+    if (unlikely(!cpy_r_r10)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals);
         goto CPyL25;
     }
-    cpy_r_r12 = cpy_r_r10;
-    if (cpy_r_r12) goto CPyL11;
-    cpy_r_r13 = cpy_r_r12;
+    cpy_r_r11 = cpy_r_r9;
+    if (cpy_r_r11) goto CPyL11;
+    cpy_r_r12 = cpy_r_r11;
     goto CPyL18;
 CPyL11: ;
-    cpy_r_r14 = CPyStatics[83]; /* frozenset({'y', 'dank_mids', 'brownie'}) */
-    cpy_r_r15 = CPyStatics[15]; /* '__module__' */
-    cpy_r_r16 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r15);
-    if (unlikely(cpy_r_r16 == NULL)) {
+    cpy_r_r13 = CPyStatics[82]; /* frozenset({'dank_mids', 'y', 'brownie'}) */
+    cpy_r_r14 = CPyStatics[14]; /* '__module__' */
+    cpy_r_r15 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r14);
+    if (unlikely(cpy_r_r15 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals);
         goto CPyL25;
     }
-    if (likely(PyUnicode_Check(cpy_r_r16)))
-        cpy_r_r17 = cpy_r_r16;
+    if (likely(PyUnicode_Check(cpy_r_r15)))
+        cpy_r_r16 = cpy_r_r15;
     else {
-        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals, "str", cpy_r_r16);
+        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals, "str", cpy_r_r15);
         goto CPyL25;
     }
-    cpy_r_r18 = CPyStatics[16]; /* '.' */
-    cpy_r_r19 = PyUnicode_Split(cpy_r_r17, cpy_r_r18, -1);
-    CPy_DECREF(cpy_r_r17);
+    cpy_r_r17 = CPyStatics[15]; /* '.' */
+    cpy_r_r18 = PyUnicode_Split(cpy_r_r16, cpy_r_r17, -1);
+    CPy_DECREF(cpy_r_r16);
+    if (unlikely(cpy_r_r18 == NULL)) {
+        CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals);
+        goto CPyL25;
+    }
+    cpy_r_r19 = CPyList_GetItemShort(cpy_r_r18, 0);
+    CPy_DECREF_NO_IMM(cpy_r_r18);
     if (unlikely(cpy_r_r19 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals);
         goto CPyL25;
     }
-    cpy_r_r20 = CPyList_GetItemShort(cpy_r_r19, 0);
-    CPy_DECREF_NO_IMM(cpy_r_r19);
-    if (unlikely(cpy_r_r20 == NULL)) {
-        CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals);
-        goto CPyL25;
-    }
-    if (likely(PyUnicode_Check(cpy_r_r20)))
-        cpy_r_r21 = cpy_r_r20;
+    if (likely(PyUnicode_Check(cpy_r_r19)))
+        cpy_r_r20 = cpy_r_r19;
     else {
-        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals, "str", cpy_r_r20);
+        CPy_TypeErrorTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals, "str", cpy_r_r19);
         goto CPyL25;
     }
-    cpy_r_r22 = PySet_Contains(cpy_r_r14, cpy_r_r21);
-    CPy_DECREF(cpy_r_r21);
-    cpy_r_r23 = cpy_r_r22 >= 0;
-    if (unlikely(!cpy_r_r23)) {
+    cpy_r_r21 = PySet_Contains(cpy_r_r13, cpy_r_r20);
+    CPy_DECREF(cpy_r_r20);
+    cpy_r_r22 = cpy_r_r21 >= 0;
+    if (unlikely(!cpy_r_r22)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 52, CPyStatic__utils___globals);
         goto CPyL25;
     }
-    cpy_r_r24 = cpy_r_r22;
-    cpy_r_r13 = cpy_r_r24;
+    cpy_r_r23 = cpy_r_r21;
+    cpy_r_r12 = cpy_r_r23;
 CPyL18: ;
-    cpy_r_r25 = cpy_r_r13 ? Py_True : Py_False;
-    cpy_r_has_checksum_addr = cpy_r_r25;
+    cpy_r_r24 = cpy_r_r12 ? Py_True : Py_False;
+    cpy_r_has_checksum_addr = cpy_r_r24;
     if (unlikely(!PyBool_Check(cpy_r_has_checksum_addr))) {
-        CPy_TypeError("bool", cpy_r_has_checksum_addr); cpy_r_r26 = 2;
+        CPy_TypeError("bool", cpy_r_has_checksum_addr); cpy_r_r25 = 2;
     } else
-        cpy_r_r26 = cpy_r_has_checksum_addr == Py_True;
-    if (unlikely(cpy_r_r26 == 2)) {
+        cpy_r_r25 = cpy_r_has_checksum_addr == Py_True;
+    if (unlikely(cpy_r_r25 == 2)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 55, CPyStatic__utils___globals);
         goto CPyL27;
     }
-    cpy_r_r27 = CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES;
-    if (unlikely(cpy_r_r27 == NULL)) {
+    cpy_r_r26 = CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES;
+    if (unlikely(cpy_r_r26 == NULL)) {
         goto CPyL28;
     } else
         goto CPyL22;
 CPyL20: ;
     PyErr_SetString(PyExc_NameError, "value for final name \"_KNOWN_CHECKSUMMED_TYPES\" was not set");
-    cpy_r_r28 = 0;
-    if (unlikely(!cpy_r_r28)) {
+    cpy_r_r27 = 0;
+    if (unlikely(!cpy_r_r27)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 55, CPyStatic__utils___globals);
         goto CPyL25;
     }
     CPy_Unreachable();
 CPyL22: ;
-    cpy_r_r29 = cpy_r_r26 ? Py_True : Py_False;
-    cpy_r_r30 = CPyDict_SetItem(cpy_r_r27, cpy_r_typ, cpy_r_r29);
-    cpy_r_r31 = cpy_r_r30 >= 0;
-    if (unlikely(!cpy_r_r31)) {
+    cpy_r_r28 = cpy_r_r25 ? Py_True : Py_False;
+    cpy_r_r29 = CPyDict_SetItem(cpy_r_r26, cpy_r_typ, cpy_r_r28);
+    cpy_r_r30 = cpy_r_r29 >= 0;
+    if (unlikely(!cpy_r_r30)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 55, CPyStatic__utils___globals);
         goto CPyL27;
     }
 CPyL23: ;
     if (unlikely(!PyBool_Check(cpy_r_has_checksum_addr))) {
-        CPy_TypeError("bool", cpy_r_has_checksum_addr); cpy_r_r32 = 2;
+        CPy_TypeError("bool", cpy_r_has_checksum_addr); cpy_r_r31 = 2;
     } else
-        cpy_r_r32 = cpy_r_has_checksum_addr == Py_True;
+        cpy_r_r31 = cpy_r_has_checksum_addr == Py_True;
     CPy_DECREF(cpy_r_has_checksum_addr);
-    if (unlikely(cpy_r_r32 == 2)) {
+    if (unlikely(cpy_r_r31 == 2)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", 56, CPyStatic__utils___globals);
         goto CPyL25;
     }
-    return cpy_r_r32;
+    return cpy_r_r31;
 CPyL25: ;
-    cpy_r_r33 = 2;
-    return cpy_r_r33;
+    cpy_r_r32 = 2;
+    return cpy_r_r32;
 CPyL26: ;
     CPy_DECREF(cpy_r_has_checksum_addr);
     goto CPyL6;
@@ -690,7 +678,7 @@ char CPyDef__utils_____top_level__(void) {
     cpy_r_r1 = (PyObject *)&_Py_NoneStruct;
     cpy_r_r2 = cpy_r_r0 != cpy_r_r1;
     if (cpy_r_r2) goto CPyL3;
-    cpy_r_r3 = CPyStatics[17]; /* 'builtins' */
+    cpy_r_r3 = CPyStatics[16]; /* 'builtins' */
     cpy_r_r4 = PyImport_Import(cpy_r_r3);
     if (unlikely(cpy_r_r4 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "<module>", -1, CPyStatic__utils___globals);
@@ -700,8 +688,8 @@ char CPyDef__utils_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[69]; /* ('TYPE_CHECKING', 'Dict', 'Final', 'Type', 'Union') */
-    cpy_r_r6 = CPyStatics[23]; /* 'typing' */
+    cpy_r_r5 = CPyStatics[68]; /* ('TYPE_CHECKING', 'Dict', 'Final', 'Type', 'Union') */
+    cpy_r_r6 = CPyStatics[22]; /* 'typing' */
     cpy_r_r7 = CPyStatic__utils___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -716,14 +704,14 @@ CPyL3: ;
     cpy_r_r11 = (void *)&cpy_r_r10;
     int64_t cpy_r_r12[1] = {9};
     cpy_r_r13 = (void *)&cpy_r_r12;
-    cpy_r_r14 = CPyStatics[71]; /* (('cchecksum', 'cchecksum', 'cchecksum'),) */
+    cpy_r_r14 = CPyStatics[70]; /* (('cchecksum', 'cchecksum', 'cchecksum'),) */
     cpy_r_r15 = CPyStatic__utils___globals;
-    cpy_r_r16 = CPyStatics[25]; /* 'checksum_dict/_utils.py' */
-    cpy_r_r17 = CPyStatics[26]; /* '<module>' */
+    cpy_r_r16 = CPyStatics[24]; /* 'checksum_dict/_utils.py' */
+    cpy_r_r17 = CPyStatics[25]; /* '<module>' */
     cpy_r_r18 = CPyImport_ImportMany(cpy_r_r14, cpy_r_r11, cpy_r_r15, cpy_r_r16, cpy_r_r17, cpy_r_r13);
     if (!cpy_r_r18) goto CPyL14;
-    cpy_r_r19 = CPyStatics[72]; /* ('ChecksumAddress',) */
-    cpy_r_r20 = CPyStatics[28]; /* 'eth_typing' */
+    cpy_r_r19 = CPyStatics[71]; /* ('ChecksumAddress',) */
+    cpy_r_r20 = CPyStatics[27]; /* 'eth_typing' */
     cpy_r_r21 = CPyStatic__utils___globals;
     cpy_r_r22 = CPyImport_ImportFromMany(cpy_r_r20, cpy_r_r19, cpy_r_r19, cpy_r_r21);
     if (unlikely(cpy_r_r22 == NULL)) {
@@ -733,8 +721,8 @@ CPyL3: ;
     CPyModule_eth_typing = cpy_r_r22;
     CPy_INCREF(CPyModule_eth_typing);
     CPy_DECREF(cpy_r_r22);
-    cpy_r_r23 = CPyStatics[73]; /* ('_typing',) */
-    cpy_r_r24 = CPyStatics[30]; /* 'checksum_dict' */
+    cpy_r_r23 = CPyStatics[72]; /* ('_typing',) */
+    cpy_r_r24 = CPyStatics[29]; /* 'checksum_dict' */
     cpy_r_r25 = CPyStatic__utils___globals;
     cpy_r_r26 = CPyImport_ImportFromMany(cpy_r_r24, cpy_r_r23, cpy_r_r23, cpy_r_r25);
     if (unlikely(cpy_r_r26 == NULL)) {
@@ -752,7 +740,7 @@ CPyL3: ;
     CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES = cpy_r_r27;
     CPy_INCREF(CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES);
     cpy_r_r28 = CPyStatic__utils___globals;
-    cpy_r_r29 = CPyStatics[31]; /* '_KNOWN_CHECKSUMMED_TYPES' */
+    cpy_r_r29 = CPyStatics[30]; /* '_KNOWN_CHECKSUMMED_TYPES' */
     cpy_r_r30 = CPyDict_SetItem(cpy_r_r28, cpy_r_r29, cpy_r_r27);
     CPy_DECREF(cpy_r_r27);
     cpy_r_r31 = cpy_r_r30 >= 0;
@@ -761,7 +749,7 @@ CPyL3: ;
         goto CPyL14;
     }
     cpy_r_r32 = CPyStatic__utils___globals;
-    cpy_r_r33 = CPyStatics[24]; /* 'cchecksum' */
+    cpy_r_r33 = CPyStatics[23]; /* 'cchecksum' */
     cpy_r_r34 = CPyDict_GetItem(cpy_r_r32, cpy_r_r33);
     if (unlikely(cpy_r_r34 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "<module>", 25, CPyStatic__utils___globals);
@@ -844,22 +832,22 @@ static PyGetSetDef base___ChecksumAddressDict_getseters[] = {
 static PyMethodDef base___ChecksumAddressDict_methods[] = {
     {"__init__",
      (PyCFunction)CPyPy_base___ChecksumAddressDict_____init__,
-     METH_FASTCALL | METH_KEYWORDS, NULL},
+     METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__init__($self, seed=None)\n--\n\n")},
     {"__repr__",
      (PyCFunction)CPyPy_base___ChecksumAddressDict_____repr__,
-     METH_FASTCALL | METH_KEYWORDS, NULL},
+     METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__repr__($self, /)\n--\n\n")},
     {"__getitem__",
      (PyCFunction)CPyPy_base___ChecksumAddressDict_____getitem__,
-     METH_FASTCALL | METH_KEYWORDS, NULL},
+     METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__getitem__($self, key, /)\n--\n\n")},
     {"__setitem__",
      (PyCFunction)CPyPy_base___ChecksumAddressDict_____setitem__,
-     METH_FASTCALL | METH_KEYWORDS, NULL},
+     METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__setitem__($self, key, value, /)\n--\n\n")},
     {"_getitem_nochecksum",
      (PyCFunction)CPyPy_base___ChecksumAddressDict____getitem_nochecksum,
-     METH_FASTCALL | METH_KEYWORDS, NULL},
+     METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("_getitem_nochecksum($self, key)\n--\n\n")},
     {"_setitem_nochecksum",
      (PyCFunction)CPyPy_base___ChecksumAddressDict____setitem_nochecksum,
-     METH_FASTCALL | METH_KEYWORDS, NULL},
+     METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("_setitem_nochecksum($self, key, value)\n--\n\n")},
     {"__setstate__", (PyCFunction)CPyPickle_SetState, METH_O, NULL},
     {"__getstate__", (PyCFunction)CPyPickle_GetState, METH_NOARGS, NULL},
     {NULL}  /* Sentinel */
@@ -875,14 +863,19 @@ static PyTypeObject CPyType_base___ChecksumAddressDict_template_ = {
     .tp_as_mapping = &base___ChecksumAddressDict_as_mapping,
     .tp_basicsize = sizeof(PyDictObject),
     .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HEAPTYPE | Py_TPFLAGS_BASETYPE | Py_TPFLAGS_MANAGED_DICT,
+    .tp_doc = PyDoc_STR("ChecksumAddressDict(seed=None)\n--\n\n"),
 };
 static PyTypeObject *CPyType_base___ChecksumAddressDict_template = &CPyType_base___ChecksumAddressDict_template_;
 
-static int base_exec(PyObject *module)
+static PyMethodDef basemodule_methods[] = {
+    {NULL, NULL, 0, NULL}
+};
+
+int CPyExec_checksum_dict___base(PyObject *module)
 {
     PyObject* modname = NULL;
-    modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict___base_internal, "__name__");
-    CPyStatic_base___globals = PyModule_GetDict(CPyModule_checksum_dict___base_internal);
+    modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict___base__internal, "__name__");
+    CPyStatic_base___globals = PyModule_GetDict(CPyModule_checksum_dict___base__internal);
     if (unlikely(CPyStatic_base___globals == NULL))
         goto fail;
     if (CPyGlobalsInit() < 0)
@@ -893,15 +886,11 @@ static int base_exec(PyObject *module)
     Py_DECREF(modname);
     return 0;
     fail:
-    Py_CLEAR(CPyModule_checksum_dict___base_internal);
+    Py_CLEAR(CPyModule_checksum_dict___base__internal);
     Py_CLEAR(modname);
     Py_CLEAR(CPyType_base___ChecksumAddressDict);
     return -1;
 }
-static PyMethodDef basemodule_methods[] = {
-    {NULL, NULL, 0, NULL}
-};
-
 static struct PyModuleDef basemodule = {
     PyModuleDef_HEAD_INIT,
     "checksum_dict.base",
@@ -913,263 +902,251 @@ static struct PyModuleDef basemodule = {
 
 PyObject *CPyInit_checksum_dict___base(void)
 {
-    if (CPyModule_checksum_dict___base_internal) {
-        Py_INCREF(CPyModule_checksum_dict___base_internal);
-        return CPyModule_checksum_dict___base_internal;
+    if (CPyModule_checksum_dict___base__internal) {
+        Py_INCREF(CPyModule_checksum_dict___base__internal);
+        return CPyModule_checksum_dict___base__internal;
     }
-    CPyModule_checksum_dict___base_internal = PyModule_Create(&basemodule);
-    if (unlikely(CPyModule_checksum_dict___base_internal == NULL))
+    CPyModule_checksum_dict___base__internal = PyModule_Create(&basemodule);
+    if (unlikely(CPyModule_checksum_dict___base__internal == NULL))
         goto fail;
-    if (base_exec(CPyModule_checksum_dict___base_internal) != 0)
+    if (CPyExec_checksum_dict___base(CPyModule_checksum_dict___base__internal) != 0)
         goto fail;
-    return CPyModule_checksum_dict___base_internal;
+    return CPyModule_checksum_dict___base__internal;
     fail:
     return NULL;
 }
 
 char CPyDef_base___ChecksumAddressDict_____init__(PyObject *cpy_r_self, PyObject *cpy_r_seed) {
     PyObject *cpy_r_r0;
-    PyObject *cpy_r_r1;
-    int32_t cpy_r_r2;
-    char cpy_r_r3;
-    char cpy_r_r4;
+    char cpy_r_r1;
+    PyObject *cpy_r_r2;
+    CPyTagged cpy_r_r3;
+    int64_t cpy_r_r4;
     PyObject *cpy_r_r5;
-    CPyTagged cpy_r_r6;
-    int64_t cpy_r_r7;
-    CPyTagged cpy_r_r8;
+    tuple_T4CIOO cpy_r_r6;
+    CPyTagged cpy_r_r7;
+    char cpy_r_r8;
     PyObject *cpy_r_r9;
-    tuple_T4CIOO cpy_r_r10;
-    CPyTagged cpy_r_r11;
-    char cpy_r_r12;
-    PyObject *cpy_r_r13;
-    PyObject *cpy_r_r14;
+    PyObject *cpy_r_r10;
     PyObject *cpy_r_key;
     PyObject *cpy_r_value;
-    int32_t cpy_r_r15;
-    char cpy_r_r16;
-    char cpy_r_r17;
-    char cpy_r_r18;
-    PyObject *cpy_r_r19;
-    PyObject *cpy_r_r20;
+    int32_t cpy_r_r11;
+    char cpy_r_r12;
+    char cpy_r_r13;
+    char cpy_r_r14;
+    PyObject *cpy_r_r15;
+    PyObject *cpy_r_r16;
+    PyObject *cpy_r_r17;
+    int32_t cpy_r_r18;
+    char cpy_r_r19;
+    char cpy_r_r20;
     PyObject *cpy_r_r21;
-    int32_t cpy_r_r22;
-    char cpy_r_r23;
-    char cpy_r_r24;
-    PyObject *cpy_r_r25;
+    PyObject *cpy_r_r22;
+    PyObject *cpy_r_r23;
+    PyObject *cpy_r_r24;
+    char cpy_r_r25;
     PyObject *cpy_r_r26;
-    PyObject *cpy_r_r27;
+    char cpy_r_r27;
     PyObject *cpy_r_r28;
     char cpy_r_r29;
-    PyObject *cpy_r_r30;
+    int32_t cpy_r_r30;
     char cpy_r_r31;
-    PyObject *cpy_r_r32;
+    char cpy_r_r32;
     char cpy_r_r33;
-    int32_t cpy_r_r34;
-    char cpy_r_r35;
-    char cpy_r_r36;
-    char cpy_r_r37;
-    if (cpy_r_seed != NULL) goto CPyL29;
+    if (cpy_r_seed != NULL) goto CPyL28;
     cpy_r_r0 = Py_None;
     cpy_r_seed = cpy_r_r0;
 CPyL2: ;
-    cpy_r_r1 = (PyObject *)&PyDict_Type;
-    cpy_r_r2 = PyObject_IsInstance(cpy_r_seed, cpy_r_r1);
-    cpy_r_r3 = cpy_r_r2 >= 0;
-    if (unlikely(!cpy_r_r3)) {
-        CPy_AddTraceback("checksum_dict/base.py", "__init__", 61, CPyStatic_base___globals);
-        goto CPyL30;
-    }
-    cpy_r_r4 = cpy_r_r2;
-    if (!cpy_r_r4) goto CPyL10;
+    cpy_r_r1 = PyDict_Check(cpy_r_seed);
+    if (!cpy_r_r1) goto CPyL9;
     if (likely(PyDict_Check(cpy_r_seed)))
-        cpy_r_r5 = cpy_r_seed;
+        cpy_r_r2 = cpy_r_seed;
     else {
         CPy_TypeErrorTraceback("checksum_dict/base.py", "__init__", 62, CPyStatic_base___globals, "dict", cpy_r_seed);
-        goto CPyL28;
+        goto CPyL27;
     }
-    cpy_r_r6 = 0;
-    cpy_r_r7 = PyDict_Size(cpy_r_r5);
-    cpy_r_r8 = cpy_r_r7 << 1;
-    cpy_r_r9 = CPyDict_GetItemsIter(cpy_r_r5);
-    if (unlikely(cpy_r_r9 == NULL)) {
+    cpy_r_r3 = 0;
+    cpy_r_r4 = PyDict_Size(cpy_r_r2);
+    cpy_r_r5 = CPyDict_GetItemsIter(cpy_r_r2);
+    if (unlikely(cpy_r_r5 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 62, CPyStatic_base___globals);
-        goto CPyL31;
+        goto CPyL29;
     }
-CPyL6: ;
-    cpy_r_r10 = CPyDict_NextItem(cpy_r_r9, cpy_r_r6);
-    cpy_r_r11 = cpy_r_r10.f1;
-    cpy_r_r6 = cpy_r_r11;
-    cpy_r_r12 = cpy_r_r10.f0;
-    if (!cpy_r_r12) goto CPyL32;
-    cpy_r_r13 = cpy_r_r10.f2;
-    CPy_INCREF(cpy_r_r13);
-    cpy_r_r14 = cpy_r_r10.f3;
-    CPy_INCREF(cpy_r_r14);
-    CPy_DECREF(cpy_r_r10.f2);
-    CPy_DECREF(cpy_r_r10.f3);
-    cpy_r_key = cpy_r_r13;
-    cpy_r_value = cpy_r_r14;
-    cpy_r_r15 = CPyDict_SetItem(cpy_r_self, cpy_r_key, cpy_r_value);
+CPyL5: ;
+    cpy_r_r6 = CPyDict_NextItem(cpy_r_r5, cpy_r_r3);
+    cpy_r_r7 = cpy_r_r6.f1;
+    cpy_r_r3 = cpy_r_r7;
+    cpy_r_r8 = cpy_r_r6.f0;
+    if (!cpy_r_r8) goto CPyL30;
+    cpy_r_r9 = cpy_r_r6.f2;
+    CPy_INCREF(cpy_r_r9);
+    cpy_r_r10 = cpy_r_r6.f3;
+    CPy_INCREF(cpy_r_r10);
+    CPy_DECREF(cpy_r_r6.f2);
+    CPy_DECREF(cpy_r_r6.f3);
+    cpy_r_key = cpy_r_r9;
+    cpy_r_value = cpy_r_r10;
+    cpy_r_r11 = CPyDict_SetItem(cpy_r_self, cpy_r_key, cpy_r_value);
     CPy_DECREF(cpy_r_key);
     CPy_DECREF(cpy_r_value);
-    cpy_r_r16 = cpy_r_r15 >= 0;
-    if (unlikely(!cpy_r_r16)) {
+    cpy_r_r12 = cpy_r_r11 >= 0;
+    if (unlikely(!cpy_r_r12)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 63, CPyStatic_base___globals);
-        goto CPyL33;
+        goto CPyL31;
     }
-    cpy_r_r17 = CPyDict_CheckSize(cpy_r_r5, cpy_r_r8);
-    if (unlikely(!cpy_r_r17)) {
+    cpy_r_r13 = CPyDict_CheckSize(cpy_r_r2, cpy_r_r4);
+    if (unlikely(!cpy_r_r13)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 62, CPyStatic_base___globals);
-        goto CPyL33;
+        goto CPyL31;
     } else
-        goto CPyL6;
-CPyL9: ;
-    cpy_r_r18 = CPy_NoErrOccurred();
-    if (unlikely(!cpy_r_r18)) {
+        goto CPyL5;
+CPyL8: ;
+    cpy_r_r14 = CPy_NoErrOccurred();
+    if (unlikely(!cpy_r_r14)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 62, CPyStatic_base___globals);
-        goto CPyL28;
-    } else
         goto CPyL27;
-CPyL10: ;
-    cpy_r_r19 = CPyStatic_base___globals;
-    cpy_r_r20 = CPyStatics[32]; /* 'Iterable' */
-    cpy_r_r21 = CPyDict_GetItem(cpy_r_r19, cpy_r_r20);
-    if (unlikely(cpy_r_r21 == NULL)) {
+    } else
+        goto CPyL26;
+CPyL9: ;
+    cpy_r_r15 = CPyStatic_base___globals;
+    cpy_r_r16 = CPyStatics[31]; /* 'Iterable' */
+    cpy_r_r17 = CPyDict_GetItem(cpy_r_r15, cpy_r_r16);
+    if (unlikely(cpy_r_r17 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 64, CPyStatic_base___globals);
-        goto CPyL30;
+        goto CPyL32;
     }
-    cpy_r_r22 = PyObject_IsInstance(cpy_r_seed, cpy_r_r21);
-    CPy_DECREF(cpy_r_r21);
-    cpy_r_r23 = cpy_r_r22 >= 0;
-    if (unlikely(!cpy_r_r23)) {
+    cpy_r_r18 = PyObject_IsInstance(cpy_r_seed, cpy_r_r17);
+    CPy_DECREF(cpy_r_r17);
+    cpy_r_r19 = cpy_r_r18 >= 0;
+    if (unlikely(!cpy_r_r19)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 64, CPyStatic_base___globals);
-        goto CPyL30;
+        goto CPyL32;
     }
-    cpy_r_r24 = cpy_r_r22;
-    if (!cpy_r_r24) goto CPyL34;
-    cpy_r_r25 = PyObject_GetIter(cpy_r_seed);
+    cpy_r_r20 = cpy_r_r18;
+    if (!cpy_r_r20) goto CPyL33;
+    cpy_r_r21 = PyObject_GetIter(cpy_r_seed);
     CPy_DECREF(cpy_r_seed);
-    if (unlikely(cpy_r_r25 == NULL)) {
+    if (unlikely(cpy_r_r21 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 65, CPyStatic_base___globals);
-        goto CPyL28;
+        goto CPyL27;
     }
-CPyL14: ;
-    cpy_r_r26 = PyIter_Next(cpy_r_r25);
-    if (cpy_r_r26 == NULL) goto CPyL35;
-    cpy_r_r27 = PyObject_GetIter(cpy_r_r26);
-    CPy_DECREF(cpy_r_r26);
-    if (unlikely(cpy_r_r27 == NULL)) {
+CPyL13: ;
+    cpy_r_r22 = PyIter_Next(cpy_r_r21);
+    if (cpy_r_r22 == NULL) goto CPyL34;
+    cpy_r_r23 = PyObject_GetIter(cpy_r_r22);
+    CPy_DECREF(cpy_r_r22);
+    if (unlikely(cpy_r_r23 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 65, CPyStatic_base___globals);
+        goto CPyL35;
+    }
+    cpy_r_r24 = PyIter_Next(cpy_r_r23);
+    if (cpy_r_r24 == NULL) {
         goto CPyL36;
+    } else
+        goto CPyL18;
+CPyL16: ;
+    PyErr_SetString(PyExc_ValueError, "not enough values to unpack");
+    cpy_r_r25 = 0;
+    if (unlikely(!cpy_r_r25)) {
+        CPy_AddTraceback("checksum_dict/base.py", "__init__", 65, CPyStatic_base___globals);
+        goto CPyL27;
     }
-    cpy_r_r28 = PyIter_Next(cpy_r_r27);
-    if (cpy_r_r28 == NULL) {
+    CPy_Unreachable();
+CPyL18: ;
+    cpy_r_key = cpy_r_r24;
+    cpy_r_r26 = PyIter_Next(cpy_r_r23);
+    if (cpy_r_r26 == NULL) {
         goto CPyL37;
     } else
-        goto CPyL19;
-CPyL17: ;
+        goto CPyL21;
+CPyL19: ;
     PyErr_SetString(PyExc_ValueError, "not enough values to unpack");
+    cpy_r_r27 = 0;
+    if (unlikely(!cpy_r_r27)) {
+        CPy_AddTraceback("checksum_dict/base.py", "__init__", 65, CPyStatic_base___globals);
+        goto CPyL27;
+    }
+    CPy_Unreachable();
+CPyL21: ;
+    cpy_r_value = cpy_r_r26;
+    cpy_r_r28 = PyIter_Next(cpy_r_r23);
+    CPy_DECREF(cpy_r_r23);
+    if (cpy_r_r28 == NULL) {
+        goto CPyL24;
+    } else
+        goto CPyL38;
+CPyL22: ;
+    PyErr_SetString(PyExc_ValueError, "too many values to unpack");
     cpy_r_r29 = 0;
     if (unlikely(!cpy_r_r29)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 65, CPyStatic_base___globals);
-        goto CPyL28;
+        goto CPyL27;
     }
     CPy_Unreachable();
-CPyL19: ;
-    cpy_r_key = cpy_r_r28;
-    cpy_r_r30 = PyIter_Next(cpy_r_r27);
-    if (cpy_r_r30 == NULL) {
-        goto CPyL38;
-    } else
-        goto CPyL22;
-CPyL20: ;
-    PyErr_SetString(PyExc_ValueError, "not enough values to unpack");
-    cpy_r_r31 = 0;
-    if (unlikely(!cpy_r_r31)) {
-        CPy_AddTraceback("checksum_dict/base.py", "__init__", 65, CPyStatic_base___globals);
-        goto CPyL28;
-    }
-    CPy_Unreachable();
-CPyL22: ;
-    cpy_r_value = cpy_r_r30;
-    cpy_r_r32 = PyIter_Next(cpy_r_r27);
-    CPy_DECREF(cpy_r_r27);
-    if (cpy_r_r32 == NULL) {
-        goto CPyL25;
-    } else
-        goto CPyL39;
-CPyL23: ;
-    PyErr_SetString(PyExc_ValueError, "too many values to unpack");
-    cpy_r_r33 = 0;
-    if (unlikely(!cpy_r_r33)) {
-        CPy_AddTraceback("checksum_dict/base.py", "__init__", 65, CPyStatic_base___globals);
-        goto CPyL28;
-    }
-    CPy_Unreachable();
-CPyL25: ;
-    cpy_r_r34 = CPyDict_SetItem(cpy_r_self, cpy_r_key, cpy_r_value);
+CPyL24: ;
+    cpy_r_r30 = CPyDict_SetItem(cpy_r_self, cpy_r_key, cpy_r_value);
     CPy_DECREF(cpy_r_key);
     CPy_DECREF(cpy_r_value);
-    cpy_r_r35 = cpy_r_r34 >= 0;
-    if (unlikely(!cpy_r_r35)) {
+    cpy_r_r31 = cpy_r_r30 >= 0;
+    if (unlikely(!cpy_r_r31)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 66, CPyStatic_base___globals);
-        goto CPyL36;
+        goto CPyL35;
     } else
-        goto CPyL14;
-CPyL26: ;
-    cpy_r_r36 = CPy_NoErrOccurred();
-    if (unlikely(!cpy_r_r36)) {
+        goto CPyL13;
+CPyL25: ;
+    cpy_r_r32 = CPy_NoErrOccurred();
+    if (unlikely(!cpy_r_r32)) {
         CPy_AddTraceback("checksum_dict/base.py", "__init__", 65, CPyStatic_base___globals);
-        goto CPyL28;
+        goto CPyL27;
     }
-CPyL27: ;
+CPyL26: ;
     return 1;
+CPyL27: ;
+    cpy_r_r33 = 2;
+    return cpy_r_r33;
 CPyL28: ;
-    cpy_r_r37 = 2;
-    return cpy_r_r37;
-CPyL29: ;
     CPy_INCREF(cpy_r_seed);
     goto CPyL2;
-CPyL30: ;
-    CPy_DecRef(cpy_r_seed);
-    goto CPyL28;
-CPyL31: ;
-    CPy_DecRef(cpy_r_r5);
-    goto CPyL28;
-CPyL32: ;
-    CPy_DECREF(cpy_r_r5);
-    CPy_DECREF(cpy_r_r9);
-    CPy_DECREF(cpy_r_r10.f2);
-    CPy_DECREF(cpy_r_r10.f3);
-    goto CPyL9;
-CPyL33: ;
-    CPy_DecRef(cpy_r_r5);
-    CPy_DecRef(cpy_r_r9);
-    goto CPyL28;
-CPyL34: ;
-    CPy_DECREF(cpy_r_seed);
+CPyL29: ;
+    CPy_DecRef(cpy_r_r2);
     goto CPyL27;
-CPyL35: ;
-    CPy_DECREF(cpy_r_r25);
+CPyL30: ;
+    CPy_DECREF(cpy_r_r2);
+    CPy_DECREF(cpy_r_r5);
+    CPy_DECREF(cpy_r_r6.f2);
+    CPy_DECREF(cpy_r_r6.f3);
+    goto CPyL8;
+CPyL31: ;
+    CPy_DecRef(cpy_r_r2);
+    CPy_DecRef(cpy_r_r5);
+    goto CPyL27;
+CPyL32: ;
+    CPy_DecRef(cpy_r_seed);
+    goto CPyL27;
+CPyL33: ;
+    CPy_DECREF(cpy_r_seed);
     goto CPyL26;
+CPyL34: ;
+    CPy_DECREF(cpy_r_r21);
+    goto CPyL25;
+CPyL35: ;
+    CPy_DecRef(cpy_r_r21);
+    goto CPyL27;
 CPyL36: ;
-    CPy_DecRef(cpy_r_r25);
-    goto CPyL28;
+    CPy_DECREF(cpy_r_r21);
+    CPy_DECREF(cpy_r_r23);
+    goto CPyL16;
 CPyL37: ;
-    CPy_DECREF(cpy_r_r25);
-    CPy_DECREF(cpy_r_r27);
-    goto CPyL17;
+    CPy_DECREF(cpy_r_key);
+    CPy_DECREF(cpy_r_r21);
+    CPy_DECREF(cpy_r_r23);
+    goto CPyL19;
 CPyL38: ;
     CPy_DECREF(cpy_r_key);
-    CPy_DECREF(cpy_r_r25);
-    CPy_DECREF(cpy_r_r27);
-    goto CPyL20;
-CPyL39: ;
-    CPy_DECREF(cpy_r_key);
     CPy_DECREF(cpy_r_value);
-    CPy_DECREF(cpy_r_r25);
-    CPy_DECREF(cpy_r_r32);
-    goto CPyL23;
+    CPy_DECREF(cpy_r_r21);
+    CPy_DECREF(cpy_r_r28);
+    goto CPyL22;
 }
 
 PyObject *CPyPy_base___ChecksumAddressDict_____init__(PyObject *self, PyObject *args, PyObject *kw) {
@@ -1232,7 +1209,7 @@ char CPyDef_base___ChecksumAddressDict_____init___3__ChecksumAddressDict_glue(Py
     PyObject *cpy_r_r8;
     char cpy_r_r9;
     char cpy_r_r10;
-    cpy_r_r0 = CPyStatics[33]; /* '__init__' */
+    cpy_r_r0 = CPyStatics[32]; /* '__init__' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_self, cpy_r_r0);
     if (cpy_r_r1 == NULL) goto CPyL10;
     cpy_r_r2 = PyList_New(0);
@@ -1342,7 +1319,7 @@ PyObject *CPyDef_base___ChecksumAddressDict_____repr__(PyObject *cpy_r_self) {
     PyObject *cpy_r_r3;
     PyObject *cpy_r_r4;
     PyObject *cpy_r_r5;
-    cpy_r_r0 = CPyStatics[34]; /* 'ChecksumAddressDict(' */
+    cpy_r_r0 = CPyStatics[33]; /* 'ChecksumAddressDict(' */
     cpy_r_r1 = PyDict_Copy(cpy_r_self);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__repr__", 69, CPyStatic_base___globals);
@@ -1354,7 +1331,7 @@ PyObject *CPyDef_base___ChecksumAddressDict_____repr__(PyObject *cpy_r_self) {
         CPy_AddTraceback("checksum_dict/base.py", "__repr__", 69, CPyStatic_base___globals);
         goto CPyL4;
     }
-    cpy_r_r3 = CPyStatics[35]; /* ')' */
+    cpy_r_r3 = CPyStatics[34]; /* ')' */
     cpy_r_r4 = CPyStr_Build(3, cpy_r_r0, cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     if (unlikely(cpy_r_r4 == NULL)) {
@@ -1394,7 +1371,7 @@ PyObject *CPyDef_base___ChecksumAddressDict_____repr___3__ChecksumAddressDict_gl
     PyObject *cpy_r_r3;
     PyObject *cpy_r_r4;
     PyObject *cpy_r_r5;
-    cpy_r_r0 = CPyStatics[36]; /* '__repr__' */
+    cpy_r_r0 = CPyStatics[35]; /* '__repr__' */
     PyObject *cpy_r_r1[1] = {cpy_r_self};
     cpy_r_r2 = (PyObject **)&cpy_r_r1;
     cpy_r_r3 = PyObject_VectorcallMethod(cpy_r_r0, cpy_r_r2, 9223372036854775809ULL, 0);
@@ -1464,14 +1441,10 @@ PyObject *CPyDef_base___ChecksumAddressDict_____getitem__(PyObject *cpy_r_self, 
     PyObject *cpy_r_r29;
     PyObject *cpy_r_r30;
     PyObject *cpy_r_r31;
-    PyObject *cpy_r_r32;
+    char cpy_r_r32;
     PyObject *cpy_r_r33;
-    PyObject *cpy_r_r34;
-    PyObject *cpy_r_r35;
-    char cpy_r_r36;
-    PyObject *cpy_r_r37;
     cpy_r_r0 = (PyObject *)&PyDict_Type;
-    cpy_r_r1 = CPyStatics[37]; /* '__getitem__' */
+    cpy_r_r1 = CPyStatics[36]; /* '__getitem__' */
     PyObject *cpy_r_r2[3] = {cpy_r_r0, cpy_r_self, cpy_r_key};
     cpy_r_r3 = (PyObject **)&cpy_r_r2;
     cpy_r_r4 = PyObject_VectorcallMethod(cpy_r_r1, cpy_r_r3, 9223372036854775811ULL, 0);
@@ -1483,7 +1456,7 @@ PyObject *CPyDef_base___ChecksumAddressDict_____getitem__(PyObject *cpy_r_self, 
 CPyL3: ;
     cpy_r_r5 = CPy_CatchError();
     cpy_r_r6 = CPyModule_builtins;
-    cpy_r_r7 = CPyStatics[38]; /* 'KeyError' */
+    cpy_r_r7 = CPyStatics[37]; /* 'KeyError' */
     cpy_r_r8 = CPyObject_GetAttr(cpy_r_r6, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 76, CPyStatic_base___globals);
@@ -1496,7 +1469,7 @@ CPyL3: ;
     if (!0) {
         goto CPyL8;
     } else
-        goto CPyL31;
+        goto CPyL27;
 CPyL6: ;
     CPy_Unreachable();
 CPyL7: ;
@@ -1511,7 +1484,7 @@ CPyL8: ;
     CPy_DecRef(cpy_r_r5.f1);
     CPy_DecRef(cpy_r_r5.f2);
     cpy_r_r10 = CPy_KeepPropagating();
-    if (!cpy_r_r10) goto CPyL30;
+    if (!cpy_r_r10) goto CPyL26;
     CPy_Unreachable();
 CPyL10: ;
     cpy_r_r11 = (PyObject *)&PyDict_Type;
@@ -1520,155 +1493,112 @@ CPyL10: ;
         CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 81, CPyStatic_base___globals);
         goto CPyL13;
     }
-    cpy_r_r13 = CPyStatics[37]; /* '__getitem__' */
+    cpy_r_r13 = CPyStatics[36]; /* '__getitem__' */
     PyObject *cpy_r_r14[3] = {cpy_r_r11, cpy_r_self, cpy_r_r12};
     cpy_r_r15 = (PyObject **)&cpy_r_r14;
     cpy_r_r16 = PyObject_VectorcallMethod(cpy_r_r13, cpy_r_r15, 9223372036854775811ULL, 0);
     if (unlikely(cpy_r_r16 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 81, CPyStatic_base___globals);
-        goto CPyL32;
+        goto CPyL28;
     }
     CPy_DecRef(cpy_r_r12);
     return cpy_r_r16;
 CPyL13: ;
     cpy_r_r17 = CPy_CatchError();
     cpy_r_r18 = CPyModule_builtins;
-    cpy_r_r19 = CPyStatics[38]; /* 'KeyError' */
+    cpy_r_r19 = CPyStatics[37]; /* 'KeyError' */
     cpy_r_r20 = CPyObject_GetAttr(cpy_r_r18, cpy_r_r19);
     if (unlikely(cpy_r_r20 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 82, CPyStatic_base___globals);
-        goto CPyL28;
+        goto CPyL24;
     }
     cpy_r_r21 = CPy_ExceptionMatches(cpy_r_r20);
     CPy_DecRef(cpy_r_r20);
-    if (!cpy_r_r21) goto CPyL26;
+    if (!cpy_r_r21) goto CPyL22;
     cpy_r_r22 = CPy_GetExcValue();
-    cpy_r_r23 = CPyStatics[39]; /* 'args' */
+    cpy_r_r23 = CPyStatics[38]; /* 'args' */
     cpy_r_r24 = CPyObject_GetAttr(cpy_r_r22, cpy_r_r23);
     CPy_DecRef(cpy_r_r22);
     if (unlikely(cpy_r_r24 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals);
-        goto CPyL28;
+        goto CPyL24;
     }
     if (likely(PyTuple_Check(cpy_r_r24)))
         cpy_r_r25 = cpy_r_r24;
     else {
         CPy_TypeErrorTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals, "tuple", cpy_r_r24);
-        goto CPyL28;
+        goto CPyL24;
     }
     cpy_r_r26 = CPyStatic_base___globals;
-    cpy_r_r27 = CPyStatics[40]; /* 'exceptions' */
+    cpy_r_r27 = CPyStatics[39]; /* 'exceptions' */
     cpy_r_r28 = CPyDict_GetItem(cpy_r_r26, cpy_r_r27);
     if (unlikely(cpy_r_r28 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals);
-        goto CPyL33;
+        goto CPyL29;
     }
-    cpy_r_r29 = CPyStatics[38]; /* 'KeyError' */
+    cpy_r_r29 = CPyStatics[37]; /* 'KeyError' */
     cpy_r_r30 = CPyObject_GetAttr(cpy_r_r28, cpy_r_r29);
     CPy_DecRef(cpy_r_r28);
     if (unlikely(cpy_r_r30 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals);
-        goto CPyL33;
+        goto CPyL29;
     }
-    cpy_r_r31 = PyList_New(0);
+    cpy_r_r31 = PyObject_CallObject(cpy_r_r30, cpy_r_r25);
+    CPy_DecRef(cpy_r_r30);
+    CPy_DecRef(cpy_r_r25);
     if (unlikely(cpy_r_r31 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals);
-        goto CPyL34;
+        goto CPyL24;
     }
-    cpy_r_r32 = CPyList_Extend(cpy_r_r31, cpy_r_r25);
-    CPy_DecRef(cpy_r_r25);
-    if (unlikely(cpy_r_r32 == NULL)) {
-        CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals);
-        goto CPyL35;
-    } else
-        goto CPyL36;
-CPyL21: ;
-    cpy_r_r33 = PyList_AsTuple(cpy_r_r31);
+    CPy_Raise(cpy_r_r31);
     CPy_DecRef(cpy_r_r31);
-    if (unlikely(cpy_r_r33 == NULL)) {
-        CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals);
-        goto CPyL37;
-    }
-    cpy_r_r34 = PyDict_New();
-    if (unlikely(cpy_r_r34 == NULL)) {
-        CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals);
-        goto CPyL38;
-    }
-    cpy_r_r35 = PyObject_Call(cpy_r_r30, cpy_r_r33, cpy_r_r34);
-    CPy_DecRef(cpy_r_r30);
-    CPy_DecRef(cpy_r_r33);
-    CPy_DecRef(cpy_r_r34);
-    if (unlikely(cpy_r_r35 == NULL)) {
-        CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals);
-        goto CPyL28;
-    }
-    CPy_Raise(cpy_r_r35);
-    CPy_DecRef(cpy_r_r35);
     if (unlikely(!0)) {
         CPy_AddTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals);
-        goto CPyL28;
+        goto CPyL24;
     } else
-        goto CPyL39;
-CPyL25: ;
+        goto CPyL30;
+CPyL21: ;
     CPy_Unreachable();
-CPyL26: ;
+CPyL22: ;
     CPy_Reraise();
     if (!0) {
-        goto CPyL28;
+        goto CPyL24;
     } else
-        goto CPyL40;
-CPyL27: ;
+        goto CPyL31;
+CPyL23: ;
     CPy_Unreachable();
-CPyL28: ;
+CPyL24: ;
     CPy_RestoreExcInfo(cpy_r_r17);
     CPy_DecRef(cpy_r_r17.f0);
     CPy_DecRef(cpy_r_r17.f1);
     CPy_DecRef(cpy_r_r17.f2);
-    cpy_r_r36 = CPy_KeepPropagating();
-    if (!cpy_r_r36) goto CPyL30;
+    cpy_r_r32 = CPy_KeepPropagating();
+    if (!cpy_r_r32) goto CPyL26;
     CPy_Unreachable();
-CPyL30: ;
-    cpy_r_r37 = NULL;
-    return cpy_r_r37;
-CPyL31: ;
+CPyL26: ;
+    cpy_r_r33 = NULL;
+    return cpy_r_r33;
+CPyL27: ;
     CPy_DecRef(cpy_r_r5.f0);
     CPy_DecRef(cpy_r_r5.f1);
     CPy_DecRef(cpy_r_r5.f2);
     goto CPyL6;
-CPyL32: ;
+CPyL28: ;
     CPy_DecRef(cpy_r_r12);
     goto CPyL13;
-CPyL33: ;
+CPyL29: ;
     CPy_DecRef(cpy_r_r25);
-    goto CPyL28;
-CPyL34: ;
-    CPy_DecRef(cpy_r_r25);
-    CPy_DecRef(cpy_r_r30);
-    goto CPyL28;
-CPyL35: ;
-    CPy_DecRef(cpy_r_r30);
-    CPy_DecRef(cpy_r_r31);
-    goto CPyL28;
-CPyL36: ;
-    CPy_DecRef(cpy_r_r32);
+    goto CPyL24;
+CPyL30: ;
+    CPy_DecRef(cpy_r_r17.f0);
+    CPy_DecRef(cpy_r_r17.f1);
+    CPy_DecRef(cpy_r_r17.f2);
     goto CPyL21;
-CPyL37: ;
-    CPy_DecRef(cpy_r_r30);
-    goto CPyL28;
-CPyL38: ;
-    CPy_DecRef(cpy_r_r30);
-    CPy_DecRef(cpy_r_r33);
-    goto CPyL28;
-CPyL39: ;
+CPyL31: ;
     CPy_DecRef(cpy_r_r17.f0);
     CPy_DecRef(cpy_r_r17.f1);
     CPy_DecRef(cpy_r_r17.f2);
-    goto CPyL25;
-CPyL40: ;
-    CPy_DecRef(cpy_r_r17.f0);
-    CPy_DecRef(cpy_r_r17.f1);
-    CPy_DecRef(cpy_r_r17.f2);
-    goto CPyL27;
+    goto CPyL23;
 }
 
 PyObject *CPyPy_base___ChecksumAddressDict_____getitem__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames) {
@@ -1699,7 +1629,7 @@ PyObject *CPyDef_base___ChecksumAddressDict_____getitem___3__ChecksumAddressDict
     PyObject **cpy_r_r2;
     PyObject *cpy_r_r3;
     PyObject *cpy_r_r4;
-    cpy_r_r0 = CPyStatics[37]; /* '__getitem__' */
+    cpy_r_r0 = CPyStatics[36]; /* '__getitem__' */
     PyObject *cpy_r_r1[2] = {cpy_r_self, cpy_r_key};
     cpy_r_r2 = (PyObject **)&cpy_r_r1;
     cpy_r_r3 = PyObject_VectorcallMethod(cpy_r_r0, cpy_r_r2, 9223372036854775810ULL, 0);
@@ -1756,7 +1686,7 @@ char CPyDef_base___ChecksumAddressDict_____setitem__(PyObject *cpy_r_self, PyObj
     cpy_r_r2 = cpy_r_r0;
     if (!cpy_r_r2) goto CPyL3;
     cpy_r_r3 = (PyObject *)&PyDict_Type;
-    cpy_r_r4 = CPyStatics[41]; /* '__setitem__' */
+    cpy_r_r4 = CPyStatics[40]; /* '__setitem__' */
     PyObject *cpy_r_r5[4] = {cpy_r_r3, cpy_r_self, cpy_r_key, cpy_r_value};
     cpy_r_r6 = (PyObject **)&cpy_r_r5;
     cpy_r_r7 = PyObject_VectorcallMethod(cpy_r_r4, cpy_r_r6, 9223372036854775812ULL, 0);
@@ -1772,7 +1702,7 @@ CPyL3: ;
         CPy_AddTraceback("checksum_dict/base.py", "__setitem__", 90, CPyStatic_base___globals);
         goto CPyL7;
     }
-    cpy_r_r10 = CPyStatics[41]; /* '__setitem__' */
+    cpy_r_r10 = CPyStatics[40]; /* '__setitem__' */
     PyObject *cpy_r_r11[4] = {cpy_r_r8, cpy_r_self, cpy_r_r9, cpy_r_value};
     cpy_r_r12 = (PyObject **)&cpy_r_r11;
     cpy_r_r13 = PyObject_VectorcallMethod(cpy_r_r10, cpy_r_r12, 9223372036854775812ULL, 0);
@@ -1835,7 +1765,7 @@ char CPyDef_base___ChecksumAddressDict_____setitem___3__ChecksumAddressDict_glue
     PyObject *cpy_r_r3;
     char cpy_r_r4;
     char cpy_r_r5;
-    cpy_r_r0 = CPyStatics[41]; /* '__setitem__' */
+    cpy_r_r0 = CPyStatics[40]; /* '__setitem__' */
     PyObject *cpy_r_r1[3] = {cpy_r_self, cpy_r_key, cpy_r_value};
     cpy_r_r2 = (PyObject **)&cpy_r_r1;
     cpy_r_r3 = PyObject_VectorcallMethod(cpy_r_r0, cpy_r_r2, 9223372036854775811ULL, 0);
@@ -1889,7 +1819,7 @@ PyObject *CPyDef_base___ChecksumAddressDict____getitem_nochecksum(PyObject *cpy_
     PyObject *cpy_r_r4;
     PyObject *cpy_r_r5;
     cpy_r_r0 = (PyObject *)&PyDict_Type;
-    cpy_r_r1 = CPyStatics[37]; /* '__getitem__' */
+    cpy_r_r1 = CPyStatics[36]; /* '__getitem__' */
     PyObject *cpy_r_r2[3] = {cpy_r_r0, cpy_r_self, cpy_r_key};
     cpy_r_r3 = (PyObject **)&cpy_r_r2;
     cpy_r_r4 = PyObject_VectorcallMethod(cpy_r_r1, cpy_r_r3, 9223372036854775811ULL, 0);
@@ -1931,7 +1861,7 @@ PyObject *CPyDef_base___ChecksumAddressDict____getitem_nochecksum__ChecksumAddre
     PyObject **cpy_r_r2;
     PyObject *cpy_r_r3;
     PyObject *cpy_r_r4;
-    cpy_r_r0 = CPyStatics[42]; /* '_getitem_nochecksum' */
+    cpy_r_r0 = CPyStatics[41]; /* '_getitem_nochecksum' */
     PyObject *cpy_r_r1[2] = {cpy_r_self, cpy_r_key};
     cpy_r_r2 = (PyObject **)&cpy_r_r1;
     cpy_r_r3 = PyObject_VectorcallMethod(cpy_r_r0, cpy_r_r2, 9223372036854775810ULL, 0);
@@ -1989,8 +1919,8 @@ char CPyDef_base___ChecksumAddressDict____setitem_nochecksum(PyObject *cpy_r_sel
     PyObject **cpy_r_r23;
     PyObject *cpy_r_r24;
     char cpy_r_r25;
-    cpy_r_r0 = CPyStatics[43]; /* '0x' */
-    cpy_r_r1 = CPyStatics[44]; /* 'startswith' */
+    cpy_r_r0 = CPyStatics[42]; /* '0x' */
+    cpy_r_r1 = CPyStatics[43]; /* 'startswith' */
     PyObject *cpy_r_r2[2] = {cpy_r_key, cpy_r_r0};
     cpy_r_r3 = (PyObject **)&cpy_r_r2;
     cpy_r_r4 = PyObject_VectorcallMethod(cpy_r_r1, cpy_r_r3, 9223372036854775810ULL, 0);
@@ -2054,7 +1984,7 @@ CPyL5: ;
     CPy_Unreachable();
 CPyL11: ;
     cpy_r_r20 = (PyObject *)&PyDict_Type;
-    cpy_r_r21 = CPyStatics[41]; /* '__setitem__' */
+    cpy_r_r21 = CPyStatics[40]; /* '__setitem__' */
     PyObject *cpy_r_r22[4] = {cpy_r_r20, cpy_r_self, cpy_r_key, cpy_r_value};
     cpy_r_r23 = (PyObject **)&cpy_r_r22;
     cpy_r_r24 = PyObject_VectorcallMethod(cpy_r_r21, cpy_r_r23, 9223372036854775812ULL, 0);
@@ -2112,7 +2042,7 @@ char CPyDef_base___ChecksumAddressDict____setitem_nochecksum__ChecksumAddressDic
     PyObject *cpy_r_r3;
     char cpy_r_r4;
     char cpy_r_r5;
-    cpy_r_r0 = CPyStatics[45]; /* '_setitem_nochecksum' */
+    cpy_r_r0 = CPyStatics[44]; /* '_setitem_nochecksum' */
     PyObject *cpy_r_r1[3] = {cpy_r_self, cpy_r_key, cpy_r_value};
     cpy_r_r2 = (PyObject **)&cpy_r_r1;
     cpy_r_r3 = PyObject_VectorcallMethod(cpy_r_r0, cpy_r_r2, 9223372036854775811ULL, 0);
@@ -2267,7 +2197,7 @@ char CPyDef_base_____top_level__(void) {
     cpy_r_r1 = (PyObject *)&_Py_NoneStruct;
     cpy_r_r2 = cpy_r_r0 != cpy_r_r1;
     if (cpy_r_r2) goto CPyL3;
-    cpy_r_r3 = CPyStatics[17]; /* 'builtins' */
+    cpy_r_r3 = CPyStatics[16]; /* 'builtins' */
     cpy_r_r4 = PyImport_Import(cpy_r_r3);
     if (unlikely(cpy_r_r4 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", -1, CPyStatic_base___globals);
@@ -2277,9 +2207,9 @@ char CPyDef_base_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[74]; /* ('Dict', 'Iterable', 'Optional', 'Tuple', 'TypeVar',
+    cpy_r_r5 = CPyStatics[73]; /* ('Dict', 'Iterable', 'Optional', 'Tuple', 'TypeVar',
                                   'Union', 'overload') */
-    cpy_r_r6 = CPyStatics[23]; /* 'typing' */
+    cpy_r_r6 = CPyStatics[22]; /* 'typing' */
     cpy_r_r7 = CPyStatic_base___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -2289,8 +2219,8 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r8;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[72]; /* ('ChecksumAddress',) */
-    cpy_r_r10 = CPyStatics[28]; /* 'eth_typing' */
+    cpy_r_r9 = CPyStatics[71]; /* ('ChecksumAddress',) */
+    cpy_r_r10 = CPyStatics[27]; /* 'eth_typing' */
     cpy_r_r11 = CPyStatic_base___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
@@ -2300,8 +2230,8 @@ CPyL3: ;
     CPyModule_eth_typing = cpy_r_r12;
     CPy_INCREF(CPyModule_eth_typing);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[75]; /* ('mypyc_attr',) */
-    cpy_r_r14 = CPyStatics[51]; /* 'mypy_extensions' */
+    cpy_r_r13 = CPyStatics[74]; /* ('mypyc_attr',) */
+    cpy_r_r14 = CPyStatics[50]; /* 'mypy_extensions' */
     cpy_r_r15 = CPyStatic_base___globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
@@ -2311,8 +2241,8 @@ CPyL3: ;
     CPyModule_mypy_extensions = cpy_r_r16;
     CPy_INCREF(CPyModule_mypy_extensions);
     CPy_DECREF(cpy_r_r16);
-    cpy_r_r17 = CPyStatics[76]; /* ('exceptions',) */
-    cpy_r_r18 = CPyStatics[30]; /* 'checksum_dict' */
+    cpy_r_r17 = CPyStatics[75]; /* ('exceptions',) */
+    cpy_r_r18 = CPyStatics[29]; /* 'checksum_dict' */
     cpy_r_r19 = CPyStatic_base___globals;
     cpy_r_r20 = CPyImport_ImportFromMany(cpy_r_r18, cpy_r_r17, cpy_r_r17, cpy_r_r19);
     if (unlikely(cpy_r_r20 == NULL)) {
@@ -2322,8 +2252,8 @@ CPyL3: ;
     CPyModule_checksum_dict = cpy_r_r20;
     CPy_INCREF(CPyModule_checksum_dict);
     CPy_DECREF(cpy_r_r20);
-    cpy_r_r21 = CPyStatics[77]; /* ('AnyAddressOrContract',) */
-    cpy_r_r22 = CPyStatics[53]; /* 'checksum_dict._typing' */
+    cpy_r_r21 = CPyStatics[76]; /* ('AnyAddressOrContract',) */
+    cpy_r_r22 = CPyStatics[52]; /* 'checksum_dict._typing' */
     cpy_r_r23 = CPyStatic_base___globals;
     cpy_r_r24 = CPyImport_ImportFromMany(cpy_r_r22, cpy_r_r21, cpy_r_r21, cpy_r_r23);
     if (unlikely(cpy_r_r24 == NULL)) {
@@ -2333,8 +2263,8 @@ CPyL3: ;
     CPyModule_checksum_dict____typing = cpy_r_r24;
     CPy_INCREF(CPyModule_checksum_dict____typing);
     CPy_DECREF(cpy_r_r24);
-    cpy_r_r25 = CPyStatics[78]; /* ('attempt_checksum',) */
-    cpy_r_r26 = CPyStatics[55]; /* 'checksum_dict._utils' */
+    cpy_r_r25 = CPyStatics[77]; /* ('attempt_checksum',) */
+    cpy_r_r26 = CPyStatics[54]; /* 'checksum_dict._utils' */
     cpy_r_r27 = CPyStatic_base___globals;
     cpy_r_r28 = CPyImport_ImportFromMany(cpy_r_r26, cpy_r_r25, cpy_r_r25, cpy_r_r27);
     if (unlikely(cpy_r_r28 == NULL)) {
@@ -2344,9 +2274,9 @@ CPyL3: ;
     CPyModule_checksum_dict____utils = cpy_r_r28;
     CPy_INCREF(CPyModule_checksum_dict____utils);
     CPy_DECREF(cpy_r_r28);
-    cpy_r_r29 = CPyStatics[56]; /* 'T' */
+    cpy_r_r29 = CPyStatics[55]; /* 'T' */
     cpy_r_r30 = CPyStatic_base___globals;
-    cpy_r_r31 = CPyStatics[48]; /* 'TypeVar' */
+    cpy_r_r31 = CPyStatics[47]; /* 'TypeVar' */
     cpy_r_r32 = CPyDict_GetItem(cpy_r_r30, cpy_r_r31);
     if (unlikely(cpy_r_r32 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 11, CPyStatic_base___globals);
@@ -2361,7 +2291,7 @@ CPyL3: ;
         goto CPyL35;
     }
     cpy_r_r36 = CPyStatic_base___globals;
-    cpy_r_r37 = CPyStatics[56]; /* 'T' */
+    cpy_r_r37 = CPyStatics[55]; /* 'T' */
     cpy_r_r38 = CPyDict_SetItem(cpy_r_r36, cpy_r_r37, cpy_r_r35);
     CPy_DECREF(cpy_r_r35);
     cpy_r_r39 = cpy_r_r38 >= 0;
@@ -2370,28 +2300,28 @@ CPyL3: ;
         goto CPyL35;
     }
     cpy_r_r40 = CPyStatic_base___globals;
-    cpy_r_r41 = CPyStatics[22]; /* 'Union' */
+    cpy_r_r41 = CPyStatics[21]; /* 'Union' */
     cpy_r_r42 = CPyDict_GetItem(cpy_r_r40, cpy_r_r41);
     if (unlikely(cpy_r_r42 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 13, CPyStatic_base___globals);
         goto CPyL35;
     }
     cpy_r_r43 = CPyStatic_base___globals;
-    cpy_r_r44 = CPyStatics[19]; /* 'Dict' */
+    cpy_r_r44 = CPyStatics[18]; /* 'Dict' */
     cpy_r_r45 = CPyDict_GetItem(cpy_r_r43, cpy_r_r44);
     if (unlikely(cpy_r_r45 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 13, CPyStatic_base___globals);
         goto CPyL36;
     }
     cpy_r_r46 = CPyStatic_base___globals;
-    cpy_r_r47 = CPyStatics[52]; /* 'AnyAddressOrContract' */
+    cpy_r_r47 = CPyStatics[51]; /* 'AnyAddressOrContract' */
     cpy_r_r48 = CPyDict_GetItem(cpy_r_r46, cpy_r_r47);
     if (unlikely(cpy_r_r48 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 13, CPyStatic_base___globals);
         goto CPyL37;
     }
     cpy_r_r49 = CPyStatic_base___globals;
-    cpy_r_r50 = CPyStatics[56]; /* 'T' */
+    cpy_r_r50 = CPyStatics[55]; /* 'T' */
     cpy_r_r51 = CPyDict_GetItem(cpy_r_r49, cpy_r_r50);
     if (unlikely(cpy_r_r51 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 13, CPyStatic_base___globals);
@@ -2414,28 +2344,28 @@ CPyL3: ;
         goto CPyL36;
     }
     cpy_r_r55 = CPyStatic_base___globals;
-    cpy_r_r56 = CPyStatics[32]; /* 'Iterable' */
+    cpy_r_r56 = CPyStatics[31]; /* 'Iterable' */
     cpy_r_r57 = CPyDict_GetItem(cpy_r_r55, cpy_r_r56);
     if (unlikely(cpy_r_r57 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 13, CPyStatic_base___globals);
         goto CPyL39;
     }
     cpy_r_r58 = CPyStatic_base___globals;
-    cpy_r_r59 = CPyStatics[47]; /* 'Tuple' */
+    cpy_r_r59 = CPyStatics[46]; /* 'Tuple' */
     cpy_r_r60 = CPyDict_GetItem(cpy_r_r58, cpy_r_r59);
     if (unlikely(cpy_r_r60 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 13, CPyStatic_base___globals);
         goto CPyL40;
     }
     cpy_r_r61 = CPyStatic_base___globals;
-    cpy_r_r62 = CPyStatics[52]; /* 'AnyAddressOrContract' */
+    cpy_r_r62 = CPyStatics[51]; /* 'AnyAddressOrContract' */
     cpy_r_r63 = CPyDict_GetItem(cpy_r_r61, cpy_r_r62);
     if (unlikely(cpy_r_r63 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 13, CPyStatic_base___globals);
         goto CPyL41;
     }
     cpy_r_r64 = CPyStatic_base___globals;
-    cpy_r_r65 = CPyStatics[56]; /* 'T' */
+    cpy_r_r65 = CPyStatics[55]; /* 'T' */
     cpy_r_r66 = CPyDict_GetItem(cpy_r_r64, cpy_r_r65);
     if (unlikely(cpy_r_r66 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 13, CPyStatic_base___globals);
@@ -2481,7 +2411,7 @@ CPyL3: ;
         goto CPyL35;
     }
     cpy_r_r74 = CPyStatic_base___globals;
-    cpy_r_r75 = CPyStatics[57]; /* '_SeedT' */
+    cpy_r_r75 = CPyStatics[56]; /* '_SeedT' */
     cpy_r_r76 = CPyDict_SetItem(cpy_r_r74, cpy_r_r75, cpy_r_r73);
     CPy_DECREF(cpy_r_r73);
     cpy_r_r77 = cpy_r_r76 >= 0;
@@ -2490,21 +2420,21 @@ CPyL3: ;
         goto CPyL35;
     }
     cpy_r_r78 = CPyStatic_base___globals;
-    cpy_r_r79 = CPyStatics[19]; /* 'Dict' */
+    cpy_r_r79 = CPyStatics[18]; /* 'Dict' */
     cpy_r_r80 = CPyDict_GetItem(cpy_r_r78, cpy_r_r79);
     if (unlikely(cpy_r_r80 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 17, CPyStatic_base___globals);
         goto CPyL35;
     }
     cpy_r_r81 = CPyStatic_base___globals;
-    cpy_r_r82 = CPyStatics[27]; /* 'ChecksumAddress' */
+    cpy_r_r82 = CPyStatics[26]; /* 'ChecksumAddress' */
     cpy_r_r83 = CPyDict_GetItem(cpy_r_r81, cpy_r_r82);
     if (unlikely(cpy_r_r83 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 17, CPyStatic_base___globals);
         goto CPyL43;
     }
     cpy_r_r84 = CPyStatic_base___globals;
-    cpy_r_r85 = CPyStatics[56]; /* 'T' */
+    cpy_r_r85 = CPyStatics[55]; /* 'T' */
     cpy_r_r86 = CPyDict_GetItem(cpy_r_r84, cpy_r_r85);
     if (unlikely(cpy_r_r86 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 17, CPyStatic_base___globals);
@@ -2532,7 +2462,7 @@ CPyL3: ;
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 17, CPyStatic_base___globals);
         goto CPyL35;
     }
-    cpy_r_r91 = CPyStatics[58]; /* 'checksum_dict.base' */
+    cpy_r_r91 = CPyStatics[57]; /* 'checksum_dict.base' */
     cpy_r_r92 = (PyObject *)CPyType_base___ChecksumAddressDict_template;
     cpy_r_r93 = CPyType_FromTemplate(cpy_r_r92, cpy_r_r90, cpy_r_r91);
     CPy_DECREF(cpy_r_r90);
@@ -2540,8 +2470,8 @@ CPyL3: ;
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 17, CPyStatic_base___globals);
         goto CPyL35;
     }
-    cpy_r_r94 = CPyStatics[59]; /* '__mypyc_attrs__' */
-    cpy_r_r95 = CPyStatics[60]; /* '__dict__' */
+    cpy_r_r94 = CPyStatics[58]; /* '__mypyc_attrs__' */
+    cpy_r_r95 = CPyStatics[59]; /* '__dict__' */
     cpy_r_r96 = PyTuple_Pack(1, cpy_r_r95);
     if (unlikely(cpy_r_r96 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", 17, CPyStatic_base___globals);
@@ -2557,8 +2487,8 @@ CPyL3: ;
     CPyType_base___ChecksumAddressDict = (PyTypeObject *)cpy_r_r93;
     CPy_INCREF(CPyType_base___ChecksumAddressDict);
     cpy_r_r99 = CPyStatic_base___globals;
-    cpy_r_r100 = CPyStatics[61]; /* 'ChecksumAddressDict' */
-    cpy_r_r101 = CPyDict_SetItem(cpy_r_r99, cpy_r_r100, cpy_r_r93);
+    cpy_r_r100 = CPyStatics[60]; /* 'ChecksumAddressDict' */
+    cpy_r_r101 = PyDict_SetItem(cpy_r_r99, cpy_r_r100, cpy_r_r93);
     CPy_DECREF(cpy_r_r93);
     cpy_r_r102 = cpy_r_r101 >= 0;
     if (unlikely(!cpy_r_r102)) {
@@ -2629,10 +2559,10 @@ static PyGetSetDef default___DefaultChecksumDict_getseters[] = {
 static PyMethodDef default___DefaultChecksumDict_methods[] = {
     {"__init__",
      (PyCFunction)CPyPy_default___DefaultChecksumDict_____init__,
-     METH_FASTCALL | METH_KEYWORDS, NULL},
+     METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("__init__($self, default, seed=None)\n--\n\n")},
     {"_getitem_nochecksum",
      (PyCFunction)CPyPy_default___DefaultChecksumDict____getitem_nochecksum,
-     METH_FASTCALL | METH_KEYWORDS, NULL},
+     METH_FASTCALL | METH_KEYWORDS, PyDoc_STR("_getitem_nochecksum($self, key)\n--\n\n")},
     {"__setstate__", (PyCFunction)CPyPickle_SetState, METH_O, NULL},
     {"__getstate__", (PyCFunction)CPyPickle_GetState, METH_NOARGS, NULL},
     {NULL}  /* Sentinel */
@@ -2646,14 +2576,19 @@ static PyTypeObject CPyType_default___DefaultChecksumDict_template_ = {
     .tp_init = default___DefaultChecksumDict_init,
     .tp_basicsize = sizeof(PyDictObject),
     .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HEAPTYPE | Py_TPFLAGS_BASETYPE | Py_TPFLAGS_MANAGED_DICT,
+    .tp_doc = PyDoc_STR("DefaultChecksumDict(default, seed=None)\n--\n\n"),
 };
 static PyTypeObject *CPyType_default___DefaultChecksumDict_template = &CPyType_default___DefaultChecksumDict_template_;
 
-static int default_exec(PyObject *module)
+static PyMethodDef defaultmodule_methods[] = {
+    {NULL, NULL, 0, NULL}
+};
+
+int CPyExec_checksum_dict___default(PyObject *module)
 {
     PyObject* modname = NULL;
-    modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict___default_internal, "__name__");
-    CPyStatic_default___globals = PyModule_GetDict(CPyModule_checksum_dict___default_internal);
+    modname = PyObject_GetAttrString((PyObject *)CPyModule_checksum_dict___default__internal, "__name__");
+    CPyStatic_default___globals = PyModule_GetDict(CPyModule_checksum_dict___default__internal);
     if (unlikely(CPyStatic_default___globals == NULL))
         goto fail;
     if (CPyGlobalsInit() < 0)
@@ -2664,15 +2599,11 @@ static int default_exec(PyObject *module)
     Py_DECREF(modname);
     return 0;
     fail:
-    Py_CLEAR(CPyModule_checksum_dict___default_internal);
+    Py_CLEAR(CPyModule_checksum_dict___default__internal);
     Py_CLEAR(modname);
     Py_CLEAR(CPyType_default___DefaultChecksumDict);
     return -1;
 }
-static PyMethodDef defaultmodule_methods[] = {
-    {NULL, NULL, 0, NULL}
-};
-
 static struct PyModuleDef defaultmodule = {
     PyModuleDef_HEAD_INIT,
     "checksum_dict.default",
@@ -2684,16 +2615,16 @@ static struct PyModuleDef defaultmodule = {
 
 PyObject *CPyInit_checksum_dict___default(void)
 {
-    if (CPyModule_checksum_dict___default_internal) {
-        Py_INCREF(CPyModule_checksum_dict___default_internal);
-        return CPyModule_checksum_dict___default_internal;
+    if (CPyModule_checksum_dict___default__internal) {
+        Py_INCREF(CPyModule_checksum_dict___default__internal);
+        return CPyModule_checksum_dict___default__internal;
     }
-    CPyModule_checksum_dict___default_internal = PyModule_Create(&defaultmodule);
-    if (unlikely(CPyModule_checksum_dict___default_internal == NULL))
+    CPyModule_checksum_dict___default__internal = PyModule_Create(&defaultmodule);
+    if (unlikely(CPyModule_checksum_dict___default__internal == NULL))
         goto fail;
-    if (default_exec(CPyModule_checksum_dict___default_internal) != 0)
+    if (CPyExec_checksum_dict___default(CPyModule_checksum_dict___default__internal) != 0)
         goto fail;
-    return CPyModule_checksum_dict___default_internal;
+    return CPyModule_checksum_dict___default__internal;
     fail:
     return NULL;
 }
@@ -2706,272 +2637,260 @@ char CPyDef_default___DefaultChecksumDict_____init__(PyObject *cpy_r_self, PyObj
     PyObject *cpy_r_r4;
     PyObject **cpy_r_r6;
     PyObject *cpy_r_r7;
-    PyObject *cpy_r_r8;
-    int32_t cpy_r_r9;
-    char cpy_r_r10;
-    char cpy_r_r11;
+    char cpy_r_r8;
+    PyObject *cpy_r_r9;
+    CPyTagged cpy_r_r10;
+    int64_t cpy_r_r11;
     PyObject *cpy_r_r12;
-    CPyTagged cpy_r_r13;
-    int64_t cpy_r_r14;
-    CPyTagged cpy_r_r15;
+    tuple_T4CIOO cpy_r_r13;
+    CPyTagged cpy_r_r14;
+    char cpy_r_r15;
     PyObject *cpy_r_r16;
-    tuple_T4CIOO cpy_r_r17;
-    CPyTagged cpy_r_r18;
-    char cpy_r_r19;
-    PyObject *cpy_r_r20;
-    PyObject *cpy_r_r21;
+    PyObject *cpy_r_r17;
     PyObject *cpy_r_key;
     PyObject *cpy_r_value;
-    int32_t cpy_r_r22;
-    char cpy_r_r23;
-    char cpy_r_r24;
-    char cpy_r_r25;
-    PyObject *cpy_r_r26;
-    PyObject *cpy_r_r27;
+    int32_t cpy_r_r18;
+    char cpy_r_r19;
+    char cpy_r_r20;
+    char cpy_r_r21;
+    PyObject *cpy_r_r22;
+    PyObject *cpy_r_r23;
+    PyObject *cpy_r_r24;
+    int32_t cpy_r_r25;
+    char cpy_r_r26;
+    char cpy_r_r27;
     PyObject *cpy_r_r28;
-    int32_t cpy_r_r29;
-    char cpy_r_r30;
-    char cpy_r_r31;
-    PyObject *cpy_r_r32;
+    PyObject *cpy_r_r29;
+    PyObject *cpy_r_r30;
+    PyObject *cpy_r_r31;
+    char cpy_r_r32;
     PyObject *cpy_r_r33;
-    PyObject *cpy_r_r34;
+    char cpy_r_r34;
     PyObject *cpy_r_r35;
     char cpy_r_r36;
-    PyObject *cpy_r_r37;
+    int32_t cpy_r_r37;
     char cpy_r_r38;
-    PyObject *cpy_r_r39;
+    char cpy_r_r39;
     char cpy_r_r40;
-    int32_t cpy_r_r41;
-    char cpy_r_r42;
-    char cpy_r_r43;
-    char cpy_r_r44;
-    if (cpy_r_seed != NULL) goto CPyL31;
+    if (cpy_r_seed != NULL) goto CPyL30;
     cpy_r_r0 = Py_None;
     cpy_r_seed = cpy_r_r0;
 CPyL2: ;
     cpy_r_r1 = CPyStatic_default___globals;
-    cpy_r_r2 = CPyStatics[62]; /* 'defaultdict' */
+    cpy_r_r2 = CPyStatics[61]; /* 'defaultdict' */
     cpy_r_r3 = CPyDict_GetItem(cpy_r_r1, cpy_r_r2);
     if (unlikely(cpy_r_r3 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 45, CPyStatic_default___globals);
-        goto CPyL32;
+        goto CPyL31;
     }
-    cpy_r_r4 = CPyStatics[33]; /* '__init__' */
+    cpy_r_r4 = CPyStatics[32]; /* '__init__' */
     PyObject *cpy_r_r5[3] = {cpy_r_r3, cpy_r_self, cpy_r_default};
     cpy_r_r6 = (PyObject **)&cpy_r_r5;
     cpy_r_r7 = PyObject_VectorcallMethod(cpy_r_r4, cpy_r_r6, 9223372036854775811ULL, 0);
     if (unlikely(cpy_r_r7 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 45, CPyStatic_default___globals);
-        goto CPyL33;
+        goto CPyL32;
     } else
-        goto CPyL34;
+        goto CPyL33;
 CPyL4: ;
     CPy_DECREF(cpy_r_r3);
-    cpy_r_r8 = (PyObject *)&PyDict_Type;
-    cpy_r_r9 = PyObject_IsInstance(cpy_r_seed, cpy_r_r8);
-    cpy_r_r10 = cpy_r_r9 >= 0;
-    if (unlikely(!cpy_r_r10)) {
-        CPy_AddTraceback("checksum_dict/default.py", "__init__", 46, CPyStatic_default___globals);
-        goto CPyL32;
-    }
-    cpy_r_r11 = cpy_r_r9;
-    if (!cpy_r_r11) goto CPyL12;
+    cpy_r_r8 = PyDict_Check(cpy_r_seed);
+    if (!cpy_r_r8) goto CPyL11;
     if (likely(PyDict_Check(cpy_r_seed)))
-        cpy_r_r12 = cpy_r_seed;
+        cpy_r_r9 = cpy_r_seed;
     else {
         CPy_TypeErrorTraceback("checksum_dict/default.py", "__init__", 47, CPyStatic_default___globals, "dict", cpy_r_seed);
-        goto CPyL30;
+        goto CPyL29;
     }
-    cpy_r_r13 = 0;
-    cpy_r_r14 = PyDict_Size(cpy_r_r12);
-    cpy_r_r15 = cpy_r_r14 << 1;
-    cpy_r_r16 = CPyDict_GetItemsIter(cpy_r_r12);
-    if (unlikely(cpy_r_r16 == NULL)) {
+    cpy_r_r10 = 0;
+    cpy_r_r11 = PyDict_Size(cpy_r_r9);
+    cpy_r_r12 = CPyDict_GetItemsIter(cpy_r_r9);
+    if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 47, CPyStatic_default___globals);
-        goto CPyL35;
+        goto CPyL34;
     }
-CPyL8: ;
-    cpy_r_r17 = CPyDict_NextItem(cpy_r_r16, cpy_r_r13);
-    cpy_r_r18 = cpy_r_r17.f1;
-    cpy_r_r13 = cpy_r_r18;
-    cpy_r_r19 = cpy_r_r17.f0;
-    if (!cpy_r_r19) goto CPyL36;
-    cpy_r_r20 = cpy_r_r17.f2;
-    CPy_INCREF(cpy_r_r20);
-    cpy_r_r21 = cpy_r_r17.f3;
-    CPy_INCREF(cpy_r_r21);
-    CPy_DECREF(cpy_r_r17.f2);
-    CPy_DECREF(cpy_r_r17.f3);
-    cpy_r_key = cpy_r_r20;
-    cpy_r_value = cpy_r_r21;
-    cpy_r_r22 = CPyDict_SetItem(cpy_r_self, cpy_r_key, cpy_r_value);
+CPyL7: ;
+    cpy_r_r13 = CPyDict_NextItem(cpy_r_r12, cpy_r_r10);
+    cpy_r_r14 = cpy_r_r13.f1;
+    cpy_r_r10 = cpy_r_r14;
+    cpy_r_r15 = cpy_r_r13.f0;
+    if (!cpy_r_r15) goto CPyL35;
+    cpy_r_r16 = cpy_r_r13.f2;
+    CPy_INCREF(cpy_r_r16);
+    cpy_r_r17 = cpy_r_r13.f3;
+    CPy_INCREF(cpy_r_r17);
+    CPy_DECREF(cpy_r_r13.f2);
+    CPy_DECREF(cpy_r_r13.f3);
+    cpy_r_key = cpy_r_r16;
+    cpy_r_value = cpy_r_r17;
+    cpy_r_r18 = CPyDict_SetItem(cpy_r_self, cpy_r_key, cpy_r_value);
     CPy_DECREF(cpy_r_key);
     CPy_DECREF(cpy_r_value);
-    cpy_r_r23 = cpy_r_r22 >= 0;
-    if (unlikely(!cpy_r_r23)) {
+    cpy_r_r19 = cpy_r_r18 >= 0;
+    if (unlikely(!cpy_r_r19)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 48, CPyStatic_default___globals);
-        goto CPyL37;
+        goto CPyL36;
     }
-    cpy_r_r24 = CPyDict_CheckSize(cpy_r_r12, cpy_r_r15);
-    if (unlikely(!cpy_r_r24)) {
+    cpy_r_r20 = CPyDict_CheckSize(cpy_r_r9, cpy_r_r11);
+    if (unlikely(!cpy_r_r20)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 47, CPyStatic_default___globals);
-        goto CPyL37;
+        goto CPyL36;
     } else
-        goto CPyL8;
-CPyL11: ;
-    cpy_r_r25 = CPy_NoErrOccurred();
-    if (unlikely(!cpy_r_r25)) {
+        goto CPyL7;
+CPyL10: ;
+    cpy_r_r21 = CPy_NoErrOccurred();
+    if (unlikely(!cpy_r_r21)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 47, CPyStatic_default___globals);
-        goto CPyL30;
-    } else
         goto CPyL29;
-CPyL12: ;
-    cpy_r_r26 = CPyStatic_default___globals;
-    cpy_r_r27 = CPyStatics[32]; /* 'Iterable' */
-    cpy_r_r28 = CPyDict_GetItem(cpy_r_r26, cpy_r_r27);
-    if (unlikely(cpy_r_r28 == NULL)) {
+    } else
+        goto CPyL28;
+CPyL11: ;
+    cpy_r_r22 = CPyStatic_default___globals;
+    cpy_r_r23 = CPyStatics[31]; /* 'Iterable' */
+    cpy_r_r24 = CPyDict_GetItem(cpy_r_r22, cpy_r_r23);
+    if (unlikely(cpy_r_r24 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 49, CPyStatic_default___globals);
-        goto CPyL32;
+        goto CPyL31;
     }
-    cpy_r_r29 = PyObject_IsInstance(cpy_r_seed, cpy_r_r28);
-    CPy_DECREF(cpy_r_r28);
-    cpy_r_r30 = cpy_r_r29 >= 0;
-    if (unlikely(!cpy_r_r30)) {
+    cpy_r_r25 = PyObject_IsInstance(cpy_r_seed, cpy_r_r24);
+    CPy_DECREF(cpy_r_r24);
+    cpy_r_r26 = cpy_r_r25 >= 0;
+    if (unlikely(!cpy_r_r26)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 49, CPyStatic_default___globals);
-        goto CPyL32;
+        goto CPyL31;
     }
-    cpy_r_r31 = cpy_r_r29;
-    if (!cpy_r_r31) goto CPyL38;
-    cpy_r_r32 = PyObject_GetIter(cpy_r_seed);
+    cpy_r_r27 = cpy_r_r25;
+    if (!cpy_r_r27) goto CPyL37;
+    cpy_r_r28 = PyObject_GetIter(cpy_r_seed);
     CPy_DECREF(cpy_r_seed);
-    if (unlikely(cpy_r_r32 == NULL)) {
+    if (unlikely(cpy_r_r28 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 50, CPyStatic_default___globals);
-        goto CPyL30;
+        goto CPyL29;
     }
-CPyL16: ;
-    cpy_r_r33 = PyIter_Next(cpy_r_r32);
-    if (cpy_r_r33 == NULL) goto CPyL39;
-    cpy_r_r34 = PyObject_GetIter(cpy_r_r33);
-    CPy_DECREF(cpy_r_r33);
-    if (unlikely(cpy_r_r34 == NULL)) {
+CPyL15: ;
+    cpy_r_r29 = PyIter_Next(cpy_r_r28);
+    if (cpy_r_r29 == NULL) goto CPyL38;
+    cpy_r_r30 = PyObject_GetIter(cpy_r_r29);
+    CPy_DECREF(cpy_r_r29);
+    if (unlikely(cpy_r_r30 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 50, CPyStatic_default___globals);
+        goto CPyL39;
+    }
+    cpy_r_r31 = PyIter_Next(cpy_r_r30);
+    if (cpy_r_r31 == NULL) {
         goto CPyL40;
+    } else
+        goto CPyL20;
+CPyL18: ;
+    PyErr_SetString(PyExc_ValueError, "not enough values to unpack");
+    cpy_r_r32 = 0;
+    if (unlikely(!cpy_r_r32)) {
+        CPy_AddTraceback("checksum_dict/default.py", "__init__", 50, CPyStatic_default___globals);
+        goto CPyL29;
     }
-    cpy_r_r35 = PyIter_Next(cpy_r_r34);
-    if (cpy_r_r35 == NULL) {
+    CPy_Unreachable();
+CPyL20: ;
+    cpy_r_key = cpy_r_r31;
+    cpy_r_r33 = PyIter_Next(cpy_r_r30);
+    if (cpy_r_r33 == NULL) {
         goto CPyL41;
     } else
-        goto CPyL21;
-CPyL19: ;
+        goto CPyL23;
+CPyL21: ;
     PyErr_SetString(PyExc_ValueError, "not enough values to unpack");
+    cpy_r_r34 = 0;
+    if (unlikely(!cpy_r_r34)) {
+        CPy_AddTraceback("checksum_dict/default.py", "__init__", 50, CPyStatic_default___globals);
+        goto CPyL29;
+    }
+    CPy_Unreachable();
+CPyL23: ;
+    cpy_r_value = cpy_r_r33;
+    cpy_r_r35 = PyIter_Next(cpy_r_r30);
+    CPy_DECREF(cpy_r_r30);
+    if (cpy_r_r35 == NULL) {
+        goto CPyL26;
+    } else
+        goto CPyL42;
+CPyL24: ;
+    PyErr_SetString(PyExc_ValueError, "too many values to unpack");
     cpy_r_r36 = 0;
     if (unlikely(!cpy_r_r36)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 50, CPyStatic_default___globals);
-        goto CPyL30;
+        goto CPyL29;
     }
     CPy_Unreachable();
-CPyL21: ;
-    cpy_r_key = cpy_r_r35;
-    cpy_r_r37 = PyIter_Next(cpy_r_r34);
-    if (cpy_r_r37 == NULL) {
-        goto CPyL42;
-    } else
-        goto CPyL24;
-CPyL22: ;
-    PyErr_SetString(PyExc_ValueError, "not enough values to unpack");
-    cpy_r_r38 = 0;
-    if (unlikely(!cpy_r_r38)) {
-        CPy_AddTraceback("checksum_dict/default.py", "__init__", 50, CPyStatic_default___globals);
-        goto CPyL30;
-    }
-    CPy_Unreachable();
-CPyL24: ;
-    cpy_r_value = cpy_r_r37;
-    cpy_r_r39 = PyIter_Next(cpy_r_r34);
-    CPy_DECREF(cpy_r_r34);
-    if (cpy_r_r39 == NULL) {
-        goto CPyL27;
-    } else
-        goto CPyL43;
-CPyL25: ;
-    PyErr_SetString(PyExc_ValueError, "too many values to unpack");
-    cpy_r_r40 = 0;
-    if (unlikely(!cpy_r_r40)) {
-        CPy_AddTraceback("checksum_dict/default.py", "__init__", 50, CPyStatic_default___globals);
-        goto CPyL30;
-    }
-    CPy_Unreachable();
-CPyL27: ;
-    cpy_r_r41 = CPyDict_SetItem(cpy_r_self, cpy_r_key, cpy_r_value);
+CPyL26: ;
+    cpy_r_r37 = CPyDict_SetItem(cpy_r_self, cpy_r_key, cpy_r_value);
     CPy_DECREF(cpy_r_key);
     CPy_DECREF(cpy_r_value);
-    cpy_r_r42 = cpy_r_r41 >= 0;
-    if (unlikely(!cpy_r_r42)) {
+    cpy_r_r38 = cpy_r_r37 >= 0;
+    if (unlikely(!cpy_r_r38)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 51, CPyStatic_default___globals);
-        goto CPyL40;
+        goto CPyL39;
     } else
-        goto CPyL16;
-CPyL28: ;
-    cpy_r_r43 = CPy_NoErrOccurred();
-    if (unlikely(!cpy_r_r43)) {
+        goto CPyL15;
+CPyL27: ;
+    cpy_r_r39 = CPy_NoErrOccurred();
+    if (unlikely(!cpy_r_r39)) {
         CPy_AddTraceback("checksum_dict/default.py", "__init__", 50, CPyStatic_default___globals);
-        goto CPyL30;
+        goto CPyL29;
     }
-CPyL29: ;
+CPyL28: ;
     return 1;
+CPyL29: ;
+    cpy_r_r40 = 2;
+    return cpy_r_r40;
 CPyL30: ;
-    cpy_r_r44 = 2;
-    return cpy_r_r44;
-CPyL31: ;
     CPy_INCREF(cpy_r_seed);
     goto CPyL2;
+CPyL31: ;
+    CPy_DecRef(cpy_r_seed);
+    goto CPyL29;
 CPyL32: ;
     CPy_DecRef(cpy_r_seed);
-    goto CPyL30;
-CPyL33: ;
-    CPy_DecRef(cpy_r_seed);
     CPy_DecRef(cpy_r_r3);
-    goto CPyL30;
-CPyL34: ;
+    goto CPyL29;
+CPyL33: ;
     CPy_DECREF(cpy_r_r7);
     goto CPyL4;
-CPyL35: ;
-    CPy_DecRef(cpy_r_r12);
-    goto CPyL30;
-CPyL36: ;
-    CPy_DECREF(cpy_r_r12);
-    CPy_DECREF(cpy_r_r16);
-    CPy_DECREF(cpy_r_r17.f2);
-    CPy_DECREF(cpy_r_r17.f3);
-    goto CPyL11;
-CPyL37: ;
-    CPy_DecRef(cpy_r_r12);
-    CPy_DecRef(cpy_r_r16);
-    goto CPyL30;
-CPyL38: ;
-    CPy_DECREF(cpy_r_seed);
+CPyL34: ;
+    CPy_DecRef(cpy_r_r9);
     goto CPyL29;
-CPyL39: ;
-    CPy_DECREF(cpy_r_r32);
+CPyL35: ;
+    CPy_DECREF(cpy_r_r9);
+    CPy_DECREF(cpy_r_r12);
+    CPy_DECREF(cpy_r_r13.f2);
+    CPy_DECREF(cpy_r_r13.f3);
+    goto CPyL10;
+CPyL36: ;
+    CPy_DecRef(cpy_r_r9);
+    CPy_DecRef(cpy_r_r12);
+    goto CPyL29;
+CPyL37: ;
+    CPy_DECREF(cpy_r_seed);
     goto CPyL28;
+CPyL38: ;
+    CPy_DECREF(cpy_r_r28);
+    goto CPyL27;
+CPyL39: ;
+    CPy_DecRef(cpy_r_r28);
+    goto CPyL29;
 CPyL40: ;
-    CPy_DecRef(cpy_r_r32);
-    goto CPyL30;
+    CPy_DECREF(cpy_r_r28);
+    CPy_DECREF(cpy_r_r30);
+    goto CPyL18;
 CPyL41: ;
-    CPy_DECREF(cpy_r_r32);
-    CPy_DECREF(cpy_r_r34);
-    goto CPyL19;
+    CPy_DECREF(cpy_r_key);
+    CPy_DECREF(cpy_r_r28);
+    CPy_DECREF(cpy_r_r30);
+    goto CPyL21;
 CPyL42: ;
     CPy_DECREF(cpy_r_key);
-    CPy_DECREF(cpy_r_r32);
-    CPy_DECREF(cpy_r_r34);
-    goto CPyL22;
-CPyL43: ;
-    CPy_DECREF(cpy_r_key);
     CPy_DECREF(cpy_r_value);
-    CPy_DECREF(cpy_r_r32);
-    CPy_DECREF(cpy_r_r39);
-    goto CPyL25;
+    CPy_DECREF(cpy_r_r28);
+    CPy_DECREF(cpy_r_r35);
+    goto CPyL24;
 }
 
 PyObject *CPyPy_default___DefaultChecksumDict_____init__(PyObject *self, PyObject *args, PyObject *kw) {
@@ -3038,7 +2957,7 @@ char CPyDef_default___DefaultChecksumDict_____init___3__DefaultChecksumDict_glue
     PyObject *cpy_r_r10;
     char cpy_r_r11;
     char cpy_r_r12;
-    cpy_r_r0 = CPyStatics[33]; /* '__init__' */
+    cpy_r_r0 = CPyStatics[32]; /* '__init__' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_self, cpy_r_r0);
     if (cpy_r_r1 == NULL) goto CPyL10;
     cpy_r_r2 = PyList_New(1);
@@ -3174,7 +3093,7 @@ PyObject *CPyDef_default___DefaultChecksumDict____getitem_nochecksum(PyObject *c
     }
     return cpy_r_r3;
 CPyL4: ;
-    cpy_r_r4 = CPyStatics[63]; /* 'default_factory' */
+    cpy_r_r4 = CPyStatics[62]; /* 'default_factory' */
     PyObject *cpy_r_r5[1] = {cpy_r_self};
     cpy_r_r6 = (PyObject **)&cpy_r_r5;
     cpy_r_r7 = PyObject_VectorcallMethod(cpy_r_r4, cpy_r_r6, 9223372036854775809ULL, 0);
@@ -3182,7 +3101,7 @@ CPyL4: ;
         CPy_AddTraceback("checksum_dict/default.py", "_getitem_nochecksum", 73, CPyStatic_default___globals);
         goto CPyL7;
     }
-    cpy_r_r8 = CPyStatics[45]; /* '_setitem_nochecksum' */
+    cpy_r_r8 = CPyStatics[44]; /* '_setitem_nochecksum' */
     PyObject *cpy_r_r9[3] = {cpy_r_self, cpy_r_key, cpy_r_r7};
     cpy_r_r10 = (PyObject **)&cpy_r_r9;
     cpy_r_r11 = PyObject_VectorcallMethod(cpy_r_r8, cpy_r_r10, 9223372036854775811ULL, 0);
@@ -3232,7 +3151,7 @@ PyObject *CPyDef_default___DefaultChecksumDict____getitem_nochecksum__DefaultChe
     PyObject **cpy_r_r2;
     PyObject *cpy_r_r3;
     PyObject *cpy_r_r4;
-    cpy_r_r0 = CPyStatics[42]; /* '_getitem_nochecksum' */
+    cpy_r_r0 = CPyStatics[41]; /* '_getitem_nochecksum' */
     PyObject *cpy_r_r1[2] = {cpy_r_self, cpy_r_key};
     cpy_r_r2 = (PyObject **)&cpy_r_r1;
     cpy_r_r3 = PyObject_VectorcallMethod(cpy_r_r0, cpy_r_r2, 9223372036854775810ULL, 0);
@@ -3327,7 +3246,7 @@ char CPyDef_default_____top_level__(void) {
     cpy_r_r1 = (PyObject *)&_Py_NoneStruct;
     cpy_r_r2 = cpy_r_r0 != cpy_r_r1;
     if (cpy_r_r2) goto CPyL3;
-    cpy_r_r3 = CPyStatics[17]; /* 'builtins' */
+    cpy_r_r3 = CPyStatics[16]; /* 'builtins' */
     cpy_r_r4 = PyImport_Import(cpy_r_r3);
     if (unlikely(cpy_r_r4 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "<module>", -1, CPyStatic_default___globals);
@@ -3337,8 +3256,8 @@ char CPyDef_default_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[79]; /* ('defaultdict',) */
-    cpy_r_r6 = CPyStatics[64]; /* 'collections' */
+    cpy_r_r5 = CPyStatics[78]; /* ('defaultdict',) */
+    cpy_r_r6 = CPyStatics[63]; /* 'collections' */
     cpy_r_r7 = CPyStatic_default___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -3348,8 +3267,8 @@ CPyL3: ;
     CPyModule_collections = cpy_r_r8;
     CPy_INCREF(CPyModule_collections);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[80]; /* ('Callable', 'DefaultDict', 'Iterable', 'Optional') */
-    cpy_r_r10 = CPyStatics[23]; /* 'typing' */
+    cpy_r_r9 = CPyStatics[79]; /* ('Callable', 'DefaultDict', 'Iterable', 'Optional') */
+    cpy_r_r10 = CPyStatics[22]; /* 'typing' */
     cpy_r_r11 = CPyStatic_default___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
@@ -3359,8 +3278,8 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r12;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[72]; /* ('ChecksumAddress',) */
-    cpy_r_r14 = CPyStatics[28]; /* 'eth_typing' */
+    cpy_r_r13 = CPyStatics[71]; /* ('ChecksumAddress',) */
+    cpy_r_r14 = CPyStatics[27]; /* 'eth_typing' */
     cpy_r_r15 = CPyStatic_default___globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
@@ -3370,8 +3289,8 @@ CPyL3: ;
     CPyModule_eth_typing = cpy_r_r16;
     CPy_INCREF(CPyModule_eth_typing);
     CPy_DECREF(cpy_r_r16);
-    cpy_r_r17 = CPyStatics[75]; /* ('mypyc_attr',) */
-    cpy_r_r18 = CPyStatics[51]; /* 'mypy_extensions' */
+    cpy_r_r17 = CPyStatics[74]; /* ('mypyc_attr',) */
+    cpy_r_r18 = CPyStatics[50]; /* 'mypy_extensions' */
     cpy_r_r19 = CPyStatic_default___globals;
     cpy_r_r20 = CPyImport_ImportFromMany(cpy_r_r18, cpy_r_r17, cpy_r_r17, cpy_r_r19);
     if (unlikely(cpy_r_r20 == NULL)) {
@@ -3381,8 +3300,8 @@ CPyL3: ;
     CPyModule_mypy_extensions = cpy_r_r20;
     CPy_INCREF(CPyModule_mypy_extensions);
     CPy_DECREF(cpy_r_r20);
-    cpy_r_r21 = CPyStatics[81]; /* ('ChecksumAddressDict', 'T', '_SeedT') */
-    cpy_r_r22 = CPyStatics[58]; /* 'checksum_dict.base' */
+    cpy_r_r21 = CPyStatics[80]; /* ('ChecksumAddressDict', 'T', '_SeedT') */
+    cpy_r_r22 = CPyStatics[57]; /* 'checksum_dict.base' */
     cpy_r_r23 = CPyStatic_default___globals;
     cpy_r_r24 = CPyImport_ImportFromMany(cpy_r_r22, cpy_r_r21, cpy_r_r21, cpy_r_r23);
     if (unlikely(cpy_r_r24 == NULL)) {
@@ -3393,21 +3312,21 @@ CPyL3: ;
     CPy_INCREF(CPyModule_checksum_dict___base);
     CPy_DECREF(cpy_r_r24);
     cpy_r_r25 = CPyStatic_default___globals;
-    cpy_r_r26 = CPyStatics[66]; /* 'DefaultDict' */
+    cpy_r_r26 = CPyStatics[65]; /* 'DefaultDict' */
     cpy_r_r27 = CPyDict_GetItem(cpy_r_r25, cpy_r_r26);
     if (unlikely(cpy_r_r27 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "<module>", 11, CPyStatic_default___globals);
         goto CPyL20;
     }
     cpy_r_r28 = CPyStatic_default___globals;
-    cpy_r_r29 = CPyStatics[27]; /* 'ChecksumAddress' */
+    cpy_r_r29 = CPyStatics[26]; /* 'ChecksumAddress' */
     cpy_r_r30 = CPyDict_GetItem(cpy_r_r28, cpy_r_r29);
     if (unlikely(cpy_r_r30 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "<module>", 11, CPyStatic_default___globals);
         goto CPyL21;
     }
     cpy_r_r31 = CPyStatic_default___globals;
-    cpy_r_r32 = CPyStatics[56]; /* 'T' */
+    cpy_r_r32 = CPyStatics[55]; /* 'T' */
     cpy_r_r33 = CPyDict_GetItem(cpy_r_r31, cpy_r_r32);
     if (unlikely(cpy_r_r33 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "<module>", 11, CPyStatic_default___globals);
@@ -3431,7 +3350,7 @@ CPyL3: ;
     }
     cpy_r_r37 = (PyObject *)CPyType_base___ChecksumAddressDict;
     cpy_r_r38 = CPyStatic_default___globals;
-    cpy_r_r39 = CPyStatics[56]; /* 'T' */
+    cpy_r_r39 = CPyStatics[55]; /* 'T' */
     cpy_r_r40 = CPyDict_GetItem(cpy_r_r38, cpy_r_r39);
     if (unlikely(cpy_r_r40 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "<module>", 11, CPyStatic_default___globals);
@@ -3450,7 +3369,7 @@ CPyL3: ;
         CPy_AddTraceback("checksum_dict/default.py", "<module>", 11, CPyStatic_default___globals);
         goto CPyL20;
     }
-    cpy_r_r43 = CPyStatics[67]; /* 'checksum_dict.default' */
+    cpy_r_r43 = CPyStatics[66]; /* 'checksum_dict.default' */
     cpy_r_r44 = (PyObject *)CPyType_default___DefaultChecksumDict_template;
     cpy_r_r45 = CPyType_FromTemplate(cpy_r_r44, cpy_r_r42, cpy_r_r43);
     CPy_DECREF(cpy_r_r42);
@@ -3458,8 +3377,8 @@ CPyL3: ;
         CPy_AddTraceback("checksum_dict/default.py", "<module>", 11, CPyStatic_default___globals);
         goto CPyL20;
     }
-    cpy_r_r46 = CPyStatics[59]; /* '__mypyc_attrs__' */
-    cpy_r_r47 = CPyStatics[60]; /* '__dict__' */
+    cpy_r_r46 = CPyStatics[58]; /* '__mypyc_attrs__' */
+    cpy_r_r47 = CPyStatics[59]; /* '__dict__' */
     cpy_r_r48 = PyTuple_Pack(1, cpy_r_r47);
     if (unlikely(cpy_r_r48 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "<module>", 11, CPyStatic_default___globals);
@@ -3475,8 +3394,8 @@ CPyL3: ;
     CPyType_default___DefaultChecksumDict = (PyTypeObject *)cpy_r_r45;
     CPy_INCREF(CPyType_default___DefaultChecksumDict);
     cpy_r_r51 = CPyStatic_default___globals;
-    cpy_r_r52 = CPyStatics[68]; /* 'DefaultChecksumDict' */
-    cpy_r_r53 = CPyDict_SetItem(cpy_r_r51, cpy_r_r52, cpy_r_r45);
+    cpy_r_r52 = CPyStatics[67]; /* 'DefaultChecksumDict' */
+    cpy_r_r53 = PyDict_SetItem(cpy_r_r51, cpy_r_r52, cpy_r_r45);
     CPy_DECREF(cpy_r_r45);
     cpy_r_r54 = cpy_r_r53 >= 0;
     if (unlikely(!cpy_r_r54)) {
@@ -3536,21 +3455,20 @@ int CPyGlobalsInit(void)
     return 0;
 }
 
-PyObject *CPyStatics[84];
+PyObject *CPyStatics[83];
 const char * const CPyLit_Str[] = {
     "\005\003hex\aaddress\023to_checksum_address\nValueError\001\'",
-    "\006\034\' is not a valid ETH address\bContract\005ERC20\b__name__\001y\tdank_mids",
-    "\t\abrownie\n__module__\001.\bbuiltins\rTYPE_CHECKING\004Dict\005Final\004Type\005Union",
-    "\005\006typing\tcchecksum\027checksum_dict/_utils.py\b<module>\017ChecksumAddress",
-    "\005\neth_typing\a_typing\rchecksum_dict\030_KNOWN_CHECKSUMMED_TYPES\bIterable",
-    "\a\b__init__\024ChecksumAddressDict(\001)\b__repr__\v__getitem__\bKeyError\004args",
-    "\005\nexceptions\v__setitem__\023_getitem_nochecksum\0020x\nstartswith",
-    "\006\023_setitem_nochecksum\bOptional\005Tuple\aTypeVar\boverload\nmypyc_attr",
-    "\003\017mypy_extensions\024AnyAddressOrContract\025checksum_dict._typing",
-    "\005\020attempt_checksum\024checksum_dict._utils\001T\006_SeedT\022checksum_dict.base",
-    "\004\017__mypyc_attrs__\b__dict__\023ChecksumAddressDict\vdefaultdict",
-    "\004\017default_factory\vcollections\bCallable\vDefaultDict",
-    "\002\025checksum_dict.default\023DefaultChecksumDict",
+    "\006\034\' is not a valid ETH address\bContract\005ERC20\tdank_mids\001y\abrownie",
+    "\t\n__module__\001.\bbuiltins\rTYPE_CHECKING\004Dict\005Final\004Type\005Union\006typing",
+    "\005\tcchecksum\027checksum_dict/_utils.py\b<module>\017ChecksumAddress\neth_typing",
+    "\005\a_typing\rchecksum_dict\030_KNOWN_CHECKSUMMED_TYPES\bIterable\b__init__",
+    "\a\024ChecksumAddressDict(\001)\b__repr__\v__getitem__\bKeyError\004args\nexceptions",
+    "\005\v__setitem__\023_getitem_nochecksum\0020x\nstartswith\023_setitem_nochecksum",
+    "\006\bOptional\005Tuple\aTypeVar\boverload\nmypyc_attr\017mypy_extensions",
+    "\003\024AnyAddressOrContract\025checksum_dict._typing\020attempt_checksum",
+    "\005\024checksum_dict._utils\001T\006_SeedT\022checksum_dict.base\017__mypyc_attrs__",
+    "\005\b__dict__\023ChecksumAddressDict\vdefaultdict\017default_factory\vcollections",
+    "\004\bCallable\vDefaultDict\025checksum_dict.default\023DefaultChecksumDict",
     "",
 };
 const char * const CPyLit_Bytes[] = {
@@ -3562,12 +3480,12 @@ const char * const CPyLit_Int[] = {
 const double CPyLit_Float[] = {0};
 const double CPyLit_Complex[] = {0};
 const int CPyLit_Tuple[] = {
-    13, 5, 18, 19, 20, 21, 22, 3, 24, 24, 24, 1, 70, 1, 27, 1, 29, 7,
-    19, 32, 46, 47, 48, 22, 49, 1, 50, 1, 40, 1, 52, 1, 54, 1, 62, 4, 65,
-    66, 32, 46, 3, 61, 56, 57
+    13, 5, 17, 18, 19, 20, 21, 3, 23, 23, 23, 1, 69, 1, 26, 1, 28, 7,
+    18, 31, 45, 46, 47, 21, 48, 1, 49, 1, 39, 1, 51, 1, 53, 1, 61, 4, 64,
+    65, 31, 45, 3, 60, 55, 56
 };
-const int CPyLit_FrozenSet[] = {2, 2, 9, 10, 3, 12, 13, 14};
-CPyModule *CPyModule_checksum_dict____utils_internal = NULL;
+const int CPyLit_FrozenSet[] = {2, 2, 9, 10, 3, 11, 12, 13};
+CPyModule *CPyModule_checksum_dict____utils__internal = NULL;
 CPyModule *CPyModule_checksum_dict____utils;
 PyObject *CPyStatic__utils___globals;
 CPyModule *CPyModule_builtins;
@@ -3575,12 +3493,12 @@ CPyModule *CPyModule_typing;
 CPyModule *CPyModule_cchecksum;
 CPyModule *CPyModule_eth_typing;
 CPyModule *CPyModule_checksum_dict;
-CPyModule *CPyModule_checksum_dict___base_internal = NULL;
+CPyModule *CPyModule_checksum_dict___base__internal = NULL;
 CPyModule *CPyModule_checksum_dict___base;
 PyObject *CPyStatic_base___globals;
 CPyModule *CPyModule_mypy_extensions;
 CPyModule *CPyModule_checksum_dict____typing;
-CPyModule *CPyModule_checksum_dict___default_internal = NULL;
+CPyModule *CPyModule_checksum_dict___default__internal = NULL;
 CPyModule *CPyModule_checksum_dict___default;
 PyObject *CPyStatic_default___globals;
 CPyModule *CPyModule_collections;
@@ -3629,59 +3547,11 @@ PyObject *CPyDef_default___DefaultChecksumDict____getitem_nochecksum__DefaultChe
 PyObject *CPyPy_default___DefaultChecksumDict____getitem_nochecksum__DefaultChecksumDict_glue(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 char CPyDef_default_____top_level__(void);
 
-static struct export_table_3fed2dd976ff832859ee exports = {
-    &CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES,
-    &CPyDef__utils___attempt_checksum,
-    &CPyDef__utils___checksum_or_raise,
-    &CPyDef__utils____type_has_checksum_addr,
-    &CPyDef__utils_____top_level__,
-    &CPyType_base___ChecksumAddressDict,
-    &CPyDef_base___ChecksumAddressDict_____init__,
-    &CPyDef_base___ChecksumAddressDict_____init___3__ChecksumAddressDict_glue,
-    &CPyDef_base___ChecksumAddressDict_____repr__,
-    &CPyDef_base___ChecksumAddressDict_____repr___3__ChecksumAddressDict_glue,
-    &CPyDef_base___ChecksumAddressDict_____getitem__,
-    &CPyDef_base___ChecksumAddressDict_____getitem___3__ChecksumAddressDict_glue,
-    &CPyDef_base___ChecksumAddressDict_____setitem__,
-    &CPyDef_base___ChecksumAddressDict_____setitem___3__ChecksumAddressDict_glue,
-    &CPyDef_base___ChecksumAddressDict____getitem_nochecksum,
-    &CPyDef_base___ChecksumAddressDict____getitem_nochecksum__ChecksumAddressDict_glue,
-    &CPyDef_base___ChecksumAddressDict____setitem_nochecksum,
-    &CPyDef_base___ChecksumAddressDict____setitem_nochecksum__ChecksumAddressDict_glue,
-    &CPyDef_base_____top_level__,
-    &CPyType_default___DefaultChecksumDict,
-    &CPyDef_default___DefaultChecksumDict_____init__,
-    &CPyDef_default___DefaultChecksumDict_____init___3__DefaultChecksumDict_glue,
-    &CPyDef_default___DefaultChecksumDict____getitem_nochecksum,
-    &CPyDef_default___DefaultChecksumDict____getitem_nochecksum__DefaultChecksumDict_glue,
-    &CPyDef_default_____top_level__,
-};
-
-PyMODINIT_FUNC PyInit_3fed2dd976ff832859ee__mypyc(void)
+static int exec_3fed2dd976ff832859ee__mypyc(PyObject *module)
 {
-    static PyModuleDef def = { PyModuleDef_HEAD_INIT, "3fed2dd976ff832859ee__mypyc", NULL, -1, NULL, NULL };
     int res;
     PyObject *capsule;
     PyObject *tmp;
-    static PyObject *module;
-    if (module) {
-        Py_INCREF(module);
-        return module;
-    }
-    module = PyModule_Create(&def);
-    if (!module) {
-        goto fail;
-    }
-    
-    capsule = PyCapsule_New(&exports, "3fed2dd976ff832859ee__mypyc.exports", NULL);
-    if (!capsule) {
-        goto fail;
-    }
-    res = PyObject_SetAttrString(module, "exports", capsule);
-    Py_DECREF(capsule);
-    if (res < 0) {
-        goto fail;
-    }
     
     extern PyObject *CPyInit_checksum_dict____utils(void);
     capsule = PyCapsule_New((void *)CPyInit_checksum_dict____utils, "3fed2dd976ff832859ee__mypyc.init_checksum_dict____utils", NULL);
@@ -3716,8 +3586,30 @@ PyMODINIT_FUNC PyInit_3fed2dd976ff832859ee__mypyc(void)
         goto fail;
     }
     
-    return module;
+    return 0;
     fail:
-    Py_XDECREF(module);
-    return NULL;
+    return -1;
+}
+static PyModuleDef module_def_3fed2dd976ff832859ee__mypyc = {
+    PyModuleDef_HEAD_INIT,
+    .m_name = "3fed2dd976ff832859ee__mypyc",
+    .m_doc = NULL,
+    .m_size = -1,
+    .m_methods = NULL,
+};
+PyMODINIT_FUNC PyInit_3fed2dd976ff832859ee__mypyc(void) {
+    static PyObject *module = NULL;
+    if (module) {
+        Py_INCREF(module);
+        return module;
+    }
+    module = PyModule_Create(&module_def_3fed2dd976ff832859ee__mypyc);
+    if (!module) {
+        return NULL;
+    }
+    if (exec_3fed2dd976ff832859ee__mypyc(module) < 0) {
+        Py_DECREF(module);
+        return NULL;
+    }
+    return module;
 }
