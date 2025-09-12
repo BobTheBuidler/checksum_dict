@@ -39,32 +39,4 @@ typedef struct {
     CPyVTableItem *vtable;
 } checksum_dict___default___DefaultChecksumDictObject;
 
-
-struct export_table_3fed2dd976ff832859ee {
-    PyObject **CPyStatic__utils____KNOWN_CHECKSUMMED_TYPES;
-    PyObject *(*CPyDef__utils___attempt_checksum)(PyObject *cpy_r_value);
-    PyObject *(*CPyDef__utils___checksum_or_raise)(PyObject *cpy_r_string);
-    char (*CPyDef__utils____type_has_checksum_addr)(PyObject *cpy_r_typ);
-    char (*CPyDef__utils_____top_level__)(void);
-    PyTypeObject **CPyType_base___ChecksumAddressDict;
-    char (*CPyDef_base___ChecksumAddressDict_____init__)(PyObject *cpy_r_self, PyObject *cpy_r_seed);
-    char (*CPyDef_base___ChecksumAddressDict_____init___3__ChecksumAddressDict_glue)(PyObject *cpy_r_self, PyObject *cpy_r_seed);
-    PyObject *(*CPyDef_base___ChecksumAddressDict_____repr__)(PyObject *cpy_r_self);
-    PyObject *(*CPyDef_base___ChecksumAddressDict_____repr___3__ChecksumAddressDict_glue)(PyObject *cpy_r_self);
-    PyObject *(*CPyDef_base___ChecksumAddressDict_____getitem__)(PyObject *cpy_r_self, PyObject *cpy_r_key);
-    PyObject *(*CPyDef_base___ChecksumAddressDict_____getitem___3__ChecksumAddressDict_glue)(PyObject *cpy_r_self, PyObject *cpy_r_key);
-    char (*CPyDef_base___ChecksumAddressDict_____setitem__)(PyObject *cpy_r_self, PyObject *cpy_r_key, PyObject *cpy_r_value);
-    char (*CPyDef_base___ChecksumAddressDict_____setitem___3__ChecksumAddressDict_glue)(PyObject *cpy_r_self, PyObject *cpy_r_key, PyObject *cpy_r_value);
-    PyObject *(*CPyDef_base___ChecksumAddressDict____getitem_nochecksum)(PyObject *cpy_r_self, PyObject *cpy_r_key);
-    PyObject *(*CPyDef_base___ChecksumAddressDict____getitem_nochecksum__ChecksumAddressDict_glue)(PyObject *cpy_r_self, PyObject *cpy_r_key);
-    char (*CPyDef_base___ChecksumAddressDict____setitem_nochecksum)(PyObject *cpy_r_self, PyObject *cpy_r_key, PyObject *cpy_r_value);
-    char (*CPyDef_base___ChecksumAddressDict____setitem_nochecksum__ChecksumAddressDict_glue)(PyObject *cpy_r_self, PyObject *cpy_r_key, PyObject *cpy_r_value);
-    char (*CPyDef_base_____top_level__)(void);
-    PyTypeObject **CPyType_default___DefaultChecksumDict;
-    char (*CPyDef_default___DefaultChecksumDict_____init__)(PyObject *cpy_r_self, PyObject *cpy_r_default, PyObject *cpy_r_seed);
-    char (*CPyDef_default___DefaultChecksumDict_____init___3__DefaultChecksumDict_glue)(PyObject *cpy_r_self, PyObject *cpy_r_default, PyObject *cpy_r_seed);
-    PyObject *(*CPyDef_default___DefaultChecksumDict____getitem_nochecksum)(PyObject *cpy_r_self, PyObject *cpy_r_key);
-    PyObject *(*CPyDef_default___DefaultChecksumDict____getitem_nochecksum__DefaultChecksumDict_glue)(PyObject *cpy_r_self, PyObject *cpy_r_key);
-    char (*CPyDef_default_____top_level__)(void);
-};
 #endif
