@@ -21,6 +21,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      # ----------------------------------------------------
+      # Extract version from git tag (strip leading 'v')
+      # ----------------------------------------------------
+      - name: Extract version from tag
+        id: get_version
+        shell: bash
+        run: echo "version=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
+
       # On Windows and macOS, actions/setup-python provides Python.
       # On Ubuntu, cibuildwheel uses Docker to create manylinux wheels by default.
       - name: Set up Python
@@ -35,6 +43,8 @@ jobs:
       - name: Build wheels
         env:
           CIBW_BUILD: cp38-* cp39-* cp310-* cp311-* cp312-* cp313-*
+          # Use version from git tag (stripped 'v')
+          SETUPTOOLS_SCM_PRETEND_VERSION: ${{ steps.get_version.outputs.version }}
         run: python -m cibuildwheel --output-dir wheelhouse
 
       - name: Upload wheels
@@ -52,6 +62,14 @@ jobs:
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+
+      # ----------------------------------------------------
+      # Extract version from git tag (strip leading 'v')
+      # ----------------------------------------------------
+      - name: Extract version from tag
+        id: get_version
+        shell: bash
+        run: echo "version=${GITHUB_REF_NAME#v}" >> $GITHUB_OUTPUT
           
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -64,8 +82,10 @@ jobs:
           pip install --upgrade setuptools wheel twine mypy[mypyc]
   
       - name: Build sdist
-        run: |
-          python setup.py sdist
+        env:
+          # Use version from git tag (stripped 'v')
+          SETUPTOOLS_SCM_PRETEND_VERSION: ${{ steps.get_version.outputs.version }}
+        run: python setup.py sdist
 
       - name: Download wheel artifacts (Ubuntu)
         uses: actions/download-artifact@v5
