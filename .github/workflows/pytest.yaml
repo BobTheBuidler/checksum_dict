@@ -8,7 +8,7 @@ on:
     paths:
       - '**.py'
       - '**.pyx'
-      - '**.yaml'
+      - '.github/workflows/pytest.yaml'
       - '!**/docs/conf.py'
       
 concurrency:
