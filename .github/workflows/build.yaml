@@ -22,18 +22,13 @@ jobs:
           # Check out the PR branch
           ref: ${{ github.head_ref }}
 
-      - name: Set up Python 3.12
+      - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.14"
           
-      - name: Install Mypyc
-        run: pip install mypy[mypyc]==1.18.1 types-requests
-        
-      - name: Run Mypyc
-        env:
-          MYPYC_STRICT_DUNDER_TYPING: 1
-        run: make mypyc
+      - name: Install checksum-dict
+        run: pip install .
           
       - name: Normalize C files for diffchecking
         # This makes it much easier to diffcheck changes in the C files

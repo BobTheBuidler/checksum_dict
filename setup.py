@@ -56,6 +56,8 @@ setup(
             "--disable-error-code=attr-defined",
             "--disable-error-code=no-any-return",
         ],
+        group_name="checksum_dict",
+        strict_dunder_typing=True,
     ),
     zip_safe=False,
 )
