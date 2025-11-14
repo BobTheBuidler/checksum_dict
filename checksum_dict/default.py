@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Callable, DefaultDict, Iterable, Optional
+from typing import Callable, DefaultDict, Iterable, Optional, Type, TypeVar
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
@@ -73,3 +73,27 @@ class DefaultChecksumDict(DefaultDict[ChecksumAddress, T], ChecksumAddressDict[T
         default = self.default_factory()  # type: ignore
         self._setitem_nochecksum(key, default)
         return default
+
+    def __class_getitem__(cls, type_args: Type[T]) -> Type["DefaultChecksumDict[T]"]:  # type: ignore [override]
+        # sourcery skip: merge-nested-ifs
+        # this might prevent a segfault?
+        if isinstance(type_args, type) and cls is not DefaultChecksumDict:
+            return type(
+                f"DefaultChecksumDict[{type_args.__name__}]",
+                (_TypedDefaultChecksumDict,),
+                {
+                    "default": type_args,
+                },
+            )
+        else:
+            return super().__class_getitem__(type_args)
+
+
+class _TypedDefaultChecksumDict(DefaultChecksumDict[T]):
+    def __init__(self, seed: Optional[_SeedT]) -> None:
+        if isinstance(seed, dict):
+            for key, value in seed.items():
+                self[key] = value
+        elif isinstance(seed, Iterable):
+            for key, value in seed:
+                self[key] = value  # type: ignore [assignment]
