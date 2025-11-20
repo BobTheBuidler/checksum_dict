@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>checksum_dict.singleton &mdash; checksum_dict  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            checksum_dict
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/modules.html">checksum_dict</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">checksum_dict</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">checksum_dict.singleton</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for checksum_dict.singleton</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">DefaultDict</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Final</span><span class="p">,</span> <span class="n">Generic</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">checksum_dict</span><span class="w"> </span><span class="kn">import</span> <span class="n">exceptions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">checksum_dict._typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyAddressOrContract</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">checksum_dict.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChecksumAddressDict</span><span class="p">,</span> <span class="n">T</span>
+
+
+<span class="n">_LocksDict</span> <span class="o">=</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="n">AnyAddressOrContract</span><span class="p">,</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="ChecksumAddressSingletonMeta">
+<a class="viewcode-back" href="../../source/checksum_dict.html#checksum_dict.singleton.ChecksumAddressSingletonMeta">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ChecksumAddressSingletonMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A metaclass for creating singleton instances of addresses.</span>
+
+<span class="sd">    This metaclass ensures that each address has a single instance across the application.</span>
+<span class="sd">    It uses a :class:`~checksum_dict.base.ChecksumAddressDict` to store instances and manages locks to ensure</span>
+<span class="sd">    thread safety during instance creation.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        This implementation uses a :mod:`cchecksum`&#39;s Cython implementation for checksumming to optimize</span>
+<span class="sd">        performance over the standard :func:`eth_utils.to_checksum_address`.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; class MySingleton(metaclass=ChecksumAddressSingletonMeta):</span>
+<span class="sd">        ...     def __init__(self, address):</span>
+<span class="sd">        ...         self.address = address</span>
+<span class="sd">        ...</span>
+<span class="sd">        &gt;&gt;&gt; instance1 = MySingleton(&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; instance2 = MySingleton(&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; assert instance1 is instance2</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        - :class:`ChecksumAddressDict` for the underlying dictionary implementation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ChecksumAddressSingletonMeta.__init__">
+<a class="viewcode-back" href="../../source/checksum_dict.html#checksum_dict.singleton.ChecksumAddressSingletonMeta.__init__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">bases</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">type</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">namespace</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the metaclass with a name, bases, and namespace.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: The name of the class being created.</span>
+<span class="sd">            bases: A tuple of base classes.</span>
+<span class="sd">            namespace: A dictionary representing the class namespace.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">type</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">namespace</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">ChecksumAddressDict</span><span class="p">[</span><span class="n">T</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ChecksumAddressDict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__locks</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">_LocksDict</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__locks_lock</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">]</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="ChecksumAddressSingletonMeta.__call__">
+<a class="viewcode-back" href="../../source/checksum_dict.html#checksum_dict.singleton.ChecksumAddressSingletonMeta.__call__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">AnyAddressOrContract</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+        <span class="c1"># sourcery skip: use-contextlib-suppress</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create or retrieve a singleton instance for the given address.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: The address for which to create or retrieve the singleton instance.</span>
+<span class="sd">            *args: Additional positional arguments for instance creation.</span>
+<span class="sd">            **kwargs: Additional keyword arguments for instance creation.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The singleton instance associated with the given address.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :class:`~checksum_dict.exceptions.KeyError`: If the address is not found in the cache.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; class MySingleton(metaclass=ChecksumAddressSingletonMeta):</span>
+<span class="sd">            ...     def __init__(self, address):</span>
+<span class="sd">            ...         self.address = address</span>
+<span class="sd">            ...</span>
+<span class="sd">            &gt;&gt;&gt; instance = MySingleton(&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">normalized</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span>
+        <span class="k">except</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">KeyError</span><span class="p">:</span>
+            <span class="k">pass</span>  <span class="c1"># NOTE: passing instead of proceeding lets helps us keep a clean exc chain</span>
+
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_address_lock</span><span class="p">(</span><span class="n">normalized</span><span class="p">):</span>
+            <span class="c1"># Try to get the instance again, in case it was added while waiting for the lock</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span>
+            <span class="k">except</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">KeyError</span><span class="p">:</span>
+                <span class="k">pass</span>  <span class="c1"># NOTE: passing instead of proceeding here lets us keep a clean exc chain</span>
+
+            <span class="n">instance</span><span class="p">:</span> <span class="n">T</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalized</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__delete_address_lock</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">instance</span></div>
+
+
+<div class="viewcode-block" id="ChecksumAddressSingletonMeta.__getitem__">
+<a class="viewcode-back" href="../../source/checksum_dict.html#checksum_dict.singleton.ChecksumAddressSingletonMeta.__getitem__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">AnyAddressOrContract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the singleton instance for `address` from the cache.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: The address for which to retrieve the singleton instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The singleton instance associated with the given address.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            :class:`~checksum_dict.exceptions.KeyError`: If the address is not found in the cache.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; meta = ChecksumAddressSingletonMeta(&#39;MySingleton&#39;, (), {})</span>
+<span class="sd">            &gt;&gt;&gt; instance = meta[&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">)]</span></div>
+
+
+<div class="viewcode-block" id="ChecksumAddressSingletonMeta.__setitem__">
+<a class="viewcode-back" href="../../source/checksum_dict.html#checksum_dict.singleton.ChecksumAddressSingletonMeta.__setitem__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">AnyAddressOrContract</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the singleton instance for `address` in the cache.</span>
+
+<span class="sd">        You can use this if you need to implement non-standard init sequences.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: The address for which to set the singleton instance.</span>
+<span class="sd">            item: The instance to associate with the given address.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; meta = ChecksumAddressSingletonMeta(&#39;MySingleton&#39;, (), {})</span>
+<span class="sd">            &gt;&gt;&gt; meta[&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;] = MySingleton(&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">normalized</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_address_lock</span><span class="p">(</span><span class="n">normalized</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__delete_address_lock</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ChecksumAddressSingletonMeta.__delitem__">
+<a class="viewcode-back" href="../../source/checksum_dict.html#checksum_dict.singleton.ChecksumAddressSingletonMeta.__delitem__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">AnyAddressOrContract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delete the singleton instance for a given address from the cache.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: The address for which to delete the instance.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: If the address is not found in the cache.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; meta = ChecksumAddressSingletonMeta(&#39;MySingleton&#39;, (), {})</span>
+<span class="sd">            &gt;&gt;&gt; del meta[&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">)]</span>  <span class="c1"># type: ignore [arg-type]</span></div>
+
+
+<div class="viewcode-block" id="ChecksumAddressSingletonMeta.get_instance">
+<a class="viewcode-back" href="../../source/checksum_dict.html#checksum_dict.singleton.ChecksumAddressSingletonMeta.get_instance">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">AnyAddressOrContract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Retrieve the singleton instance for a given address, if it exists.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: The address for which to retrieve the instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The instance associated with the address, or None if not found.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; meta = ChecksumAddressSingletonMeta(&#39;MySingleton&#39;, (), {})</span>
+<span class="sd">            &gt;&gt;&gt; instance = meta.get_instance(&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">))</span>  <span class="c1"># type: ignore [call-overload, no-any-return]</span></div>
+
+
+<div class="viewcode-block" id="ChecksumAddressSingletonMeta.delete_instance">
+<a class="viewcode-back" href="../../source/checksum_dict.html#checksum_dict.singleton.ChecksumAddressSingletonMeta.delete_instance">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">delete_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">AnyAddressOrContract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># sourcery skip: use-contextlib-suppress</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delete the singleton instance for a given address, if it exists.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: The address for which to delete the instance.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; meta = ChecksumAddressSingletonMeta(&#39;MySingleton&#39;, (), {})</span>
+<span class="sd">            &gt;&gt;&gt; meta.delete_instance(&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">)]</span>  <span class="c1"># type: ignore [arg-type]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__get_address_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">AnyAddressOrContract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Acquire a lock for the given address to ensure thread safety.</span>
+
+<span class="sd">        This method ensures that the singleton instance creation is thread-safe by</span>
+<span class="sd">        acquiring a lock for the specific address.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: The address for which to acquire the lock.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A threading.Lock object for the given address.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; meta = ChecksumAddressSingletonMeta(&#39;MySingleton&#39;, (), {})</span>
+<span class="sd">            &gt;&gt;&gt; lock = meta._ChecksumAddressSingletonMeta__get_address_lock(&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__locks_lock</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__locks</span><span class="p">[</span><span class="n">address</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__delete_address_lock</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="n">AnyAddressOrContract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># sourcery skip: use-contextlib-suppress</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Delete the lock for an address once the instance is created.</span>
+
+<span class="sd">        This method removes the lock for an address after the singleton instance</span>
+<span class="sd">        has been successfully created, freeing up resources.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: The address for which to delete the lock.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; meta = ChecksumAddressSingletonMeta(&#39;MySingleton&#39;, (), {})</span>
+<span class="sd">            &gt;&gt;&gt; meta._ChecksumAddressSingletonMeta__delete_address_lock(&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__locks_lock</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">__locks</span><span class="p">[</span><span class="n">address</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">pass</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, BobTheBuidler.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
