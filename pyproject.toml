@@ -1,5 +1,12 @@
 [build-system]
-requires = ["setuptools", "wheel", "setuptools_scm", "mypy[mypyc]>=1.14.1,<1.18.3", "cchecksum>=0.3.1,<1"]
+requires = [
+  "setuptools",
+  "wheel",
+  "setuptools_scm",
+  "mypy[mypyc]==1.14.1; python_version == '3.8'",
+  "mypy[mypyc]==1.19.0; python_version != '3.8'",
+  "cchecksum>=0.3.1,<1"
+]
 
 [tool.black]
 line-length = 100
