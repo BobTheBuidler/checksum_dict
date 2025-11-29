@@ -1,3 +1,4 @@
+import sys
 from glob import glob
 from pathlib import Path
 from setuptools import setup, find_packages
@@ -6,6 +7,10 @@ from mypyc.build import mypycify
 
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
+
+mypycify_kwargs = {"strict_dunder_typing": True}
+if sys.version_info >= (3, 9):
+    mypycify_kwargs["group_name"] = "checksum_dict"
 
 setup(
     name="checksum_dict",
@@ -55,8 +60,6 @@ setup(
             "--disable-error-code=attr-defined",
             "--disable-error-code=no-any-return",
         ],
-        group_name="checksum_dict",
-        strict_dunder_typing=True,
     ),
     zip_safe=False,
 )
