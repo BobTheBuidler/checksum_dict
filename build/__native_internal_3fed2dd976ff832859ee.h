@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_3fed2dd976ff832859ee_H
-#define MYPYC_NATIVE_INTERNAL_3fed2dd976ff832859ee_H
+#ifndef MYPYC_LIBRT_INTERNAL_3fed2dd976ff832859ee_H
+#define MYPYC_LIBRT_INTERNAL_3fed2dd976ff832859ee_H
 #include <Python.h>
 #include <CPy.h>
 #include "__native_3fed2dd976ff832859ee.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[83];
+extern PyObject *CPyStatics[82];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
