@@ -1,4 +1,3 @@
-import sys
 from glob import glob
 from pathlib import Path
 from setuptools import setup, find_packages
@@ -8,10 +7,6 @@ from mypyc.build import mypycify
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
-mypycify_kwargs = {"strict_dunder_typing": True}
-if sys.version_info >= (3, 9):
-    mypycify_kwargs["group_name"] = "checksum_dict"
-
 setup(
     name="checksum_dict",
     description="checksum_dict's objects handle the simple but repetitive task of checksumming addresses before setting/getting dictionary values.",
@@ -19,11 +14,10 @@ setup(
     license="MIT",
     author="BobTheBuidler",
     author_email="bobthebuidlerdefi@gmail.com",
-    python_requires=">=3.8",
+    python_requires=">=3.9,<3.15",
     classifiers=[
         "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
@@ -61,6 +55,8 @@ setup(
             "--disable-error-code=attr-defined",
             "--disable-error-code=no-any-return",
         ],
+        strict_dunder_typing=True,
+        group_name="checksum_dict",
     ),
     zip_safe=False,
 )
