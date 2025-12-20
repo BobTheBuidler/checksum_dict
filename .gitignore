@@ -12,4 +12,5 @@ env
 ops.txt
 build/**/*.py
 build/**/*.o
+build/**/py.typed
 build/setup.py
