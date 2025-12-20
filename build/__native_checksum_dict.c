@@ -532,7 +532,7 @@ CPyL6: ;
     cpy_r_r12 = cpy_r_r11;
     goto CPyL18;
 CPyL11: ;
-    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'brownie', 'dank_mids', 'y'}) */
+    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'y', 'dank_mids', 'brownie'}) */
     cpy_r_r14 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '__module__' */
     cpy_r_r15 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r14);
     if (unlikely(cpy_r_r15 == NULL)) {
@@ -3580,7 +3580,7 @@ int CPyGlobalsInit(void)
 PyObject *CPyStatics[DIFFCHECK_PLACEHOLDER];
 const char * const CPyLit_Str[] = {
     "\005\003hex\aaddress\023to_checksum_address\nValueError\001\'",
-    "\006\034\' is not a valid ETH address\005ERC20\bContract\abrownie\tdank_mids\001y",
+    "\006\034\' is not a valid ETH address\005ERC20\bContract\001y\tdank_mids\abrownie",
     "\t\n__module__\001.\bbuiltins\rTYPE_CHECKING\004Dict\005Final\004Type\005Union\006typing",
     "\005\tcchecksum\027checksum_dict/_utils.py\b<module>\017ChecksumAddress\neth_typing",
     "\005\a_typing\rchecksum_dict\030_KNOWN_CHECKSUMMED_TYPES\bIterable\b__init__",
