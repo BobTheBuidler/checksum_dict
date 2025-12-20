@@ -26,7 +26,7 @@ jobs:
       run: pip install pyupgrade
 
     - name: Run PyUpgrade
-      run: pyupgrade --py39-plus --exit-zero-even-if-changed **/**/**.py
+      run: pyupgrade --py39-plus --exit-zero-even-if-changed **/**.py
 
     - name: Check for changes
       id: changes
