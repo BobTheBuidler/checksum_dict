@@ -1,4 +1,5 @@
-from typing import Dict, Iterable, Optional, Tuple, TypeVar, Union, overload
+from typing import Dict, Optional, Tuple, TypeVar, Union, overload
+from collections.abc import Iterable
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
@@ -10,11 +11,11 @@ from checksum_dict._utils import attempt_checksum
 
 T = TypeVar("T")
 
-_SeedT = Union[Dict[AnyAddressOrContract, T], Iterable[Tuple[AnyAddressOrContract, T]]]
+_SeedT = Union[dict[AnyAddressOrContract, T], Iterable[tuple[AnyAddressOrContract, T]]]
 
 
 @mypyc_attr(allow_interpreted_subclasses=True)
-class ChecksumAddressDict(Dict[ChecksumAddress, T]):
+class ChecksumAddressDict(dict[ChecksumAddress, T]):
     """
     A dictionary that maps Ethereum addresses to objects, automatically checksumming
     the provided address key when setting and getting values.
@@ -54,9 +55,9 @@ class ChecksumAddressDict(Dict[ChecksumAddress, T]):
     @overload
     def __init__(self) -> None: ...
     @overload
-    def __init__(self, iterable: Iterable[Tuple[AnyAddressOrContract, T]]) -> None: ...
+    def __init__(self, iterable: Iterable[tuple[AnyAddressOrContract, T]]) -> None: ...
     @overload
-    def __init__(self, dictionary: Dict[AnyAddressOrContract, T]) -> None: ...
+    def __init__(self, dictionary: dict[AnyAddressOrContract, T]) -> None: ...
     def __init__(self, seed: Optional[_SeedT[T]] = None) -> None:  # type: ignore [misc]
         if isinstance(seed, dict):
             for key, value in seed.items():
