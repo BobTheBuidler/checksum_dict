@@ -1,4 +1,4 @@
-from typing import Dict, Optional, Tuple, TypeVar, Union, overload
+from typing import Optional, TypeVar, Union, overload
 from collections.abc import Iterable
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
