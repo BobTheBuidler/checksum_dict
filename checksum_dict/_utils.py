@@ -4,7 +4,7 @@ The following code was ripped out of eth-brownie on 2022-Aug-06.
 A big thanks to the many maintainers and contributors for their valuable work!
 """
 
-from typing import TYPE_CHECKING, Dict, Final, Type, Union
+from typing import TYPE_CHECKING, Any, Final, Union
 
 import cchecksum
 from eth_typing import ChecksumAddress
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
 # I do this hacky thing to help out mypyc.
 # If I try to conditionally define `Contract` and `ERC20` the compiler fails.
 # So I do this instead.
-_KNOWN_CHECKSUMMED_TYPES: Final[Dict[type, bool]] = {}
+_KNOWN_CHECKSUMMED_TYPES: Final[dict[type[Any], bool]] = {}
 
 # must not be Final so it can be redefined with lru cache in ypricemagic
 to_checksum_address = cchecksum.to_checksum_address
@@ -44,7 +44,7 @@ def checksum_or_raise(string: str) -> ChecksumAddress:
         raise ValueError(f"'{string}' is not a valid ETH address") from e
 
 
-def _type_has_checksum_addr(typ: Type) -> bool:  # type: ignore [type-arg]
+def _type_has_checksum_addr(typ: type[Any]) -> bool:
     has_checksum_addr = _KNOWN_CHECKSUMMED_TYPES.get(typ)
     if has_checksum_addr is None:
         has_checksum_addr = typ.__name__ in {"Contract", "ERC20"} and typ.__module__.split(".")[

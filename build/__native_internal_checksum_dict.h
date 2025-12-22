@@ -24,6 +24,7 @@ extern CPyModule *CPyModule_eth_typing;
 extern CPyModule *CPyModule_checksum_dict___base__internal;
 extern CPyModule *CPyModule_checksum_dict___base;
 extern PyObject *CPyStatic_base___globals;
+extern CPyModule *CPyModule_collections___abc;
 extern CPyModule *CPyModule_mypy_extensions;
 extern CPyModule *CPyModule_checksum_dict;
 extern CPyModule *CPyModule_checksum_dict____typing;
