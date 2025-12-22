@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING, Protocol, Union
 from eth_typing import Address, ChecksumAddress, HexAddress
 
 
+
 # We need to assign mypyc has issues compiling TYPE_CHECKING
 # TODO: PR to mypyc to fix this
 if TYPE_CHECKING:
