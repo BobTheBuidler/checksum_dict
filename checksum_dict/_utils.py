@@ -9,7 +9,6 @@ from typing import TYPE_CHECKING, Dict, Final, Type, Union
 import cchecksum
 from eth_typing import ChecksumAddress
 
-
 if TYPE_CHECKING:
     from brownie import Contract
     from y import ERC20
