@@ -532,7 +532,7 @@ CPyL6: ;
     cpy_r_r12 = cpy_r_r11;
     goto CPyL18;
 CPyL11: ;
-    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'y', 'dank_mids', 'brownie'}) */
+    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'dank_mids', 'y', 'brownie'}) */
     cpy_r_r14 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '__module__' */
     cpy_r_r15 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r14);
     if (unlikely(cpy_r_r15 == NULL)) {
@@ -3552,17 +3552,17 @@ int CPyGlobalsInit(void)
 PyObject *CPyStatics[DIFFCHECK_PLACEHOLDER];
 const char * const CPyLit_Str[] = {
     "\005\003hex\aaddress\023to_checksum_address\nValueError\001\'",
-    "\006\034\' is not a valid ETH address\005ERC20\bContract\001y\tdank_mids\abrownie",
-    "\t\n__module__\001.\bbuiltins\rTYPE_CHECKING\004Dict\005Final\004Type\005Union\006typing",
-    "\005\tcchecksum\027checksum_dict/_utils.py\b<module>\017ChecksumAddress\neth_typing",
-    "\005\a_typing\rchecksum_dict\030_KNOWN_CHECKSUMMED_TYPES\bIterable\b__init__",
-    "\a\024ChecksumAddressDict(\001)\b__repr__\v__getitem__\bKeyError\004args\nexceptions",
-    "\006\v__setitem__\023_getitem_nochecksum\0020x\023_setitem_nochecksum\bOptional\005Tuple",
-    "\005\aTypeVar\boverload\nmypyc_attr\017mypy_extensions\024AnyAddressOrContract",
-    "\005\025checksum_dict._typing\020attempt_checksum\024checksum_dict._utils\001T\006_SeedT",
-    "\004\022checksum_dict.base\017__mypyc_attrs__\b__dict__\023ChecksumAddressDict",
-    "\005\vdefaultdict\017default_factory\vcollections\bCallable\vDefaultDict",
-    "\002\025checksum_dict.default\023DefaultChecksumDict",
+    "\006\034\' is not a valid ETH address\005ERC20\bContract\tdank_mids\001y\abrownie",
+    "\t\n__module__\001.\bbuiltins\rTYPE_CHECKING\003Any\005Final\005Union\006typing\tcchecksum",
+    "\004\027checksum_dict/_utils.py\b<module>\017ChecksumAddress\neth_typing",
+    "\005\030_KNOWN_CHECKSUMMED_TYPES\bIterable\b__init__\024ChecksumAddressDict(\001)",
+    "\006\b__repr__\v__getitem__\bKeyError\004args\nexceptions\v__setitem__",
+    "\006\023_getitem_nochecksum\0020x\023_setitem_nochecksum\bOptional\aTypeVar\boverload",
+    "\004\017collections.abc\nmypyc_attr\017mypy_extensions\rchecksum_dict",
+    "\003\024AnyAddressOrContract\025checksum_dict._typing\020attempt_checksum",
+    "\005\024checksum_dict._utils\001T\006_SeedT\022checksum_dict.base\017__mypyc_attrs__",
+    "\005\b__dict__\023ChecksumAddressDict\vdefaultdict\017default_factory\vcollections",
+    "\004\bCallable\vDefaultDict\025checksum_dict.default\023DefaultChecksumDict",
     "",
 };
 const char * const CPyLit_Bytes[] = {
