@@ -508,7 +508,7 @@ __LL2: ;
     } else
         goto CPyL23;
 CPyL6: ;
-    cpy_r_r6 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'ERC20', 'Contract'}) */
+    cpy_r_r6 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'Contract', 'ERC20'}) */
     cpy_r_r7 = CPy_GetName(cpy_r_typ);
     if (unlikely(cpy_r_r7 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", DIFFCHECK_PLACEHOLDER, CPyStatic__utils___globals);
@@ -532,7 +532,7 @@ CPyL6: ;
     cpy_r_r12 = cpy_r_r11;
     goto CPyL18;
 CPyL11: ;
-    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'dank_mids', 'y', 'brownie'}) */
+    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'y', 'dank_mids', 'brownie'}) */
     cpy_r_r14 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '__module__' */
     cpy_r_r15 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r14);
     if (unlikely(cpy_r_r15 == NULL)) {
@@ -985,7 +985,7 @@ CPyL2: ;
     if (likely(PyDict_Check(cpy_r_seed)))
         cpy_r_r2 = cpy_r_seed;
     else {
-        CPy_TypeErrorTraceback("checksum_dict/base.py", "__init__", 63, CPyStatic_base___globals, "dict", cpy_r_seed);
+        CPy_TypeErrorTraceback("checksum_dict/base.py", "__init__", 62, CPyStatic_base___globals, "dict", cpy_r_seed);
         goto CPyL18;
     }
     cpy_r_r3 = 0;
@@ -1552,7 +1552,7 @@ CPyL13: ;
     if (likely(PyTuple_Check(cpy_r_r24)))
         cpy_r_r25 = cpy_r_r24;
     else {
-        CPy_TypeErrorTraceback("checksum_dict/base.py", "__getitem__", 84, CPyStatic_base___globals, "tuple", cpy_r_r24);
+        CPy_TypeErrorTraceback("checksum_dict/base.py", "__getitem__", 83, CPyStatic_base___globals, "tuple", cpy_r_r24);
         goto CPyL24;
     }
     cpy_r_r26 = CPyStatic_base___globals;
@@ -2301,27 +2301,27 @@ char CPyDef_base_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('Optional', 'TypeVar', 'Union', 'overload') */
-    cpy_r_r6 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'typing' */
+    cpy_r_r5 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('Iterable',) */
+    cpy_r_r6 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'collections.abc' */
     cpy_r_r7 = CPyStatic_base___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", DIFFCHECK_PLACEHOLDER, CPyStatic_base___globals);
         goto CPyL33;
     }
-    CPyModule_typing = cpy_r_r8;
-    CPy_INCREF(CPyModule_typing);
+    CPyModule_collections___abc = cpy_r_r8;
+    CPy_INCREF(CPyModule_collections___abc);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('Iterable',) */
-    cpy_r_r10 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'collections.abc' */
+    cpy_r_r9 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('Optional', 'TypeVar', 'Union', 'overload') */
+    cpy_r_r10 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'typing' */
     cpy_r_r11 = CPyStatic_base___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("checksum_dict/base.py", "<module>", DIFFCHECK_PLACEHOLDER, CPyStatic_base___globals);
         goto CPyL33;
     }
-    CPyModule_collections___abc = cpy_r_r12;
-    CPy_INCREF(CPyModule_collections___abc);
+    CPyModule_typing = cpy_r_r12;
+    CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r12);
     cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('ChecksumAddress',) */
     cpy_r_r14 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'eth_typing' */
@@ -3349,27 +3349,27 @@ CPyL3: ;
     CPyModule_collections = cpy_r_r8;
     CPy_INCREF(CPyModule_collections);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('Callable', 'DefaultDict', 'Optional') */
-    cpy_r_r10 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'typing' */
+    cpy_r_r9 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('Iterable',) */
+    cpy_r_r10 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'collections.abc' */
     cpy_r_r11 = CPyStatic_default___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "<module>", DIFFCHECK_PLACEHOLDER, CPyStatic_default___globals);
         goto CPyL21;
     }
-    CPyModule_typing = cpy_r_r12;
-    CPy_INCREF(CPyModule_typing);
+    CPyModule_collections___abc = cpy_r_r12;
+    CPy_INCREF(CPyModule_collections___abc);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('Iterable',) */
-    cpy_r_r14 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'collections.abc' */
+    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('Callable', 'DefaultDict', 'Optional') */
+    cpy_r_r14 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'typing' */
     cpy_r_r15 = CPyStatic_default___globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
         CPy_AddTraceback("checksum_dict/default.py", "<module>", DIFFCHECK_PLACEHOLDER, CPyStatic_default___globals);
         goto CPyL21;
     }
-    CPyModule_collections___abc = cpy_r_r16;
-    CPy_INCREF(CPyModule_collections___abc);
+    CPyModule_typing = cpy_r_r16;
+    CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r16);
     cpy_r_r17 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* ('ChecksumAddress',) */
     cpy_r_r18 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'eth_typing' */
@@ -3527,8 +3527,8 @@ int CPyGlobalsInit(void)
     CPyModule_eth_typing = Py_None;
     CPyModule_checksum_dict___base = Py_None;
     CPyModule_builtins = Py_None;
-    CPyModule_typing = Py_None;
     CPyModule_collections___abc = Py_None;
+    CPyModule_typing = Py_None;
     CPyModule_eth_typing = Py_None;
     CPyModule_mypy_extensions = Py_None;
     CPyModule_checksum_dict = Py_None;
@@ -3537,8 +3537,8 @@ int CPyGlobalsInit(void)
     CPyModule_checksum_dict___default = Py_None;
     CPyModule_builtins = Py_None;
     CPyModule_collections = Py_None;
-    CPyModule_typing = Py_None;
     CPyModule_collections___abc = Py_None;
+    CPyModule_typing = Py_None;
     CPyModule_eth_typing = Py_None;
     CPyModule_mypy_extensions = Py_None;
     CPyModule_checksum_dict___base = Py_None;
@@ -3552,13 +3552,13 @@ int CPyGlobalsInit(void)
 PyObject *CPyStatics[DIFFCHECK_PLACEHOLDER];
 const char * const CPyLit_Str[] = {
     "\005\003hex\aaddress\023to_checksum_address\nValueError\001\'",
-    "\006\034\' is not a valid ETH address\005ERC20\bContract\tdank_mids\001y\abrownie",
+    "\006\034\' is not a valid ETH address\bContract\005ERC20\001y\tdank_mids\abrownie",
     "\t\n__module__\001.\bbuiltins\rTYPE_CHECKING\003Any\005Final\005Union\006typing\tcchecksum",
     "\004\027checksum_dict/_utils.py\b<module>\017ChecksumAddress\neth_typing",
     "\005\030_KNOWN_CHECKSUMMED_TYPES\bIterable\b__init__\024ChecksumAddressDict(\001)",
     "\006\b__repr__\v__getitem__\bKeyError\004args\nexceptions\v__setitem__",
-    "\006\023_getitem_nochecksum\0020x\023_setitem_nochecksum\bOptional\aTypeVar\boverload",
-    "\004\017collections.abc\nmypyc_attr\017mypy_extensions\rchecksum_dict",
+    "\005\023_getitem_nochecksum\0020x\023_setitem_nochecksum\017collections.abc\bOptional",
+    "\005\aTypeVar\boverload\nmypyc_attr\017mypy_extensions\rchecksum_dict",
     "\003\024AnyAddressOrContract\025checksum_dict._typing\020attempt_checksum",
     "\005\024checksum_dict._utils\001T\006_SeedT\022checksum_dict.base\017__mypyc_attrs__",
     "\005\b__dict__\023ChecksumAddressDict\vdefaultdict\017default_factory\vcollections",
@@ -3574,8 +3574,8 @@ const char * const CPyLit_Int[] = {
 const double CPyLit_Float[] = {0};
 const double CPyLit_Complex[] = {0};
 const int CPyLit_Tuple[] = {
-    13, 4, 17, 18, 19, 20, 3, 22, 22, 22, 1, 66, 1, 25, 4, 41, 42, 20,
-    43, 1, 28, 1, 45, 1, 36, 1, 48, 1, 50, 1, 58, 3, 61, 62, 41, 3, 57,
+    13, 4, 17, 18, 19, 20, 3, 22, 22, 22, 1, 66, 1, 25, 1, 28, 4, 42,
+    43, 20, 44, 1, 45, 1, 36, 1, 48, 1, 50, 1, 58, 3, 61, 62, 42, 3, 57,
     52, 53
 };
 const int CPyLit_FrozenSet[] = {2, 2, 9, 10, 3, 11, 12, 13};
