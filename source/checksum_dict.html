@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>checksum_dict package &mdash; checksum_dict  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -109,12 +109,23 @@
 <span id="checksum-dict-base-module"></span><h2>checksum_dict.base module<a class="headerlink" href="#module-checksum_dict.base" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checksum_dict.base.</span></span><span class="sig-name descname"><span class="pre">ChecksumAddressDict</span></span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">checksum_dict.base.</span></span><span class="sig-name descname"><span class="pre">ChecksumAddressDict</span></span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>[<a class="reference external" href="https://eth-typing.readthedocs.io/en/stable/eth_typing.html#eth_typing.evm.ChecksumAddress" title="(in eth-typing v5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecksumAddress</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.__class_getitem__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__class_getitem__" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__class_getitem__" title="Link to this definition"></a></dt>
 <dd><p>See PEP 585</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.__new__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__new__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.fromkeys">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.fromkeys" title="Link to this definition"></a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -201,11 +212,6 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.__new__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__new__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.__or__">
 <span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__or__" title="Link to this definition"></a></dt>
 <dd><p>Return self|value.</p>
@@ -256,12 +262,6 @@
 <dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.copy" title="Link to this definition"></a></dt>
 <dd><p>Return a shallow copy of the dict.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.fromkeys">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.fromkeys" title="Link to this definition"></a></dt>
-<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -320,27 +320,27 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.__dict__">
-<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__orig_bases__':</span> <span class="pre">(dict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],),</span> <span class="pre">'__repr__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__repr__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__init__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__init__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__getitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__setitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__delitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__delitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_getitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_getitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_setitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_setitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__setstate__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__getstate__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__dict__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__dict__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">'',</span> <span class="pre">'__module__':</span> <span class="pre">'checksum_dict.base',</span> <span class="pre">'__mypyc_attrs__':</span> <span class="pre">('__dict__',),</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__dict__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dict__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__orig_bases__':</span> <span class="pre">(dict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],),</span> <span class="pre">'__repr__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__repr__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__init__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__init__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__getitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__setitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__delitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__delitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_getitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_getitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_setitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_setitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__setstate__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__getstate__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__dict__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__dict__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">'',</span> <span class="pre">'__module__':</span> <span class="pre">'checksum_dict.base',</span> <span class="pre">'__mypyc_attrs__':</span> <span class="pre">('__dict__',),</span> <span class="pre">'__annotate_func__':</span> <span class="pre">None,</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__dict__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.__hash__">
-<span class="sig-name descname"><span class="pre">__hash__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__hash__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__hash__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.__module__">
-<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.base'</span></em><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__module__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__module__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.base'</span></span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__module__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.__mypyc_attrs__">
-<span class="sig-name descname"><span class="pre">__mypyc_attrs__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__dict__',)</span></em><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__mypyc_attrs__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__mypyc_attrs__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__dict__',)</span></span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__mypyc_attrs__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.base.ChecksumAddressDict.__orig_bases__">
-<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(dict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],)</span></em><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__orig_bases__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(dict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],)</span></span><a class="headerlink" href="#checksum_dict.base.ChecksumAddressDict.__orig_bases__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -350,12 +350,29 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 <span id="checksum-dict-default-module"></span><h2>checksum_dict.default module<a class="headerlink" href="#module-checksum_dict.default" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checksum_dict.default.</span></span><span class="sig-name descname"><span class="pre">DefaultChecksumDict</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">checksum_dict.default.</span></span><span class="sig-name descname"><span class="pre">DefaultChecksumDict</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.DefaultDict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultDict</span></code></a>[<a class="reference external" href="https://eth-typing.readthedocs.io/en/stable/eth_typing.html#eth_typing.evm.ChecksumAddress" title="(in eth-typing v5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecksumAddress</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>], <a class="reference internal" href="#checksum_dict.base.ChecksumAddressDict" title="checksum_dict.base.ChecksumAddressDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecksumAddressDict</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__class_getitem__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__class_getitem__" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__class_getitem__" title="Link to this definition"></a></dt>
 <dd><p>See PEP 585</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__init_subclass__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__init_subclass__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__init_subclass__" title="Link to this definition"></a></dt>
+<dd><p>Function to initialize subclasses.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__new__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__new__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.fromkeys">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.fromkeys" title="Link to this definition"></a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -418,12 +435,6 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__init_subclass__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init_subclass__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__init_subclass__" title="Link to this definition"></a></dt>
-<dd><p>Function to initialize subclasses.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__ior__">
 <span class="sig-name descname"><span class="pre">__ior__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__ior__" title="Link to this definition"></a></dt>
 <dd><p>Return self|=value.</p>
@@ -467,11 +478,6 @@ return value</p>
 <span class="sig-name descname"><span class="pre">__ne__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__ne__" title="Link to this definition"></a></dt>
 <dd><p>Return self!=value.</p>
 </dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__new__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__new__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__or__">
@@ -532,12 +538,6 @@ return value</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.fromkeys">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.fromkeys" title="Link to this definition"></a></dt>
-<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.get" title="Link to this definition"></a></dt>
 <dd><p>Return the value for key if key is in the dictionary, else default.</p>
@@ -592,38 +592,43 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__annotate_func__">
+<span class="sig-name descname"><span class="pre">__annotate_func__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__annotate_func__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__annotations_cache__">
-<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__annotations_cache__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__annotations_cache__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__dict__">
-<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__orig_bases__':</span> <span class="pre">(typing.DefaultDict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],</span> <span class="pre">checksum_dict.base.ChecksumAddressDict[~T]),</span> <span class="pre">'__init__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__init__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_getitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_getitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__setstate__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__getstate__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__dict__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__dict__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">'',</span> <span class="pre">'__module__':</span> <span class="pre">'checksum_dict.default',</span> <span class="pre">'__parameters__':</span> <span class="pre">(~T,),</span> <span class="pre">'__mypyc_attrs__':</span> <span class="pre">('__dict__',),</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__dict__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dict__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__orig_bases__':</span> <span class="pre">(typing.DefaultDict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],</span> <span class="pre">checksum_dict.base.ChecksumAddressDict[~T]),</span> <span class="pre">'__init__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__init__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_getitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_getitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__setstate__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__getstate__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__dict__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__dict__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">'',</span> <span class="pre">'__module__':</span> <span class="pre">'checksum_dict.default',</span> <span class="pre">'__parameters__':</span> <span class="pre">(~T,),</span> <span class="pre">'__mypyc_attrs__':</span> <span class="pre">('__dict__',),</span> <span class="pre">'__annotate_func__':</span> <span class="pre">None,</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__dict__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__hash__">
-<span class="sig-name descname"><span class="pre">__hash__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__hash__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__hash__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__module__">
-<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.default'</span></em><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__module__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__module__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.default'</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__module__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__mypyc_attrs__">
-<span class="sig-name descname"><span class="pre">__mypyc_attrs__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__dict__',)</span></em><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__mypyc_attrs__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__mypyc_attrs__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__dict__',)</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__mypyc_attrs__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__orig_bases__">
-<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(typing.DefaultDict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],</span> <span class="pre">checksum_dict.base.ChecksumAddressDict[~T])</span></em><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__orig_bases__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(typing.DefaultDict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],</span> <span class="pre">checksum_dict.base.ChecksumAddressDict[~T])</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__orig_bases__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.default.DefaultChecksumDict.__parameters__">
-<span class="sig-name descname"><span class="pre">__parameters__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(~T,)</span></em><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__parameters__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__parameters__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(~T,)</span></span><a class="headerlink" href="#checksum_dict.default.DefaultChecksumDict.__parameters__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -639,16 +644,16 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 <span id="checksum-dict-exceptions-module"></span><h2>checksum_dict.exceptions module<a class="headerlink" href="#module-checksum_dict.exceptions" title="Link to this heading"></a></h2>
 <dl class="py exception">
 <dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError">
-<em class="property"><span class="k"><span class="pre">final</span></span><span class="w"> </span><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checksum_dict.exceptions.</span></span><span class="sig-name descname"><span class="pre">KeyError</span></span><a class="reference internal" href="../_modules/checksum_dict/exceptions.html#KeyError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.exceptions.KeyError" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">final</span></span><span class="w"> </span><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">checksum_dict.exceptions.</span></span><span class="sig-name descname"><span class="pre">KeyError</span></span><a class="reference internal" href="../_modules/checksum_dict/exceptions.html#KeyError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.exceptions.KeyError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#checksum_dict.exceptions.KeyError" title="checksum_dict.exceptions.KeyError"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></a></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__init__" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError.__new__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__new__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError.__new__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__new__" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -703,27 +708,27 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError.__dict__">
-<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'checksum_dict.exceptions',</span> <span class="pre">'__firstlineno__':</span> <span class="pre">4,</span> <span class="pre">'__repr__':</span> <span class="pre">&lt;function</span> <span class="pre">KeyError.__repr__&gt;,</span> <span class="pre">'__static_attributes__':</span> <span class="pre">(),</span> <span class="pre">'__weakref__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__weakref__'</span> <span class="pre">of</span> <span class="pre">'KeyError'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">None,</span> <span class="pre">'__final__':</span> <span class="pre">True,</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__dict__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dict__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'checksum_dict.exceptions',</span> <span class="pre">'__firstlineno__':</span> <span class="pre">4,</span> <span class="pre">'__repr__':</span> <span class="pre">&lt;function</span> <span class="pre">KeyError.__repr__&gt;,</span> <span class="pre">'__static_attributes__':</span> <span class="pre">(),</span> <span class="pre">'__weakref__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__weakref__'</span> <span class="pre">of</span> <span class="pre">'KeyError'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">None,</span> <span class="pre">'__final__':</span> <span class="pre">True,</span> <span class="pre">'__annotate_func__':</span> <span class="pre">None,</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></span><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__dict__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError.__final__">
-<span class="sig-name descname"><span class="pre">__final__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__final__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__final__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></span><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__final__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError.__firstlineno__">
-<span class="sig-name descname"><span class="pre">__firstlineno__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__firstlineno__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__firstlineno__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></span><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__firstlineno__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError.__module__">
-<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.exceptions'</span></em><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__module__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__module__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.exceptions'</span></span><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__module__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.exceptions.KeyError.__static_attributes__">
-<span class="sig-name descname"><span class="pre">__static_attributes__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__static_attributes__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__static_attributes__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#checksum_dict.exceptions.KeyError.__static_attributes__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -754,7 +759,7 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 <span id="checksum-dict-singleton-module"></span><h2>checksum_dict.singleton module<a class="headerlink" href="#module-checksum_dict.singleton" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checksum_dict.singleton.</span></span><span class="sig-name descname"><span class="pre">ChecksumAddressSingletonMeta</span></span><a class="reference internal" href="../_modules/checksum_dict/singleton.html#ChecksumAddressSingletonMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">checksum_dict.singleton.</span></span><span class="sig-name descname"><span class="pre">ChecksumAddressSingletonMeta</span></span><a class="reference internal" href="../_modules/checksum_dict/singleton.html#ChecksumAddressSingletonMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Generic" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>A metaclass for creating singleton instances of addresses.</p>
 <p>This metaclass ensures that each address has a single instance across the application.
@@ -788,6 +793,34 @@ performance over the standard <code class="xref py py-func docutils literal notr
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__class_getitem__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__class_getitem__" title="Link to this definition"></a></dt>
+<dd><p>Parameterizes a generic class.</p>
+<p>At least, parameterizing a generic class is the <em>main</em> thing this
+method does. For example, for some generic class <cite>Foo</cite>, this is called
+when we do <cite>Foo[int]</cite> - there, with <cite>cls=Foo</cite> and <cite>params=int</cite>.</p>
+<p>However, note that this method is also called when defining generic
+classes in the first place with <cite>class Foo[T]: …</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__init_subclass__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__init_subclass__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__init_subclass__" title="Link to this definition"></a></dt>
+<dd><p>Function to initialize subclasses.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__new__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__new__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__prepare__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__prepare__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__prepare__" title="Link to this definition"></a></dt>
+<dd><p>Create the namespace for the class statement</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/checksum_dict/singleton.html#ChecksumAddressSingletonMeta.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__call__" title="Link to this definition"></a></dt>
 <dd><p>Create or retrieve a singleton instance for the given address.</p>
@@ -817,17 +850,6 @@ performance over the standard <code class="xref py py-func docutils literal notr
 <span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span> <span class="o">=</span> <span class="n">MySingleton</span><span class="p">(</span><span class="s1">&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__class_getitem__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__class_getitem__" title="Link to this definition"></a></dt>
-<dd><p>Parameterizes a generic class.</p>
-<p>At least, parameterizing a generic class is the <em>main</em> thing this
-method does. For example, for some generic class <cite>Foo</cite>, this is called
-when we do <cite>Foo[int]</cite> - there, with <cite>cls=Foo</cite> and <cite>params=int</cite>.</p>
-<p>However, note that this method is also called when defining generic
-classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -914,32 +936,15 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__init_subclass__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init_subclass__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__init_subclass__" title="Link to this definition"></a></dt>
-<dd><p>Function to initialize subclasses.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__instancecheck__">
 <span class="sig-name descname"><span class="pre">__instancecheck__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__instancecheck__" title="Link to this definition"></a></dt>
 <dd><p>Check if an object is an instance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__new__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__new__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__or__">
 <span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__or__" title="Link to this definition"></a></dt>
 <dd><p>Return self|value.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__prepare__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__prepare__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__prepare__" title="Link to this definition"></a></dt>
-<dd><p>Create the namespace for the class statement</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1050,107 +1055,107 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotate__">
-<span class="sig-name descname"><span class="pre">__annotate__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotate__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotate__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotate__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotate_func__">
-<span class="sig-name descname"><span class="pre">__annotate_func__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotate_func__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotate_func__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotate_func__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotations__">
-<span class="sig-name descname"><span class="pre">__annotations__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotations__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotations__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotations__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotations_cache__">
-<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotations_cache__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__annotations_cache__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__bases__">
-<span class="sig-name descname"><span class="pre">__bases__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'typing.Generic'&gt;)</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__bases__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__bases__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'typing.Generic'&gt;)</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__bases__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__basicsize__">
-<span class="sig-name descname"><span class="pre">__basicsize__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">936</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__basicsize__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__basicsize__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">936</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__basicsize__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__dict__">
-<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'checksum_dict.singleton',</span> <span class="pre">'__firstlineno__':</span> <span class="pre">13,</span> <span class="pre">'__doc__':</span> <span class="pre">&quot;A</span> <span class="pre">metaclass</span> <span class="pre">for</span> <span class="pre">creating</span> <span class="pre">singleton</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">addresses.\n\nThis</span> <span class="pre">metaclass</span> <span class="pre">ensures</span> <span class="pre">that</span> <span class="pre">each</span> <span class="pre">address</span> <span class="pre">has</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">instance</span> <span class="pre">across</span> <span class="pre">the</span> <span class="pre">application.\nIt</span> <span class="pre">uses</span> <span class="pre">a</span> <span class="pre">:class:`~checksum_dict.base.ChecksumAddressDict`</span> <span class="pre">to</span> <span class="pre">store</span> <span class="pre">instances</span> <span class="pre">and</span> <span class="pre">manages</span> <span class="pre">locks</span> <span class="pre">to</span> <span class="pre">ensure\nthread</span> <span class="pre">safety</span> <span class="pre">during</span> <span class="pre">instance</span> <span class="pre">creation.\n\nNote:\n</span>&#160;&#160;&#160; <span class="pre">This</span> <span class="pre">implementation</span> <span class="pre">uses</span> <span class="pre">a</span> <span class="pre">:mod:`cchecksum`'s</span> <span class="pre">Cython</span> <span class="pre">implementation</span> <span class="pre">for</span> <span class="pre">checksumming</span> <span class="pre">to</span> <span class="pre">optimize\n</span>&#160;&#160;&#160; <span class="pre">performance</span> <span class="pre">over</span> <span class="pre">the</span> <span class="pre">standard</span> <span class="pre">:func:`eth_utils.to_checksum_address`.\n\nExamples:\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">class</span> <span class="pre">MySingleton(metaclass=ChecksumAddressSingletonMeta):\n</span>&#160;&#160;&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160; <span class="pre">def</span> <span class="pre">__init__(self,</span> <span class="pre">address):\n</span>&#160;&#160;&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">self.address</span> <span class="pre">=</span> <span class="pre">address\n</span>&#160;&#160;&#160; <span class="pre">...\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">instance1</span> <span class="pre">=</span> <span class="pre">MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">instance2</span> <span class="pre">=</span> <span class="pre">MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">assert</span> <span class="pre">instance1</span> <span class="pre">is</span> <span class="pre">instance2\n\nSee</span> <span class="pre">Also:\n</span>&#160;&#160;&#160; <span class="pre">-</span> <span class="pre">:class:`ChecksumAddressDict`</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">underlying</span> <span class="pre">dictionary</span> <span class="pre">implementation.\n&quot;,</span> <span class="pre">'__init__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__init__&gt;,</span> <span class="pre">'__call__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__call__&gt;,</span> <span class="pre">'__getitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__getitem__&gt;,</span> <span class="pre">'__setitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__setitem__&gt;,</span> <span class="pre">'__delitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__delitem__&gt;,</span> <span class="pre">'get_instance':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.get_instance&gt;,</span> <span class="pre">'delete_instance':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.delete_instance&gt;,</span> <span class="pre">'_ChecksumAddressSingletonMeta__get_address_lock':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__get_address_lock&gt;,</span> <span class="pre">'_ChecksumAddressSingletonMeta__delete_address_lock':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__delete_address_lock&gt;,</span> <span class="pre">'__static_attributes__':</span> <span class="pre">('__instances',</span> <span class="pre">'__locks',</span> <span class="pre">'__locks_lock'),</span> <span class="pre">'__orig_bases__':</span> <span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">typing.Generic[~T]),</span> <span class="pre">'__parameters__':</span> <span class="pre">(~T,),</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}})</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__dict__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dict__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'checksum_dict.singleton',</span> <span class="pre">'__firstlineno__':</span> <span class="pre">13,</span> <span class="pre">'__doc__':</span> <span class="pre">&quot;A</span> <span class="pre">metaclass</span> <span class="pre">for</span> <span class="pre">creating</span> <span class="pre">singleton</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">addresses.\n\nThis</span> <span class="pre">metaclass</span> <span class="pre">ensures</span> <span class="pre">that</span> <span class="pre">each</span> <span class="pre">address</span> <span class="pre">has</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">instance</span> <span class="pre">across</span> <span class="pre">the</span> <span class="pre">application.\nIt</span> <span class="pre">uses</span> <span class="pre">a</span> <span class="pre">:class:`~checksum_dict.base.ChecksumAddressDict`</span> <span class="pre">to</span> <span class="pre">store</span> <span class="pre">instances</span> <span class="pre">and</span> <span class="pre">manages</span> <span class="pre">locks</span> <span class="pre">to</span> <span class="pre">ensure\nthread</span> <span class="pre">safety</span> <span class="pre">during</span> <span class="pre">instance</span> <span class="pre">creation.\n\nNote:\n</span>&#160;&#160;&#160; <span class="pre">This</span> <span class="pre">implementation</span> <span class="pre">uses</span> <span class="pre">a</span> <span class="pre">:mod:`cchecksum`'s</span> <span class="pre">Cython</span> <span class="pre">implementation</span> <span class="pre">for</span> <span class="pre">checksumming</span> <span class="pre">to</span> <span class="pre">optimize\n</span>&#160;&#160;&#160; <span class="pre">performance</span> <span class="pre">over</span> <span class="pre">the</span> <span class="pre">standard</span> <span class="pre">:func:`eth_utils.to_checksum_address`.\n\nExamples:\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">class</span> <span class="pre">MySingleton(metaclass=ChecksumAddressSingletonMeta):\n</span>&#160;&#160;&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160; <span class="pre">def</span> <span class="pre">__init__(self,</span> <span class="pre">address):\n</span>&#160;&#160;&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">self.address</span> <span class="pre">=</span> <span class="pre">address\n</span>&#160;&#160;&#160; <span class="pre">...\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">instance1</span> <span class="pre">=</span> <span class="pre">MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">instance2</span> <span class="pre">=</span> <span class="pre">MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">assert</span> <span class="pre">instance1</span> <span class="pre">is</span> <span class="pre">instance2\n\nSee</span> <span class="pre">Also:\n</span>&#160;&#160;&#160; <span class="pre">-</span> <span class="pre">:class:`ChecksumAddressDict`</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">underlying</span> <span class="pre">dictionary</span> <span class="pre">implementation.\n&quot;,</span> <span class="pre">'__init__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__init__&gt;,</span> <span class="pre">'__call__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__call__&gt;,</span> <span class="pre">'__getitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__getitem__&gt;,</span> <span class="pre">'__setitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__setitem__&gt;,</span> <span class="pre">'__delitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__delitem__&gt;,</span> <span class="pre">'get_instance':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.get_instance&gt;,</span> <span class="pre">'delete_instance':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.delete_instance&gt;,</span> <span class="pre">'_ChecksumAddressSingletonMeta__get_address_lock':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__get_address_lock&gt;,</span> <span class="pre">'_ChecksumAddressSingletonMeta__delete_address_lock':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__delete_address_lock&gt;,</span> <span class="pre">'__static_attributes__':</span> <span class="pre">('__instances',</span> <span class="pre">'__locks',</span> <span class="pre">'__locks_lock'),</span> <span class="pre">'__orig_bases__':</span> <span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">typing.Generic[~T]),</span> <span class="pre">'__parameters__':</span> <span class="pre">(~T,),</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}})</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__dict__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__dictoffset__">
-<span class="sig-name descname"><span class="pre">__dictoffset__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">264</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__dictoffset__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dictoffset__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">264</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__dictoffset__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__firstlineno__">
-<span class="sig-name descname"><span class="pre">__firstlineno__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__firstlineno__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__firstlineno__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__firstlineno__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__flags__">
-<span class="sig-name descname"><span class="pre">__flags__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2155894272</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__flags__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__flags__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2155894272</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__flags__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__itemsize__">
-<span class="sig-name descname"><span class="pre">__itemsize__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__itemsize__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__itemsize__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__itemsize__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__module__">
-<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.singleton'</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__module__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__module__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.singleton'</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__module__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__mro__">
-<span class="sig-name descname"><span class="pre">__mro__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'checksum_dict.singleton.ChecksumAddressSingletonMeta'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'typing.Generic'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'object'&gt;)</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__mro__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__mro__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'checksum_dict.singleton.ChecksumAddressSingletonMeta'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'typing.Generic'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'object'&gt;)</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__mro__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__name__">
-<span class="sig-name descname"><span class="pre">__name__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ChecksumAddressSingletonMeta'</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__name__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__name__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ChecksumAddressSingletonMeta'</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__name__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__orig_bases__">
-<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">typing.Generic[~T])</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__orig_bases__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">typing.Generic[~T])</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__orig_bases__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__parameters__">
-<span class="sig-name descname"><span class="pre">__parameters__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(~T,)</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__parameters__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__parameters__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(~T,)</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__parameters__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__qualname__">
-<span class="sig-name descname"><span class="pre">__qualname__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ChecksumAddressSingletonMeta'</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__qualname__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__qualname__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ChecksumAddressSingletonMeta'</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__qualname__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__static_attributes__">
-<span class="sig-name descname"><span class="pre">__static_attributes__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__instances',</span> <span class="pre">'__locks',</span> <span class="pre">'__locks_lock')</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__static_attributes__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__static_attributes__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__instances',</span> <span class="pre">'__locks',</span> <span class="pre">'__locks_lock')</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__static_attributes__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__text_signature__">
-<span class="sig-name descname"><span class="pre">__text_signature__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__text_signature__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__text_signature__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__text_signature__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__type_params__">
-<span class="sig-name descname"><span class="pre">__type_params__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__type_params__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__type_params__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__type_params__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.singleton.ChecksumAddressSingletonMeta.__weakrefoffset__">
-<span class="sig-name descname"><span class="pre">__weakrefoffset__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">368</span></em><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__weakrefoffset__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__weakrefoffset__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">368</span></span><a class="headerlink" href="#checksum_dict.singleton.ChecksumAddressSingletonMeta.__weakrefoffset__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -1160,16 +1165,16 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-checksum_dict" title="Link to this heading"></a></h2>
 <dl class="py exception">
 <dt class="sig sig-object py" id="checksum_dict.KeyError">
-<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checksum_dict.</span></span><span class="sig-name descname"><span class="pre">KeyError</span></span><a class="reference internal" href="../_modules/checksum_dict/exceptions.html#KeyError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.KeyError" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">final</span></span><span class="w"> </span><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">checksum_dict.</span></span><span class="sig-name descname"><span class="pre">KeyError</span></span><a class="reference internal" href="../_modules/checksum_dict/exceptions.html#KeyError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.KeyError" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#checksum_dict.KeyError" title="checksum_dict.KeyError"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyError</span></code></a></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.KeyError.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.KeyError.__init__" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="checksum_dict.KeyError.__new__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.KeyError.__new__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.KeyError.__new__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.KeyError.__new__" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="checksum_dict.KeyError.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.KeyError.__init__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1213,8 +1218,13 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="checksum_dict.KeyError.__annotate_func__">
+<span class="sig-name descname"><span class="pre">__annotate_func__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.KeyError.__annotate_func__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.KeyError.__annotations_cache__">
-<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#checksum_dict.KeyError.__annotations_cache__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#checksum_dict.KeyError.__annotations_cache__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1229,27 +1239,27 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.KeyError.__dict__">
-<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'checksum_dict.exceptions',</span> <span class="pre">'__firstlineno__':</span> <span class="pre">4,</span> <span class="pre">'__repr__':</span> <span class="pre">&lt;function</span> <span class="pre">KeyError.__repr__&gt;,</span> <span class="pre">'__static_attributes__':</span> <span class="pre">(),</span> <span class="pre">'__weakref__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__weakref__'</span> <span class="pre">of</span> <span class="pre">'KeyError'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">None,</span> <span class="pre">'__final__':</span> <span class="pre">True,</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#checksum_dict.KeyError.__dict__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dict__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'checksum_dict.exceptions',</span> <span class="pre">'__firstlineno__':</span> <span class="pre">4,</span> <span class="pre">'__repr__':</span> <span class="pre">&lt;function</span> <span class="pre">KeyError.__repr__&gt;,</span> <span class="pre">'__static_attributes__':</span> <span class="pre">(),</span> <span class="pre">'__weakref__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__weakref__'</span> <span class="pre">of</span> <span class="pre">'KeyError'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">None,</span> <span class="pre">'__final__':</span> <span class="pre">True,</span> <span class="pre">'__annotate_func__':</span> <span class="pre">None,</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></span><a class="headerlink" href="#checksum_dict.KeyError.__dict__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.KeyError.__final__">
-<span class="sig-name descname"><span class="pre">__final__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#checksum_dict.KeyError.__final__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__final__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></span><a class="headerlink" href="#checksum_dict.KeyError.__final__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.KeyError.__firstlineno__">
-<span class="sig-name descname"><span class="pre">__firstlineno__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#checksum_dict.KeyError.__firstlineno__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__firstlineno__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></span><a class="headerlink" href="#checksum_dict.KeyError.__firstlineno__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.KeyError.__module__">
-<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.exceptions'</span></em><a class="headerlink" href="#checksum_dict.KeyError.__module__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__module__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.exceptions'</span></span><a class="headerlink" href="#checksum_dict.KeyError.__module__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.KeyError.__static_attributes__">
-<span class="sig-name descname"><span class="pre">__static_attributes__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#checksum_dict.KeyError.__static_attributes__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__static_attributes__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#checksum_dict.KeyError.__static_attributes__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1277,12 +1287,23 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checksum_dict.</span></span><span class="sig-name descname"><span class="pre">ChecksumAddressDict</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">checksum_dict.</span></span><span class="sig-name descname"><span class="pre">ChecksumAddressDict</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>[<a class="reference external" href="https://eth-typing.readthedocs.io/en/stable/eth_typing.html#eth_typing.evm.ChecksumAddress" title="(in eth-typing v5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecksumAddress</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__class_getitem__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__class_getitem__" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__class_getitem__" title="Link to this definition"></a></dt>
 <dd><p>See PEP 585</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__new__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__new__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.fromkeys">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.fromkeys" title="Link to this definition"></a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1369,11 +1390,6 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__new__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__new__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__or__">
 <span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__or__" title="Link to this definition"></a></dt>
 <dd><p>Return self|value.</p>
@@ -1424,12 +1440,6 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.copy">
 <span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.copy" title="Link to this definition"></a></dt>
 <dd><p>Return a shallow copy of the dict.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.fromkeys">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.fromkeys" title="Link to this definition"></a></dt>
-<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1487,40 +1497,45 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 </dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__annotate_func__">
+<span class="sig-name descname"><span class="pre">__annotate_func__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__annotate_func__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__annotations_cache__">
-<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__annotations_cache__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__annotations_cache__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__dict__">
-<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__orig_bases__':</span> <span class="pre">(dict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],),</span> <span class="pre">'__repr__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__repr__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__init__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__init__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__getitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__setitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__delitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__delitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_getitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_getitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_setitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_setitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__setstate__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__getstate__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__dict__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__dict__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">'',</span> <span class="pre">'__module__':</span> <span class="pre">'checksum_dict.base',</span> <span class="pre">'__mypyc_attrs__':</span> <span class="pre">('__dict__',),</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__dict__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dict__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__orig_bases__':</span> <span class="pre">(dict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],),</span> <span class="pre">'__repr__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__repr__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__init__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__init__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__getitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__setitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__delitem__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__delitem__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_getitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_getitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_setitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_setitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__setstate__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__getstate__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__dict__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__dict__'</span> <span class="pre">of</span> <span class="pre">'ChecksumAddressDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">'',</span> <span class="pre">'__module__':</span> <span class="pre">'checksum_dict.base',</span> <span class="pre">'__mypyc_attrs__':</span> <span class="pre">('__dict__',),</span> <span class="pre">'__annotate_func__':</span> <span class="pre">None,</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__dict__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__hash__">
-<span class="sig-name descname"><span class="pre">__hash__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__hash__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__hash__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__module__">
-<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.base'</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__module__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__module__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.base'</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__module__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__mypyc_attrs__">
-<span class="sig-name descname"><span class="pre">__mypyc_attrs__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__dict__',)</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__mypyc_attrs__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__mypyc_attrs__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__dict__',)</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__mypyc_attrs__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressDict.__orig_bases__">
-<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(dict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],)</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__orig_bases__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(dict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],)</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressDict.__orig_bases__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checksum_dict.</span></span><span class="sig-name descname"><span class="pre">ChecksumAddressSingletonMeta</span></span><a class="reference internal" href="../_modules/checksum_dict/singleton.html#ChecksumAddressSingletonMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">checksum_dict.</span></span><span class="sig-name descname"><span class="pre">ChecksumAddressSingletonMeta</span></span><a class="reference internal" href="../_modules/checksum_dict/singleton.html#ChecksumAddressSingletonMeta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Generic" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <p>A metaclass for creating singleton instances of addresses.</p>
 <p>This metaclass ensures that each address has a single instance across the application.
@@ -1554,6 +1569,34 @@ performance over the standard <code class="xref py py-func docutils literal notr
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__class_getitem__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__class_getitem__" title="Link to this definition"></a></dt>
+<dd><p>Parameterizes a generic class.</p>
+<p>At least, parameterizing a generic class is the <em>main</em> thing this
+method does. For example, for some generic class <cite>Foo</cite>, this is called
+when we do <cite>Foo[int]</cite> - there, with <cite>cls=Foo</cite> and <cite>params=int</cite>.</p>
+<p>However, note that this method is also called when defining generic
+classes in the first place with <cite>class Foo[T]: …</cite>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__init_subclass__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__init_subclass__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__init_subclass__" title="Link to this definition"></a></dt>
+<dd><p>Function to initialize subclasses.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__new__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__new__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__prepare__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__prepare__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__prepare__" title="Link to this definition"></a></dt>
+<dd><p>Create the namespace for the class statement</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__call__">
 <span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/checksum_dict/singleton.html#ChecksumAddressSingletonMeta.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__call__" title="Link to this definition"></a></dt>
 <dd><p>Create or retrieve a singleton instance for the given address.</p>
@@ -1583,17 +1626,6 @@ performance over the standard <code class="xref py py-func docutils literal notr
 <span class="gp">&gt;&gt;&gt; </span><span class="n">instance</span> <span class="o">=</span> <span class="n">MySingleton</span><span class="p">(</span><span class="s1">&#39;0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__class_getitem__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__class_getitem__" title="Link to this definition"></a></dt>
-<dd><p>Parameterizes a generic class.</p>
-<p>At least, parameterizing a generic class is the <em>main</em> thing this
-method does. For example, for some generic class <cite>Foo</cite>, this is called
-when we do <cite>Foo[int]</cite> - there, with <cite>cls=Foo</cite> and <cite>params=int</cite>.</p>
-<p>However, note that this method is also called when defining generic
-classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1680,32 +1712,15 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__init_subclass__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init_subclass__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__init_subclass__" title="Link to this definition"></a></dt>
-<dd><p>Function to initialize subclasses.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__instancecheck__">
 <span class="sig-name descname"><span class="pre">__instancecheck__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__instancecheck__" title="Link to this definition"></a></dt>
 <dd><p>Check if an object is an instance.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__new__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__new__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__or__">
 <span class="sig-name descname"><span class="pre">__or__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__or__" title="Link to this definition"></a></dt>
 <dd><p>Return self|value.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__prepare__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__prepare__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__prepare__" title="Link to this definition"></a></dt>
-<dd><p>Create the namespace for the class statement</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1816,119 +1831,136 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__annotate__">
-<span class="sig-name descname"><span class="pre">__annotate__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__annotate__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotate__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__annotate__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__annotate_func__">
-<span class="sig-name descname"><span class="pre">__annotate_func__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__annotate_func__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotate_func__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__annotate_func__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__annotations__">
-<span class="sig-name descname"><span class="pre">__annotations__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__annotations__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotations__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__annotations__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__annotations_cache__">
-<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__annotations_cache__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__annotations_cache__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__bases__">
-<span class="sig-name descname"><span class="pre">__bases__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'typing.Generic'&gt;)</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__bases__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__bases__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'typing.Generic'&gt;)</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__bases__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__basicsize__">
-<span class="sig-name descname"><span class="pre">__basicsize__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">936</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__basicsize__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__basicsize__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">936</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__basicsize__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__dict__">
-<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'checksum_dict.singleton',</span> <span class="pre">'__firstlineno__':</span> <span class="pre">13,</span> <span class="pre">'__doc__':</span> <span class="pre">&quot;A</span> <span class="pre">metaclass</span> <span class="pre">for</span> <span class="pre">creating</span> <span class="pre">singleton</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">addresses.\n\nThis</span> <span class="pre">metaclass</span> <span class="pre">ensures</span> <span class="pre">that</span> <span class="pre">each</span> <span class="pre">address</span> <span class="pre">has</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">instance</span> <span class="pre">across</span> <span class="pre">the</span> <span class="pre">application.\nIt</span> <span class="pre">uses</span> <span class="pre">a</span> <span class="pre">:class:`~checksum_dict.base.ChecksumAddressDict`</span> <span class="pre">to</span> <span class="pre">store</span> <span class="pre">instances</span> <span class="pre">and</span> <span class="pre">manages</span> <span class="pre">locks</span> <span class="pre">to</span> <span class="pre">ensure\nthread</span> <span class="pre">safety</span> <span class="pre">during</span> <span class="pre">instance</span> <span class="pre">creation.\n\nNote:\n</span>&#160;&#160;&#160; <span class="pre">This</span> <span class="pre">implementation</span> <span class="pre">uses</span> <span class="pre">a</span> <span class="pre">:mod:`cchecksum`'s</span> <span class="pre">Cython</span> <span class="pre">implementation</span> <span class="pre">for</span> <span class="pre">checksumming</span> <span class="pre">to</span> <span class="pre">optimize\n</span>&#160;&#160;&#160; <span class="pre">performance</span> <span class="pre">over</span> <span class="pre">the</span> <span class="pre">standard</span> <span class="pre">:func:`eth_utils.to_checksum_address`.\n\nExamples:\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">class</span> <span class="pre">MySingleton(metaclass=ChecksumAddressSingletonMeta):\n</span>&#160;&#160;&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160; <span class="pre">def</span> <span class="pre">__init__(self,</span> <span class="pre">address):\n</span>&#160;&#160;&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">self.address</span> <span class="pre">=</span> <span class="pre">address\n</span>&#160;&#160;&#160; <span class="pre">...\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">instance1</span> <span class="pre">=</span> <span class="pre">MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">instance2</span> <span class="pre">=</span> <span class="pre">MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">assert</span> <span class="pre">instance1</span> <span class="pre">is</span> <span class="pre">instance2\n\nSee</span> <span class="pre">Also:\n</span>&#160;&#160;&#160; <span class="pre">-</span> <span class="pre">:class:`ChecksumAddressDict`</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">underlying</span> <span class="pre">dictionary</span> <span class="pre">implementation.\n&quot;,</span> <span class="pre">'__init__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__init__&gt;,</span> <span class="pre">'__call__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__call__&gt;,</span> <span class="pre">'__getitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__getitem__&gt;,</span> <span class="pre">'__setitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__setitem__&gt;,</span> <span class="pre">'__delitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__delitem__&gt;,</span> <span class="pre">'get_instance':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.get_instance&gt;,</span> <span class="pre">'delete_instance':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.delete_instance&gt;,</span> <span class="pre">'_ChecksumAddressSingletonMeta__get_address_lock':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__get_address_lock&gt;,</span> <span class="pre">'_ChecksumAddressSingletonMeta__delete_address_lock':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__delete_address_lock&gt;,</span> <span class="pre">'__static_attributes__':</span> <span class="pre">('__instances',</span> <span class="pre">'__locks',</span> <span class="pre">'__locks_lock'),</span> <span class="pre">'__orig_bases__':</span> <span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">typing.Generic[~T]),</span> <span class="pre">'__parameters__':</span> <span class="pre">(~T,),</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'}})</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__dict__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dict__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__module__':</span> <span class="pre">'checksum_dict.singleton',</span> <span class="pre">'__firstlineno__':</span> <span class="pre">13,</span> <span class="pre">'__doc__':</span> <span class="pre">&quot;A</span> <span class="pre">metaclass</span> <span class="pre">for</span> <span class="pre">creating</span> <span class="pre">singleton</span> <span class="pre">instances</span> <span class="pre">of</span> <span class="pre">addresses.\n\nThis</span> <span class="pre">metaclass</span> <span class="pre">ensures</span> <span class="pre">that</span> <span class="pre">each</span> <span class="pre">address</span> <span class="pre">has</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">instance</span> <span class="pre">across</span> <span class="pre">the</span> <span class="pre">application.\nIt</span> <span class="pre">uses</span> <span class="pre">a</span> <span class="pre">:class:`~checksum_dict.base.ChecksumAddressDict`</span> <span class="pre">to</span> <span class="pre">store</span> <span class="pre">instances</span> <span class="pre">and</span> <span class="pre">manages</span> <span class="pre">locks</span> <span class="pre">to</span> <span class="pre">ensure\nthread</span> <span class="pre">safety</span> <span class="pre">during</span> <span class="pre">instance</span> <span class="pre">creation.\n\nNote:\n</span>&#160;&#160;&#160; <span class="pre">This</span> <span class="pre">implementation</span> <span class="pre">uses</span> <span class="pre">a</span> <span class="pre">:mod:`cchecksum`'s</span> <span class="pre">Cython</span> <span class="pre">implementation</span> <span class="pre">for</span> <span class="pre">checksumming</span> <span class="pre">to</span> <span class="pre">optimize\n</span>&#160;&#160;&#160; <span class="pre">performance</span> <span class="pre">over</span> <span class="pre">the</span> <span class="pre">standard</span> <span class="pre">:func:`eth_utils.to_checksum_address`.\n\nExamples:\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">class</span> <span class="pre">MySingleton(metaclass=ChecksumAddressSingletonMeta):\n</span>&#160;&#160;&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160; <span class="pre">def</span> <span class="pre">__init__(self,</span> <span class="pre">address):\n</span>&#160;&#160;&#160; <span class="pre">...</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">self.address</span> <span class="pre">=</span> <span class="pre">address\n</span>&#160;&#160;&#160; <span class="pre">...\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">instance1</span> <span class="pre">=</span> <span class="pre">MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">instance2</span> <span class="pre">=</span> <span class="pre">MySingleton('0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb')\n</span>&#160;&#160;&#160; <span class="pre">&gt;&gt;&gt;</span> <span class="pre">assert</span> <span class="pre">instance1</span> <span class="pre">is</span> <span class="pre">instance2\n\nSee</span> <span class="pre">Also:\n</span>&#160;&#160;&#160; <span class="pre">-</span> <span class="pre">:class:`ChecksumAddressDict`</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">underlying</span> <span class="pre">dictionary</span> <span class="pre">implementation.\n&quot;,</span> <span class="pre">'__init__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__init__&gt;,</span> <span class="pre">'__call__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__call__&gt;,</span> <span class="pre">'__getitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__getitem__&gt;,</span> <span class="pre">'__setitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__setitem__&gt;,</span> <span class="pre">'__delitem__':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__delitem__&gt;,</span> <span class="pre">'get_instance':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.get_instance&gt;,</span> <span class="pre">'delete_instance':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.delete_instance&gt;,</span> <span class="pre">'_ChecksumAddressSingletonMeta__get_address_lock':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__get_address_lock&gt;,</span> <span class="pre">'_ChecksumAddressSingletonMeta__delete_address_lock':</span> <span class="pre">&lt;function</span> <span class="pre">ChecksumAddressSingletonMeta.__delete_address_lock&gt;,</span> <span class="pre">'__static_attributes__':</span> <span class="pre">('__instances',</span> <span class="pre">'__locks',</span> <span class="pre">'__locks_lock'),</span> <span class="pre">'__orig_bases__':</span> <span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">typing.Generic[~T]),</span> <span class="pre">'__parameters__':</span> <span class="pre">(~T,),</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{'__instances':</span> <span class="pre">'Final[ChecksumAddressDict[T]]',</span> <span class="pre">'__locks':</span> <span class="pre">'Final[_LocksDict]',</span> <span class="pre">'__locks_lock':</span> <span class="pre">'Final[threading.Lock]'},</span> <span class="pre">'__annotate_func__':</span> <span class="pre">None})</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__dict__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__dictoffset__">
-<span class="sig-name descname"><span class="pre">__dictoffset__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">264</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__dictoffset__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dictoffset__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">264</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__dictoffset__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__firstlineno__">
-<span class="sig-name descname"><span class="pre">__firstlineno__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__firstlineno__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__firstlineno__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">13</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__firstlineno__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__flags__">
-<span class="sig-name descname"><span class="pre">__flags__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2155894272</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__flags__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__flags__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2155894272</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__flags__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__itemsize__">
-<span class="sig-name descname"><span class="pre">__itemsize__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__itemsize__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__itemsize__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">40</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__itemsize__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__module__">
-<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.singleton'</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__module__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__module__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.singleton'</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__module__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__mro__">
-<span class="sig-name descname"><span class="pre">__mro__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'checksum_dict.singleton.ChecksumAddressSingletonMeta'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'typing.Generic'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'object'&gt;)</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__mro__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__mro__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'checksum_dict.singleton.ChecksumAddressSingletonMeta'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'typing.Generic'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'object'&gt;)</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__mro__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__name__">
-<span class="sig-name descname"><span class="pre">__name__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ChecksumAddressSingletonMeta'</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__name__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__name__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ChecksumAddressSingletonMeta'</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__name__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__orig_bases__">
-<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">typing.Generic[~T])</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__orig_bases__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'type'&gt;,</span> <span class="pre">typing.Generic[~T])</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__orig_bases__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__parameters__">
-<span class="sig-name descname"><span class="pre">__parameters__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(~T,)</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__parameters__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__parameters__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(~T,)</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__parameters__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__qualname__">
-<span class="sig-name descname"><span class="pre">__qualname__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ChecksumAddressSingletonMeta'</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__qualname__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__qualname__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ChecksumAddressSingletonMeta'</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__qualname__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__static_attributes__">
-<span class="sig-name descname"><span class="pre">__static_attributes__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__instances',</span> <span class="pre">'__locks',</span> <span class="pre">'__locks_lock')</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__static_attributes__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__static_attributes__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__instances',</span> <span class="pre">'__locks',</span> <span class="pre">'__locks_lock')</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__static_attributes__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__text_signature__">
-<span class="sig-name descname"><span class="pre">__text_signature__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__text_signature__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__text_signature__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__text_signature__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__type_params__">
-<span class="sig-name descname"><span class="pre">__type_params__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__type_params__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__type_params__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__type_params__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.ChecksumAddressSingletonMeta.__weakrefoffset__">
-<span class="sig-name descname"><span class="pre">__weakrefoffset__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">368</span></em><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__weakrefoffset__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__weakrefoffset__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">368</span></span><a class="headerlink" href="#checksum_dict.ChecksumAddressSingletonMeta.__weakrefoffset__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">checksum_dict.</span></span><span class="sig-name descname"><span class="pre">DefaultChecksumDict</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">checksum_dict.</span></span><span class="sig-name descname"><span class="pre">DefaultChecksumDict</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.DefaultDict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">DefaultDict</span></code></a>[<a class="reference external" href="https://eth-typing.readthedocs.io/en/stable/eth_typing.html#eth_typing.evm.ChecksumAddress" title="(in eth-typing v5.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecksumAddress</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>], <a class="reference internal" href="#checksum_dict.base.ChecksumAddressDict" title="checksum_dict.base.ChecksumAddressDict"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChecksumAddressDict</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__class_getitem__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__class_getitem__" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__class_getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__class_getitem__" title="Link to this definition"></a></dt>
 <dd><p>See PEP 585</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__init_subclass__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__init_subclass__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__init_subclass__" title="Link to this definition"></a></dt>
+<dd><p>Function to initialize subclasses.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__new__">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__new__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.fromkeys">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.fromkeys" title="Link to this definition"></a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1991,12 +2023,6 @@ classes in the first place with <cite>class Foo[T]: …</cite>.</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__init_subclass__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init_subclass__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__init_subclass__" title="Link to this definition"></a></dt>
-<dd><p>Function to initialize subclasses.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__ior__">
 <span class="sig-name descname"><span class="pre">__ior__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__ior__" title="Link to this definition"></a></dt>
 <dd><p>Return self|=value.</p>
@@ -2040,11 +2066,6 @@ return value</p>
 <span class="sig-name descname"><span class="pre">__ne__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__ne__" title="Link to this definition"></a></dt>
 <dd><p>Return self!=value.</p>
 </dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__new__">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__new__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__new__" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__or__">
@@ -2105,12 +2126,6 @@ return value</p>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.fromkeys">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fromkeys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.fromkeys" title="Link to this definition"></a></dt>
-<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.get">
 <span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.get" title="Link to this definition"></a></dt>
 <dd><p>Return the value for key if key is in the dictionary, else default.</p>
@@ -2166,42 +2181,42 @@ In either case, this is followed by: for k in F:  D[k] = F[k]</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__annotate_func__">
-<span class="sig-name descname"><span class="pre">__annotate_func__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__annotate_func__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotate_func__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__annotate_func__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__annotations_cache__">
-<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__annotations_cache__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__annotations_cache__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__annotations_cache__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__dict__">
-<span class="sig-name descname"><span class="pre">__dict__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__orig_bases__':</span> <span class="pre">(typing.DefaultDict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],</span> <span class="pre">checksum_dict.base.ChecksumAddressDict[~T]),</span> <span class="pre">'__init__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__init__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_getitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_getitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__setstate__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__getstate__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__dict__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__dict__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">'',</span> <span class="pre">'__module__':</span> <span class="pre">'checksum_dict.default',</span> <span class="pre">'__parameters__':</span> <span class="pre">(~T,),</span> <span class="pre">'__mypyc_attrs__':</span> <span class="pre">('__dict__',),</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></em><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__dict__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__dict__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'__orig_bases__':</span> <span class="pre">(typing.DefaultDict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],</span> <span class="pre">checksum_dict.base.ChecksumAddressDict[~T]),</span> <span class="pre">'__init__':</span> <span class="pre">&lt;slot</span> <span class="pre">wrapper</span> <span class="pre">'__init__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'_getitem_nochecksum':</span> <span class="pre">&lt;method</span> <span class="pre">'_getitem_nochecksum'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__setstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__setstate__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__getstate__':</span> <span class="pre">&lt;method</span> <span class="pre">'__getstate__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__dict__':</span> <span class="pre">&lt;attribute</span> <span class="pre">'__dict__'</span> <span class="pre">of</span> <span class="pre">'DefaultChecksumDict'</span> <span class="pre">objects&gt;,</span> <span class="pre">'__doc__':</span> <span class="pre">'',</span> <span class="pre">'__module__':</span> <span class="pre">'checksum_dict.default',</span> <span class="pre">'__parameters__':</span> <span class="pre">(~T,),</span> <span class="pre">'__mypyc_attrs__':</span> <span class="pre">('__dict__',),</span> <span class="pre">'__annotate_func__':</span> <span class="pre">None,</span> <span class="pre">'__annotations_cache__':</span> <span class="pre">{}})</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__dict__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__hash__">
-<span class="sig-name descname"><span class="pre">__hash__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__hash__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__hash__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__hash__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__module__">
-<span class="sig-name descname"><span class="pre">__module__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.default'</span></em><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__module__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__module__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'checksum_dict.default'</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__module__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__mypyc_attrs__">
-<span class="sig-name descname"><span class="pre">__mypyc_attrs__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__dict__',)</span></em><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__mypyc_attrs__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__mypyc_attrs__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('__dict__',)</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__mypyc_attrs__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__orig_bases__">
-<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(typing.DefaultDict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],</span> <span class="pre">checksum_dict.base.ChecksumAddressDict[~T])</span></em><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__orig_bases__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__orig_bases__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(typing.DefaultDict[eth_typing.evm.ChecksumAddress,</span> <span class="pre">~T],</span> <span class="pre">checksum_dict.base.ChecksumAddressDict[~T])</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__orig_bases__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="checksum_dict.DefaultChecksumDict.__parameters__">
-<span class="sig-name descname"><span class="pre">__parameters__</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(~T,)</span></em><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__parameters__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__parameters__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(~T,)</span></span><a class="headerlink" href="#checksum_dict.DefaultChecksumDict.__parameters__" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
