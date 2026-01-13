@@ -1,5 +1,6 @@
 from collections import defaultdict
-from typing import Callable, DefaultDict, Iterable, Optional
+from typing import Callable, DefaultDict, Optional
+from collections.abc import Iterable
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr

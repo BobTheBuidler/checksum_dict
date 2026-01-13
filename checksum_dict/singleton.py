@@ -1,6 +1,6 @@
 import threading
 from collections import defaultdict
-from typing import Any, DefaultDict, Dict, Final, Generic, Optional, Tuple
+from typing import Any, DefaultDict, Final, Generic, Optional
 
 from checksum_dict import exceptions
 from checksum_dict._typing import AnyAddressOrContract
@@ -34,7 +34,7 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
         - :class:`ChecksumAddressDict` for the underlying dictionary implementation.
     """
 
-    def __init__(self, name: str, bases: Tuple[type, ...], namespace: Dict[str, Any]) -> None:
+    def __init__(self, name: str, bases: tuple[type, ...], namespace: dict[str, Any]) -> None:
         """Initialize the metaclass with a name, bases, and namespace.
 
         Args:

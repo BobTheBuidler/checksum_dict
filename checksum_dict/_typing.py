@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any, Protocol, Union
+from typing import TYPE_CHECKING, Protocol, Union
 
 from eth_typing import Address, ChecksumAddress, HexAddress
 
