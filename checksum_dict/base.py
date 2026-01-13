@@ -1,5 +1,5 @@
-from typing import Optional, TypeVar, Union, overload
 from collections.abc import Iterable
+from typing import Optional, TypeVar, Union, overload
 
 from eth_typing import ChecksumAddress  # type: ignore [import-not-found]
 from mypy_extensions import mypyc_attr
@@ -7,7 +7,6 @@ from mypy_extensions import mypyc_attr
 from checksum_dict import exceptions
 from checksum_dict._typing import AnyAddressOrContract
 from checksum_dict._utils import attempt_checksum
-
 
 T = TypeVar("T")
 

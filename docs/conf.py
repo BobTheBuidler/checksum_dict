@@ -11,7 +11,6 @@ import sys
 
 from sphinx.util import logging  # type: ignore [import-not-found]
 
-
 project = "checksum_dict"
 copyright = "2024, BobTheBuidler"
 author = "BobTheBuidler"

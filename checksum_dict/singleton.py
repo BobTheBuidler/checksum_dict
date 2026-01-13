@@ -6,7 +6,6 @@ from checksum_dict import exceptions
 from checksum_dict._typing import AnyAddressOrContract
 from checksum_dict.base import ChecksumAddressDict, T
 
-
 _LocksDict = DefaultDict[AnyAddressOrContract, threading.Lock]
 
 
