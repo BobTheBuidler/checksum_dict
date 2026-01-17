@@ -3,7 +3,6 @@ __pycache__
 .hypothesis
 .mypy_cache
 .pytest_cache
-.worktrees
 cache
 checksum_dict.egg-info
 dist
@@ -15,3 +14,4 @@ build/**/*.py
 build/**/*.o
 build/**/py.typed
 build/setup.py
+.worktrees
