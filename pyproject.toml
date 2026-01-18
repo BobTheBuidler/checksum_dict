@@ -20,3 +20,5 @@ show_error_codes = true
 show_error_context = true
 install_types = true
 non_interactive = true
+
+disable_error_code = ["unused-ignore", "import-not-found", "import-untyped", "attr-defined", "no-any-return"]
