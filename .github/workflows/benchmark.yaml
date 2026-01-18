@@ -55,4 +55,4 @@ jobs:
         uses: CodSpeedHQ/action@v4
         with:
           mode: instrumentation
-          run: pytest --codspeed --test-group=${{ matrix.shard }} --test-group-count=4 benchmarks/
+          run: pytest --codspeed benchmarks/
