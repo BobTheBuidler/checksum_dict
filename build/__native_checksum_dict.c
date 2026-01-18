@@ -508,7 +508,7 @@ __LL2: ;
     } else
         goto CPyL23;
 CPyL6: ;
-    cpy_r_r6 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'ERC20', 'Contract'}) */
+    cpy_r_r6 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'Contract', 'ERC20'}) */
     cpy_r_r7 = CPy_GetName(cpy_r_typ);
     if (unlikely(cpy_r_r7 == NULL)) {
         CPy_AddTraceback("checksum_dict/_utils.py", "_type_has_checksum_addr", DIFFCHECK_PLACEHOLDER, CPyStatic__utils___globals);
@@ -532,7 +532,7 @@ CPyL6: ;
     cpy_r_r12 = cpy_r_r11;
     goto CPyL18;
 CPyL11: ;
-    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'y', 'brownie', 'dank_mids'}) */
+    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'brownie', 'dank_mids', 'y'}) */
     cpy_r_r14 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '__module__' */
     cpy_r_r15 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r14);
     if (unlikely(cpy_r_r15 == NULL)) {
@@ -3553,6 +3553,7 @@ PyObject *CPyStatics[DIFFCHECK_PLACEHOLDER];
 const char * const CPyLit_Str[] = {
     "\005\003hex\aaddress\023to_checksum_address\nValueError\001\'",
     "\006\034\' is not a valid ETH address\005ERC20\bContract\001y\abrownie\tdank_mids",
+    "\006\034\' is not a valid ETH address\bContract\005ERC20\abrownie\tdank_mids\001y",
     "\t\n__module__\001.\bbuiltins\rTYPE_CHECKING\003Any\005Final\005Union\006typing\tcchecksum",
     "\004\027checksum_dict/_utils.py\b<module>\017ChecksumAddress\neth_typing",
     "\005\030_KNOWN_CHECKSUMMED_TYPES\bIterable\b__init__\024ChecksumAddressDict(\001)",
