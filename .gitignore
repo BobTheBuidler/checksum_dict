@@ -3,7 +3,7 @@ __pycache__
 .hypothesis
 .mypy_cache
 .pytest_cache
-.worktrees
+.worktrees/
 cache
 checksum_dict.egg-info
 dist

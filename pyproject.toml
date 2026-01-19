@@ -12,3 +12,13 @@ line-length = 100
 
 [tool.mypy]
 exclude = [".eggs/",".github/",".hypothesis/",".mypy_cache/",".pytest_cache/","build/","cache/","checksum_dict.egg-info/","dist/","env/"]
+
+files = ["checksum_dict"]
+strict = true
+pretty = true
+show_error_codes = true
+show_error_context = true
+install_types = true
+non_interactive = true
+
+disable_error_code = ["unused-ignore", "import-not-found", "import-untyped", "attr-defined", "no-any-return"]
