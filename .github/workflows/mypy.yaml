@@ -37,4 +37,4 @@ jobs:
       run: pip install .
 
     - name: Run MyPy
-      run: mypy checksum_dict --strict --pretty --show-error-codes --show-error-context --install-types --non-interactive
+      run: mypy

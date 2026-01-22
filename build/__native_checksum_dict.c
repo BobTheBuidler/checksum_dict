@@ -532,7 +532,7 @@ CPyL6: ;
     cpy_r_r12 = cpy_r_r11;
     goto CPyL18;
 CPyL11: ;
-    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'brownie', 'dank_mids', 'y'}) */
+    cpy_r_r13 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'brownie', 'y', 'dank_mids'}) */
     cpy_r_r14 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '__module__' */
     cpy_r_r15 = CPyObject_GetAttr(cpy_r_typ, cpy_r_r14);
     if (unlikely(cpy_r_r15 == NULL)) {
