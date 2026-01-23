@@ -75,16 +75,18 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
             pass  # NOTE: passing instead of proceeding lets helps us keep a clean exc chain
 
         with self.__get_address_lock(normalized):
-            # Try to get the instance again, in case it was added while waiting for the lock
             try:
-                return self.__instances[normalized]
-            except exceptions.KeyError:
-                pass  # NOTE: passing instead of proceeding here lets us keep a clean exc chain
+                # Try to get the instance again, in case it was added while waiting for the lock
+                try:
+                    return self.__instances[normalized]
+                except exceptions.KeyError:
+                    pass  # NOTE: passing instead of proceeding here lets us keep a clean exc chain
 
-            instance: T = type.__call__(self, normalized, *args, **kwargs)
-            self.__instances[normalized] = instance
-        self.__delete_address_lock(normalized)
-        return instance
+                instance: T = type.__call__(self, normalized, *args, **kwargs)
+                self.__instances[normalized] = instance
+                return instance
+            finally:
+                self.__delete_address_lock(normalized)
 
     def __getitem__(self, address: AnyAddressOrContract) -> T:
         """Get the singleton instance for `address` from the cache.
