@@ -153,16 +153,18 @@
             <span class="k">pass</span>  <span class="c1"># NOTE: passing instead of proceeding lets helps us keep a clean exc chain</span>
 
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_address_lock</span><span class="p">(</span><span class="n">normalized</span><span class="p">):</span>
-            <span class="c1"># Try to get the instance again, in case it was added while waiting for the lock</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span>
-            <span class="k">except</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">KeyError</span><span class="p">:</span>
-                <span class="k">pass</span>  <span class="c1"># NOTE: passing instead of proceeding here lets us keep a clean exc chain</span>
+                <span class="c1"># Try to get the instance again, in case it was added while waiting for the lock</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span>
+                <span class="k">except</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">KeyError</span><span class="p">:</span>
+                    <span class="k">pass</span>  <span class="c1"># NOTE: passing instead of proceeding here lets us keep a clean exc chain</span>
 
-            <span class="n">instance</span><span class="p">:</span> <span class="n">T</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalized</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">__delete_address_lock</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">instance</span></div>
+                <span class="n">instance</span><span class="p">:</span> <span class="n">T</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalized</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
+                <span class="k">return</span> <span class="n">instance</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__delete_address_lock</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="ChecksumAddressSingletonMeta.__getitem__">
