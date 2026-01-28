@@ -4,6 +4,7 @@ from typing import Any, DefaultDict, Final, Generic, Optional
 
 from checksum_dict import exceptions
 from checksum_dict._typing import AnyAddressOrContract
+from checksum_dict._utils import attempt_checksum
 from checksum_dict.base import ChecksumAddressDict, T
 
 _LocksDict = DefaultDict[AnyAddressOrContract, threading.Lock]
@@ -74,16 +75,18 @@ class ChecksumAddressSingletonMeta(type, Generic[T]):
         except exceptions.KeyError:
             pass  # NOTE: passing instead of proceeding lets helps us keep a clean exc chain
 
+        checksummed = attempt_checksum(normalized)
+
         with self.__get_address_lock(normalized):
             try:
                 # Try to get the instance again, in case it was added while waiting for the lock
                 try:
-                    return self.__instances[normalized]
-                except exceptions.KeyError:
+                    return self.__instances._getitem_nochecksum(checksummed)
+                except KeyError:
                     pass  # NOTE: passing instead of proceeding here lets us keep a clean exc chain
 
                 instance: T = type.__call__(self, normalized, *args, **kwargs)
-                self.__instances[normalized] = instance
+                self.__instances._setitem_nochecksum(checksummed, instance)
                 return instance
             finally:
                 self.__delete_address_lock(normalized)
