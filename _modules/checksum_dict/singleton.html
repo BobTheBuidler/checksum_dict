@@ -75,6 +75,7 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">checksum_dict</span><span class="w"> </span><span class="kn">import</span> <span class="n">exceptions</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">checksum_dict._typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnyAddressOrContract</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">checksum_dict._utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">attempt_checksum</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">checksum_dict.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChecksumAddressDict</span><span class="p">,</span> <span class="n">T</span>
 
 <span class="n">_LocksDict</span> <span class="o">=</span> <span class="n">DefaultDict</span><span class="p">[</span><span class="n">AnyAddressOrContract</span><span class="p">,</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">]</span>
@@ -152,16 +153,18 @@
         <span class="k">except</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">KeyError</span><span class="p">:</span>
             <span class="k">pass</span>  <span class="c1"># NOTE: passing instead of proceeding lets helps us keep a clean exc chain</span>
 
+        <span class="n">checksummed</span> <span class="o">=</span> <span class="n">attempt_checksum</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
+
         <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_address_lock</span><span class="p">(</span><span class="n">normalized</span><span class="p">):</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="c1"># Try to get the instance again, in case it was added while waiting for the lock</span>
                 <span class="k">try</span><span class="p">:</span>
-                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span>
-                <span class="k">except</span> <span class="n">exceptions</span><span class="o">.</span><span class="n">KeyError</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="o">.</span><span class="n">_getitem_nochecksum</span><span class="p">(</span><span class="n">checksummed</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
                     <span class="k">pass</span>  <span class="c1"># NOTE: passing instead of proceeding here lets us keep a clean exc chain</span>
 
                 <span class="n">instance</span><span class="p">:</span> <span class="n">T</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalized</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="p">[</span><span class="n">normalized</span><span class="p">]</span> <span class="o">=</span> <span class="n">instance</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__instances</span><span class="o">.</span><span class="n">_setitem_nochecksum</span><span class="p">(</span><span class="n">checksummed</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span>
                 <span class="k">return</span> <span class="n">instance</span>
             <span class="k">finally</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">__delete_address_lock</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span></div>
