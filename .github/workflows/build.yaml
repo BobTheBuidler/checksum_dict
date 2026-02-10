@@ -49,7 +49,7 @@ jobs:
           hash-key: |
             pyproject.toml
             setup.py
-            ypricemagic/**/*.py
+            checksum_dict/**/*.py
           pip-cache-dependency-path: |
             pyproject.toml
             requirements.txt
