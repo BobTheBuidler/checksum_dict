@@ -79,6 +79,20 @@ PyObject *CPyInit_checksum_dict____utils(void)
         goto fail;
     modname = PyUnicode_FromString("checksum_dict._utils");
     if (modname == NULL) CPyError_OutOfMemory();
+    int rv = 0;
+    PyObject *mod_dict = PyImport_GetModuleDict();
+    PyObject *shared_lib = NULL;
+    rv = PyDict_GetItemStringRef(mod_dict, "checksum_dict__mypyc", &shared_lib);
+    if (rv < 0) goto fail;
+    PyObject *shared_lib_file = PyObject_GetAttrString(shared_lib, "__file__");
+    if (shared_lib_file == NULL) goto fail;
+    PyObject *ext_suffix = PyUnicode_FromString(".cpython-313-x86_64-linux-gnu.so");
+    if (ext_suffix == NULL) CPyError_OutOfMemory();
+    Py_ssize_t is_pkg = 0;
+    rv = CPyImport_SetDunderAttrs(CPyModule_checksum_dict____utils__internal, modname, shared_lib_file, ext_suffix, is_pkg);
+    Py_DECREF(ext_suffix);
+    Py_DECREF(shared_lib_file);
+    if (rv < 0) goto fail;
     if (PyObject_SetItem(PyImport_GetModuleDict(), modname, CPyModule_checksum_dict____utils__internal) < 0)
         goto fail;
     Py_CLEAR(modname);
@@ -655,7 +669,7 @@ CPyL14: ;
     cpy_r_r19 = cpy_r_r18;
     goto CPyL17;
 CPyL15: ;
-    cpy_r_r20 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'y', 'brownie', 'dank_mids'}) */
+    cpy_r_r20 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* frozenset({'dank_mids', 'brownie', 'y'}) */
     cpy_r_r21 = PySet_Contains(cpy_r_r20, cpy_r_r12);
     CPy_DECREF(cpy_r_r12);
     cpy_r_r22 = cpy_r_r21 >= 0;
@@ -948,6 +962,35 @@ fail: ;
         .mp_subscript = CPyDunder___getitem__base___ChecksumAddressDict,
         .mp_ass_subscript = CPyDunder___setitem__base___ChecksumAddressDict,
     };
+    static int
+    base___ChecksumAddressDict_traverse(checksum_dict___base___ChecksumAddressDictObject *self, visitproc visit, void *arg)
+    {
+        int rv = 0;
+        rv = CPyType_base___ChecksumAddressDict->tp_base->tp_traverse((PyObject *)self, visit, arg);
+        if (rv != 0) return rv;
+        rv = PyObject_VisitManagedDict((PyObject *)self, visit, arg);
+        if (rv != 0) return rv;
+        return rv;
+    }
+    
+    static int
+    base___ChecksumAddressDict_clear(checksum_dict___base___ChecksumAddressDictObject *self)
+    {
+        CPyType_base___ChecksumAddressDict->tp_base->tp_clear((PyObject *)self);
+        PyObject_ClearManagedDict((PyObject *)self);
+        return 0;
+    }
+    
+    static void
+    base___ChecksumAddressDict_dealloc(checksum_dict___base___ChecksumAddressDictObject *self)
+    {
+        PyObject_GC_UnTrack(self);
+        base___ChecksumAddressDict_clear(self);
+        if (PyType_IS_GC(CPyType_base___ChecksumAddressDict->tp_base)) PyObject_GC_Track((PyObject *)self);
+        CPyType_base___ChecksumAddressDict->tp_base->tp_dealloc((PyObject *)self);
+        done: ;
+    }
+    
     
     static PyGetSetDef base___ChecksumAddressDict_getseters[] = {
         {"__dict__", PyObject_GenericGetDict, PyObject_GenericSetDict},
@@ -981,13 +1024,16 @@ fail: ;
     static PyTypeObject CPyType_base___ChecksumAddressDict_template_ = {
         PyVarObject_HEAD_INIT(NULL, 0)
         .tp_name = "ChecksumAddressDict",
+        .tp_dealloc = (destructor)base___ChecksumAddressDict_dealloc,
+        .tp_traverse = (traverseproc)base___ChecksumAddressDict_traverse,
+        .tp_clear = (inquiry)base___ChecksumAddressDict_clear,
         .tp_getset = base___ChecksumAddressDict_getseters,
         .tp_methods = base___ChecksumAddressDict_methods,
         .tp_init = base___ChecksumAddressDict_init,
         .tp_repr = CPyDef_base___ChecksumAddressDict_____repr__,
         .tp_as_mapping = &base___ChecksumAddressDict_as_mapping,
         .tp_basicsize = sizeof(PyDictObject),
-        .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HEAPTYPE | Py_TPFLAGS_BASETYPE | Py_TPFLAGS_MANAGED_DICT,
+        .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HEAPTYPE | Py_TPFLAGS_BASETYPE | Py_TPFLAGS_HAVE_GC | Py_TPFLAGS_MANAGED_DICT,
         .tp_doc = PyDoc_STR("ChecksumAddressDict(seed=None)\n--\n\n"),
     };
     static PyTypeObject *CPyType_base___ChecksumAddressDict_template = &CPyType_base___ChecksumAddressDict_template_;
@@ -1048,6 +1094,20 @@ fail: ;
             goto fail;
         modname = PyUnicode_FromString("checksum_dict.base");
         if (modname == NULL) CPyError_OutOfMemory();
+        int rv = 0;
+        PyObject *mod_dict = PyImport_GetModuleDict();
+        PyObject *shared_lib = NULL;
+        rv = PyDict_GetItemStringRef(mod_dict, "checksum_dict__mypyc", &shared_lib);
+        if (rv < 0) goto fail;
+        PyObject *shared_lib_file = PyObject_GetAttrString(shared_lib, "__file__");
+        if (shared_lib_file == NULL) goto fail;
+        PyObject *ext_suffix = PyUnicode_FromString(".cpython-313-x86_64-linux-gnu.so");
+        if (ext_suffix == NULL) CPyError_OutOfMemory();
+        Py_ssize_t is_pkg = 0;
+        rv = CPyImport_SetDunderAttrs(CPyModule_checksum_dict___base__internal, modname, shared_lib_file, ext_suffix, is_pkg);
+        Py_DECREF(ext_suffix);
+        Py_DECREF(shared_lib_file);
+        if (rv < 0) goto fail;
         if (PyObject_SetItem(PyImport_GetModuleDict(), modname, CPyModule_checksum_dict___base__internal) < 0)
             goto fail;
         Py_CLEAR(modname);
@@ -2800,6 +2860,35 @@ CPyL47: ;
         {
             return CPyPy_default___DefaultChecksumDict_____init__(self, args, kwds) != NULL ? 0 : -1;
         }
+        static int
+        default___DefaultChecksumDict_traverse(checksum_dict___default___DefaultChecksumDictObject *self, visitproc visit, void *arg)
+        {
+            int rv = 0;
+            rv = CPyType_default___DefaultChecksumDict->tp_base->tp_traverse((PyObject *)self, visit, arg);
+            if (rv != 0) return rv;
+            rv = PyObject_VisitManagedDict((PyObject *)self, visit, arg);
+            if (rv != 0) return rv;
+            return rv;
+        }
+        
+        static int
+        default___DefaultChecksumDict_clear(checksum_dict___default___DefaultChecksumDictObject *self)
+        {
+            CPyType_default___DefaultChecksumDict->tp_base->tp_clear((PyObject *)self);
+            PyObject_ClearManagedDict((PyObject *)self);
+            return 0;
+        }
+        
+        static void
+        default___DefaultChecksumDict_dealloc(checksum_dict___default___DefaultChecksumDictObject *self)
+        {
+            PyObject_GC_UnTrack(self);
+            default___DefaultChecksumDict_clear(self);
+            if (PyType_IS_GC(CPyType_default___DefaultChecksumDict->tp_base)) PyObject_GC_Track((PyObject *)self);
+            CPyType_default___DefaultChecksumDict->tp_base->tp_dealloc((PyObject *)self);
+            done: ;
+        }
+        
         
         static PyGetSetDef default___DefaultChecksumDict_getseters[] = {
             {"__dict__", PyObject_GenericGetDict, PyObject_GenericSetDict},
@@ -2821,11 +2910,14 @@ CPyL47: ;
         static PyTypeObject CPyType_default___DefaultChecksumDict_template_ = {
             PyVarObject_HEAD_INIT(NULL, 0)
             .tp_name = "DefaultChecksumDict",
+            .tp_dealloc = (destructor)default___DefaultChecksumDict_dealloc,
+            .tp_traverse = (traverseproc)default___DefaultChecksumDict_traverse,
+            .tp_clear = (inquiry)default___DefaultChecksumDict_clear,
             .tp_getset = default___DefaultChecksumDict_getseters,
             .tp_methods = default___DefaultChecksumDict_methods,
             .tp_init = default___DefaultChecksumDict_init,
             .tp_basicsize = sizeof(PyDictObject),
-            .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HEAPTYPE | Py_TPFLAGS_BASETYPE | Py_TPFLAGS_MANAGED_DICT,
+            .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_HEAPTYPE | Py_TPFLAGS_BASETYPE | Py_TPFLAGS_HAVE_GC | Py_TPFLAGS_MANAGED_DICT,
             .tp_doc = PyDoc_STR("DefaultChecksumDict(default, seed=None)\n--\n\n"),
         };
         static PyTypeObject *CPyType_default___DefaultChecksumDict_template = &CPyType_default___DefaultChecksumDict_template_;
@@ -2886,6 +2978,20 @@ CPyL47: ;
                 goto fail;
             modname = PyUnicode_FromString("checksum_dict.default");
             if (modname == NULL) CPyError_OutOfMemory();
+            int rv = 0;
+            PyObject *mod_dict = PyImport_GetModuleDict();
+            PyObject *shared_lib = NULL;
+            rv = PyDict_GetItemStringRef(mod_dict, "checksum_dict__mypyc", &shared_lib);
+            if (rv < 0) goto fail;
+            PyObject *shared_lib_file = PyObject_GetAttrString(shared_lib, "__file__");
+            if (shared_lib_file == NULL) goto fail;
+            PyObject *ext_suffix = PyUnicode_FromString(".cpython-313-x86_64-linux-gnu.so");
+            if (ext_suffix == NULL) CPyError_OutOfMemory();
+            Py_ssize_t is_pkg = 0;
+            rv = CPyImport_SetDunderAttrs(CPyModule_checksum_dict___default__internal, modname, shared_lib_file, ext_suffix, is_pkg);
+            Py_DECREF(ext_suffix);
+            Py_DECREF(shared_lib_file);
+            if (rv < 0) goto fail;
             if (PyObject_SetItem(PyImport_GetModuleDict(), modname, CPyModule_checksum_dict___default__internal) < 0)
                 goto fail;
             Py_CLEAR(modname);
@@ -3820,8 +3926,8 @@ CPyL32: ;
             PyObject *CPyStatics[DIFFCHECK_PLACEHOLDER];
             const char * const CPyLit_Str[] = {
     "\005\003hex\aaddress\023to_checksum_address\nValueError\001\'",
-    "\a\034\' is not a valid ETH address\n__module__\001.\bContract\005ERC20\001y\abrownie",
-    "\b\tdank_mids\bbuiltins\rTYPE_CHECKING\003Any\005Final\005Union\006typing\tcchecksum",
+    "\006\034\' is not a valid ETH address\n__module__\001.\bContract\005ERC20\tdank_mids",
+    "\t\abrownie\001y\bbuiltins\rTYPE_CHECKING\003Any\005Final\005Union\006typing\tcchecksum",
     "\004\027checksum_dict/_utils.py\b<module>\017ChecksumAddress\neth_typing",
     "\005\030_KNOWN_CHECKSUMMED_TYPES\bIterable\b__init__\024ChecksumAddressDict(\001)",
     "\006\b__repr__\v__getitem__\bKeyError\004args\nexceptions\v__setitem__",
