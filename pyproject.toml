@@ -3,7 +3,7 @@ requires = [
   "setuptools",
   "wheel",
   "setuptools_scm",
-  "mypy[mypyc]==2.2.0",
+  "mypy[mypyc]==2.3.0",
   "cchecksum>=0.3.8.dev0,<1"
 ]
 
