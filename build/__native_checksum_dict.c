@@ -973,9 +973,17 @@ fail: ;
         return rv;
     }
     
-    static int
-    base___ChecksumAddressDict_clear(checksum_dict___base___ChecksumAddressDictObject *self)
+    static int32_t CPyDef_base___ChecksumAddressDict_clear(PyObject *cpy_r_self)
     {
+        checksum_dict___base___ChecksumAddressDictObject *self = (checksum_dict___base___ChecksumAddressDictObject *)cpy_r_self;
+        CPyType_base___ChecksumAddressDict->tp_base->tp_clear((PyObject *)self);
+        PyObject_ClearManagedDict((PyObject *)self);
+        return 0;
+    }
+    
+    static int32_t CPyDef_base___ChecksumAddressDict_clear_on_completion(PyObject *cpy_r_self)
+    {
+        checksum_dict___base___ChecksumAddressDictObject *self = (checksum_dict___base___ChecksumAddressDictObject *)cpy_r_self;
         CPyType_base___ChecksumAddressDict->tp_base->tp_clear((PyObject *)self);
         PyObject_ClearManagedDict((PyObject *)self);
         return 0;
@@ -985,7 +993,7 @@ fail: ;
     base___ChecksumAddressDict_dealloc(checksum_dict___base___ChecksumAddressDictObject *self)
     {
         PyObject_GC_UnTrack(self);
-        base___ChecksumAddressDict_clear(self);
+        CPyDef_base___ChecksumAddressDict_clear((PyObject *)self);
         if (PyType_IS_GC(CPyType_base___ChecksumAddressDict->tp_base)) PyObject_GC_Track((PyObject *)self);
         CPyType_base___ChecksumAddressDict->tp_base->tp_dealloc((PyObject *)self);
         done: ;
@@ -1026,7 +1034,7 @@ fail: ;
         .tp_name = "ChecksumAddressDict",
         .tp_dealloc = (destructor)base___ChecksumAddressDict_dealloc,
         .tp_traverse = (traverseproc)base___ChecksumAddressDict_traverse,
-        .tp_clear = (inquiry)base___ChecksumAddressDict_clear,
+        .tp_clear = (inquiry)CPyDef_base___ChecksumAddressDict_clear,
         .tp_getset = base___ChecksumAddressDict_getseters,
         .tp_methods = base___ChecksumAddressDict_methods,
         .tp_init = base___ChecksumAddressDict_init,
@@ -2871,9 +2879,17 @@ CPyL47: ;
             return rv;
         }
         
-        static int
-        default___DefaultChecksumDict_clear(checksum_dict___default___DefaultChecksumDictObject *self)
+        static int32_t CPyDef_default___DefaultChecksumDict_clear(PyObject *cpy_r_self)
         {
+            checksum_dict___default___DefaultChecksumDictObject *self = (checksum_dict___default___DefaultChecksumDictObject *)cpy_r_self;
+            CPyType_default___DefaultChecksumDict->tp_base->tp_clear((PyObject *)self);
+            PyObject_ClearManagedDict((PyObject *)self);
+            return 0;
+        }
+        
+        static int32_t CPyDef_default___DefaultChecksumDict_clear_on_completion(PyObject *cpy_r_self)
+        {
+            checksum_dict___default___DefaultChecksumDictObject *self = (checksum_dict___default___DefaultChecksumDictObject *)cpy_r_self;
             CPyType_default___DefaultChecksumDict->tp_base->tp_clear((PyObject *)self);
             PyObject_ClearManagedDict((PyObject *)self);
             return 0;
@@ -2883,7 +2899,7 @@ CPyL47: ;
         default___DefaultChecksumDict_dealloc(checksum_dict___default___DefaultChecksumDictObject *self)
         {
             PyObject_GC_UnTrack(self);
-            default___DefaultChecksumDict_clear(self);
+            CPyDef_default___DefaultChecksumDict_clear((PyObject *)self);
             if (PyType_IS_GC(CPyType_default___DefaultChecksumDict->tp_base)) PyObject_GC_Track((PyObject *)self);
             CPyType_default___DefaultChecksumDict->tp_base->tp_dealloc((PyObject *)self);
             done: ;
@@ -2912,7 +2928,7 @@ CPyL47: ;
             .tp_name = "DefaultChecksumDict",
             .tp_dealloc = (destructor)default___DefaultChecksumDict_dealloc,
             .tp_traverse = (traverseproc)default___DefaultChecksumDict_traverse,
-            .tp_clear = (inquiry)default___DefaultChecksumDict_clear,
+            .tp_clear = (inquiry)CPyDef_default___DefaultChecksumDict_clear,
             .tp_getset = default___DefaultChecksumDict_getseters,
             .tp_methods = default___DefaultChecksumDict_methods,
             .tp_init = default___DefaultChecksumDict_init,
